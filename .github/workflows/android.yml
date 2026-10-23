@@ -92,3 +92,45 @@ jobs:
           name: android-lint-${{ github.run_number }}
           path: app/build/reports/lint-results-debug.*
           retention-days: 14
+
+  ai-e2e:
+    name: Android HTTPS mock and real document save
+    if: github.event_name != 'pull_request'
+    needs: tests
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '24'
+      - uses: actions/setup-java@c5195efecf7bdfc987ee8bae7a71cb8b11521c00
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: android-actions/setup-android@9fc6c4e9069bf8d3d10b2204b1fb8f6ef7065407
+        with:
+          cmdline-tools-version: '12266719'
+          packages: 'platform-tools'
+      - name: Install emulator and pinned platform
+        run: sdkmanager 'platforms;android-35' 'build-tools;35.0.0' 'emulator' 'system-images;android-35;google_apis;x86_64'
+      - name: Build isolated app with ephemeral mock CA
+        run: |
+          bash tests/prepare-ai-e2e.sh
+          bash gradlew --no-daemon -PaiE2eTest :app:assembleDebug :app:assembleDebugAndroidTest
+      - name: Boot disposable Android and exercise the complete workflow
+        run: |
+          test -e /dev/kvm
+          sudo chown "$(id -u):$(id -g)" /dev/kvm
+          echo no | avdmanager create avd --force --name mint_ai_e2e --package 'system-images;android-35;google_apis;x86_64' --device pixel_6
+          "$ANDROID_HOME/emulator/emulator" -avd mint_ai_e2e -port 5554 -no-window -no-audio -no-boot-anim -no-snapshot -gpu swiftshader_indirect -memory 2048 -camera-back none -camera-front none > .work/ai-e2e-evidence/emulator.txt 2>&1 &
+          bash tests/run-ai-e2e.sh
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: android-ai-mock-e2e-${{ github.run_number }}
+          path: .work/ai-e2e-evidence/
+          retention-days: 14
+          if-no-files-found: warn

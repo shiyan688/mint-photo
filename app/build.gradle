@@ -14,13 +14,19 @@ android {
         // Keep the application ID and increase the Android upgrade sequence.
         versionCode 5
         versionName '0.3.0-dev'
-        testInstrumentationRunner project.hasProperty('portraitBridgeTest')
+        testInstrumentationRunner project.hasProperty('aiE2eTest')
+                ? 'com.qingyan.editor.AiFlowInstrumentation'
+                : project.hasProperty('portraitBridgeTest')
                 ? 'com.qingyan.editor.PortraitBridgeSmokeInstrumentation'
                 : 'com.qingyan.editor.PortraitSmokeInstrumentation'
     }
 
     signingConfigs {
         debug {
+            if (project.hasProperty('aiE2eTest')) {
+                applicationIdSuffix '.e2e'
+                versionNameSuffix '-e2e'
+            }
             if (System.getenv('MINT_TEST_KEYSTORE')) {
                 storeFile file(System.getenv('MINT_TEST_KEYSTORE'))
                 storePassword 'android'
@@ -61,6 +67,17 @@ android {
 
     buildFeatures {
         buildConfig true
+    }
+
+    // A separate disposable test app trusts an ephemeral local mock-service CA.
+    // Neither the CA nor its manifest is included in normal debug/release APKs.
+    sourceSets {
+        debug {
+            if (project.hasProperty('aiE2eTest')) {
+                manifest.srcFile 'src/aiE2e/AndroidManifest.xml'
+                res.srcDirs += ['src/aiE2e/res', rootProject.file('.work/ai-e2e-res')]
+            }
+        }
     }
 
     lint {
