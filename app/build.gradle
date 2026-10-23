@@ -12,8 +12,8 @@ android {
         minSdk 26
         targetSdk 35
         // Keep the application ID and increase the Android upgrade sequence.
-        versionCode 4
-        versionName '0.2.0-preview'
+        versionCode 5
+        versionName '0.3.0-dev'
         testInstrumentationRunner project.hasProperty('portraitBridgeTest')
                 ? 'com.qingyan.editor.PortraitBridgeSmokeInstrumentation'
                 : 'com.qingyan.editor.PortraitSmokeInstrumentation'

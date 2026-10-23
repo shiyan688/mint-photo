@@ -1,0 +1,75 @@
+{
+  "source": {
+    "file": "app/src/main/assets/demo/astronaut.png",
+    "sha256": "88431cd9653ccd539741b555fb0a46b61558b301d4110412b5bc28b5e3ea6cb5",
+    "publicDomainNotice": "docs/THIRD-PARTY-NOTICES.md",
+    "realPhotograph": true
+  },
+  "fixture": {
+    "file": "tests/model-fixture-results/host-astronaut-analysis.json",
+    "sha256": "f98b68ca5f9d38b9b6b68050b94c4b4bf2e8fda80448f3c445bacc63f2c47b7b",
+    "runtime": "MediaPipe Python 0.10.32 CPU; not Android validation",
+    "reusedHistoricalInference": true,
+    "newInference": false
+  },
+  "skin": {
+    "settings": {
+      "smooth": 65,
+      "brighten": 0,
+      "warmth": 0
+    },
+    "originalToDetail": {
+      "changedPixels": 4406,
+      "sumMaxChannelDelta": 7077,
+      "maxChannelDelta": 6
+    },
+    "classicToDetail": {
+      "changedPixels": 4347,
+      "sumMaxChannelDelta": 5825,
+      "maxChannelDelta": 7
+    },
+    "outsideFaceRegion": {
+      "changedPixels": 0,
+      "sumMaxChannelDelta": 0,
+      "maxChannelDelta": 0
+    },
+    "alphaUnchanged": true
+  },
+  "cutout": {
+    "classicToGuided": {
+      "changedPixels": 20241,
+      "sumMaxChannelDelta": 80259,
+      "maxChannelDelta": 54
+    },
+    "groundTruthAvailable": false,
+    "hairRecoveryClaim": false
+  },
+  "compositingMock": {
+    "eraseProtectedPixelsExact": 257316,
+    "selectedPixelsChanged": 4828,
+    "outpaintOriginalCenterExact": true,
+    "maskTransparentExactlyOnSelection": true,
+    "wrongAspectRejected": true,
+    "providerResult": "SYNTHETIC MAGENTA negative control; not AI output"
+  },
+  "sourceUnchanged": true,
+  "coreSha256": {
+    "portrait-engine.js": "5cde7dcd60aab1d68e1ec5fb026c6396c2f395c1597dd03113c34674ba57d524",
+    "portrait-detail-engine.js": "1559fa74818ece4d99c78b565720072a8284f1eda865949ac62191cf00ceb620",
+    "edge-refine.js": "ba467e0f7391dec1cb1b1f88086e15cba5da201a61b01ae5cfac2b9865a417fa",
+    "mask-refine.js": "1f87ce10085e42cf8e67309ac49dd6f608d40ecb32258ab8a76ed67b6bc4baa2",
+    "background-refine-operation.js": "a515e9ad224d03efa7da517d7cf2fdcdf971a9f72d58383c53141990576baf83",
+    "portrait-people-operation.js": "a09b5b4358bb45862a21e829ea756d145492925c56e99011c24665b8b95d92e9",
+    "ai-edit-core.js": "5ba1e2a9c307422dacdfc600124c4ceca605c0bd8e76cd4dabe177e9b4bc0011"
+  },
+  "androidRuntime": false,
+  "liveApi": false,
+  "aestheticParityClaim": false,
+  "outputs": {
+    "skin-before": "310e15801e1efa7c4576487888a661c40c025370dcde6a904de39de19cc24701",
+    "skin-classic": "e27de803c737224bc7e59b129e5f418446809bb0853653d146cbe0e195a3b77c",
+    "skin-detail": "4e07a8568369ca7bb59c4cb4ee7e4d9acaabbb26fb8de28f289d0d44e5857eee",
+    "cutout-coarse": "6da76f2f3856f11f8eaf55e0bab09c7007bc2e9663bba589968b59a1755f034f",
+    "cutout-guided": "d050a38efdcc53d6dfb99be7671392ab69c59ce3a298ceacccf5d6e00c33e34b"
+  }
+}

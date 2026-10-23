@@ -1,6 +1,6 @@
 # Android 构建与安装
 
-当前应用名为「薄荷修图」，显示版本 `0.2.0-preview`，Android `versionCode` 为 4。
+当前应用名为「薄荷修图」，开发分支显示版本 `0.3.0-dev`，Android `versionCode` 为 5（公开Release仍为0.2.0-preview）。
 包名保留为 `com.qingyan.editor.portrait`，Java 命名空间为 `com.qingyan.editor`。
 
 ## 工具链
@@ -13,7 +13,7 @@
 - `com.google.mediapipe:tasks-vision:1.0.0`，离线模型与第三方声明随 APK 打包
 
 配置 `JAVA_HOME` 和 `ANDROID_HOME`，或在未跟踪的 `local.properties` 中设置 `sdk.dir`。
-首次构建需要联网获取官方依赖，应用运行本身不申请网络权限。
+首次构建需要联网获取官方依赖，开发分支增加 INTERNET 普通权限供用户主动确认的原生HTTPS图像编辑使用；日常修图与模型仍离线，WebView网络封锁、禁止明文传输保持开启。密钥由用户在应用内填写，不内置、不保存。
 
 ```sh
 ./gradlew -PportraitAbiSplits :app:assembleDebug :app:lintDebug

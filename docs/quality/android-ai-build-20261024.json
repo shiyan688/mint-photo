@@ -1,0 +1,51 @@
+{
+  "version": "0.3.0-dev",
+  "versionCode": 5,
+  "validation": "Local build, lint, apksigner, zipalign and byte parity only; no Android runtime or live provider test",
+  "pureTests": {
+    "pass": 1664,
+    "fail": 0
+  },
+  "nativeAiMockChecks": 17,
+  "nativeProjectStaticChecks": 37,
+  "apkChecks": [
+    {
+      "apk": "app-arm64-v8a-debug.apk",
+      "bytes": 21032146,
+      "sha256": "e2181d05592ff40a10c10c949f3c8c9575ed8ed29bb1edd6e202a1d80465320b",
+      "source_assets_matched": 93,
+      "asset_manifest_sha256": "a37bb58480340452bbe33c41664480b4e9d576cff199affa12733bb7a0bffa5e",
+      "native_libraries": [
+        {
+          "file": "lib/arm64-v8a/libmediapipe_tasks_jni.so",
+          "load_alignments": [
+            16384,
+            16384,
+            16384
+          ]
+        }
+      ]
+    },
+    {
+      "apk": "app-armeabi-v7a-debug.apk",
+      "bytes": 17736928,
+      "sha256": "53c0c7dffd500c2fd6e979b8129e5233669538e0d6c69ca34fb780307b3ca3ce",
+      "source_assets_matched": 93,
+      "asset_manifest_sha256": "a37bb58480340452bbe33c41664480b4e9d576cff199affa12733bb7a0bffa5e",
+      "native_libraries": [
+        {
+          "file": "lib/armeabi-v7a/libmediapipe_tasks_jni.so",
+          "load_alignments": [
+            16384,
+            16384,
+            16384
+          ]
+        }
+      ]
+    }
+  ],
+  "signatureVerified": true,
+  "zipAlignment16KiBVerified": true,
+  "androidRuntime": false,
+  "liveAiApi": false
+}
