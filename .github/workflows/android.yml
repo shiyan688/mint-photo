@@ -78,7 +78,7 @@ jobs:
           printf '%s\n' 'Debug preview only. CI uses an ephemeral debug certificate; a later build may require a clean install. Export projects before uninstalling. This is not a production release or device acceptance result.' > PREVIEW.txt
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
-          name: mint-photo-0.2.0-preview-${{ github.run_number }}
+          name: mint-photo-0.3.0-dev-${{ github.run_number }}
           path: |
             app/build/outputs/apk/debug/*.apk
             app/build/outputs/apk/debug/SHA256SUMS.txt

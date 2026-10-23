@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-24",
+  "build": "normal ARM debug; assembleDebug, assembleDebugAndroidTest, lintDebug PASS",
+  "pureTests": 1676,
+  "nativeCanvasCacheTests": 2,
+  "testCAIncluded": false,
+  "apks": [
+    {
+      "apk": "app-arm64-v8a-debug.apk",
+      "bytes": 21007407,
+      "sha256": "d7be9d581821d45cdc1c6e968f890b77600768321fdecfd61bd66ee4833d758d",
+      "source_assets_matched": 94,
+      "asset_manifest_sha256": "ffa85b746f30853f70487cbd86b9c630c610a91a6558d0f86548e0da79486f0f",
+      "native_libraries": [
+        {
+          "file": "lib/arm64-v8a/libmediapipe_tasks_jni.so",
+          "load_alignments": [
+            16384,
+            16384,
+            16384
+          ]
+        }
+      ]
+    },
+    {
+      "apk": "app-armeabi-v7a-debug.apk",
+      "bytes": 17712189,
+      "sha256": "2cadc2d5b499e21937b9f2f241026ebb2261f134e6dd683eb29c426870729bc9",
+      "source_assets_matched": 94,
+      "asset_manifest_sha256": "ffa85b746f30853f70487cbd86b9c630c610a91a6558d0f86548e0da79486f0f",
+      "native_libraries": [
+        {
+          "file": "lib/armeabi-v7a/libmediapipe_tasks_jni.so",
+          "load_alignments": [
+            16384,
+            16384,
+            16384
+          ]
+        }
+      ]
+    }
+  ],
+  "deviceAcceptance": false
+}

@@ -37,7 +37,8 @@ function pixelEffect(input,op){const ctx=input.getContext('2d',{willReadFrequent
  for(let i=0;i<d.length;i+=4){let r=d[i],g=d[i+1],b=d[i+2];
  if(op.type==='filter'){switch(op.id){case'mint':r=r*.94+2;g=g*1.025+4;b=b*.96+3;break;case'warm':r=r*1.06+10;g=g*1.01+3;b=b*.9;break;case'film':r=r*.88+22;g=g*.87+16;b=b*.78+20;break;case'clear':r=(r-128)*1.09+131;g=(g-128)*1.09+132;b=(b-128)*1.08+132;break;case'mono':r=g=b=.2126*r+.7152*g+.0722*b;break;case'cool':r=r*.94;g=g*1.01+2;b=b*1.05+7;break;case'fade':r=r*.79+42;g=g*.79+42;b=b*.8+40;break;}}
  else {r=(r-128)*contrast+128+brightness+warmth;g=(g-128)*contrast+128+brightness;b=(b-128)*contrast+128+brightness-warmth;const l=.2126*r+.7152*g+.0722*b;r=l+(r-l)*saturation;g=l+(g-l)*saturation;b=l+(b-l)*saturation;}
- d[i]=clamp(r,0,255);d[i+1]=clamp(g,0,255);d[i+2]=clamp(b,0,255);}
+ // ImageData uses Uint8ClampedArray: assignment already performs identical saturation.
+d[i]=r;d[i+1]=g;d[i+2]=b;}
  ctx.putImageData(im,0,0);return input;
 }
 function applyOperation(c,op,previewMaxSide=null){if(op.type==='background-refine'){if(!window.MintBackgroundRefineOperation)throw Error('精细修边核心缺失，不能忽略已有编辑');return window.MintBackgroundRefineOperation.applyCanvas(c,op,canvas);}if(op.type==='sharpness'){if(!window.MintSharpnessOperation)throw Error('锐化核心缺失，不能忽略已有编辑');return window.MintSharpnessOperation.applyCanvas(c,op,canvas);}if(op.type==='perspective'){if(!window.MintPerspectiveOperation)throw Error('透视核心缺失，不能忽略已有编辑');return window.MintPerspectiveOperation.applyCanvas(c,op,canvas,previewMaxSide===null?{}:{maxSide:previewMaxSide});}if(op.type==='straighten'){if(!window.MintStraightenOperation)throw Error('调平核心缺失，不能忽略已有编辑');return window.MintStraightenOperation.applyCanvas(c,op,canvas,previewMaxSide===null?{}:{maxSide:previewMaxSide});}if(op.type==='collage'){if(!window.MintCollageOperation)throw Error('拼图核心缺失，不能忽略已有拼图');return window.MintCollageOperation.applyCanvas(c,op,canvas,previewMaxSide===null?{}:{maxSide:previewMaxSide});}if(op.type==='light-balance'){if(!window.MintLightBalanceOperation)throw Error('明暗/白平衡核心缺失，不能忽略已有编辑');return window.MintLightBalanceOperation.applyCanvas(c,op,canvas);}if(op.type==='image-overlay'){if(!window.MintImageOverlayOperation)throw Error('图片贴图核心缺失，不能跳过已有编辑');return window.MintImageOverlayOperation.applyCanvas(c,op,canvas);}if(op.type==='redact'){if(!window.MintRedactOperation)throw Error('遮盖核心缺失，不能跳过已有遮盖');return window.MintRedactOperation.applyCanvas(c,op,canvas);}if(op.type==='levels'){if(!window.LevelsUI)throw Error('色阶核心缺失，不能忽略已有编辑');return window.LevelsUI.apply(c,op);}if(op.type==='paint-layer'){if(!window.MintPaintLayerOperation)throw Error('绘画核心缺失，不能忽略已有笔划');return window.MintPaintLayerOperation.applyCanvas(c,op,canvas);}if(op.type==='canvas-padding'){if(!window.MintCanvasPaddingOperation)throw new Error('边框核心缺失');return window.MintCanvasPaddingOperation.applyCanvas(c,op,canvas);}if(op.type==='text-overlay'){if(!window.TextOverlayUI)throw new Error('文字核心未加载');return window.TextOverlayUI.apply(c,op);}let out,ctx,w=c.width,h=c.height;if(op.type==='local-tone'){if(!window.LocalToneUI)throw Error('局部调色核心缺失，不能忽略已有编辑');return window.LocalToneUI.apply(c,op);}if(op.type==='adjustment-preset'){if(!window.PresetUI)throw Error('配方核心缺失，不能忽略已有编辑');return window.PresetUI.apply(c,op);}if(op.type==='advanced-tone'){if(!window.AdvancedToneUI)throw Error('调色核心未加载，不能忽略已保存的编辑');return window.AdvancedToneUI.apply(c,op);}if(window.PortraitUI&&window.PortraitUI.type(op.type))return window.PortraitUI.apply(c,op);
@@ -62,18 +63,23 @@ function installProject(next,project,preparedCanvas=null){const previous=project
 function isDraftChanged(){if(!draft)return false;if(draft.type==='sharpness')return !!window.SharpnessUI&&window.SharpnessUI.changed(draft);if(draft.type==='perspective')return !!window.PerspectiveUI&&window.PerspectiveUI.changed(draft);if(draft.type==='straighten')return !!window.StraightenUI&&window.StraightenUI.changed(draft);if(draft.type==='collage')return !!window.CollageUI&&window.CollageUI.changed(draft);if(draft.type==='light-balance')return !!window.LightBalanceUI&&window.LightBalanceUI.changed(draft);if(draft.type==='image-overlay')return !!window.ImageOverlayUI&&window.ImageOverlayUI.changed(draft);if(draft.type==='redact')return !!window.RedactUI&&window.RedactUI.changed(draft);if(draft.type==='levels')return !!window.LevelsUI&&window.LevelsUI.changed(draft);if(draft.type==='paint-layer')return !!window.PaintLayerUI&&window.PaintLayerUI.changed(draft);if(draft.type==='canvas-padding')return !!window.CanvasPaddingUI&&window.CanvasPaddingUI.changed(draft);if(draft.type==='text-overlay')return !!window.TextOverlayUI&&window.TextOverlayUI.changed(draft);if(draft.type==='local-tone')return !!window.LocalToneUI&&window.LocalToneUI.changed(draft);if(draft.type==='adjustment-preset')return !!window.PresetUI&&window.PresetUI.changed(draft);if(draft.type==='advanced-tone')return !!window.AdvancedToneUI&&window.AdvancedToneUI.changed(draft);if(typeof window!=='undefined'&&window.PortraitUI&&window.PortraitUI.type(draft.type))return window.PortraitUI.changed(draft);switch(draft.type){case'filter':return draft.id!=='original';case'adjust':return Object.values(draft.values).some(v=>v!==0);case'crop':return Math.abs(draft.x)>0.0001||Math.abs(draft.y)>0.0001||Math.abs(draft.w-1)>0.0001||Math.abs(draft.h-1)>0.0001;case'text':return draft.text.trim().length>0;case'sticker':return !!draft.text;case'draw':return draft.lines.length>0;}return false;}
 function renderCommitted(){if(!source)return;committed=renderPipeline(PREVIEW_SIDE,ops,source,true);updateThumbs();scheduleRender();updateControls();}
 function scheduleRender(){if(pendingFrame)return;pendingFrame=requestAnimationFrame(()=>{pendingFrame=0;paint();});}
+let livePreviewCache=null;
+function clearLivePreviewCache(){if(livePreviewCache){const c=livePreviewCache.canvas;livePreviewCache=null;c.width=1;c.height=1;}}
 function paint(){
  if(!source||!committed)return;
  let c=committed,textTemporary=null,failed=false,changed=false;
  const failPreview=error=>{
   if(!draft||!['background-refine','sharpness','perspective','portrait-people','straighten','collage','light-balance','adjustment-preset','image-overlay','local-tone','text-overlay','canvas-padding','paint-layer','levels','redact'].includes(draft.type))throw error;
-  failed=true;c=committed;
+  failed=true;clearLivePreviewCache();c=committed;
   toast((draft.type==='background-refine'?'精细修边':draft.type==='sharpness'?'锐化':draft.type==='perspective'?'透视':draft.type==='portrait-people'?'逐人人像':draft.type==='straighten'?'调平':draft.type==='collage'?'拼图':draft.type==='light-balance'?'明暗/白平衡':draft.type==='adjustment-preset'?'配方':draft.type==='image-overlay'?'图片贴图':draft.type==='redact'?'马赛克/遮盖':draft.type==='local-tone'?'局部调色':draft.type==='canvas-padding'?'边框':draft.type==='paint-layer'?'绘画':draft.type==='levels'?'色阶':'文字')+'预览失败，原图与历史未改变：'+(error.message||'设备内存不足'));
   if(draft.type==='local-tone'&&window.LocalToneUI&&window.LocalToneUI.reportError)window.LocalToneUI.reportError(error.message);
  };
  try{
   changed=!!draft&&isDraftChanged();
-  if(comparing)c=renderPipeline(PREVIEW_SIDE,[],source,true);
+  const cacheable=changed&&!comparing&&['filter','adjust'].includes(draft.type),cacheKey=cacheable?JSON.stringify(draft):null;
+  if(livePreviewCache&&(!cacheable||livePreviewCache.base!==committed||livePreviewCache.key!==cacheKey))clearLivePreviewCache();
+  if(comparing)c=textTemporary=renderPipeline(PREVIEW_SIDE,[],source,true);
+  else if(cacheable){if(livePreviewCache)c=livePreviewCache.canvas;else{const input=copyCanvas(committed);try{c=applyOperation(input,draft);if(c!==input){input.width=1;input.height=1;}livePreviewCache={base:committed,key:cacheKey,canvas:c};}catch(error){input.width=1;input.height=1;throw error;}}}
   else if(draft&&draft.type==='background-refine'){if(!window.BackgroundRefineUI)throw Error('精细修边界面未加载');if(!window.BackgroundRefineUI.isInspecting()&&changed){c=textTemporary=applyOperation(committed,draft);if(c===committed)textTemporary=null;}
   }else if(draft&&draft.type==='sharpness'){if(!window.SharpnessUI)throw Error('锐化界面未加载');if(!window.SharpnessUI.isInspecting()&&changed){c=textTemporary=applyOperation(committed,draft);if(c===committed)textTemporary=null;}
   }else if(draft&&draft.type==='light-balance'){if(!window.LightBalanceUI)throw Error('明暗/白平衡界面未加载');if(!window.LightBalanceUI.isPicking()&&changed){c=textTemporary=applyOperation(committed,draft);if(c===committed)textTemporary=null;}
@@ -91,10 +97,10 @@ function paint(){
    c=textTemporary=window.TextOverlayUI.preview(draft);
   }else if(changed&&draft.type==='canvas-padding'){
    c=applyOperation(committed,draft);if(c!==committed)textTemporary=c;
-  }else if(changed&&draft.type!=='crop'&&draft.type!=='idphoto')c=applyOperation(copyCanvas(committed),draft);
+  }else if(changed&&draft.type!=='crop'&&draft.type!=='idphoto'){const input=copyCanvas(committed);try{c=applyOperation(input,draft);if(c!==input){input.width=1;input.height=1;}textTemporary=c===committed?null:c;}catch(error){input.width=1;input.height=1;throw error;}}
  }catch(error){failPreview(error);}
  const p=$('previewCanvas');
- try{p.width=c.width;p.height=c.height;p.getContext('2d').drawImage(c,0,0);}
+ try{if(p.width!==c.width||p.height!==c.height){p.width=c.width;p.height=c.height;}const display=p.getContext('2d');display.clearRect(0,0,p.width,p.height);display.drawImage(c,0,0);}
  catch(error){
   failPreview(error);
   // Best-effort display recovery; a failed display copy must not alter history

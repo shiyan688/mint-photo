@@ -30,5 +30,6 @@ adb -s "$ANDROID_SERIAL" shell settings put global transition_animation_scale 0
 adb -s "$ANDROID_SERIAL" shell settings put global animator_duration_scale 0
 adb -s "$ANDROID_SERIAL" install -r app/build/outputs/apk/debug/app-debug.apk
 adb -s "$ANDROID_SERIAL" install -r app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk
+adb -s "$ANDROID_SERIAL" push app/src/main/assets/demo/astronaut.png /sdcard/Download/mint-e2e-source.png
 adb -s "$ANDROID_SERIAL" shell am instrument -w com.qingyan.editor.portrait.e2e.test/com.qingyan.editor.AiFlowInstrumentation | tee .work/ai-e2e-evidence/instrumentation.txt
 grep -q 'result=PASS Android AI mock workflow' .work/ai-e2e-evidence/instrumentation.txt

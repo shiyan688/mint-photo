@@ -1,0 +1,50 @@
+[
+  {
+    "id": "jemison",
+    "name": "Mae Jemison",
+    "page": "https://www.nasa.gov/image-article/mae-jemison-first-african-american-woman-space/",
+    "url": "https://www.nasa.gov/wp-content/uploads/2023/03/mae_jemison_29487037511.jpg",
+    "sha256": "b7e3c0d436dbdfbd7210ab737cb30b90212ec416e7174a9b2cf90002b4dd3e71",
+    "dimensions": [
+      1041,
+      699
+    ],
+    "credit": "NASA; informational software QA, no endorsement"
+  },
+  {
+    "id": "chawla",
+    "name": "Kalpana Chawla",
+    "page": "https://www.nasa.gov/image-article/kalpana-chawla/",
+    "url": "https://www.nasa.gov/wp-content/uploads/2023/03/513224main_AC95-0007-10_full.jpg",
+    "sha256": "9abded3bcf1151f0a4f9a7f75d20d6948336eb9f84c0a341ea2d6c63ac11bdca",
+    "dimensions": [
+      1041,
+      781
+    ],
+    "credit": "NASA; informational software QA, no endorsement"
+  },
+  {
+    "id": "melvin",
+    "name": "Leland Melvin",
+    "page": "https://www.nasa.gov/humans-in-space/astronauts/former-astronauts/",
+    "url": "https://images-assets.nasa.gov/image/jsc2007e036047/jsc2007e036047~large.jpg",
+    "sha256": "e9a08364a2fda6bbd743fe5af712d6b9aad9d38fc359b73a5903da6d2a1aa882",
+    "dimensions": [
+      1536,
+      1920
+    ],
+    "credit": "NASA; informational software QA, no endorsement"
+  },
+  {
+    "id": "collins",
+    "name": "Eileen Collins",
+    "page": "https://scikit-image.org/docs/stable/api/skimage.data.html#skimage.data.astronaut",
+    "url": "https://raw.githubusercontent.com/scikit-image/scikit-image/v0.25.2/skimage/data/astronaut.png",
+    "sha256": "88431cd9653ccd539741b555fb0a46b61558b301d4110412b5bc28b5e3ea6cb5",
+    "credit": "NASA public domain, distributed by scikit-image; no endorsement",
+    "dimensions": [
+      512,
+      512
+    ]
+  }
+]

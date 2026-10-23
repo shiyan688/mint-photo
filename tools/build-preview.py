@@ -8,6 +8,7 @@ html=(assets/'index.html').read_text(encoding='utf-8')
 css=(assets/'style.css').read_text(encoding='utf-8')
 html=html.replace('<link rel="stylesheet" href="style.css">','<style>'+css+'</style>')
 html=html.replace('<link rel="stylesheet" href="studio.css">','<style>'+(assets/'studio.css').read_text(encoding='utf-8')+'</style>')
+html=html.replace('<link rel="stylesheet" href="workbench.css">','<style>'+(assets/'workbench.css').read_text(encoding='utf-8')+'</style>')
 portrait_data='data:image/png;base64,'+base64.b64encode((assets/'demo/mint-portrait.png').read_bytes()).decode()
 html=html.replace('src="demo/mint-portrait.png"','src="'+portrait_data+'"')
 hashes=[]

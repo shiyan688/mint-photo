@@ -1,0 +1,174 @@
+{
+  "photos": [
+    {
+      "id": "chawla",
+      "input": {
+        "sha256": "9abded3bcf1151f0a4f9a7f75d20d6948336eb9f84c0a341ea2d6c63ac11bdca",
+        "dimensions": [
+          1041,
+          781
+        ],
+        "working": [
+          900,
+          675
+        ]
+      },
+      "newInference": true,
+      "hostRuntime": "MediaPipe 0.10.21 Windows CPU; not Android parity",
+      "faceCount": 1,
+      "skin": {
+        "settings": {
+          "smooth": 65,
+          "brighten": 0,
+          "warmth": 0
+        },
+        "changedPixels": 7252,
+        "maxChannelDelta": 7,
+        "alphaMismatch": 0,
+        "skipped": false
+      },
+      "cutout": {
+        "changedPixels": 30561,
+        "groundTruth": false
+      },
+      "sourceUnchanged": true,
+      "physicalAndroid": false,
+      "outputs": {
+        "chawla-original.png": "eb9efd7e8d01198e54a7f80d31bb1ef6aa2978cc53dffc483ccb0773e63b2de4",
+        "chawla-skin-classic.png": "8d69820d21a94d5a99300846ebca3a68e79144e5b0e363f586bcced1bc3ccfef",
+        "chawla-skin-detail.png": "ecaf165df6df878008d298e34eedafbad9d07fd754295ea6487ce9519002f3f9",
+        "chawla-cutout-coarse.png": "25007bfb18fd93029091ae31191a105283df556e2c9e2e1073739a833a7c7e07",
+        "chawla-cutout-guided.png": "ad422897039c2cfc972afe783ae7cee015a82bdc26b51c4be9d8cdce819425f0"
+      }
+    },
+    {
+      "id": "collins",
+      "input": {
+        "sha256": "88431cd9653ccd539741b555fb0a46b61558b301d4110412b5bc28b5e3ea6cb5",
+        "dimensions": [
+          512,
+          512
+        ],
+        "working": [
+          900,
+          900
+        ]
+      },
+      "newInference": true,
+      "hostRuntime": "MediaPipe 0.10.21 Windows CPU; not Android parity",
+      "faceCount": 1,
+      "skin": {
+        "settings": {
+          "smooth": 65,
+          "brighten": 0,
+          "warmth": 0
+        },
+        "changedPixels": 14381,
+        "maxChannelDelta": 6,
+        "alphaMismatch": 0,
+        "skipped": false
+      },
+      "cutout": {
+        "changedPixels": 56307,
+        "groundTruth": false
+      },
+      "sourceUnchanged": true,
+      "physicalAndroid": false,
+      "outputs": {
+        "collins-original.png": "cde925a75a62db08442254b5ceddd198ee0574fea26ac38be428d1b4c82942fc",
+        "collins-skin-classic.png": "5e64ac2e6595170a2b94afe52336654fcc6d30955d4ec2865e575d14a7a0ada2",
+        "collins-skin-detail.png": "6ee98afd5a1987ad15984f05b37bc5ba0f575c244b5f5d41781039c55546ec14",
+        "collins-cutout-coarse.png": "fbfe0bd3e79e79f1615e09fd519dcc36cd4fe11140d331b5748a217f931f2235",
+        "collins-cutout-guided.png": "2396b460b40642a443ca8c36e2a2bf2a9945f63db23084312ecc766b7eb96a40"
+      }
+    },
+    {
+      "id": "jemison",
+      "input": {
+        "sha256": "b7e3c0d436dbdfbd7210ab737cb30b90212ec416e7174a9b2cf90002b4dd3e71",
+        "dimensions": [
+          1041,
+          699
+        ],
+        "working": [
+          900,
+          604
+        ]
+      },
+      "newInference": true,
+      "hostRuntime": "MediaPipe 0.10.21 Windows CPU; not Android parity",
+      "faceCount": 0,
+      "skin": {
+        "settings": {
+          "smooth": 65,
+          "brighten": 0,
+          "warmth": 0
+        },
+        "changedPixels": 0,
+        "maxChannelDelta": 0,
+        "alphaMismatch": 0,
+        "skipped": true
+      },
+      "cutout": {
+        "changedPixels": 30004,
+        "groundTruth": false
+      },
+      "sourceUnchanged": true,
+      "physicalAndroid": false,
+      "outputs": {
+        "jemison-original.png": "4c38425680f527ad3cd51129c2c5547b8e6ec7d3b1a00210ffa6a6174a72ec6d",
+        "jemison-skin-classic.png": "4c38425680f527ad3cd51129c2c5547b8e6ec7d3b1a00210ffa6a6174a72ec6d",
+        "jemison-skin-detail.png": "4c38425680f527ad3cd51129c2c5547b8e6ec7d3b1a00210ffa6a6174a72ec6d",
+        "jemison-cutout-coarse.png": "df9c0a20d20ec24106c47155270db83718d54ef65e2a68115df7c6fecf433e51",
+        "jemison-cutout-guided.png": "7a136145e15e32adb85b2bd2e18b258133bbe870389494bb1fc0ed302e577991"
+      }
+    },
+    {
+      "id": "melvin",
+      "input": {
+        "sha256": "e9a08364a2fda6bbd743fe5af712d6b9aad9d38fc359b73a5903da6d2a1aa882",
+        "dimensions": [
+          1536,
+          1920
+        ],
+        "working": [
+          720,
+          900
+        ]
+      },
+      "newInference": true,
+      "hostRuntime": "MediaPipe 0.10.21 Windows CPU; not Android parity",
+      "faceCount": 1,
+      "skin": {
+        "settings": {
+          "smooth": 65,
+          "brighten": 0,
+          "warmth": 0
+        },
+        "changedPixels": 8064,
+        "maxChannelDelta": 7,
+        "alphaMismatch": 0,
+        "skipped": false
+      },
+      "cutout": {
+        "changedPixels": 87731,
+        "groundTruth": false
+      },
+      "sourceUnchanged": true,
+      "physicalAndroid": false,
+      "outputs": {
+        "melvin-original.png": "1bb0fd631883bca9cff13eaf4ad1372831cc05b0d1979eed2aa5f0525cfa9386",
+        "melvin-skin-classic.png": "d1dadf9e594468200b87cb27ce2c4ff466e1ee5c4e8bfa8f91fac0fedb84cbf9",
+        "melvin-skin-detail.png": "fe2109e42d38dfee0783904b4547bcad16944fd59f18918b1732f610335b19aa",
+        "melvin-cutout-coarse.png": "f5c25a8fe03a1fdfd2aa237b91013f9f40d472851a360fed7da873ffc39d34de",
+        "melvin-cutout-guided.png": "4a57f502435a40553009c1a6723e661296d2d4d3e23364518c6a2b089eb86e65"
+      }
+    }
+  ],
+  "coreSha256": {
+    "portrait-engine.js": "5cde7dcd60aab1d68e1ec5fb026c6396c2f395c1597dd03113c34674ba57d524",
+    "portrait-detail-engine.js": "1559fa74818ece4d99c78b565720072a8284f1eda865949ac62191cf00ceb620",
+    "edge-refine.js": "ba467e0f7391dec1cb1b1f88086e15cba5da201a61b01ae5cfac2b9865a417fa"
+  },
+  "aestheticParity": false
+}
