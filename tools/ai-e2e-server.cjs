@@ -16,7 +16,7 @@ const server=https.createServer({key:fs.readFileSync(path.join(dir,'server.key')
  const authorized=req.headers.authorization==='Bearer mint-e2e-not-secret'&&p.model?.toString()==='mock-png-v1';if(!authorized||req.url==='/unauthorized'){res.writeHead(401);res.end('{"error":"mock rejected credential"}');return;}
  if(!p.image||!p.mask||!p.image.subarray(0,8).equals(Buffer.from([137,80,78,71,13,10,26,10]))||!p.mask.subarray(16,24).equals(p.image.subarray(16,24))){res.writeHead(400);res.end();return;}
  const w=p.image.readUInt32BE(16),h=p.image.readUInt32BE(20);if(w*h>8000000){res.writeHead(413);res.end();return;}
- const id=requests.length+1;requests.push({id,mode,width:w,height:h,path:req.url,mask:true,keyRecorded:false});fs.writeFileSync(path.join(dir,'requests.json'),JSON.stringify(requests,null,2));fs.writeFileSync(path.join(dir,`request-${id}-${mode}-mask.png`),p.mask);
+ const id=requests.length+1;requests.push({id,mode,width:w,height:h,path:req.url,mask:true,keyRecorded:false});fs.writeFileSync(path.join(dir,'requests.json'),JSON.stringify(requests,null,2));fs.writeFileSync(path.join(dir,`request-${id}-${mode}-mask.png`),p.mask);fs.writeFileSync(path.join(dir,`request-${id}-${mode}-image.png`),p.image);
  let output=png(req.url==='/wrong-ratio'?64:w,req.url==='/wrong-ratio'?128:h);fs.writeFileSync(path.join(dir,`mock-${id}-${mode}.png`),output);if(req.url==='/slow')await new Promise(r=>setTimeout(r,12000));
  if(res.destroyed)return;res.writeHead(200,{'Content-Type':'application/json','Cache-Control':'no-store'});res.end(JSON.stringify({data:[{b64_json:output.toString('base64')}]}));
 });server.listen(port,'0.0.0.0',()=>console.log('Mock-only HTTPS Images Edits fixture ready on '+port));

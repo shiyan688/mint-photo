@@ -39,7 +39,7 @@ public final class AiFlowInstrumentation extends Instrumentation {
             until("document.readyState==='complete'&&document.querySelector('#portraitDemoBtn')&&typeof document.querySelector('#portraitDemoBtn').onclick==='function'&&typeof Android.editImage==='function'&&!Android.isExportBusy()",90000);
             AtomicReference<Boolean> blocked=new AtomicReference<>();runOnMainSync(()->blocked.set(web.getSettings().getBlockNetworkLoads()));require(blocked.get(),"WebView network stays blocked");
             click("#importBtn");waitPicker();chooseDownloads();tapText("mint-e2e-source.png");until("document.querySelector('#imageInfo').textContent.includes('512 × 512')",30000);
-            measureAdjustments();js("window.__beforeAi=document.querySelector('#previewCanvas').toDataURL();true");
+            capture("photo-imported");measureAdjustments();js("window.__beforeAi=document.querySelector('#previewCanvas').toDataURL();true");
             stage="erase";openAi("erase","/v1/images/edits");paint();capture("erase-selected");send();
             until("!document.querySelector('#aiAccept').hidden",45000);require("true".equals(js("document.querySelector('#aiKey').value===''")),"key cleared after erase");capture("erase-result");
             checkPixels(false);accept();saveAndReopen("erase",512,512);
@@ -102,7 +102,11 @@ public final class AiFlowInstrumentation extends Instrumentation {
         AccessibilityNodeInfo root=getUiAutomation().getRootInActiveWindow();
         AccessibilityNodeInfo nav=findDescription(root,"Show roots");
         if(nav!=null){while(nav!=null&&!nav.isClickable())nav=nav.getParent();if(nav!=null)nav.performAction(AccessibilityNodeInfo.ACTION_CLICK);SystemClock.sleep(300);tapText("Downloads");SystemClock.sleep(300);}
+        // Image grid mode omits filenames from accessibility. Select the real list control.
+        AccessibilityNodeInfo list=findId(getUiAutomation().getRootInActiveWindow(),"com.google.android.documentsui:id/sub_menu_list");
+        if(list!=null){require(list.performAction(AccessibilityNodeInfo.ACTION_CLICK),"system file list enabled for explicit filename selection");SystemClock.sleep(300);}
     }
+    private AccessibilityNodeInfo findId(AccessibilityNodeInfo n,String id){if(n==null)return null;if(n.isVisibleToUser()&&id.equals(n.getViewIdResourceName()))return n;for(int i=0;i<n.getChildCount();i++){AccessibilityNodeInfo v=findId(n.getChild(i),id);if(v!=null)return v;}return null;}
     private AccessibilityNodeInfo findDescription(AccessibilityNodeInfo n,String text){if(n==null)return null;if(n.isVisibleToUser()&&n.getContentDescription()!=null&&text.equalsIgnoreCase(n.getContentDescription().toString()))return n;for(int i=0;i<n.getChildCount();i++){AccessibilityNodeInfo v=findDescription(n.getChild(i),text);if(v!=null)return v;}return null;}
     private void tapText(String text)throws Exception {long end=SystemClock.uptimeMillis()+15000;while(SystemClock.uptimeMillis()<end){AccessibilityNodeInfo n=findText(getUiAutomation().getRootInActiveWindow(),text);while(n!=null&&!n.isClickable())n=n.getParent();if(n!=null&&n.performAction(AccessibilityNodeInfo.ACTION_CLICK))return;SystemClock.sleep(300);}throw new AssertionError("system control missing: "+text+"\n"+tree(getUiAutomation().getRootInActiveWindow(),0));}
     private AccessibilityNodeInfo findText(AccessibilityNodeInfo n,String text){if(n==null)return null;if(n.isVisibleToUser()&&n.getText()!=null&&text.equalsIgnoreCase(n.getText().toString()))return n;for(int i=0;i<n.getChildCount();i++){AccessibilityNodeInfo v=findText(n.getChild(i),text);if(v!=null)return v;}return null;}

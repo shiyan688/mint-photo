@@ -11,6 +11,7 @@ collect() {
     adb -s "$ANDROID_SERIAL" pull "/sdcard/Download/mint-e2e-$mode.png" ".work/ai-e2e-evidence/saved-$mode.png" || true
   done
   cp .work/ai-e2e/requests.json .work/ai-e2e-evidence/ 2>/dev/null || true
+  cp .work/ai-e2e/*-image.png .work/ai-e2e-evidence/ 2>/dev/null || true
   cp .work/ai-e2e/*-mask.png .work/ai-e2e-evidence/ 2>/dev/null || true
   cp .work/ai-e2e/mock-*.png .work/ai-e2e-evidence/ 2>/dev/null || true
 }
