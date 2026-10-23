@@ -121,11 +121,14 @@ jobs:
           bash tests/prepare-ai-e2e.sh
           bash gradlew --no-daemon -PaiE2eTest :app:assembleDebug :app:assembleDebugAndroidTest
       - name: Boot disposable Android and exercise the complete workflow
+        timeout-minutes: 12
         run: |
           test -e /dev/kvm
           sudo chown "$(id -u):$(id -g)" /dev/kvm
+          export ANDROID_AVD_HOME="$PWD/.work/avd"
+          mkdir -p "$ANDROID_AVD_HOME"
           echo no | avdmanager create avd --force --name mint_ai_e2e --package 'system-images;android-35;google_apis;x86_64' --device pixel_6
-          "$ANDROID_HOME/emulator/emulator" -avd mint_ai_e2e -port 5554 -no-window -no-audio -no-boot-anim -no-snapshot -gpu swiftshader_indirect -memory 2048 -camera-back none -camera-front none > .work/ai-e2e-evidence/emulator.txt 2>&1 &
+          "$ANDROID_HOME/emulator/emulator" -avd mint_ai_e2e -port 5554 -no-window -no-audio -no-boot-anim -no-snapshot -gpu swiftshader -memory 2048 -camera-back none -camera-front none > .work/ai-e2e-evidence/emulator.txt 2>&1 &
           bash tests/run-ai-e2e.sh
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()

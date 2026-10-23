@@ -17,11 +17,12 @@ collect() {
 trap collect EXIT
 node tools/ai-e2e-server.cjs > .work/ai-e2e-evidence/mock-server.txt 2>&1 &
 for i in $(seq 1 30); do curl --silent --fail --cacert .work/ai-e2e/ca.pem https://127.0.0.1:9443/health >/dev/null && break || sleep 1; done
-adb -s "$ANDROID_SERIAL" wait-for-device
-for i in $(seq 1 150); do
+timeout 120 adb -s "$ANDROID_SERIAL" wait-for-device
+for i in $(seq 1 90); do
   [ "$(adb -s "$ANDROID_SERIAL" shell getprop sys.boot_completed 2>/dev/null | tr -d '\r')" = 1 ] && break
   sleep 2
 done
+test "$(adb -s "$ANDROID_SERIAL" shell getprop sys.boot_completed | tr -d '\r')" = 1
 adb -s "$ANDROID_SERIAL" shell getprop > .work/ai-e2e-evidence/device-properties.txt
 adb -s "$ANDROID_SERIAL" shell input keyevent 82
 adb -s "$ANDROID_SERIAL" shell settings put global window_animation_scale 0
