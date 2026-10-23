@@ -17,7 +17,7 @@ let renderVersion = 0, pendingFrame = 0, draftTimer = 0, toastTimer = 0, hasSave
 let dbPromise = null, imageName = '', draftRecord = null, importVersion = 0, currentStroke = null;
 let savedDraftRevision = -1, draftWrite = null, closeDraftSave = null, closeDraftFailureRevision = -1;
 let storageWarningShown = false, sourceAsset = null, projectRevision = 0, exportRevision = null, exportResolution = 'original';
-const canvas = (w,h) => { const c=document.createElement('canvas');c.width=Math.max(1,Math.round(w));c.height=Math.max(1,Math.round(h));return c; };
+const canvas = (w,h) => { const c=document.createElement('canvas');c.width=Math.max(1,Math.round(w));c.height=Math.max(1,Math.round(h));c.getContext('2d',{willReadFrequently:true});return c; };
 const clone = x => JSON.parse(JSON.stringify(x));
 const clamp = (v,min,max)=>Math.max(min,Math.min(max,v));
 const copyCanvas = c => {const out=canvas(c.width,c.height);out.getContext('2d').drawImage(c,0,0);return out;};
@@ -100,7 +100,7 @@ function paint(){
   }else if(changed&&draft.type!=='crop'&&draft.type!=='idphoto'){const input=copyCanvas(committed);try{c=applyOperation(input,draft);if(c!==input){input.width=1;input.height=1;}textTemporary=c===committed?null:c;}catch(error){input.width=1;input.height=1;throw error;}}
  }catch(error){failPreview(error);}
  const p=$('previewCanvas');
- try{if(p.width!==c.width||p.height!==c.height){p.width=c.width;p.height=c.height;}const display=p.getContext('2d');display.clearRect(0,0,p.width,p.height);display.drawImage(c,0,0);}
+ try{if(p.width!==c.width||p.height!==c.height){p.width=c.width;p.height=c.height;}const display=p.getContext('2d',{willReadFrequently:true});display.clearRect(0,0,p.width,p.height);display.drawImage(c,0,0);}
  catch(error){
   failPreview(error);
   // Best-effort display recovery; a failed display copy must not alter history
