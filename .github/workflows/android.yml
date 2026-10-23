@@ -115,7 +115,10 @@ jobs:
           cmdline-tools-version: '12266719'
           packages: 'platform-tools'
       - name: Install emulator and pinned platform
-        run: sdkmanager 'platforms;android-35' 'build-tools;35.0.0' 'emulator' 'system-images;android-35;google_apis;x86_64'
+        run: |
+          sdkmanager 'platforms;android-35' 'build-tools;35.0.0'
+          python3 tools/install-ci-emulator.py
+          sdkmanager --list_installed
       - name: Build isolated app with ephemeral mock CA
         run: |
           bash tests/prepare-ai-e2e.sh
