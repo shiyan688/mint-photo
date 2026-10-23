@@ -1,0 +1,28 @@
+{
+  "sourceCommit": "62519c6",
+  "runUrl": "https://github.com/shiyan688/mint-photo/actions/runs/40020488887",
+  "fullWorkflowResult": "FAIL",
+  "failedStage": "erase-save: screenshot attempted to await paused WebView while Android DocumentsUI was active",
+  "mockService": true,
+  "realAiModel": false,
+  "physicalDevice": false,
+  "erasePreviewPixels": {
+    "changed": 4488,
+    "h": 512,
+    "mismatchPixels": 0,
+    "previewChangedPixels": 2549,
+    "previewMaxDelta": 2,
+    "protectedPixels": 257654,
+    "same": true,
+    "w": 512
+  },
+  "previewVsSentImageBoundary": "2549 of 262144 pixels differ before AI; maximum per-channel difference 2. Do not claim preview-to-request byte identity. The protected composite is compared against the actual sent PNG.",
+  "sha256": {
+    "ai-e2e-before-erase.png": "ecea8a9cf7a5537f70efd280ea98d88aa5e210e7fa5e4eebb561116250b4e170",
+    "request-1-erase-image.png": "0b4263dd5164fbea0890e4018ecf262cc675f1f1220af439ee9967f3bde99971",
+    "request-1-erase-mask.png": "64334dd540aa762bf61ca2866d3b5c14c2d0c8c51f62cdc5444610b4d0a6fa67",
+    "ai-e2e-erase-preview.png": "b6e78a8527ec5852fa243693d2de7fc16d45e95edd5f4a5f1f953216ccf22e6d"
+  },
+  "savedPngReopenVerified": false,
+  "outpaintVerified": false
+}

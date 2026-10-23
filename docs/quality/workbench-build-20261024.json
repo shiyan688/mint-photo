@@ -7,10 +7,10 @@
   "apks": [
     {
       "apk": "app-arm64-v8a-debug.apk",
-      "bytes": 21007407,
-      "sha256": "d7be9d581821d45cdc1c6e968f890b77600768321fdecfd61bd66ee4833d758d",
+      "bytes": 21063243,
+      "sha256": "ae9fb6712271fb2ceefc4949800bf6a9a13eb4b5e89528c162265ed940508e47",
       "source_assets_matched": 94,
-      "asset_manifest_sha256": "ffa85b746f30853f70487cbd86b9c630c610a91a6558d0f86548e0da79486f0f",
+      "asset_manifest_sha256": "f25539b27f805e8d202014f943d42781e32b012b41807fbe60a36126c2513754",
       "native_libraries": [
         {
           "file": "lib/arm64-v8a/libmediapipe_tasks_jni.so",
@@ -24,10 +24,10 @@
     },
     {
       "apk": "app-armeabi-v7a-debug.apk",
-      "bytes": 17712189,
-      "sha256": "2cadc2d5b499e21937b9f2f241026ebb2261f134e6dd683eb29c426870729bc9",
+      "bytes": 17768025,
+      "sha256": "bf678d25396f3d5f07d57728417f6898e8eb5692b1327f0b82bed35c4c58b66a",
       "source_assets_matched": 94,
-      "asset_manifest_sha256": "ffa85b746f30853f70487cbd86b9c630c610a91a6558d0f86548e0da79486f0f",
+      "asset_manifest_sha256": "f25539b27f805e8d202014f943d42781e32b012b41807fbe60a36126c2513754",
       "native_libraries": [
         {
           "file": "lib/armeabi-v7a/libmediapipe_tasks_jni.so",
@@ -40,5 +40,6 @@
       ]
     }
   ],
-  "deviceAcceptance": false
+  "deviceAcceptance": false,
+  "applicationSourceCommit": "e78e528"
 }

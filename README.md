@@ -4,21 +4,23 @@
 
 薄荷是一款在设备上处理照片的修图工具，把日常调色、构图、人像精修和创意排版放进同一个工作区。无需登录，也没有广告；可以随时对比原图、撤销修改，并把作品保存在本地继续编辑。
 
-**当前提供 0.2.0 预览版：源码与可安装的 Android Debug 测试包。** 浏览器可体验日常修图和手动精修；自动人脸识别、人物分割由 Android 端的本地模型提供。当前版本的手机体验仍待实机验证。
+**当前提供0.3开发预览（APK版本0.3.0-dev），不是正式版。** 浏览器可体验日常修图和手动精修；自动人脸识别、人物分割由Android端的本地模型提供。新增AI与质量改进的验收状态见下方记录，0.2安装包保留作历史版本。
 
-[下载安卓测试版](https://github.com/shiyan688/mint-photo/releases/tag/v0.2.0-preview) · [查看发布说明](docs/RELEASE-NOTES-0.2.md)
+[下载0.3开发测试包](https://github.com/shiyan688/mint-photo/releases/tag/v0.3.0-dev.1) · [验收记录](docs/PERFORMANCE-UI-QUALITY.md) · [历史0.2版本](https://github.com/shiyan688/mint-photo/releases/tag/v0.2.0-preview)
 
-![薄荷修图首页](docs/assets/desktop-home.png)
+以下为0.3开发版的实际浏览器截图。首页收简为常用工具，编辑器按调色、人像、构图与创作分类；更多菜单收纳API、作品库和批量工具。
 
-![编辑器实际界面](docs/assets/desktop-editor.png)
+![0.3开发版首页](docs/assets/workbench-home.png)
+
+![0.3开发版编辑器](docs/assets/workbench-editor.png)
 
 ## 后续功能开发
 
 [与醒图的56项差距台账](docs/XINGTU-GAP-MATRIX.md) · [本轮实际进展与验证](docs/FUNCTIONAL-PROGRESS.md)
 
-当前开发分支为0.3.0-dev：新增自动光线、浏览器批量调色，安卓/浏览器共用的自填API、涂抹消除与四边扩图链路，以及试验性的纹理修肤/边缘贴合。AI只通过模拟接口与本地合成检查，尚无真实服务出图、安卓实机与保存验收，**不能算AI功能已完成**。已发布0.2测试包不包含这些增量。
+当前开发分支为0.3.0-dev：新增自动光线、浏览器批量调色，安卓/浏览器共用的自填API、涂抹消除与四边扩图链路，以及试验性的纹理修肤/边缘贴合。Android API35模拟器已通过自填测试配置→消除/扩图→系统保存→重新打开，以及错误/取消重试；设备保存PNG另有独立核对。**真实AI出图、实体手机性能与修图质量仍未验收，不能算AI效果已完成**。已发布0.2测试包不包含这些增量。
 
-[安卓AI与单照片验收记录](docs/AI-ANDROID-QUALITY.md) · [性能、简化界面与4张真实照片回归](docs/PERFORMANCE-UI-QUALITY.md)
+[安卓AI与照片验收记录](docs/AI-ANDROID-QUALITY.md) · [性能、简化界面与4张真实照片回归](docs/PERFORMANCE-UI-QUALITY.md) · [安卓模拟闭环证据](docs/quality/android-ai-e2e-20261024/README.md)
 
 ## 可以做什么
 
@@ -45,7 +47,7 @@ python -m http.server 8080 --bind 127.0.0.1 --directory app/src/main/assets
 
 1. 选择一张照片，或使用内置示例。
 2. 调整参数后点击「应用修改」，通过按住「对比原图」比较。
-3. 点击「导出」保存图片；想以后继续修改，可在「作品库」保存工程。
+3. 点击右上角「保存」导出图片；想以后继续修改，可在「更多→作品库」保存工程。
 
 照片处理在本地完成，启动本地服务后不需要互联网。建议一直使用同一地址和端口，方便找到该浏览器里的作品；更换浏览器或清除站点数据不会迁移作品，重要作品请额外导出工程备份。
 
