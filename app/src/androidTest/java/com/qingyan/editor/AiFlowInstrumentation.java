@@ -38,6 +38,7 @@ public final class AiFlowInstrumentation extends Instrumentation {
             runOnMainSync(()->web=findWeb(activity.getWindow().getDecorView()));
             until("document.readyState==='complete'&&document.querySelector('#portraitDemoBtn')&&typeof document.querySelector('#portraitDemoBtn').onclick==='function'&&typeof Android.editImage==='function'&&!Android.isExportBusy()",90000);
             AtomicReference<Boolean> blocked=new AtomicReference<>();runOnMainSync(()->blocked.set(web.getSettings().getBlockNetworkLoads()));require(blocked.get(),"WebView network stays blocked");
+            require("true".equals(js("Android.samplePng('../index.html')===''&&Android.samplePng('missing')===''")),"sample bridge rejects filenames and unknown IDs");
             click("#importBtn");waitPicker();chooseDownloads();tapText("mint-e2e-source.png");until("document.querySelector('#imageInfo').textContent.includes('512 × 512')&&document.querySelector('#busy').hidden&&!Android.isExportBusy()",30000);
             capture("photo-imported");measureAdjustments();capture("adjustments-neutral");js("window.__beforeAi=document.querySelector('#previewCanvas').toDataURL();true");
             js("(()=>{const t=MintAiTransport;window.MintAiTransport={receive:t.receive,send:(data,signal)=>{window.__sentImage=data.image;window.__sentMask=data.mask;return t.send(data,signal);}};})()");

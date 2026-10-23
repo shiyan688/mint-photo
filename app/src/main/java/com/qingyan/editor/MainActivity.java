@@ -33,6 +33,7 @@ import android.widget.Toast;
 import org.json.JSONObject;
 
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -355,6 +356,28 @@ public final class MainActivity extends Activity {
 
     public final class ImageBridge {
         @JavascriptInterface
+        public String samplePng(String id) {
+            // Fixed bundled assets only. Do not relax file-origin isolation or expose paths.
+            if (destroyed || !ready) return "";
+            String asset = "portrait".equals(id) ? "demo/astronaut.png"
+                    : "studio".equals(id) ? "demo/mint-portrait.png" : null;
+            if (asset == null) return "";
+            try (InputStream in = getAssets().open(asset);
+                 ByteArrayOutputStream out = new ByteArrayOutputStream()) {
+                byte[] buffer = new byte[16384];
+                int count;
+                while ((count = in.read(buffer)) != -1) {
+                    if (out.size() + count > 3 * 1024 * 1024) return "";
+                    out.write(buffer, 0, count);
+                }
+                return "data:image/png;base64," + android.util.Base64.encodeToString(
+                        out.toByteArray(), android.util.Base64.NO_WRAP);
+            } catch (IOException error) {
+                return "";
+            }
+        }
+
+        @JavascriptInterface
         public void editImage(String payload, String requestId) {
             if (requestId == null || !requestId.matches("[A-Za-z0-9_-]{1,96}")) return;
             if (payload == null || payload.length() > AiImageClient.MAX_JSON) {
@@ -378,7 +401,7 @@ public final class MainActivity extends Activity {
 
         @JavascriptInterface
         public void analyzePortrait(String dataUrl, String requestId, String kind) {
-            // Never expose native image file access. JS supplies only the current canvas pixels.
+            // Never expose native user-image file access. JS supplies current canvas pixels.
             if (requestId == null || requestId.length() > 96) return;
             runOnUiThread(() -> beginPortrait(dataUrl, requestId, kind));
         }
