@@ -55,7 +55,7 @@ public final class AiFlowInstrumentation extends Instrumentation {
             write("ai-e2e-result.json",report.toString(2));result.putString("result","PASS Android AI mock workflow, "+checks.length()+" checks; real HTTPS/SAF, no real AI model");finish(0,result);
         } catch(Throwable e) {
             result.putString("result","FAIL "+stage+": "+e);result.putString("stack",android.util.Log.getStackTraceString(e));
-            try {capture("FAIL-"+stage);write("ai-e2e-failure.txt",result.toString()+"\n"+tree(getUiAutomation().getRootInActiveWindow(),0)+"\nDOM: "+js("document.body.innerText.slice(-9000)"));}catch(Exception ignored){}
+            try {write("ai-e2e-failure.txt",result.toString()+"\n"+tree(getUiAutomation().getRootInActiveWindow(),0)+"\nDOM: "+js("document.body.innerText.slice(-9000)"));capture("FAIL-"+stage);}catch(Exception ignored){}
             finish(1,result);
         }
     }
@@ -126,7 +126,11 @@ public final class AiFlowInstrumentation extends Instrumentation {
     }
     private void until(String expression,long timeout)throws Exception {long end=SystemClock.uptimeMillis()+timeout;while(SystemClock.uptimeMillis()<end){if("true".equals(js("!!("+expression+")")))return;SystemClock.sleep(250);}throw new AssertionError("Timeout: "+expression+"; state="+js("JSON.stringify({toast:document.querySelector('#toast')?.textContent,busy:document.querySelector('#busy')?.hidden,nativeBusy:typeof Android!=='undefined'?Android.isExportBusy():null,ai:document.querySelector('#aiStatus')?.textContent})"));}
     private String js(String code)throws Exception {CountDownLatch latch=new CountDownLatch(1);AtomicReference<String> value=new AtomicReference<>();runOnMainSync(()->web.evaluateJavascript("try{"+code+"}catch(e){'__MINT_E2E_JS_ERROR__'+String(e)}",v->{value.set(v);latch.countDown();}));if(!latch.await(30,TimeUnit.SECONDS))throw new AssertionError("JS timeout");if(value.get()!=null&&value.get().contains("__MINT_E2E_JS_ERROR__"))throw new AssertionError(value.get());return value.get();}
-    private void capture(String name)throws Exception {Bitmap image=getUiAutomation().takeScreenshot();if(image==null)throw new AssertionError("Missing screenshot");try(FileOutputStream out=getTargetContext().openFileOutput("ai-e2e-"+name+".png",0)){image.compress(Bitmap.CompressFormat.PNG,100,out);}image.recycle();}
+    private void capture(String name)throws Exception {
+        CountDownLatch drawn=new CountDownLatch(1);runOnMainSync(()->web.postVisualStateCallback(1,new WebView.VisualStateCallback(){@Override public void onComplete(long id){drawn.countDown();}}));
+        if(!drawn.await(10,TimeUnit.SECONDS))throw new AssertionError("WebView visual state not ready for screenshot");
+        try{getUiAutomation().waitForIdle(200,3000);}catch(java.util.concurrent.TimeoutException ignored){}
+        Bitmap image=getUiAutomation().takeScreenshot();if(image==null)throw new AssertionError("Missing screenshot");try(FileOutputStream out=getTargetContext().openFileOutput("ai-e2e-"+name+".png",0)){image.compress(Bitmap.CompressFormat.PNG,100,out);}image.recycle();}
     private void write(String name,String text)throws Exception {try(FileOutputStream out=getTargetContext().openFileOutput(name,0)){out.write(text.getBytes(StandardCharsets.UTF_8));}}
     private WebView findWeb(View v){if(v instanceof WebView)return(WebView)v;if(v instanceof ViewGroup){ViewGroup g=(ViewGroup)v;for(int i=0;i<g.getChildCount();i++){WebView w=findWeb(g.getChildAt(i));if(w!=null)return w;}}return null;}
 }

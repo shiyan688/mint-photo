@@ -5,3 +5,4 @@
 /* The previous ID width overrode the compact dialog rule and clipped mobile controls. */
 #aiDialog{width:min(540px,calc(100vw - 24px));max-width:calc(100vw - 24px);overflow-x:hidden}
 #aiDialog .ai-field{min-width:0}#aiDialog .ai-field input,#aiDialog .ai-field textarea,#aiDialog select{min-width:0;max-width:100%}
+.busy{backdrop-filter:none;background:#f7f8f7ee;color:#516257}

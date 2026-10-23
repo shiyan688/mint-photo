@@ -166,6 +166,7 @@ dialog{border:1px solid #e5eadc;border-radius:22px;padding:25px;background:#fff;
 /* The previous ID width overrode the compact dialog rule and clipped mobile controls. */
 #aiDialog{width:min(540px,calc(100vw - 24px));max-width:calc(100vw - 24px);overflow-x:hidden}
 #aiDialog .ai-field{min-width:0}#aiDialog .ai-field input,#aiDialog .ai-field textarea,#aiDialog select{min-width:0;max-width:100%}
+.busy{backdrop-filter:none;background:#f7f8f7ee;color:#516257}
 </style></head><body class="is-home">
 <header class="header"><button class="back-button" id="homeBack" aria-label="返回首页，保留当前编辑" hidden><span data-icon="back"></span></button><div class="brand"><div class="brand-name">薄荷修图</div></div><span class="editor-title" id="editorTitle">编辑照片</span><details class="header-menu" id="headerMenu"><summary aria-label="更多工具">更多</summary><div class="header-menu-items"><button id="openTop">换照片</button><button id="projectLibraryBtn">作品库</button><button id="batchBtn">批量调色</button><button id="aiBtn">联网 AI 工具</button></div></details><button class="button primary export-button" id="exportBtn" disabled>保存</button></header>
 <main class="app-main">

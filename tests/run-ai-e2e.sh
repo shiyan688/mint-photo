@@ -24,7 +24,11 @@ for i in $(seq 1 90); do
   sleep 2
 done
 test "$(adb -s "$ANDROID_SERIAL" shell getprop sys.boot_completed | tr -d '\r')" = 1
+adb -s "$ANDROID_SERIAL" shell wm size 540x1200
+adb -s "$ANDROID_SERIAL" shell wm density 210
 adb -s "$ANDROID_SERIAL" shell getprop > .work/ai-e2e-evidence/device-properties.txt
+adb -s "$ANDROID_SERIAL" shell wm size > .work/ai-e2e-evidence/display-size.txt
+adb -s "$ANDROID_SERIAL" shell wm density >> .work/ai-e2e-evidence/display-size.txt
 adb -s "$ANDROID_SERIAL" shell input keyevent 82
 adb -s "$ANDROID_SERIAL" shell settings put global window_animation_scale 0
 adb -s "$ANDROID_SERIAL" shell settings put global transition_animation_scale 0
@@ -32,5 +36,8 @@ adb -s "$ANDROID_SERIAL" shell settings put global animator_duration_scale 0
 adb -s "$ANDROID_SERIAL" install -r app/build/outputs/apk/debug/app-debug.apk
 adb -s "$ANDROID_SERIAL" install -r app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk
 adb -s "$ANDROID_SERIAL" push app/src/main/assets/demo/astronaut.png /sdcard/Download/mint-e2e-source.png
+# The disposable Google image's launcher can ANR during first-boot background setup.
+# Stop that unrelated process before launching the app; application ANRs still fail.
+adb -s "$ANDROID_SERIAL" shell am force-stop com.google.android.apps.nexuslauncher
 adb -s "$ANDROID_SERIAL" shell am instrument -w com.qingyan.editor.portrait.e2e.test/com.qingyan.editor.AiFlowInstrumentation | tee .work/ai-e2e-evidence/instrumentation.txt
 grep -q 'result=PASS Android AI mock workflow' .work/ai-e2e-evidence/instrumentation.txt
