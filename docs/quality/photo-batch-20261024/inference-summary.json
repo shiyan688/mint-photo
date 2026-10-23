@@ -1,0 +1,82 @@
+[
+  {
+    "id": "chawla",
+    "sourceSha256": "9abded3bcf1151f0a4f9a7f75d20d6948336eb9f84c0a341ea2d6c63ac11bdca",
+    "sourceSize": [
+      1041,
+      781
+    ],
+    "width": 900,
+    "height": 675,
+    "runtime": "MediaPipe 0.10.21 Windows CPU; not Android parity",
+    "newInference": true,
+    "elapsedMs": 18.434999976307154,
+    "faceModelSha256": "64184e229b263107bc2b804c6625db1341ff2bb731874b0bcc2fe6544e0bc9ff",
+    "segmentationModelSha256": "191ac9529ae506ee0beefa6b2c945a172dab9d07d1e802a290a4e4038226658b",
+    "faceCount": 1,
+    "maskSize": [
+      256,
+      192
+    ]
+  },
+  {
+    "id": "collins",
+    "sourceSha256": "88431cd9653ccd539741b555fb0a46b61558b301d4110412b5bc28b5e3ea6cb5",
+    "sourceSize": [
+      512,
+      512
+    ],
+    "width": 900,
+    "height": 900,
+    "runtime": "MediaPipe 0.10.21 Windows CPU; not Android parity",
+    "newInference": true,
+    "elapsedMs": 16.758599900640547,
+    "faceModelSha256": "64184e229b263107bc2b804c6625db1341ff2bb731874b0bcc2fe6544e0bc9ff",
+    "segmentationModelSha256": "191ac9529ae506ee0beefa6b2c945a172dab9d07d1e802a290a4e4038226658b",
+    "faceCount": 1,
+    "maskSize": [
+      256,
+      256
+    ]
+  },
+  {
+    "id": "jemison",
+    "sourceSha256": "b7e3c0d436dbdfbd7210ab737cb30b90212ec416e7174a9b2cf90002b4dd3e71",
+    "sourceSize": [
+      1041,
+      699
+    ],
+    "width": 900,
+    "height": 604,
+    "runtime": "MediaPipe 0.10.21 Windows CPU; not Android parity",
+    "newInference": true,
+    "elapsedMs": 12.927799951285124,
+    "faceModelSha256": "64184e229b263107bc2b804c6625db1341ff2bb731874b0bcc2fe6544e0bc9ff",
+    "segmentationModelSha256": "191ac9529ae506ee0beefa6b2c945a172dab9d07d1e802a290a4e4038226658b",
+    "faceCount": 0,
+    "maskSize": [
+      256,
+      172
+    ]
+  },
+  {
+    "id": "melvin",
+    "sourceSha256": "e9a08364a2fda6bbd743fe5af712d6b9aad9d38fc359b73a5903da6d2a1aa882",
+    "sourceSize": [
+      1536,
+      1920
+    ],
+    "width": 720,
+    "height": 900,
+    "runtime": "MediaPipe 0.10.21 Windows CPU; not Android parity",
+    "newInference": true,
+    "elapsedMs": 14.984999899752438,
+    "faceModelSha256": "64184e229b263107bc2b804c6625db1341ff2bb731874b0bcc2fe6544e0bc9ff",
+    "segmentationModelSha256": "191ac9529ae506ee0beefa6b2c945a172dab9d07d1e802a290a4e4038226658b",
+    "faceCount": 1,
+    "maskSize": [
+      205,
+      256
+    ]
+  }
+]

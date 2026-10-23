@@ -12,9 +12,11 @@ android {
         minSdk 26
         targetSdk 35
         // Keep the application ID and increase the Android upgrade sequence.
-        versionCode 4
-        versionName '0.2.0-preview'
-        testInstrumentationRunner project.hasProperty('portraitBridgeTest')
+        versionCode 5
+        versionName '0.3.0-dev'
+        testInstrumentationRunner project.hasProperty('aiE2eTest')
+                ? 'com.qingyan.editor.AiFlowInstrumentation'
+                : project.hasProperty('portraitBridgeTest')
                 ? 'com.qingyan.editor.PortraitBridgeSmokeInstrumentation'
                 : 'com.qingyan.editor.PortraitSmokeInstrumentation'
     }
@@ -32,6 +34,11 @@ android {
 
     buildTypes {
         debug {
+            if (project.hasProperty('aiE2eTest')) {
+                applicationIdSuffix '.e2e'
+                versionNameSuffix '-e2e'
+            }
+
             // Standard local/CI debug signing produces an installable preview APK.
             // This is never a production signing identity.
             signingConfig signingConfigs.debug
@@ -61,6 +68,17 @@ android {
 
     buildFeatures {
         buildConfig true
+    }
+
+    // A separate disposable test app trusts an ephemeral local mock-service CA.
+    // Neither the CA nor its manifest is included in normal debug/release APKs.
+    sourceSets {
+        debug {
+            if (project.hasProperty('aiE2eTest')) {
+                manifest.srcFile 'src/aiE2e/AndroidManifest.xml'
+                res.srcDirs += ['src/aiE2e/res', rootProject.file('.work/ai-e2e-res')]
+            }
+        }
     }
 
     lint {

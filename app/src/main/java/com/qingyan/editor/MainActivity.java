@@ -33,6 +33,7 @@ import android.widget.Toast;
 import org.json.JSONObject;
 
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -47,7 +48,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-/** Offline-only shell. The installed asset bundle is the only allowed document. */
+/** Local asset editor with an explicit, cancellable native HTTPS image API bridge. */
 @SuppressWarnings("deprecation")
 public final class MainActivity extends Activity {
     private static final String APP_URL = "file:///android_asset/index.html";
@@ -71,6 +72,14 @@ public final class MainActivity extends Activity {
     private final ExecutorService fileWorker = Executors.newSingleThreadExecutor();
     private final ExecutorService presetImportWorker = Executors.newSingleThreadExecutor();
     private final ExecutorService portraitWorker = Executors.newSingleThreadExecutor();
+    private final ExecutorService aiWorker = Executors.newSingleThreadExecutor();
+    private AiJob aiJob;
+    private static final class AiJob {
+        final String id;
+        final AiImageClient client = new AiImageClient();
+        Runnable timeout;
+        AiJob(String id) { this.id = id; }
+    }
     private final AtomicBoolean portraitBusy = new AtomicBoolean(false);
     private PortraitAnalyzer portraitAnalyzer;
     private final AtomicBoolean exportBusy = new AtomicBoolean(false);
@@ -196,6 +205,7 @@ public final class MainActivity extends Activity {
             }
 
             @Override public void onPageStarted(WebView view, String url, android.graphics.Bitmap icon) {
+                cancelAi(false);
                 ready = false;
                 if (!isAppDocument(url)) {
                     view.stopLoading();
@@ -221,6 +231,7 @@ public final class MainActivity extends Activity {
             }
 
             @Override public boolean onRenderProcessGone(WebView view, RenderProcessGoneDetail detail) {
+                cancelAi(false);
                 ready = false;
                 cancelChooser();
                 ViewGroup parent = (ViewGroup) view.getParent();
@@ -290,11 +301,96 @@ public final class MainActivity extends Activity {
         webView.setDownloadListener((url, agent, disposition, mime, length) -> { });
     }
 
+    private void beginAi(String payload, String id) {
+        if (destroyed || !ready || webView == null || !isAppDocument(webView.getUrl())) return;
+        if (aiJob != null) { notifyAi(id, null, "已有 AI 请求，请先取消"); return; }
+        AiJob job = new AiJob(id); aiJob = job;
+        job.timeout = () -> { if (aiJob == job) { cancelAi(false); notifyAi(id, null, "AI 请求超时；服务可能已产生费用"); } };
+        projectHandler.postDelayed(job.timeout, 180000);
+        aiWorker.execute(() -> {
+            String image = null, error = null;
+            try {
+                JSONObject json = new JSONObject(payload);
+                AiImageClient.Request request = new AiImageClient.Request(json.getString("endpoint"), json.getString("key"),
+                        json.getString("model"), json.getString("prompt"), json.getString("image"), json.optString("mask", null));
+                JSONObject result = new JSONObject(job.client.edit(request));
+                String b64 = result.getJSONArray("data").getJSONObject(0).getString("b64_json");
+                AiImageClient.decodePng("data:image/png;base64," + b64);
+                image = "data:image/png;base64," + b64;
+            } catch (AiImageClient.UserFailure e) {
+                error = e.getMessage();
+            } catch (IOException e) {
+                // Exception text from sockets may include service-controlled URLs. Never echo it.
+                error = "AI 请求失败或被取消；请检查网络、接口兼容性、模型和余额";
+            } catch (Exception e) {
+                error = "服务未返回有效 b64_json PNG，或请求参数无效";
+            } catch (OutOfMemoryError e) {
+                error = "图片占用内存过大，请缩小后重试";
+            }
+            final String output = image, message = error;
+            runOnUiThread(() -> {
+                if (aiJob != job || destroyed) return;
+                aiJob = null; projectHandler.removeCallbacks(job.timeout);
+                notifyAi(id, output, message);
+            });
+        });
+    }
+
+    private void cancelAi(boolean notify) {
+        AiJob job = aiJob; aiJob = null;
+        if (job == null) return;
+        job.client.cancel(); projectHandler.removeCallbacks(job.timeout);
+        if (notify) notifyAi(job.id, null, "请求已取消（退出界面或切至后台）；服务可能已产生费用");
+    }
+
+    private void notifyAi(String id, String image, String error) {
+        if (destroyed || !ready || webView == null || !isAppDocument(webView.getUrl())) return;
+        webView.evaluateJavascript("window.MintAiTransport&&window.MintAiTransport.receive(" + JSONObject.quote(id)
+                + "," + (image == null ? "null" : JSONObject.quote(image)) + ","
+                + (error == null ? "null" : JSONObject.quote(error)) + ")", null);
+    }
+
     private static boolean isAppDocument(String url) {
         return APP_URL.equals(url) || (url != null && url.startsWith(APP_URL + "#"));
     }
 
     public final class ImageBridge {
+        @JavascriptInterface
+        public String samplePng(String id) {
+            // Fixed bundled assets only. Do not relax file-origin isolation or expose paths.
+            if (destroyed || !ready) return "";
+            String asset = "portrait".equals(id) ? "demo/astronaut.png"
+                    : "studio".equals(id) ? "demo/mint-portrait.png" : null;
+            if (asset == null) return "";
+            try (InputStream in = getAssets().open(asset);
+                 ByteArrayOutputStream out = new ByteArrayOutputStream()) {
+                byte[] buffer = new byte[16384];
+                int count;
+                while ((count = in.read(buffer)) != -1) {
+                    if (out.size() + count > 3 * 1024 * 1024) return "";
+                    out.write(buffer, 0, count);
+                }
+                return "data:image/png;base64," + android.util.Base64.encodeToString(
+                        out.toByteArray(), android.util.Base64.NO_WRAP);
+            } catch (IOException error) {
+                return "";
+            }
+        }
+
+        @JavascriptInterface
+        public void editImage(String payload, String requestId) {
+            if (requestId == null || !requestId.matches("[A-Za-z0-9_-]{1,96}")) return;
+            if (payload == null || payload.length() > AiImageClient.MAX_JSON) {
+                runOnUiThread(() -> notifyAi(requestId, null, "请求超过20MiB"));
+                return;
+            }
+            runOnUiThread(() -> beginAi(payload, requestId));
+        }
+
+        @JavascriptInterface
+        public void cancelAiEdit(String requestId) {
+            runOnUiThread(() -> { if (aiJob != null && aiJob.id.equals(requestId)) cancelAi(true); });
+        }
         @JavascriptInterface
         public boolean isExportBusy() {
             // Read-only bridge-thread check. A recreated page must not create a new JS job
@@ -305,7 +401,7 @@ public final class MainActivity extends Activity {
 
         @JavascriptInterface
         public void analyzePortrait(String dataUrl, String requestId, String kind) {
-            // Never expose native image file access. JS supplies only the current canvas pixels.
+            // Never expose native user-image file access. JS supplies current canvas pixels.
             if (requestId == null || requestId.length() > 96) return;
             runOnUiThread(() -> beginPortrait(dataUrl, requestId, kind));
         }
@@ -991,6 +1087,7 @@ public final class MainActivity extends Activity {
     }
 
     @Override protected void onPause() {
+        cancelAi(true);
         if (webView != null) webView.onPause();
         super.onPause();
     }
@@ -1012,6 +1109,8 @@ public final class MainActivity extends Activity {
 
     @Override protected void onDestroy() {
         destroyed = true;
+        cancelAi(false);
+        aiWorker.shutdownNow();
         if (unregisterBack != null) unregisterBack.run();
         cancelChooser();
         if (exitDialog != null) exitDialog.dismiss();

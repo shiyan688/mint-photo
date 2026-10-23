@@ -80,6 +80,7 @@
     document.querySelectorAll('[data-sample-filter]').forEach(el=>el.addEventListener('click',()=>{pendingTool=null;host.loadStudioDemo(el.dataset.sampleFilter);}));
     if($('homeBack'))$('homeBack').addEventListener('click',showHome);
     if($('resumeBtn'))$('resumeBtn').addEventListener('click',()=>{home=false;renderState();host.fit();});
+    document.querySelectorAll('.header-menu-items button').forEach(b=>b.addEventListener('click',()=>{if($('headerMenu'))$('headerMenu').open=false;}));
     if($('homeLibrary'))$('homeLibrary').addEventListener('click',()=>$('projectLibraryBtn').click());
     if($('studioDemoBtn'))$('studioDemoBtn').addEventListener('click',()=>{pendingTool=null;host.loadStudioDemo('original');});
     if($('fileInput'))$('fileInput').addEventListener('cancel',()=>{pendingTool=null;});

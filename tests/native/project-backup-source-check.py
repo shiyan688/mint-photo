@@ -60,5 +60,5 @@ check('chooserCallback != callback || chooserGeneration != generation' in valida
 check('new byte[32 * 1024]' in payload and 'new byte[(int) sourceLength]' not in payload, 'streamed source hashing, no full original array')
 check('keys.add(key)' in payload and 'MAX_DEPTH = 64' in payload, 'duplicate/depth enforcement')
 manifest = (root/'app/src/main/AndroidManifest.xml').read_text()
-check('android.permission.INTERNET" tools:node="remove"' in manifest or 'android.permission.INTERNET' not in manifest, 'no runtime Internet grant')
+check('settings.setBlockNetworkLoads(true)' in activity and 'android:usesCleartextTraffic="false"' in manifest, 'WebView stays network-blocked; optional AI uses native HTTPS only')
 print(f'Project backup static native integration: {checks} checks passed (not Android runtime evidence).')
