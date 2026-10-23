@@ -34,7 +34,7 @@ public final class AiFlowInstrumentation extends Instrumentation {
             require(pkg.endsWith(".e2e"),"disposable app ID enforced");
             activity=startActivitySync(new Intent(Intent.ACTION_MAIN).setComponent(new ComponentName(pkg,"com.qingyan.editor.MainActivity")).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
             runOnMainSync(()->web=findWeb(activity.getWindow().getDecorView()));
-            until("document.readyState==='complete'&&typeof Android.editImage==='function'",90000);
+            until("document.readyState==='complete'&&document.querySelector('#portraitDemoBtn')&&typeof document.querySelector('#portraitDemoBtn').onclick==='function'&&typeof Android.editImage==='function'",90000);
             AtomicReference<Boolean> blocked=new AtomicReference<>();runOnMainSync(()->blocked.set(web.getSettings().getBlockNetworkLoads()));require(blocked.get(),"WebView network stays blocked");
             click("#portraitDemoBtn");until("document.querySelector('#imageInfo').textContent.includes('512 × 512')",30000);
             js("window.__beforeAi=document.querySelector('#previewCanvas').toDataURL();true");
@@ -95,7 +95,7 @@ public final class AiFlowInstrumentation extends Instrumentation {
     private void require(boolean condition,String message){if(!condition)throw new AssertionError(message);checks.put(message);}
     private void click(String selector)throws Exception {js("document.querySelector("+JSONObject.quote(selector)+").click();true");}
     private void until(String expression,long timeout)throws Exception {long end=SystemClock.uptimeMillis()+timeout;while(SystemClock.uptimeMillis()<end){if("true".equals(js("!!("+expression+")")))return;SystemClock.sleep(250);}throw new AssertionError("Timeout: "+expression);}
-    private String js(String code)throws Exception {CountDownLatch latch=new CountDownLatch(1);AtomicReference<String> value=new AtomicReference<>();runOnMainSync(()->web.evaluateJavascript(code,v->{value.set(v);latch.countDown();}));if(!latch.await(30,TimeUnit.SECONDS))throw new AssertionError("JS timeout");return value.get();}
+    private String js(String code)throws Exception {CountDownLatch latch=new CountDownLatch(1);AtomicReference<String> value=new AtomicReference<>();runOnMainSync(()->web.evaluateJavascript("try{"+code+"}catch(e){'__MINT_E2E_JS_ERROR__'+String(e)}",v->{value.set(v);latch.countDown();}));if(!latch.await(30,TimeUnit.SECONDS))throw new AssertionError("JS timeout");if(value.get()!=null&&value.get().contains("__MINT_E2E_JS_ERROR__"))throw new AssertionError(value.get());return value.get();}
     private void capture(String name)throws Exception {Bitmap image=getUiAutomation().takeScreenshot();if(image==null)throw new AssertionError("Missing screenshot");try(FileOutputStream out=getTargetContext().openFileOutput("ai-e2e-"+name+".png",0)){image.compress(Bitmap.CompressFormat.PNG,100,out);}image.recycle();}
     private void write(String name,String text)throws Exception {try(FileOutputStream out=getTargetContext().openFileOutput(name,0)){out.write(text.getBytes(StandardCharsets.UTF_8));}}
     private WebView findWeb(View v){if(v instanceof WebView)return(WebView)v;if(v instanceof ViewGroup){ViewGroup g=(ViewGroup)v;for(int i=0;i<g.getChildCount();i++){WebView w=findWeb(g.getChildAt(i));if(w!=null)return w;}}return null;}
