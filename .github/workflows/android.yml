@@ -56,6 +56,11 @@ jobs:
         with:
           distribution: temurin
           java-version: '17'
+      - name: Initialize Android SDK tools
+        uses: android-actions/setup-android@9fc6c4e9069bf8d3d10b2204b1fb8f6ef7065407 # v3
+        with:
+          cmdline-tools-version: '12266719'
+          packages: 'platform-tools'
       - name: Install pinned Android platform and build tools
         run: sdkmanager 'platforms;android-35' 'build-tools;35.0.0'
       - name: Build ARM previews and run Android lint
