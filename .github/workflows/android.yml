@@ -122,6 +122,7 @@ jobs:
       - name: Build isolated app with ephemeral mock CA
         run: |
           bash tests/prepare-ai-e2e.sh
+          node tests/check-ai-mock-cancel.cjs
           bash gradlew --no-daemon -PaiE2eTest :app:assembleDebug :app:assembleDebugAndroidTest
       - name: Boot disposable Android and exercise the complete workflow
         timeout-minutes: 12
