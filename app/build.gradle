@@ -23,10 +23,6 @@ android {
 
     signingConfigs {
         debug {
-            if (project.hasProperty('aiE2eTest')) {
-                applicationIdSuffix '.e2e'
-                versionNameSuffix '-e2e'
-            }
             if (System.getenv('MINT_TEST_KEYSTORE')) {
                 storeFile file(System.getenv('MINT_TEST_KEYSTORE'))
                 storePassword 'android'
@@ -38,6 +34,11 @@ android {
 
     buildTypes {
         debug {
+            if (project.hasProperty('aiE2eTest')) {
+                applicationIdSuffix '.e2e'
+                versionNameSuffix '-e2e'
+            }
+
             // Standard local/CI debug signing produces an installable preview APK.
             // This is never a production signing identity.
             signingConfig signingConfigs.debug
