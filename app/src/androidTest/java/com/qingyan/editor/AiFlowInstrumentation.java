@@ -110,8 +110,24 @@ public final class AiFlowInstrumentation extends Instrumentation {
     private void waitPicker()throws Exception {long end=SystemClock.uptimeMillis()+20000;while(SystemClock.uptimeMillis()<end){AccessibilityNodeInfo n=getUiAutomation().getRootInActiveWindow();if(n!=null&&String.valueOf(n.getPackageName()).contains("documentsui"))return;SystemClock.sleep(300);}throw new AssertionError("system DocumentsUI not visible; state="+js("JSON.stringify({toast:document.querySelector('#toast')?.textContent,busy:document.querySelector('#busy')?.hidden,nativeBusy:Android.isExportBusy()})"));}
     private void chooseDownloads()throws Exception {
         AccessibilityNodeInfo root=getUiAutomation().getRootInActiveWindow();
-        AccessibilityNodeInfo nav=findDescription(root,"Show roots");
-        if(nav!=null){while(nav!=null&&!nav.isClickable())nav=nav.getParent();if(nav!=null)nav.performAction(AccessibilityNodeInfo.ACTION_CLICK);SystemClock.sleep(300);tapText("Downloads");SystemClock.sleep(300);}
+        AccessibilityNodeInfo roots=findId(root,"com.google.android.documentsui:id/roots_list");
+        AccessibilityNodeInfo breadcrumb=findId(root,"com.google.android.documentsui:id/breadcrumb_text");
+        boolean alreadyDownloads=breadcrumb!=null&&"Downloads".equals(String.valueOf(breadcrumb.getText()));
+        if(roots==null&&!alreadyDownloads){
+            AccessibilityNodeInfo nav=findDescription(root,"Show roots");
+            while(nav!=null&&!nav.isClickable())nav=nav.getParent();
+            require(nav!=null&&nav.performAction(AccessibilityNodeInfo.ACTION_CLICK),"system root navigation opened");
+        }
+        if(roots!=null||!alreadyDownloads){
+            long end=SystemClock.uptimeMillis()+15000;boolean selected=false;
+            while(SystemClock.uptimeMillis()<end){
+                roots=findId(getUiAutomation().getRootInActiveWindow(),"com.google.android.documentsui:id/roots_list");
+                AccessibilityNodeInfo n=findText(roots,"Downloads");
+                while(n!=null&&!n.isClickable())n=n.getParent();
+                if(n!=null&&n.performAction(AccessibilityNodeInfo.ACTION_CLICK)){selected=true;break;}SystemClock.sleep(250);
+            }
+            require(selected,"Downloads selected from the root list, not a duplicate breadcrumb");SystemClock.sleep(300);
+        }
         // Image grid mode omits filenames from accessibility. Select the real list control.
         AccessibilityNodeInfo list=findId(getUiAutomation().getRootInActiveWindow(),"com.google.android.documentsui:id/sub_menu_list");
         if(list!=null){require(list.performAction(AccessibilityNodeInfo.ACTION_CLICK),"system file list enabled for explicit filename selection");SystemClock.sleep(300);}
