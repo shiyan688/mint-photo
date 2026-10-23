@@ -39,7 +39,7 @@ public final class AiFlowInstrumentation extends Instrumentation {
             until("document.readyState==='complete'&&document.querySelector('#portraitDemoBtn')&&typeof document.querySelector('#portraitDemoBtn').onclick==='function'&&typeof Android.editImage==='function'&&!Android.isExportBusy()",90000);
             AtomicReference<Boolean> blocked=new AtomicReference<>();runOnMainSync(()->blocked.set(web.getSettings().getBlockNetworkLoads()));require(blocked.get(),"WebView network stays blocked");
             click("#importBtn");waitPicker();chooseDownloads();tapText("mint-e2e-source.png");until("document.querySelector('#imageInfo').textContent.includes('512 × 512')",30000);
-            capture("photo-imported");measureAdjustments();js("window.__beforeAi=document.querySelector('#previewCanvas').toDataURL();true");
+            capture("photo-imported");measureAdjustments();capture("adjustments-neutral");js("window.__beforeAi=document.querySelector('#previewCanvas').toDataURL();true");
             stage="erase";openAi("erase","/v1/images/edits");paint();capture("erase-selected");send();
             until("!document.querySelector('#aiAccept').hidden",45000);require("true".equals(js("document.querySelector('#aiKey').value===''")),"key cleared after erase");capture("erase-result");
             checkPixels(false);accept();saveAndReopen("erase",512,512);
@@ -50,6 +50,7 @@ public final class AiFlowInstrumentation extends Instrumentation {
             stage="cancel";openAi("erase","/slow");paint();send();until("MintAiUI.isBusy()",10000);click("#aiClose");until("!MintAiUI.isBusy()&&!document.querySelector('#aiDialog').open",30000);
             require("true".equals(js("document.querySelector('#aiKey').value===''&&document.querySelector('#aiAccept').hidden")),"cancel clears key and stale result");
             stage="outpaint";js("window.__beforeAi=document.querySelector('#previewCanvas').toDataURL();true");openAi("outpaint","/v1/images/edits");capture("outpaint-config");send();until("!document.querySelector('#aiAccept').hidden",45000);checkPixels(true);capture("outpaint-result");accept();saveAndReopen("outpaint",716,716);
+            stage="public-example";click("#homeBack");click("#portraitDemoBtn");until("document.querySelector('#imageInfo').textContent.includes('512 × 512')&&document.querySelector('#busy').hidden",30000);require(true,"bundled public photo example opens in Android");capture("public-example");
             JSONObject report=new JSONObject();report.put("result","PASS");report.put("androidApi",android.os.Build.VERSION.SDK_INT);report.put("abi",android.os.Build.SUPPORTED_ABIS[0]);report.put("checks",checks);report.put("timingsMsIncludingAutomationPolling",timings);report.put("mockService",true);report.put("realAiModel",false);report.put("physicalDevice",false);report.put("systemDocumentPicker",true);report.put("savedFilesReopened",true);
             write("ai-e2e-result.json",report.toString(2));result.putString("result","PASS Android AI mock workflow, "+checks.length()+" checks; real HTTPS/SAF, no real AI model");finish(0,result);
         } catch(Throwable e) {
@@ -72,7 +73,9 @@ public final class AiFlowInstrumentation extends Instrumentation {
     private void send()throws Exception {requestStarted=SystemClock.uptimeMillis();js("document.querySelector('#aiConsent').checked=true;document.querySelector('#aiSend').click();true");}
     private void paint()throws Exception {
         js("document.querySelector('#aiCanvas').scrollIntoView({block:'center'});true");SystemClock.sleep(300);
-        JSONArray r=new JSONArray(js("(()=>{let r=document.querySelector('#aiCanvas').getBoundingClientRect();return[r.left,r.top,r.width,r.height,innerWidth]})()"));
+        JSONArray r=new JSONArray(js("(()=>{let r=document.querySelector('#aiCanvas').getBoundingClientRect();return[r.left,r.top,r.width,r.height,innerWidth,innerHeight]})()"));
+        require(r.getDouble(0)>=0&&r.getDouble(0)+r.getDouble(2)<=r.getDouble(4)+1,"AI canvas fits Android viewport horizontally");
+        require(r.getDouble(1)+r.getDouble(3)*.45<r.getDouble(5),"erase stroke stays inside Android viewport");
         int[] offset=new int[2];runOnMainSync(()->web.getLocationOnScreen(offset));float scale=web.getWidth()/(float)r.getDouble(4);
         float x=offset[0]+(float)(r.getDouble(0)+r.getDouble(2)*.85)*scale,y=offset[1]+(float)(r.getDouble(1)+r.getDouble(3)*.3)*scale,dy=(float)r.getDouble(3)*.15f*scale;
         long down=SystemClock.uptimeMillis();pointer(down,MotionEvent.ACTION_DOWN,x,y);for(int i=1;i<=8;i++)pointer(down,MotionEvent.ACTION_MOVE,x,y+dy*i/8);pointer(down,MotionEvent.ACTION_UP,x,y+dy);
