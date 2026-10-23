@@ -1,0 +1,9 @@
+{
+  "name": "legacy-v1",
+  "recordVersion": 1,
+  "totalBytes": 320,
+  "manifestLength": 162,
+  "sourceLength": 78,
+  "manifestSha256": "9114c9cd0bb0e8ab576d77363e45e76b648bbbcacff1cae238c225ee2e39eea9",
+  "sourceSha256": "276a34c0692e95ef9ed6fe373b24c844ffdaf88289b2af8c1049e54f335ccbe1"
+}

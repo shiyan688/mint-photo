@@ -1,0 +1,19 @@
+{
+  "kind": "actual production Native Canvas, not WebView",
+  "prefixes": [
+    {
+      "index": 1,
+      "width": 600,
+      "height": 400,
+      "sha256": "2481da702b2d74d48cd239f80b830c3edb09315f70f6a5b4e9f5004a254eae47"
+    },
+    {
+      "index": 3,
+      "width": 320,
+      "height": 480,
+      "sha256": "e8c49c2df7eb2ec683a6739f74f2dec2cee04e22139aef8c233a737496ea36ad"
+    }
+  ],
+  "restoredSha256": "e8c49c2df7eb2ec683a6739f74f2dec2cee04e22139aef8c233a737496ea36ad",
+  "sourceBlobUnchanged": true
+}

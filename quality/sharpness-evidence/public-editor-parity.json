@@ -1,0 +1,17 @@
+{
+  "fixture": "NASA adult portrait, JPEG derivative decoded/re-encoded to PNG test source, not full original-resolution claim",
+  "dimensions": {
+    "width": 1000,
+    "height": 1250
+  },
+  "recipe": {
+    "version": 1,
+    "amount": 50,
+    "radius": 1,
+    "threshold": 3
+  },
+  "rgbaSha256": "2494e9da3d969fe7d89ab175444066ea15f57f546b0446e8db1816f571f2841a",
+  "sharedCoreEqualsActualEditorPNG": true,
+  "sourceBlobUnchanged": true,
+  "runtime": "NativeCanvas+controlled DOM, not WebView"
+}

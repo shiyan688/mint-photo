@@ -1,0 +1,31 @@
+{
+  "started": "2026-10-22T15:20:08.020Z",
+  "completed": "2026-10-22T15:20:13.310Z",
+  "sourceRoot": "/workspace/scratch/902a42ed06ad/mobile-oct22/薄荷人像",
+  "node": "v24.19.0",
+  "scope": "Independent production mobile adapters and event routing on installed native Canvas with controlled DOM. Not WebView/phone or broad shared-core numerical quality certification.",
+  "sourceStableDuringRun": true,
+  "status": 0,
+  "tests": 32,
+  "pass": 32,
+  "fail": 0,
+  "sourceSha256": {
+    "light-balance.js": "bfd8cb0be2fbdaea50ce59b5646cf6a99ae3a980fdb97cd554a901761860dac1",
+    "light-balance-operation.js": "c6efaf79a6310894612c91a2cbf7e95610fe2fd5751284116b7684819be58926",
+    "light-balance-ui.js": "2da85fd40ec6e701e4dca081eb0af6ca12d6b1def6c5545d99ad8b9f562b30f7",
+    "preset-codec.js": "b03d59aab2fa6b32639ceb1ddc0d22e680adde21a2834aece6cea9e79645e5d6",
+    "preset-operation.js": "c963b6c7b77c3a3991bb31bd5373a746765f96c3820ad03f2edbb9ccf82b2687",
+    "preset-ui.js": "0aaa27b997d28668016de58bcd4530d2e4b23d521835072e9e61cb567051a538",
+    "preset-library.js": "490bf736ae8bf230633be1fa1383f9ce2a8cc99ae25e79ac3b0d11c0220b619b",
+    "project-core.js": "b9a450e5b569ab81a17440f1279667859ae2d9071d5d912fd69f357e9b0c2152",
+    "editor.js": "22574106b7608d10fd8644049e048900cc7eb1e409f73c60aa770270f78f888e",
+    "portrait-engine.js": "5cde7dcd60aab1d68e1ec5fb026c6396c2f395c1597dd03113c34674ba57d524",
+    "local-adjustments.js": "1fff1c416893849296fbd6cca6bad0ab854766a819017ce7990486f05eda7757",
+    "levels.js": "1e454e275c24e2e99b7b6e32bad3569a3ce996e73e2d8cc895c00aea5daf327f",
+    "advanced-tone.js": "bf2d10e8044856fbdaabcc24d4c6c43cf3d818a25127fc50c6299fa93eb61628",
+    "viewport.js": "8f528be53014044a2c9c4385e1bb2565b221e067cf68627d7a2377e46b12d751",
+    "viewport-ui.js": "1db22fe01846d4f199a1ba8498ec20c1ffaadd1e034504f931e27684a37a639c",
+    "image-overlay-ui.js": "42964cd195c2f6e36257632641719492e0043df4e215efb2cbc0b1d161117fdb",
+    "image-import.js": "65beb10ebb576ba6efdc91bdbd2c756d7bd39a4bd40f8a74284e4788e928bd78"
+  }
+}

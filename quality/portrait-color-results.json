@@ -1,0 +1,2877 @@
+{
+  "coreSha256": "5cde7dcd60aab1d68e1ec5fb026c6396c2f395c1597dd03113c34674ba57d524",
+  "results": [
+    {
+      "name": "01_kim",
+      "label": "zero",
+      "settings": {},
+      "width": 875,
+      "height": 1000,
+      "changed": 0,
+      "maxDelta": 0,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 32
+    },
+    {
+      "name": "01_kim",
+      "label": "natural",
+      "settings": {
+        "smooth": 16,
+        "underEye": 12,
+        "redness": 8
+      },
+      "width": 875,
+      "height": 1000,
+      "changed": 22174,
+      "maxDelta": 1,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 389
+    },
+    {
+      "name": "01_kim",
+      "label": "peach",
+      "settings": {
+        "smooth": 18,
+        "underEye": 12,
+        "redness": 8,
+        "lip": 18,
+        "blush": 12,
+        "palette": "peach"
+      },
+      "width": 875,
+      "height": 1000,
+      "changed": 36257,
+      "maxDelta": 5,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 417
+    },
+    {
+      "name": "01_kim",
+      "label": "smooth25",
+      "settings": {
+        "smooth": 25
+      },
+      "width": 875,
+      "height": 1000,
+      "changed": 28222,
+      "maxDelta": 2,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 142
+    },
+    {
+      "name": "01_kim",
+      "label": "smooth50",
+      "settings": {
+        "smooth": 50
+      },
+      "width": 875,
+      "height": 1000,
+      "changed": 78173,
+      "maxDelta": 3,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 135
+    },
+    {
+      "name": "01_kim",
+      "label": "smooth100",
+      "settings": {
+        "smooth": 100
+      },
+      "width": 875,
+      "height": 1000,
+      "changed": 124210,
+      "maxDelta": 7,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 150
+    },
+    {
+      "name": "01_kim",
+      "label": "brighten25",
+      "settings": {
+        "brighten": 25
+      },
+      "width": 875,
+      "height": 1000,
+      "changed": 170837,
+      "maxDelta": 6,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 89
+    },
+    {
+      "name": "01_kim",
+      "label": "brighten50",
+      "settings": {
+        "brighten": 50
+      },
+      "width": 875,
+      "height": 1000,
+      "changed": 178825,
+      "maxDelta": 12,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 73
+    },
+    {
+      "name": "01_kim",
+      "label": "brighten100",
+      "settings": {
+        "brighten": 100
+      },
+      "width": 875,
+      "height": 1000,
+      "changed": 184335,
+      "maxDelta": 22,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 74
+    },
+    {
+      "name": "01_kim",
+      "label": "underEye25",
+      "settings": {
+        "underEye": 25
+      },
+      "width": 875,
+      "height": 1000,
+      "changed": 278,
+      "maxDelta": 1,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 231
+    },
+    {
+      "name": "01_kim",
+      "label": "underEye50",
+      "settings": {
+        "underEye": 50
+      },
+      "width": 875,
+      "height": 1000,
+      "changed": 1350,
+      "maxDelta": 1,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 219
+    },
+    {
+      "name": "01_kim",
+      "label": "underEye100",
+      "settings": {
+        "underEye": 100
+      },
+      "width": 875,
+      "height": 1000,
+      "changed": 2193,
+      "maxDelta": 3,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 218
+    },
+    {
+      "name": "01_kim",
+      "label": "redness25",
+      "settings": {
+        "redness": 25
+      },
+      "width": 875,
+      "height": 1000,
+      "changed": 41045,
+      "maxDelta": 3,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 233
+    },
+    {
+      "name": "01_kim",
+      "label": "redness50",
+      "settings": {
+        "redness": 50
+      },
+      "width": 875,
+      "height": 1000,
+      "changed": 56171,
+      "maxDelta": 5,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 222
+    },
+    {
+      "name": "01_kim",
+      "label": "redness100",
+      "settings": {
+        "redness": 100
+      },
+      "width": 875,
+      "height": 1000,
+      "changed": 65862,
+      "maxDelta": 10,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 209
+    },
+    {
+      "name": "01_kim",
+      "label": "lip25",
+      "settings": {
+        "lip": 25
+      },
+      "width": 875,
+      "height": 1000,
+      "changed": 5616,
+      "maxDelta": 10,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 212
+    },
+    {
+      "name": "01_kim",
+      "label": "lip50",
+      "settings": {
+        "lip": 50
+      },
+      "width": 875,
+      "height": 1000,
+      "changed": 6174,
+      "maxDelta": 19,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 219
+    },
+    {
+      "name": "01_kim",
+      "label": "lip100",
+      "settings": {
+        "lip": 100
+      },
+      "width": 875,
+      "height": 1000,
+      "changed": 6473,
+      "maxDelta": 33,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 212
+    },
+    {
+      "name": "01_kim",
+      "label": "blush25",
+      "settings": {
+        "blush": 25
+      },
+      "width": 875,
+      "height": 1000,
+      "changed": 18169,
+      "maxDelta": 2,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 214
+    },
+    {
+      "name": "01_kim",
+      "label": "blush50",
+      "settings": {
+        "blush": 50
+      },
+      "width": 875,
+      "height": 1000,
+      "changed": 27208,
+      "maxDelta": 4,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 225
+    },
+    {
+      "name": "01_kim",
+      "label": "blush100",
+      "settings": {
+        "blush": 100
+      },
+      "width": 875,
+      "height": 1000,
+      "changed": 34864,
+      "maxDelta": 8,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 216
+    },
+    {
+      "name": "01_kim",
+      "label": "combined25",
+      "settings": {
+        "smooth": 25,
+        "brighten": 25,
+        "underEye": 25,
+        "redness": 25,
+        "lip": 25,
+        "blush": 25,
+        "palette": "rose"
+      },
+      "width": 875,
+      "height": 1000,
+      "changed": 177593,
+      "maxDelta": 11,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 318
+    },
+    {
+      "name": "01_kim",
+      "label": "combined50",
+      "settings": {
+        "smooth": 50,
+        "brighten": 50,
+        "underEye": 50,
+        "redness": 50,
+        "lip": 50,
+        "blush": 50,
+        "palette": "rose"
+      },
+      "width": 875,
+      "height": 1000,
+      "changed": 185819,
+      "maxDelta": 21,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 345
+    },
+    {
+      "name": "01_kim",
+      "label": "combined100",
+      "settings": {
+        "smooth": 100,
+        "brighten": 100,
+        "underEye": 100,
+        "redness": 100,
+        "lip": 100,
+        "blush": 100,
+        "palette": "rose"
+      },
+      "width": 875,
+      "height": 1000,
+      "changed": 191363,
+      "maxDelta": 34,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 331
+    },
+    {
+      "name": "02_chawla",
+      "label": "zero",
+      "settings": {},
+      "width": 900,
+      "height": 958,
+      "changed": 0,
+      "maxDelta": 0,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 48
+    },
+    {
+      "name": "02_chawla",
+      "label": "natural",
+      "settings": {
+        "smooth": 16,
+        "underEye": 12,
+        "redness": 8
+      },
+      "width": 900,
+      "height": 958,
+      "changed": 24407,
+      "maxDelta": 2,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 257
+    },
+    {
+      "name": "02_chawla",
+      "label": "peach",
+      "settings": {
+        "smooth": 18,
+        "underEye": 12,
+        "redness": 8,
+        "lip": 18,
+        "blush": 12,
+        "palette": "peach"
+      },
+      "width": 900,
+      "height": 958,
+      "changed": 43807,
+      "maxDelta": 4,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 297
+    },
+    {
+      "name": "02_chawla",
+      "label": "smooth25",
+      "settings": {
+        "smooth": 25
+      },
+      "width": 900,
+      "height": 958,
+      "changed": 44958,
+      "maxDelta": 2,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 114
+    },
+    {
+      "name": "02_chawla",
+      "label": "smooth50",
+      "settings": {
+        "smooth": 50
+      },
+      "width": 900,
+      "height": 958,
+      "changed": 90564,
+      "maxDelta": 3,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 157
+    },
+    {
+      "name": "02_chawla",
+      "label": "smooth100",
+      "settings": {
+        "smooth": 100
+      },
+      "width": 900,
+      "height": 958,
+      "changed": 123528,
+      "maxDelta": 7,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 143
+    },
+    {
+      "name": "02_chawla",
+      "label": "brighten25",
+      "settings": {
+        "brighten": 25
+      },
+      "width": 900,
+      "height": 958,
+      "changed": 144472,
+      "maxDelta": 6,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 90
+    },
+    {
+      "name": "02_chawla",
+      "label": "brighten50",
+      "settings": {
+        "brighten": 50
+      },
+      "width": 900,
+      "height": 958,
+      "changed": 152780,
+      "maxDelta": 12,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 71
+    },
+    {
+      "name": "02_chawla",
+      "label": "brighten100",
+      "settings": {
+        "brighten": 100
+      },
+      "width": 900,
+      "height": 958,
+      "changed": 158086,
+      "maxDelta": 22,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 84
+    },
+    {
+      "name": "02_chawla",
+      "label": "underEye25",
+      "settings": {
+        "underEye": 25
+      },
+      "width": 900,
+      "height": 958,
+      "changed": 3478,
+      "maxDelta": 3,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 207
+    },
+    {
+      "name": "02_chawla",
+      "label": "underEye50",
+      "settings": {
+        "underEye": 50
+      },
+      "width": 900,
+      "height": 958,
+      "changed": 4632,
+      "maxDelta": 6,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 221
+    },
+    {
+      "name": "02_chawla",
+      "label": "underEye100",
+      "settings": {
+        "underEye": 100
+      },
+      "width": 900,
+      "height": 958,
+      "changed": 5634,
+      "maxDelta": 11,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 217
+    },
+    {
+      "name": "02_chawla",
+      "label": "redness25",
+      "settings": {
+        "redness": 25
+      },
+      "width": 900,
+      "height": 958,
+      "changed": 18703,
+      "maxDelta": 2,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 156
+    },
+    {
+      "name": "02_chawla",
+      "label": "redness50",
+      "settings": {
+        "redness": 50
+      },
+      "width": 900,
+      "height": 958,
+      "changed": 39987,
+      "maxDelta": 4,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 155
+    },
+    {
+      "name": "02_chawla",
+      "label": "redness100",
+      "settings": {
+        "redness": 100
+      },
+      "width": 900,
+      "height": 958,
+      "changed": 57756,
+      "maxDelta": 9,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 159
+    },
+    {
+      "name": "02_chawla",
+      "label": "lip25",
+      "settings": {
+        "lip": 25
+      },
+      "width": 900,
+      "height": 958,
+      "changed": 6079,
+      "maxDelta": 9,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 169
+    },
+    {
+      "name": "02_chawla",
+      "label": "lip50",
+      "settings": {
+        "lip": 50
+      },
+      "width": 900,
+      "height": 958,
+      "changed": 6837,
+      "maxDelta": 17,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 175
+    },
+    {
+      "name": "02_chawla",
+      "label": "lip100",
+      "settings": {
+        "lip": 100
+      },
+      "width": 900,
+      "height": 958,
+      "changed": 7239,
+      "maxDelta": 27,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 196
+    },
+    {
+      "name": "02_chawla",
+      "label": "blush25",
+      "settings": {
+        "blush": 25
+      },
+      "width": 900,
+      "height": 958,
+      "changed": 20508,
+      "maxDelta": 2,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 183
+    },
+    {
+      "name": "02_chawla",
+      "label": "blush50",
+      "settings": {
+        "blush": 50
+      },
+      "width": 900,
+      "height": 958,
+      "changed": 26838,
+      "maxDelta": 5,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 189
+    },
+    {
+      "name": "02_chawla",
+      "label": "blush100",
+      "settings": {
+        "blush": 100
+      },
+      "width": 900,
+      "height": 958,
+      "changed": 32215,
+      "maxDelta": 9,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 173
+    },
+    {
+      "name": "02_chawla",
+      "label": "combined25",
+      "settings": {
+        "smooth": 25,
+        "brighten": 25,
+        "underEye": 25,
+        "redness": 25,
+        "lip": 25,
+        "blush": 25,
+        "palette": "rose"
+      },
+      "width": 900,
+      "height": 958,
+      "changed": 151474,
+      "maxDelta": 10,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 241
+    },
+    {
+      "name": "02_chawla",
+      "label": "combined50",
+      "settings": {
+        "smooth": 50,
+        "brighten": 50,
+        "underEye": 50,
+        "redness": 50,
+        "lip": 50,
+        "blush": 50,
+        "palette": "rose"
+      },
+      "width": 900,
+      "height": 958,
+      "changed": 160470,
+      "maxDelta": 18,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 248
+    },
+    {
+      "name": "02_chawla",
+      "label": "combined100",
+      "settings": {
+        "smooth": 100,
+        "brighten": 100,
+        "underEye": 100,
+        "redness": 100,
+        "lip": 100,
+        "blush": 100,
+        "palette": "rose"
+      },
+      "width": 900,
+      "height": 958,
+      "changed": 166122,
+      "maxDelta": 35,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 236
+    },
+    {
+      "name": "03_williams",
+      "label": "zero",
+      "settings": {},
+      "width": 891,
+      "height": 1000,
+      "changed": 0,
+      "maxDelta": 0,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 7
+    },
+    {
+      "name": "03_williams",
+      "label": "natural",
+      "settings": {
+        "smooth": 16,
+        "underEye": 12,
+        "redness": 8
+      },
+      "width": 891,
+      "height": 1000,
+      "changed": 12068,
+      "maxDelta": 1,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 220
+    },
+    {
+      "name": "03_williams",
+      "label": "peach",
+      "settings": {
+        "smooth": 18,
+        "underEye": 12,
+        "redness": 8,
+        "lip": 18,
+        "blush": 12,
+        "palette": "peach"
+      },
+      "width": 891,
+      "height": 1000,
+      "changed": 18977,
+      "maxDelta": 2,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 250
+    },
+    {
+      "name": "03_williams",
+      "label": "smooth25",
+      "settings": {
+        "smooth": 25
+      },
+      "width": 891,
+      "height": 1000,
+      "changed": 20003,
+      "maxDelta": 2,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 114
+    },
+    {
+      "name": "03_williams",
+      "label": "smooth50",
+      "settings": {
+        "smooth": 50
+      },
+      "width": 891,
+      "height": 1000,
+      "changed": 65559,
+      "maxDelta": 3,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 117
+    },
+    {
+      "name": "03_williams",
+      "label": "smooth100",
+      "settings": {
+        "smooth": 100
+      },
+      "width": 891,
+      "height": 1000,
+      "changed": 112282,
+      "maxDelta": 6,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 131
+    },
+    {
+      "name": "03_williams",
+      "label": "brighten25",
+      "settings": {
+        "brighten": 25
+      },
+      "width": 891,
+      "height": 1000,
+      "changed": 161163,
+      "maxDelta": 6,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 76
+    },
+    {
+      "name": "03_williams",
+      "label": "brighten50",
+      "settings": {
+        "brighten": 50
+      },
+      "width": 891,
+      "height": 1000,
+      "changed": 168315,
+      "maxDelta": 12,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 74
+    },
+    {
+      "name": "03_williams",
+      "label": "brighten100",
+      "settings": {
+        "brighten": 100
+      },
+      "width": 891,
+      "height": 1000,
+      "changed": 173391,
+      "maxDelta": 22,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 82
+    },
+    {
+      "name": "03_williams",
+      "label": "underEye25",
+      "settings": {
+        "underEye": 25
+      },
+      "width": 891,
+      "height": 1000,
+      "changed": 1037,
+      "maxDelta": 1,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 170
+    },
+    {
+      "name": "03_williams",
+      "label": "underEye50",
+      "settings": {
+        "underEye": 50
+      },
+      "width": 891,
+      "height": 1000,
+      "changed": 2673,
+      "maxDelta": 2,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 162
+    },
+    {
+      "name": "03_williams",
+      "label": "underEye100",
+      "settings": {
+        "underEye": 100
+      },
+      "width": 891,
+      "height": 1000,
+      "changed": 4304,
+      "maxDelta": 4,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 161
+    },
+    {
+      "name": "03_williams",
+      "label": "redness25",
+      "settings": {
+        "redness": 25
+      },
+      "width": 891,
+      "height": 1000,
+      "changed": 28236,
+      "maxDelta": 2,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 159
+    },
+    {
+      "name": "03_williams",
+      "label": "redness50",
+      "settings": {
+        "redness": 50
+      },
+      "width": 891,
+      "height": 1000,
+      "changed": 46482,
+      "maxDelta": 5,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 159
+    },
+    {
+      "name": "03_williams",
+      "label": "redness100",
+      "settings": {
+        "redness": 100
+      },
+      "width": 891,
+      "height": 1000,
+      "changed": 59781,
+      "maxDelta": 9,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 160
+    },
+    {
+      "name": "03_williams",
+      "label": "lip25",
+      "settings": {
+        "lip": 25
+      },
+      "width": 891,
+      "height": 1000,
+      "changed": 4284,
+      "maxDelta": 6,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 174
+    },
+    {
+      "name": "03_williams",
+      "label": "lip50",
+      "settings": {
+        "lip": 50
+      },
+      "width": 891,
+      "height": 1000,
+      "changed": 4882,
+      "maxDelta": 11,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 170
+    },
+    {
+      "name": "03_williams",
+      "label": "lip100",
+      "settings": {
+        "lip": 100
+      },
+      "width": 891,
+      "height": 1000,
+      "changed": 5184,
+      "maxDelta": 20,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 171
+    },
+    {
+      "name": "03_williams",
+      "label": "blush25",
+      "settings": {
+        "blush": 25
+      },
+      "width": 891,
+      "height": 1000,
+      "changed": 13450,
+      "maxDelta": 2,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 164
+    },
+    {
+      "name": "03_williams",
+      "label": "blush50",
+      "settings": {
+        "blush": 50
+      },
+      "width": 891,
+      "height": 1000,
+      "changed": 22931,
+      "maxDelta": 3,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 160
+    },
+    {
+      "name": "03_williams",
+      "label": "blush100",
+      "settings": {
+        "blush": 100
+      },
+      "width": 891,
+      "height": 1000,
+      "changed": 30724,
+      "maxDelta": 7,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 159
+    },
+    {
+      "name": "03_williams",
+      "label": "combined25",
+      "settings": {
+        "smooth": 25,
+        "brighten": 25,
+        "underEye": 25,
+        "redness": 25,
+        "lip": 25,
+        "blush": 25,
+        "palette": "rose"
+      },
+      "width": 891,
+      "height": 1000,
+      "changed": 166851,
+      "maxDelta": 7,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 237
+    },
+    {
+      "name": "03_williams",
+      "label": "combined50",
+      "settings": {
+        "smooth": 50,
+        "brighten": 50,
+        "underEye": 50,
+        "redness": 50,
+        "lip": 50,
+        "blush": 50,
+        "palette": "rose"
+      },
+      "width": 891,
+      "height": 1000,
+      "changed": 174299,
+      "maxDelta": 14,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 242
+    },
+    {
+      "name": "03_williams",
+      "label": "combined100",
+      "settings": {
+        "smooth": 100,
+        "brighten": 100,
+        "underEye": 100,
+        "redness": 100,
+        "lip": 100,
+        "blush": 100,
+        "palette": "rose"
+      },
+      "width": 891,
+      "height": 1000,
+      "changed": 179434,
+      "maxDelta": 28,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 240
+    },
+    {
+      "name": "04_yamazaki",
+      "label": "zero",
+      "settings": {},
+      "width": 893,
+      "height": 1000,
+      "changed": 0,
+      "maxDelta": 0,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 7
+    },
+    {
+      "name": "04_yamazaki",
+      "label": "natural",
+      "settings": {
+        "smooth": 16,
+        "underEye": 12,
+        "redness": 8
+      },
+      "width": 893,
+      "height": 1000,
+      "changed": 19007,
+      "maxDelta": 1,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 218
+    },
+    {
+      "name": "04_yamazaki",
+      "label": "peach",
+      "settings": {
+        "smooth": 18,
+        "underEye": 12,
+        "redness": 8,
+        "lip": 18,
+        "blush": 12,
+        "palette": "peach"
+      },
+      "width": 893,
+      "height": 1000,
+      "changed": 36292,
+      "maxDelta": 6,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 244
+    },
+    {
+      "name": "04_yamazaki",
+      "label": "smooth25",
+      "settings": {
+        "smooth": 25
+      },
+      "width": 893,
+      "height": 1000,
+      "changed": 41905,
+      "maxDelta": 2,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 117
+    },
+    {
+      "name": "04_yamazaki",
+      "label": "smooth50",
+      "settings": {
+        "smooth": 50
+      },
+      "width": 893,
+      "height": 1000,
+      "changed": 91147,
+      "maxDelta": 4,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 128
+    },
+    {
+      "name": "04_yamazaki",
+      "label": "smooth100",
+      "settings": {
+        "smooth": 100
+      },
+      "width": 893,
+      "height": 1000,
+      "changed": 127678,
+      "maxDelta": 7,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 131
+    },
+    {
+      "name": "04_yamazaki",
+      "label": "brighten25",
+      "settings": {
+        "brighten": 25
+      },
+      "width": 893,
+      "height": 1000,
+      "changed": 150955,
+      "maxDelta": 6,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 87
+    },
+    {
+      "name": "04_yamazaki",
+      "label": "brighten50",
+      "settings": {
+        "brighten": 50
+      },
+      "width": 893,
+      "height": 1000,
+      "changed": 158257,
+      "maxDelta": 12,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 91
+    },
+    {
+      "name": "04_yamazaki",
+      "label": "brighten100",
+      "settings": {
+        "brighten": 100
+      },
+      "width": 893,
+      "height": 1000,
+      "changed": 164009,
+      "maxDelta": 22,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 89
+    },
+    {
+      "name": "04_yamazaki",
+      "label": "underEye25",
+      "settings": {
+        "underEye": 25
+      },
+      "width": 893,
+      "height": 1000,
+      "changed": 1217,
+      "maxDelta": 1,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 177
+    },
+    {
+      "name": "04_yamazaki",
+      "label": "underEye50",
+      "settings": {
+        "underEye": 50
+      },
+      "width": 893,
+      "height": 1000,
+      "changed": 2114,
+      "maxDelta": 2,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 170
+    },
+    {
+      "name": "04_yamazaki",
+      "label": "underEye100",
+      "settings": {
+        "underEye": 100
+      },
+      "width": 893,
+      "height": 1000,
+      "changed": 2884,
+      "maxDelta": 5,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 180
+    },
+    {
+      "name": "04_yamazaki",
+      "label": "redness25",
+      "settings": {
+        "redness": 25
+      },
+      "width": 893,
+      "height": 1000,
+      "changed": 9504,
+      "maxDelta": 2,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 174
+    },
+    {
+      "name": "04_yamazaki",
+      "label": "redness50",
+      "settings": {
+        "redness": 50
+      },
+      "width": 893,
+      "height": 1000,
+      "changed": 17913,
+      "maxDelta": 3,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 183
+    },
+    {
+      "name": "04_yamazaki",
+      "label": "redness100",
+      "settings": {
+        "redness": 100
+      },
+      "width": 893,
+      "height": 1000,
+      "changed": 24929,
+      "maxDelta": 7,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 184
+    },
+    {
+      "name": "04_yamazaki",
+      "label": "lip25",
+      "settings": {
+        "lip": 25
+      },
+      "width": 893,
+      "height": 1000,
+      "changed": 3868,
+      "maxDelta": 11,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 179
+    },
+    {
+      "name": "04_yamazaki",
+      "label": "lip50",
+      "settings": {
+        "lip": 50
+      },
+      "width": 893,
+      "height": 1000,
+      "changed": 4518,
+      "maxDelta": 21,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 186
+    },
+    {
+      "name": "04_yamazaki",
+      "label": "lip100",
+      "settings": {
+        "lip": 100
+      },
+      "width": 893,
+      "height": 1000,
+      "changed": 4878,
+      "maxDelta": 34,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 213
+    },
+    {
+      "name": "04_yamazaki",
+      "label": "blush25",
+      "settings": {
+        "blush": 25
+      },
+      "width": 893,
+      "height": 1000,
+      "changed": 23476,
+      "maxDelta": 2,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 166
+    },
+    {
+      "name": "04_yamazaki",
+      "label": "blush50",
+      "settings": {
+        "blush": 50
+      },
+      "width": 893,
+      "height": 1000,
+      "changed": 31672,
+      "maxDelta": 4,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 169
+    },
+    {
+      "name": "04_yamazaki",
+      "label": "blush100",
+      "settings": {
+        "blush": 100
+      },
+      "width": 893,
+      "height": 1000,
+      "changed": 38137,
+      "maxDelta": 9,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 165
+    },
+    {
+      "name": "04_yamazaki",
+      "label": "combined25",
+      "settings": {
+        "smooth": 25,
+        "brighten": 25,
+        "underEye": 25,
+        "redness": 25,
+        "lip": 25,
+        "blush": 25,
+        "palette": "rose"
+      },
+      "width": 893,
+      "height": 1000,
+      "changed": 156650,
+      "maxDelta": 12,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 244
+    },
+    {
+      "name": "04_yamazaki",
+      "label": "combined50",
+      "settings": {
+        "smooth": 50,
+        "brighten": 50,
+        "underEye": 50,
+        "redness": 50,
+        "lip": 50,
+        "blush": 50,
+        "palette": "rose"
+      },
+      "width": 893,
+      "height": 1000,
+      "changed": 164319,
+      "maxDelta": 22,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 264
+    },
+    {
+      "name": "04_yamazaki",
+      "label": "combined100",
+      "settings": {
+        "smooth": 100,
+        "brighten": 100,
+        "underEye": 100,
+        "redness": 100,
+        "lip": 100,
+        "blush": 100,
+        "palette": "rose"
+      },
+      "width": 893,
+      "height": 1000,
+      "changed": 170050,
+      "maxDelta": 37,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 257
+    },
+    {
+      "name": "05_mukai",
+      "label": "zero",
+      "settings": {},
+      "width": 897,
+      "height": 1000,
+      "changed": 0,
+      "maxDelta": 0,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 8
+    },
+    {
+      "name": "05_mukai",
+      "label": "natural",
+      "settings": {
+        "smooth": 16,
+        "underEye": 12,
+        "redness": 8
+      },
+      "width": 897,
+      "height": 1000,
+      "changed": 43081,
+      "maxDelta": 2,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 237
+    },
+    {
+      "name": "05_mukai",
+      "label": "peach",
+      "settings": {
+        "smooth": 18,
+        "underEye": 12,
+        "redness": 8,
+        "lip": 18,
+        "blush": 12,
+        "palette": "peach"
+      },
+      "width": 897,
+      "height": 1000,
+      "changed": 63682,
+      "maxDelta": 5,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 265
+    },
+    {
+      "name": "05_mukai",
+      "label": "smooth25",
+      "settings": {
+        "smooth": 25
+      },
+      "width": 897,
+      "height": 1000,
+      "changed": 75351,
+      "maxDelta": 2,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 118
+    },
+    {
+      "name": "05_mukai",
+      "label": "smooth50",
+      "settings": {
+        "smooth": 50
+      },
+      "width": 897,
+      "height": 1000,
+      "changed": 122260,
+      "maxDelta": 4,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 134
+    },
+    {
+      "name": "05_mukai",
+      "label": "smooth100",
+      "settings": {
+        "smooth": 100
+      },
+      "width": 897,
+      "height": 1000,
+      "changed": 149553,
+      "maxDelta": 8,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 122
+    },
+    {
+      "name": "05_mukai",
+      "label": "brighten25",
+      "settings": {
+        "brighten": 25
+      },
+      "width": 897,
+      "height": 1000,
+      "changed": 140123,
+      "maxDelta": 6,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 83
+    },
+    {
+      "name": "05_mukai",
+      "label": "brighten50",
+      "settings": {
+        "brighten": 50
+      },
+      "width": 897,
+      "height": 1000,
+      "changed": 161387,
+      "maxDelta": 12,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 84
+    },
+    {
+      "name": "05_mukai",
+      "label": "brighten100",
+      "settings": {
+        "brighten": 100
+      },
+      "width": 897,
+      "height": 1000,
+      "changed": 172529,
+      "maxDelta": 22,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 75
+    },
+    {
+      "name": "05_mukai",
+      "label": "underEye25",
+      "settings": {
+        "underEye": 25
+      },
+      "width": 897,
+      "height": 1000,
+      "changed": 349,
+      "maxDelta": 1,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 192
+    },
+    {
+      "name": "05_mukai",
+      "label": "underEye50",
+      "settings": {
+        "underEye": 50
+      },
+      "width": 897,
+      "height": 1000,
+      "changed": 850,
+      "maxDelta": 2,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 163
+    },
+    {
+      "name": "05_mukai",
+      "label": "underEye100",
+      "settings": {
+        "underEye": 100
+      },
+      "width": 897,
+      "height": 1000,
+      "changed": 1533,
+      "maxDelta": 3,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 164
+    },
+    {
+      "name": "05_mukai",
+      "label": "redness25",
+      "settings": {
+        "redness": 25
+      },
+      "width": 897,
+      "height": 1000,
+      "changed": 14034,
+      "maxDelta": 4,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 157
+    },
+    {
+      "name": "05_mukai",
+      "label": "redness50",
+      "settings": {
+        "redness": 50
+      },
+      "width": 897,
+      "height": 1000,
+      "changed": 29237,
+      "maxDelta": 8,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 171
+    },
+    {
+      "name": "05_mukai",
+      "label": "redness100",
+      "settings": {
+        "redness": 100
+      },
+      "width": 897,
+      "height": 1000,
+      "changed": 44176,
+      "maxDelta": 15,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 181
+    },
+    {
+      "name": "05_mukai",
+      "label": "lip25",
+      "settings": {
+        "lip": 25
+      },
+      "width": 897,
+      "height": 1000,
+      "changed": 4100,
+      "maxDelta": 10,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 181
+    },
+    {
+      "name": "05_mukai",
+      "label": "lip50",
+      "settings": {
+        "lip": 50
+      },
+      "width": 897,
+      "height": 1000,
+      "changed": 4891,
+      "maxDelta": 14,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 171
+    },
+    {
+      "name": "05_mukai",
+      "label": "lip100",
+      "settings": {
+        "lip": 100
+      },
+      "width": 897,
+      "height": 1000,
+      "changed": 5364,
+      "maxDelta": 22,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 177
+    },
+    {
+      "name": "05_mukai",
+      "label": "blush25",
+      "settings": {
+        "blush": 25
+      },
+      "width": 897,
+      "height": 1000,
+      "changed": 23271,
+      "maxDelta": 2,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 166
+    },
+    {
+      "name": "05_mukai",
+      "label": "blush50",
+      "settings": {
+        "blush": 50
+      },
+      "width": 897,
+      "height": 1000,
+      "changed": 30353,
+      "maxDelta": 4,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 178
+    },
+    {
+      "name": "05_mukai",
+      "label": "blush100",
+      "settings": {
+        "blush": 100
+      },
+      "width": 897,
+      "height": 1000,
+      "changed": 36330,
+      "maxDelta": 9,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 179
+    },
+    {
+      "name": "05_mukai",
+      "label": "combined25",
+      "settings": {
+        "smooth": 25,
+        "brighten": 25,
+        "underEye": 25,
+        "redness": 25,
+        "lip": 25,
+        "blush": 25,
+        "palette": "rose"
+      },
+      "width": 897,
+      "height": 1000,
+      "changed": 157619,
+      "maxDelta": 11,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 255
+    },
+    {
+      "name": "05_mukai",
+      "label": "combined50",
+      "settings": {
+        "smooth": 50,
+        "brighten": 50,
+        "underEye": 50,
+        "redness": 50,
+        "lip": 50,
+        "blush": 50,
+        "palette": "rose"
+      },
+      "width": 897,
+      "height": 1000,
+      "changed": 174373,
+      "maxDelta": 16,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 253
+    },
+    {
+      "name": "05_mukai",
+      "label": "combined100",
+      "settings": {
+        "smooth": 100,
+        "brighten": 100,
+        "underEye": 100,
+        "redness": 100,
+        "lip": 100,
+        "blush": 100,
+        "palette": "rose"
+      },
+      "width": 897,
+      "height": 1000,
+      "changed": 182686,
+      "maxDelta": 32,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 250
+    },
+    {
+      "name": "06_chiao",
+      "label": "zero",
+      "settings": {},
+      "width": 900,
+      "height": 898,
+      "changed": 0,
+      "maxDelta": 0,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 6
+    },
+    {
+      "name": "06_chiao",
+      "label": "natural",
+      "settings": {
+        "smooth": 16,
+        "underEye": 12,
+        "redness": 8
+      },
+      "width": 900,
+      "height": 898,
+      "changed": 41705,
+      "maxDelta": 2,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 190
+    },
+    {
+      "name": "06_chiao",
+      "label": "peach",
+      "settings": {
+        "smooth": 18,
+        "underEye": 12,
+        "redness": 8,
+        "lip": 18,
+        "blush": 12,
+        "palette": "peach"
+      },
+      "width": 900,
+      "height": 898,
+      "changed": 56194,
+      "maxDelta": 3,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 206
+    },
+    {
+      "name": "06_chiao",
+      "label": "smooth25",
+      "settings": {
+        "smooth": 25
+      },
+      "width": 900,
+      "height": 898,
+      "changed": 67104,
+      "maxDelta": 2,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 109
+    },
+    {
+      "name": "06_chiao",
+      "label": "smooth50",
+      "settings": {
+        "smooth": 50
+      },
+      "width": 900,
+      "height": 898,
+      "changed": 106543,
+      "maxDelta": 4,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 103
+    },
+    {
+      "name": "06_chiao",
+      "label": "smooth100",
+      "settings": {
+        "smooth": 100
+      },
+      "width": 900,
+      "height": 898,
+      "changed": 131459,
+      "maxDelta": 8,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 105
+    },
+    {
+      "name": "06_chiao",
+      "label": "brighten25",
+      "settings": {
+        "brighten": 25
+      },
+      "width": 900,
+      "height": 898,
+      "changed": 147220,
+      "maxDelta": 6,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 71
+    },
+    {
+      "name": "06_chiao",
+      "label": "brighten50",
+      "settings": {
+        "brighten": 50
+      },
+      "width": 900,
+      "height": 898,
+      "changed": 154922,
+      "maxDelta": 12,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 97
+    },
+    {
+      "name": "06_chiao",
+      "label": "brighten100",
+      "settings": {
+        "brighten": 100
+      },
+      "width": 900,
+      "height": 898,
+      "changed": 159966,
+      "maxDelta": 22,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 79
+    },
+    {
+      "name": "06_chiao",
+      "label": "underEye25",
+      "settings": {
+        "underEye": 25
+      },
+      "width": 900,
+      "height": 898,
+      "changed": 0,
+      "maxDelta": 0,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 151
+    },
+    {
+      "name": "06_chiao",
+      "label": "underEye50",
+      "settings": {
+        "underEye": 50
+      },
+      "width": 900,
+      "height": 898,
+      "changed": 0,
+      "maxDelta": 0,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 137
+    },
+    {
+      "name": "06_chiao",
+      "label": "underEye100",
+      "settings": {
+        "underEye": 100
+      },
+      "width": 900,
+      "height": 898,
+      "changed": 127,
+      "maxDelta": 1,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 139
+    },
+    {
+      "name": "06_chiao",
+      "label": "redness25",
+      "settings": {
+        "redness": 25
+      },
+      "width": 900,
+      "height": 898,
+      "changed": 17589,
+      "maxDelta": 4,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 145
+    },
+    {
+      "name": "06_chiao",
+      "label": "redness50",
+      "settings": {
+        "redness": 50
+      },
+      "width": 900,
+      "height": 898,
+      "changed": 27929,
+      "maxDelta": 7,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 148
+    },
+    {
+      "name": "06_chiao",
+      "label": "redness100",
+      "settings": {
+        "redness": 100
+      },
+      "width": 900,
+      "height": 898,
+      "changed": 36747,
+      "maxDelta": 14,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 146
+    },
+    {
+      "name": "06_chiao",
+      "label": "lip25",
+      "settings": {
+        "lip": 25
+      },
+      "width": 900,
+      "height": 898,
+      "changed": 5046,
+      "maxDelta": 7,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 151
+    },
+    {
+      "name": "06_chiao",
+      "label": "lip50",
+      "settings": {
+        "lip": 50
+      },
+      "width": 900,
+      "height": 898,
+      "changed": 5496,
+      "maxDelta": 14,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 153
+    },
+    {
+      "name": "06_chiao",
+      "label": "lip100",
+      "settings": {
+        "lip": 100
+      },
+      "width": 900,
+      "height": 898,
+      "changed": 5720,
+      "maxDelta": 26,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 152
+    },
+    {
+      "name": "06_chiao",
+      "label": "blush25",
+      "settings": {
+        "blush": 25
+      },
+      "width": 900,
+      "height": 898,
+      "changed": 16988,
+      "maxDelta": 2,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 157
+    },
+    {
+      "name": "06_chiao",
+      "label": "blush50",
+      "settings": {
+        "blush": 50
+      },
+      "width": 900,
+      "height": 898,
+      "changed": 24631,
+      "maxDelta": 4,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 144
+    },
+    {
+      "name": "06_chiao",
+      "label": "blush100",
+      "settings": {
+        "blush": 100
+      },
+      "width": 900,
+      "height": 898,
+      "changed": 30661,
+      "maxDelta": 8,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 182
+    },
+    {
+      "name": "06_chiao",
+      "label": "combined25",
+      "settings": {
+        "smooth": 25,
+        "brighten": 25,
+        "underEye": 25,
+        "redness": 25,
+        "lip": 25,
+        "blush": 25,
+        "palette": "rose"
+      },
+      "width": 900,
+      "height": 898,
+      "changed": 152750,
+      "maxDelta": 8,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 220
+    },
+    {
+      "name": "06_chiao",
+      "label": "combined50",
+      "settings": {
+        "smooth": 50,
+        "brighten": 50,
+        "underEye": 50,
+        "redness": 50,
+        "lip": 50,
+        "blush": 50,
+        "palette": "rose"
+      },
+      "width": 900,
+      "height": 898,
+      "changed": 160739,
+      "maxDelta": 16,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 230
+    },
+    {
+      "name": "06_chiao",
+      "label": "combined100",
+      "settings": {
+        "smooth": 100,
+        "brighten": 100,
+        "underEye": 100,
+        "redness": 100,
+        "lip": 100,
+        "blush": 100,
+        "palette": "rose"
+      },
+      "width": 900,
+      "height": 898,
+      "changed": 165992,
+      "maxDelta": 31,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 225
+    },
+    {
+      "name": "07_onizuka",
+      "label": "zero",
+      "settings": {},
+      "width": 900,
+      "height": 967,
+      "changed": 0,
+      "maxDelta": 0,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 7
+    },
+    {
+      "name": "07_onizuka",
+      "label": "natural",
+      "settings": {
+        "smooth": 16,
+        "underEye": 12,
+        "redness": 8
+      },
+      "width": 900,
+      "height": 967,
+      "changed": 49643,
+      "maxDelta": 3,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 202
+    },
+    {
+      "name": "07_onizuka",
+      "label": "peach",
+      "settings": {
+        "smooth": 18,
+        "underEye": 12,
+        "redness": 8,
+        "lip": 18,
+        "blush": 12,
+        "palette": "peach"
+      },
+      "width": 900,
+      "height": 967,
+      "changed": 65060,
+      "maxDelta": 7,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 283
+    },
+    {
+      "name": "07_onizuka",
+      "label": "smooth25",
+      "settings": {
+        "smooth": 25
+      },
+      "width": 900,
+      "height": 967,
+      "changed": 70095,
+      "maxDelta": 2,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 112
+    },
+    {
+      "name": "07_onizuka",
+      "label": "smooth50",
+      "settings": {
+        "smooth": 50
+      },
+      "width": 900,
+      "height": 967,
+      "changed": 116810,
+      "maxDelta": 4,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 107
+    },
+    {
+      "name": "07_onizuka",
+      "label": "smooth100",
+      "settings": {
+        "smooth": 100
+      },
+      "width": 900,
+      "height": 967,
+      "changed": 147469,
+      "maxDelta": 7,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 108
+    },
+    {
+      "name": "07_onizuka",
+      "label": "brighten25",
+      "settings": {
+        "brighten": 25
+      },
+      "width": 900,
+      "height": 967,
+      "changed": 167926,
+      "maxDelta": 6,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 78
+    },
+    {
+      "name": "07_onizuka",
+      "label": "brighten50",
+      "settings": {
+        "brighten": 50
+      },
+      "width": 900,
+      "height": 967,
+      "changed": 175991,
+      "maxDelta": 12,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 73
+    },
+    {
+      "name": "07_onizuka",
+      "label": "brighten100",
+      "settings": {
+        "brighten": 100
+      },
+      "width": 900,
+      "height": 967,
+      "changed": 181335,
+      "maxDelta": 22,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 72
+    },
+    {
+      "name": "07_onizuka",
+      "label": "underEye25",
+      "settings": {
+        "underEye": 25
+      },
+      "width": 900,
+      "height": 967,
+      "changed": 2517,
+      "maxDelta": 3,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 209
+    },
+    {
+      "name": "07_onizuka",
+      "label": "underEye50",
+      "settings": {
+        "underEye": 50
+      },
+      "width": 900,
+      "height": 967,
+      "changed": 3285,
+      "maxDelta": 5,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 211
+    },
+    {
+      "name": "07_onizuka",
+      "label": "underEye100",
+      "settings": {
+        "underEye": 100
+      },
+      "width": 900,
+      "height": 967,
+      "changed": 3956,
+      "maxDelta": 10,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 205
+    },
+    {
+      "name": "07_onizuka",
+      "label": "redness25",
+      "settings": {
+        "redness": 25
+      },
+      "width": 900,
+      "height": 967,
+      "changed": 39503,
+      "maxDelta": 6,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 170
+    },
+    {
+      "name": "07_onizuka",
+      "label": "redness50",
+      "settings": {
+        "redness": 50
+      },
+      "width": 900,
+      "height": 967,
+      "changed": 54804,
+      "maxDelta": 12,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 164
+    },
+    {
+      "name": "07_onizuka",
+      "label": "redness100",
+      "settings": {
+        "redness": 100
+      },
+      "width": 900,
+      "height": 967,
+      "changed": 64488,
+      "maxDelta": 21,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 162
+    },
+    {
+      "name": "07_onizuka",
+      "label": "lip25",
+      "settings": {
+        "lip": 25
+      },
+      "width": 900,
+      "height": 967,
+      "changed": 4660,
+      "maxDelta": 12,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 176
+    },
+    {
+      "name": "07_onizuka",
+      "label": "lip50",
+      "settings": {
+        "lip": 50
+      },
+      "width": 900,
+      "height": 967,
+      "changed": 5212,
+      "maxDelta": 24,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 164
+    },
+    {
+      "name": "07_onizuka",
+      "label": "lip100",
+      "settings": {
+        "lip": 100
+      },
+      "width": 900,
+      "height": 967,
+      "changed": 5476,
+      "maxDelta": 35,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 168
+    },
+    {
+      "name": "07_onizuka",
+      "label": "blush25",
+      "settings": {
+        "blush": 25
+      },
+      "width": 900,
+      "height": 967,
+      "changed": 19009,
+      "maxDelta": 2,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 175
+    },
+    {
+      "name": "07_onizuka",
+      "label": "blush50",
+      "settings": {
+        "blush": 50
+      },
+      "width": 900,
+      "height": 967,
+      "changed": 26861,
+      "maxDelta": 4,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 231
+    },
+    {
+      "name": "07_onizuka",
+      "label": "blush100",
+      "settings": {
+        "blush": 100
+      },
+      "width": 900,
+      "height": 967,
+      "changed": 33398,
+      "maxDelta": 9,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 159
+    },
+    {
+      "name": "07_onizuka",
+      "label": "combined25",
+      "settings": {
+        "smooth": 25,
+        "brighten": 25,
+        "underEye": 25,
+        "redness": 25,
+        "lip": 25,
+        "blush": 25,
+        "palette": "rose"
+      },
+      "width": 900,
+      "height": 967,
+      "changed": 173701,
+      "maxDelta": 13,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 267
+    },
+    {
+      "name": "07_onizuka",
+      "label": "combined50",
+      "settings": {
+        "smooth": 50,
+        "brighten": 50,
+        "underEye": 50,
+        "redness": 50,
+        "lip": 50,
+        "blush": 50,
+        "palette": "rose"
+      },
+      "width": 900,
+      "height": 967,
+      "changed": 181805,
+      "maxDelta": 26,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 253
+    },
+    {
+      "name": "07_onizuka",
+      "label": "combined100",
+      "settings": {
+        "smooth": 100,
+        "brighten": 100,
+        "underEye": 100,
+        "redness": 100,
+        "lip": 100,
+        "blush": 100,
+        "palette": "rose"
+      },
+      "width": 900,
+      "height": 967,
+      "changed": 187179,
+      "maxDelta": 35,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 246
+    },
+    {
+      "name": "08_trinh",
+      "label": "zero",
+      "settings": {},
+      "width": 900,
+      "height": 955,
+      "changed": 0,
+      "maxDelta": 0,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 7
+    },
+    {
+      "name": "08_trinh",
+      "label": "natural",
+      "settings": {
+        "smooth": 16,
+        "underEye": 12,
+        "redness": 8
+      },
+      "width": 900,
+      "height": 955,
+      "changed": 40904,
+      "maxDelta": 3,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 226
+    },
+    {
+      "name": "08_trinh",
+      "label": "peach",
+      "settings": {
+        "smooth": 18,
+        "underEye": 12,
+        "redness": 8,
+        "lip": 18,
+        "blush": 12,
+        "palette": "peach"
+      },
+      "width": 900,
+      "height": 955,
+      "changed": 61973,
+      "maxDelta": 6,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 244
+    },
+    {
+      "name": "08_trinh",
+      "label": "smooth25",
+      "settings": {
+        "smooth": 25
+      },
+      "width": 900,
+      "height": 955,
+      "changed": 63184,
+      "maxDelta": 2,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 107
+    },
+    {
+      "name": "08_trinh",
+      "label": "smooth50",
+      "settings": {
+        "smooth": 50
+      },
+      "width": 900,
+      "height": 955,
+      "changed": 111068,
+      "maxDelta": 4,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 119
+    },
+    {
+      "name": "08_trinh",
+      "label": "smooth100",
+      "settings": {
+        "smooth": 100
+      },
+      "width": 900,
+      "height": 955,
+      "changed": 141379,
+      "maxDelta": 8,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 120
+    },
+    {
+      "name": "08_trinh",
+      "label": "brighten25",
+      "settings": {
+        "brighten": 25
+      },
+      "width": 900,
+      "height": 955,
+      "changed": 159491,
+      "maxDelta": 6,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 82
+    },
+    {
+      "name": "08_trinh",
+      "label": "brighten50",
+      "settings": {
+        "brighten": 50
+      },
+      "width": 900,
+      "height": 955,
+      "changed": 168581,
+      "maxDelta": 12,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 75
+    },
+    {
+      "name": "08_trinh",
+      "label": "brighten100",
+      "settings": {
+        "brighten": 100
+      },
+      "width": 900,
+      "height": 955,
+      "changed": 174570,
+      "maxDelta": 22,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 92
+    },
+    {
+      "name": "08_trinh",
+      "label": "underEye25",
+      "settings": {
+        "underEye": 25
+      },
+      "width": 900,
+      "height": 955,
+      "changed": 1313,
+      "maxDelta": 2,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 195
+    },
+    {
+      "name": "08_trinh",
+      "label": "underEye50",
+      "settings": {
+        "underEye": 50
+      },
+      "width": 900,
+      "height": 955,
+      "changed": 2329,
+      "maxDelta": 4,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 176
+    },
+    {
+      "name": "08_trinh",
+      "label": "underEye100",
+      "settings": {
+        "underEye": 100
+      },
+      "width": 900,
+      "height": 955,
+      "changed": 3158,
+      "maxDelta": 7,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 154
+    },
+    {
+      "name": "08_trinh",
+      "label": "redness25",
+      "settings": {
+        "redness": 25
+      },
+      "width": 900,
+      "height": 955,
+      "changed": 35691,
+      "maxDelta": 4,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 164
+    },
+    {
+      "name": "08_trinh",
+      "label": "redness50",
+      "settings": {
+        "redness": 50
+      },
+      "width": 900,
+      "height": 955,
+      "changed": 65690,
+      "maxDelta": 8,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 154
+    },
+    {
+      "name": "08_trinh",
+      "label": "redness100",
+      "settings": {
+        "redness": 100
+      },
+      "width": 900,
+      "height": 955,
+      "changed": 83600,
+      "maxDelta": 16,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 146
+    },
+    {
+      "name": "08_trinh",
+      "label": "lip25",
+      "settings": {
+        "lip": 25
+      },
+      "width": 900,
+      "height": 955,
+      "changed": 4779,
+      "maxDelta": 11,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 160
+    },
+    {
+      "name": "08_trinh",
+      "label": "lip50",
+      "settings": {
+        "lip": 50
+      },
+      "width": 900,
+      "height": 955,
+      "changed": 5234,
+      "maxDelta": 21,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 165
+    },
+    {
+      "name": "08_trinh",
+      "label": "lip100",
+      "settings": {
+        "lip": 100
+      },
+      "width": 900,
+      "height": 955,
+      "changed": 5548,
+      "maxDelta": 39,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 155
+    },
+    {
+      "name": "08_trinh",
+      "label": "blush25",
+      "settings": {
+        "blush": 25
+      },
+      "width": 900,
+      "height": 955,
+      "changed": 23837,
+      "maxDelta": 2,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 164
+    },
+    {
+      "name": "08_trinh",
+      "label": "blush50",
+      "settings": {
+        "blush": 50
+      },
+      "width": 900,
+      "height": 955,
+      "changed": 30871,
+      "maxDelta": 5,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 152
+    },
+    {
+      "name": "08_trinh",
+      "label": "blush100",
+      "settings": {
+        "blush": 100
+      },
+      "width": 900,
+      "height": 955,
+      "changed": 36684,
+      "maxDelta": 9,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 152
+    },
+    {
+      "name": "08_trinh",
+      "label": "combined25",
+      "settings": {
+        "smooth": 25,
+        "brighten": 25,
+        "underEye": 25,
+        "redness": 25,
+        "lip": 25,
+        "blush": 25,
+        "palette": "rose"
+      },
+      "width": 900,
+      "height": 955,
+      "changed": 165045,
+      "maxDelta": 12,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 220
+    },
+    {
+      "name": "08_trinh",
+      "label": "combined50",
+      "settings": {
+        "smooth": 50,
+        "brighten": 50,
+        "underEye": 50,
+        "redness": 50,
+        "lip": 50,
+        "blush": 50,
+        "palette": "rose"
+      },
+      "width": 900,
+      "height": 955,
+      "changed": 174472,
+      "maxDelta": 23,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 224
+    },
+    {
+      "name": "08_trinh",
+      "label": "combined100",
+      "settings": {
+        "smooth": 100,
+        "brighten": 100,
+        "underEye": 100,
+        "redness": 100,
+        "lip": 100,
+        "blush": 100,
+        "palette": "rose"
+      },
+      "width": 900,
+      "height": 955,
+      "changed": 180584,
+      "maxDelta": 41,
+      "alphaMismatch": 0,
+      "addedClips": 0,
+      "ms": 226
+    }
+  ]
+}

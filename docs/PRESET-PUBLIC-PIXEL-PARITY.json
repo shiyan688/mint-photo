@@ -1,0 +1,141 @@
+{
+  "test": "One public NASA fixture, actual shared portrait preset replay",
+  "width": 897,
+  "height": 1000,
+  "landmarks": 478,
+  "sourceRgbaSha256": "fb04f53789a6c982dea47d47b745c82346e61776fe9affb55b67c6a08021fb6b",
+  "mobileOutputRgbaSha256": "3feafa8c26687ea719a5db5aa9ee40551584be960b243349e662d6a371ecc267",
+  "desktopExpectedSha256": "3feafa8c26687ea719a5db5aa9ee40551584be960b243349e662d6a371ecc267",
+  "byteIdentical": true,
+  "preset": {
+    "format": "mint-adjustment-preset",
+    "version": 1,
+    "name": "QA light portrait",
+    "controls": {
+      "basic": {
+        "exposure": 6,
+        "contrast": 4,
+        "saturation": -2,
+        "temperature": -3
+      },
+      "beauty": {
+        "smooth": 8,
+        "brighten": 4,
+        "warmth": 0,
+        "underEye": 8,
+        "redness": 10,
+        "lip": 6,
+        "blush": 3,
+        "palette": "peach"
+      },
+      "advancedTone": null
+    }
+  },
+  "limits": "CPU JavaScript core parity on one public portrait with two recipes, not Android/WebView/visual-quality/device acceptance. Second recipe has active beauty, basic tone and advanced curves/HSL.",
+  "activeCurveVariant": {
+    "preset": {
+      "format": "mint-adjustment-preset",
+      "version": 1,
+      "name": "QA portrait plus curves",
+      "controls": {
+        "basic": {
+          "exposure": 6,
+          "contrast": 4,
+          "saturation": -2,
+          "temperature": -3
+        },
+        "beauty": {
+          "smooth": 8,
+          "brighten": 4,
+          "warmth": 0,
+          "underEye": 8,
+          "redness": 10,
+          "lip": 6,
+          "blush": 3,
+          "palette": "peach"
+        },
+        "advancedTone": {
+          "version": 1,
+          "enabled": true,
+          "strength": 0.4,
+          "curveMode": "monotone",
+          "curves": {
+            "rgb": [
+              0,
+              0.22,
+              0.51,
+              0.78,
+              1
+            ],
+            "red": [
+              0,
+              0.25,
+              0.5,
+              0.75,
+              1
+            ],
+            "green": [
+              0,
+              0.25,
+              0.5,
+              0.75,
+              1
+            ],
+            "blue": [
+              0,
+              0.25,
+              0.5,
+              0.75,
+              1
+            ]
+          },
+          "hsl": [
+            {
+              "hue": 0,
+              "saturation": 0,
+              "luminance": 0
+            },
+            {
+              "hue": 0,
+              "saturation": 0,
+              "luminance": 0
+            },
+            {
+              "hue": 0,
+              "saturation": 0,
+              "luminance": 0
+            },
+            {
+              "hue": 0,
+              "saturation": 0,
+              "luminance": 0
+            },
+            {
+              "hue": 0,
+              "saturation": 0,
+              "luminance": 0
+            },
+            {
+              "hue": 1.2,
+              "saturation": -8,
+              "luminance": 2
+            },
+            {
+              "hue": 0,
+              "saturation": 0,
+              "luminance": 0
+            },
+            {
+              "hue": 0,
+              "saturation": 0,
+              "luminance": 0
+            }
+          ]
+        }
+      }
+    },
+    "mobileOutputRgbaSha256": "e56f479bb3548b7439ec017e12d670aabbd0953529904a2d261a6554712ea221",
+    "desktopExpectedSha256": "e56f479bb3548b7439ec017e12d670aabbd0953529904a2d261a6554712ea221",
+    "byteIdentical": true
+  }
+}

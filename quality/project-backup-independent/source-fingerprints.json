@@ -1,0 +1,17 @@
+{
+  "timestampUTC": "2026-10-22T19:16:35Z",
+  "runtime": "v24.19.0",
+  "fingerprints": {
+    "app/src/main/assets/project-backup.js": "fc73ace09637a830aadea8c94fce8915772e1045681b83587c3185f373729d4a",
+    "app/src/main/assets/project-backup-transport.js": "96a4b661b369cba01dfe063a8ffa55c407f30b384aba5b25b649de7ef56dc9db",
+    "app/src/main/assets/project-backup-ui.js": "26250d4086daabfcb2ab05594e8b1a1970c5d6b4e5d2fb0aa023340dcac7ac18",
+    "app/src/main/assets/project-library-controller.js": "152d80fd402ffdca7f357a879aa1a258442a3fc21c52841fb5e5e833e2ac9f0d",
+    "app/src/main/assets/project-library.js": "da716f9ecb4ef98b01a65de1bdff27157ea88cb40f65782aaec130c2444ecd55",
+    "app/src/main/assets/editor.js": "ff77b55f6dbf2e32e4018d52691ae1fcf47bafcefbd8db571475ba214fb5557f",
+    "app/src/main/java/com/qingyan/editor/ProjectBackupPayload.java": "3ba9db8ee76ca10c9b7b4ce1be4916ae9e2cca58462f1c1b67ffaeb3317fe3ed",
+    "app/src/main/java/com/qingyan/editor/ProjectBackupTransfer.java": "197f20a95f33d078281f880f3b25a030d9a8f876486c65323f114d0bfac79091",
+    "app/src/main/java/com/qingyan/editor/MainActivity.java": "9892fc1a405e25f39ba6f169ebe07d6468fc0bb79130822484c0af4414259485",
+    "tests/project-backup-independent.test.cjs": "2b364ffe29a7243191d37138e96d8408c8e7ca9d6b89c5722ff973d83542464d",
+    "tests/native-canvas/project-backup-independent.test.cjs": "09977d7c63306f025c80e31c02d2b810b1d26a3b1af49929525293de4d9a3e5f"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "kind": "extracted-production-function-and-controlled-dialog-events",
+  "nativeBrowser": false,
+  "originalEditorSha256": "f2ba9b81d256acd5530cef72064dba9e503e462d74055f70f076a8b697e20715",
+  "sequence": ["ask A", "ask B supersedes A", "deliver queued close event from A"],
+  "beforeFix": {"first": false, "secondOpenBeforeOldClose": true, "queuedCloseCount": 1, "second": false, "secondOpenAfterOldClose": false},
+  "fixedEditorSha256": "09712bacb552fc95521baf25afdfec87a6a32c128a314b6fdc2ba3d75b2cae29",
+  "expectedAndVerifiedAfterFix": {"first": false, "secondRemainsOpenAfterOldClose": true, "secondExplicitYes": true},
+  "regressionTest": "tests/project-library-independent.test.cjs: regression: queued native close from a superseded confirmation must not cancel a newer opening"
+}

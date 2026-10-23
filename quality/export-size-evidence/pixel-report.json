@@ -1,0 +1,20 @@
+{
+  "kind": "Native Canvas actual production PNG, not WebView",
+  "source": {
+    "width": 1600,
+    "height": 1000,
+    "sha256": "693235f2d91dc1b4f134a77537500174c58005665a603f4f64b671cad3fd3293"
+  },
+  "processed": {
+    "width": 910,
+    "height": 1340,
+    "sha256": "7a1c65efa0e243be40268489d6a7969e5598fc97a612576f0459a3397e2f5dd9"
+  },
+  "output": {
+    "width": 367,
+    "height": 540,
+    "sha256": "d1da69ef8a68660cba4b2d0f493e0c42a9231b6096bf5a4c1564ae16a3d2b568"
+  },
+  "sourceBytesPreserved": true,
+  "historyPreserved": true
+}

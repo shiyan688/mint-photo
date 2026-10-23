@@ -1,0 +1,34 @@
+{
+  "checkpoint": "v31",
+  "baseline": "../coverage-v28-candidate/coverage-103-v28-candidate.json",
+  "scope": "Incremental R11 evidence only, not a new independent audit or full acceptance of all 103 work packages.",
+  "changes": [
+    {
+      "id": "R11",
+      "status": "partial_cloud_tested",
+      "implemented": [
+        "explicit selected-face protection/erase-back for current per-person beauty stage",
+        "continuous original-size normalized brush replay",
+        "per-face revision/batch/model/mesh binding",
+        "bounded independent mask undo/redo",
+        "stage-only protection preserves prior repair/tone",
+        "ordered history, backup and actual PNG replay"
+      ],
+      "remaining": [
+        "not every effect supports erase-back",
+        "no learned beard/hair/occlusion protection",
+        "stroke path display is not a final mask overlay",
+        "no new SOTA skin model",
+        "actual Android/WebView/layout/touch/storage/performance acceptance"
+      ],
+      "full_acceptance_passed": false
+    }
+  ],
+  "unresolved_gates": [
+    "No current signed APK; signing remains unapproved",
+    "No actual permitted WebView/browser UI runtime",
+    "No handset storage/touch/performance acceptance",
+    "No learned skin-retouch or SOTA/full competing-product parity claim"
+  ],
+  "next_action": "Hold new large modules while delivery gaps and blockers are reviewed."
+}

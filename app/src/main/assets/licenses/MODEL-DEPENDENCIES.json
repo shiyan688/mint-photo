@@ -1,0 +1,211 @@
+{
+  "runtime": "com.google.mediapipe:tasks-vision:1.0.0",
+  "models": [
+    {
+      "file": "face_landmarker.task",
+      "url": "https://storage.googleapis.com/mediapipe-models/face_landmarker/face_landmarker/float16/1/face_landmarker.task",
+      "license": "Apache-2.0",
+      "sha256": "64184e229b263107bc2b804c6625db1341ff2bb731874b0bcc2fe6544e0bc9ff",
+      "size_bytes": 3758596
+    },
+    {
+      "file": "selfie_segmenter.tflite",
+      "url": "https://storage.googleapis.com/mediapipe-models/image_segmenter/selfie_segmenter/float16/1/selfie_segmenter.tflite",
+      "license": "Apache-2.0",
+      "sha256": "191ac9529ae506ee0beefa6b2c945a172dab9d07d1e802a290a4e4038226658b",
+      "size_bytes": 249537
+    }
+  ],
+  "runtime_dependencies": [
+    {
+      "coordinate": "androidx.annotation:annotation:1.1.0",
+      "sha256": "d38d63edb30f1467818d50aaf05f8a692dea8b31392a049bfa991b159ad5b692",
+      "declared_licenses": [
+        {
+          "name": "The Apache Software License, Version 2.0",
+          "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+        }
+      ]
+    },
+    {
+      "coordinate": "com.google.mediapipe:tasks-vision:1.0.0",
+      "sha256": "53d45569649ff7e9d84457f070481dbb779ddd057671d4adcd9abcb77ff172c6",
+      "bundled_notices": [
+        "licenses/tasks-vision-1.0.0-NOTICE.txt"
+      ],
+      "declared_licenses": [
+        {
+          "name": "The Apache Software License, Version 2.0",
+          "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+        }
+      ]
+    },
+    {
+      "coordinate": "com.google.mediapipe:tasks-core:1.0.0",
+      "sha256": "609c6fcfe59f58c9739194f65ae5882281c327710e1a616aa7f533a4d9238ca3",
+      "bundled_notices": [
+        "licenses/tasks-core-1.0.0-NOTICE.txt"
+      ],
+      "declared_licenses": [
+        {
+          "name": "The Apache Software License, Version 2.0",
+          "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+        }
+      ]
+    },
+    {
+      "coordinate": "com.google.guava:guava:27.0.1-android",
+      "sha256": "caf0955aed29a1e6d149f85cfb625a89161b5cf88e0e246552b7ffa358204e28",
+      "declared_licenses": []
+    },
+    {
+      "coordinate": "com.google.guava:failureaccess:1.0.1",
+      "sha256": "a171ee4c734dd2da837e4b16be9df4661afab72a41adaf31eb84dfdaf936ca26",
+      "declared_licenses": []
+    },
+    {
+      "coordinate": "com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava",
+      "sha256": "b372a037d4230aa57fbeffdef30fd6123f9c0c2db85d0aced00c91b974f33f99",
+      "declared_licenses": []
+    },
+    {
+      "coordinate": "com.google.code.findbugs:jsr305:3.0.2",
+      "sha256": "766ad2a0783f2687962c8ad74ceecc38a28b9f72a2d085ee438b7813e928d0c7",
+      "declared_licenses": [
+        {
+          "name": "The Apache Software License, Version 2.0",
+          "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+        }
+      ]
+    },
+    {
+      "coordinate": "org.checkerframework:checker-compat-qual:2.5.3",
+      "sha256": "d76b9afea61c7c082908023f0cbc1427fab9abd2df915c8b8a3e7a509bccbc6d",
+      "declared_licenses": [
+        {
+          "name": "GNU General Public License, version 2 (GPL2), with the classpath exception",
+          "url": "http://www.gnu.org/software/classpath/license.html"
+        },
+        {
+          "name": "The MIT License",
+          "url": "http://opensource.org/licenses/MIT"
+        }
+      ]
+    },
+    {
+      "coordinate": "com.google.errorprone:error_prone_annotations:2.2.0",
+      "sha256": "6ebd22ca1b9d8ec06d41de8d64e0596981d9607b42035f9ed374f9de271a481a",
+      "declared_licenses": [
+        {
+          "name": "Apache 2.0",
+          "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+        }
+      ]
+    },
+    {
+      "coordinate": "com.google.j2objc:j2objc-annotations:1.1",
+      "sha256": "2994a7eb78f2710bd3d3bfb639b2c94e219cedac0d4d084d516e78c16dddecf6",
+      "declared_licenses": [
+        {
+          "name": "The Apache Software License, Version 2.0",
+          "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+        }
+      ]
+    },
+    {
+      "coordinate": "org.codehaus.mojo:animal-sniffer-annotations:1.17",
+      "sha256": "92654f493ecfec52082e76354f0ebf87648dc3d5cec2e3c3cdb947c016747a53",
+      "declared_licenses": []
+    },
+    {
+      "coordinate": "com.google.flogger:flogger:0.6",
+      "sha256": "3145669db60c7b1d63b4e1f7137ea1a5de6ea91c516a68e8cfdd25794d81b7c4",
+      "declared_licenses": [
+        {
+          "name": "Apache 2.0",
+          "url": "https://www.apache.org/licenses/LICENSE-2.0.txt"
+        }
+      ]
+    },
+    {
+      "coordinate": "com.google.flogger:flogger-system-backend:0.6",
+      "sha256": "af7f9f049c79f67941e1e47637b20634594788398aa0aabcddbc7af0af3df5b1",
+      "declared_licenses": [
+        {
+          "name": "Apache 2.0",
+          "url": "https://www.apache.org/licenses/LICENSE-2.0.txt"
+        }
+      ]
+    },
+    {
+      "coordinate": "com.google.protobuf:protobuf-javalite:4.26.1",
+      "sha256": "ae83d2b063988c4565462845269472ddc817117506b6e467a2c3222c96636829",
+      "declared_licenses": []
+    },
+    {
+      "coordinate": "com.google.android.datatransport:transport-api:3.0.0",
+      "sha256": "4e6983c0703b357df6f1c6ceacb1b5dfc2c5006a789c799fec2298b2b5337466",
+      "declared_licenses": [
+        {
+          "name": "The Apache Software License, Version 2.0",
+          "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+        }
+      ]
+    },
+    {
+      "coordinate": "com.google.android.datatransport:transport-backend-cct:3.1.0",
+      "sha256": "c9b5f5502415554c1ca85459e4cc8a192e7ab847413e57a8a8414816604b591d",
+      "declared_licenses": [
+        {
+          "name": "The Apache Software License, Version 2.0",
+          "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+        }
+      ]
+    },
+    {
+      "coordinate": "com.google.android.datatransport:transport-runtime:3.1.0",
+      "sha256": "e59241ae50d87adaa0cadef228f336aaa2b0013f08c2416e38a4c3b93e6f398c",
+      "declared_licenses": [
+        {
+          "name": "The Apache Software License, Version 2.0",
+          "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+        }
+      ]
+    },
+    {
+      "coordinate": "com.google.firebase:firebase-encoders:17.0.0",
+      "sha256": "282a5a703f9b7eb56508dde97ea918e95d73318b157050f457f7a86dca750150",
+      "declared_licenses": [
+        {
+          "name": "The Apache Software License, Version 2.0",
+          "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+        }
+      ]
+    },
+    {
+      "coordinate": "com.google.firebase:firebase-encoders-proto:16.0.0",
+      "sha256": "293db96a0d1d43f033167881b638d8fde844e4e5495f5101cf52295765295e0e",
+      "declared_licenses": [
+        {
+          "name": "The Apache Software License, Version 2.0",
+          "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+        }
+      ]
+    },
+    {
+      "coordinate": "com.google.firebase:firebase-encoders-json:18.0.0",
+      "sha256": "80aece7e1ef58957ca2fc1957bc9208ec92a3a9528201331d3c63e3182570f97",
+      "declared_licenses": [
+        {
+          "name": "The Apache Software License, Version 2.0",
+          "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+        }
+      ]
+    },
+    {
+      "coordinate": "javax.inject:javax.inject:1",
+      "sha256": "91c77044a50c481636c32d916fd89c9118a72195390452c81065080f957de7ff",
+      "declared_licenses": []
+    }
+  ]
+}

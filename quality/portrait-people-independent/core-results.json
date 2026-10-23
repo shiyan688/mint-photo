@@ -1,0 +1,266 @@
+{
+  "createdAt": "2026-10-22T17:05:09.320Z",
+  "scope": "Read-only independent host JS source-checkpoint verification, not Android/WebView/device acceptance",
+  "root": "/workspace/scratch/902a42ed06ad/mobile-oct22/薄荷人像",
+  "digests": {
+    "portrait-people.js": "0de2c158f3a23c6e4de8326e7474ad809e02d41ccc2931a5ccfba76505a02b3a",
+    "portrait-engine.js": "5cde7dcd60aab1d68e1ec5fb026c6396c2f395c1597dd03113c34674ba57d524",
+    "portrait-people-operation.js": "fb3f52c13c86794bdbc8a2c16a882b7f91fed044a1e9f3062e9acaa8b152687f",
+    "face-detection.js": "40ffd4e77402d1cac392d5458ea250ed54dec08c9d3d4cdcd648ab7b4455cae0",
+    "project-core.js": "2b18d6ccb1892169efce6bb144a77d1fc911d015171e9c893ec4c132f652e06b",
+    "preset-operation.js": "5a216ca40009e111eb205943d23470febaeba44818340496e429946ae78d582e"
+  },
+  "results": [
+    {
+      "name": "reviewed core checkpoint and frozen legacy engine retain exact source hashes",
+      "pass": true,
+      "ms": 0
+    },
+    {
+      "name": "source, explicit batch, detector model and topology are independently bound",
+      "pass": true,
+      "ms": 33
+    },
+    {
+      "name": "every own-data batch boundary rejects accessors without executing them",
+      "pass": true,
+      "ms": 37
+    },
+    {
+      "name": "strict batches reject unknowns, symbol keys, holes, inherited/default fields and nonfinite controls",
+      "pass": true,
+      "ms": 58
+    },
+    {
+      "name": "optional context values must be absent or valid, and are not coerced",
+      "pass": true,
+      "ms": 35
+    },
+    {
+      "name": "core source accessors, byte-array shadow metadata, shared buffers and incorrect views fail closed",
+      "pass": true,
+      "ms": 4
+    },
+    {
+      "name": "mobile apply preserves the strict source accessor nonexecution boundary",
+      "pass": true,
+      "ms": 3
+    },
+    {
+      "name": "phase separation rejects hidden cross-phase settings even when selected phase is neutral",
+      "pass": true,
+      "ms": 22
+    },
+    {
+      "name": "fresh reversed detection contains all faces and detached zero controls",
+      "pass": true,
+      "ms": 9
+    },
+    {
+      "name": "2-face actual composite beauty equals distinct immutable-input engine deltas",
+      "pass": true,
+      "ms": 446,
+      "detail": {
+        "changedPixelsPerFace": [
+          47474,
+          46230
+        ],
+        "inputSha256": "0df158c8d5ecab8c90a83de4b7a7dc3667c44782f04463f7ea793e934a859a0b",
+        "outputSha256": "17c705447ba8858575cc54f3dea539e9eb37aa04e02e02ece65515843c59076c",
+        "resources": {
+          "pixels": 450000,
+          "workPixels": 450000,
+          "activeFaces": 2,
+          "retainedOutputBytes": 1800000,
+          "maxConcurrentEngineOutputBytes": 1800000,
+          "engineTemporaryBytes": 7201056,
+          "extraPeakBytes": 10801056,
+          "estimatedPeakExtraBytes": 10801056,
+          "cumulativeTypedArrayBytes": 18002112,
+          "workUnits": 15750000,
+          "estimatedWorkUnits": 15750000,
+          "staticEngineTableBytes": 17412,
+          "excludes": "source, canvas/native/GPU/history copies, JS objects, VM overhead and delayed collection between calls; not a measured real-device peak"
+        }
+      }
+    },
+    {
+      "name": "2-face actual composite reshape equals distinct immutable-input engine deltas",
+      "pass": true,
+      "ms": 87,
+      "detail": {
+        "changedPixelsPerFace": [
+          2879,
+          7519
+        ],
+        "inputSha256": "0df158c8d5ecab8c90a83de4b7a7dc3667c44782f04463f7ea793e934a859a0b",
+        "outputSha256": "253cce268ae669e4fda653023cf735dc604e684df93e6e9e8c080c45562c2050",
+        "resources": {
+          "pixels": 450000,
+          "workPixels": 450000,
+          "activeFaces": 2,
+          "retainedOutputBytes": 1800000,
+          "maxConcurrentEngineOutputBytes": 1800000,
+          "engineTemporaryBytes": 0,
+          "extraPeakBytes": 3600000,
+          "estimatedPeakExtraBytes": 3600000,
+          "cumulativeTypedArrayBytes": 3600000,
+          "workUnits": 3150000,
+          "estimatedWorkUnits": 3150000,
+          "staticEngineTableBytes": 17412,
+          "excludes": "source, canvas/native/GPU/history copies, JS objects, VM overhead and delayed collection between calls; not a measured real-device peak"
+        }
+      }
+    },
+    {
+      "name": "5-face actual composite beauty equals distinct immutable-input engine deltas",
+      "pass": true,
+      "ms": 796,
+      "detail": {
+        "changedPixelsPerFace": [
+          14486,
+          23467,
+          20888,
+          21564,
+          21014
+        ],
+        "inputSha256": "f9c42742603f203977756fb40e7b133c46c17843601c5c7ee8ebc9ae9accab74",
+        "outputSha256": "0207c888e9e1144c1bbc114e39052b5c918a9a39ee9eaa77f09705d1aeadc28a",
+        "resources": {
+          "pixels": 612000,
+          "workPixels": 612000,
+          "activeFaces": 5,
+          "retainedOutputBytes": 2448000,
+          "maxConcurrentEngineOutputBytes": 2448000,
+          "engineTemporaryBytes": 9793056,
+          "extraPeakBytes": 14689056,
+          "estimatedPeakExtraBytes": 14689056,
+          "cumulativeTypedArrayBytes": 61205280,
+          "workUnits": 52632000,
+          "estimatedWorkUnits": 52632000,
+          "staticEngineTableBytes": 17412,
+          "excludes": "source, canvas/native/GPU/history copies, JS objects, VM overhead and delayed collection between calls; not a measured real-device peak"
+        }
+      }
+    },
+    {
+      "name": "5-face actual composite reshape equals distinct immutable-input engine deltas",
+      "pass": true,
+      "ms": 180,
+      "detail": {
+        "changedPixelsPerFace": [
+          1916,
+          2572,
+          3353,
+          1817,
+          2580
+        ],
+        "inputSha256": "f9c42742603f203977756fb40e7b133c46c17843601c5c7ee8ebc9ae9accab74",
+        "outputSha256": "074c9f524e7279d6771dc1753ab4dfd4bb5ec49b78100bc0343e27e37ef3bec8",
+        "resources": {
+          "pixels": 612000,
+          "workPixels": 612000,
+          "activeFaces": 5,
+          "retainedOutputBytes": 2448000,
+          "maxConcurrentEngineOutputBytes": 2448000,
+          "engineTemporaryBytes": 0,
+          "extraPeakBytes": 4896000,
+          "estimatedPeakExtraBytes": 4896000,
+          "cumulativeTypedArrayBytes": 12240000,
+          "workUnits": 9792000,
+          "estimatedWorkUnits": 9792000,
+          "staticEngineTableBytes": 17412,
+          "excludes": "source, canvas/native/GPU/history copies, JS objects, VM overhead and delayed collection between calls; not a measured real-device peak"
+        }
+      }
+    },
+    {
+      "name": "inactive four neighbors are byte-identical after selected-face beauty",
+      "pass": true,
+      "ms": 124,
+      "detail": {
+        "verifiedNeighborBytes": 632792
+      }
+    },
+    {
+      "name": "inactive four neighbors are byte-identical after selected-face reshape",
+      "pass": true,
+      "ms": 62,
+      "detail": {
+        "verifiedNeighborBytes": 632792
+      }
+    },
+    {
+      "name": "all engine face calls receive the identical immutable source data, never accumulator output",
+      "pass": true,
+      "ms": 91
+    },
+    {
+      "name": "beauty preserves partial alpha and invisible RGB while active reshape rejects any nonopaque source",
+      "pass": true,
+      "ms": 87
+    },
+    {
+      "name": "cancellation at entry, after first engine call, and mid-verification returns no partial pixels",
+      "pass": true,
+      "ms": 93
+    },
+    {
+      "name": "overlap rejection protects even an inactive face before engine invocation",
+      "pass": true,
+      "ms": 8
+    },
+    {
+      "name": "conservative rejection includes a read-only halo outside the active write region",
+      "pass": true,
+      "ms": 25,
+      "detail": {
+        "activeWrite": {
+          "minX": 201,
+          "minY": 148,
+          "maxX": 339,
+          "maxY": 351
+        },
+        "activeRead": {
+          "minX": 198,
+          "minY": 145,
+          "maxX": 342,
+          "maxY": 354
+        },
+        "inactiveProtected": {
+          "minX": 340,
+          "minY": 148,
+          "maxX": 478,
+          "maxY": 351
+        }
+      }
+    },
+    {
+      "name": "mobile edge, pixels, cumulative allocations and whole-history work guards reject before export decode",
+      "pass": true,
+      "ms": 314,
+      "detail": {
+        "perStepWork": 8100000,
+        "acceptedSteps": 15,
+        "rejectedSteps": 16
+      }
+    },
+    {
+      "name": "ordered history retains phase snapshots and undo redo without mutating saved geometry",
+      "pass": true,
+      "ms": 57
+    },
+    {
+      "name": "preset face context must exactly match target and stay out of portable v3 controls",
+      "pass": true,
+      "ms": 31
+    },
+    {
+      "name": "legacy one-face preset remains exact frozen-engine arithmetic without new context",
+      "pass": true,
+      "ms": 158
+    }
+  ],
+  "passed": 24,
+  "failed": 0
+}

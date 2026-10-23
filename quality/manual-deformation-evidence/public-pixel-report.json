@@ -1,0 +1,36 @@
+{
+  "fixture": "NASA adult Mukai derivative already licensed for local informational QA, not training/marketing",
+  "sourceBasis": {
+    "width": 1000,
+    "height": 1250
+  },
+  "operation": {
+    "type": "manual",
+    "sourceRevision": "1",
+    "selection": null,
+    "liquify": [
+      {
+        "kind": "pucker",
+        "sourceRevision": "1",
+        "radius": 0.06,
+        "strength": 0.4,
+        "points": [
+          {
+            "x": 0.41,
+            "y": 0.44
+          }
+        ],
+        "selection": null
+      }
+    ],
+    "repair": []
+  },
+  "sourceRgba": "3afc377639513020548ae160aceb989ef2626bc4efe828303b8cc16bf750d460",
+  "outputRgba": "57ec18610219259622b496ed57d6977855d4d8db46748b559536f1603ffac5a4",
+  "coreMatchesActualEditorPNG": true,
+  "sourceBlobUnchanged": true,
+  "outsideChanged": 0,
+  "insideChanged": 10036,
+  "runtime": "NativeCanvas with injected DOM, not WebView",
+  "qualityLimit": "Manual visible geometry only; no identity preservation, learned beautification or SOTA claim"
+}

@@ -1,0 +1,12 @@
+{
+  "checkpoint": "v30",
+  "baseline": "../coverage-v28-candidate/coverage-103-v28-candidate.json",
+  "scope": "Incremental evidence, not a refreshed independent audit of all 103 work packages.",
+  "changes": [
+    {"id":"T04","status":"partial_cloud_tested","implemented":["push/restore preserved","bloat/pucker/CW/CCW twist","per-stroke selected destination restriction","replay/cancel/undo/backup","resource preflight"],"remaining":["separate reusable freeze/unfreeze workflow","smooth deformation field mode","transparent contour warp","real device validation"],"full_acceptance_passed":false},
+    {"id":"T05","status":"partial_cloud_tested","fixed":["null subtract starts all-minus","new visible add/subtract on inverted mask","null feather remains unrestricted"],"legacy_recipe_semantics":"unchanged v1","full_acceptance_passed":false},
+    {"id":"B03","status":"partial_cloud_tested_v29","implemented":["local photo background fit/fill/position","continuous refined alpha and preserved foreground","backup and PNG replay"],"remaining":["hair matting/foreground decontamination","real device acceptance"],"full_acceptance_passed":false}
+  ],
+  "unresolved_gates":["No current signed APK","No actual permitted WebView/browser UI runtime","No handset storage/touch/performance acceptance","No learned skin-retouch or SOTA/parity claim"],
+  "next_existing_rights_candidate":"R11 user-painted per-person beauty protection/erase-back; not implemented by T04 selection."
+}

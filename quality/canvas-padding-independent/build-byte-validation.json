@@ -1,0 +1,34 @@
+{
+  "artifacts": [
+    {
+      "abi": "arm64-v8a",
+      "bytes": 17699542,
+      "sha256": "3fcbf43c9dacbda6fb62351194b3b3195259e14d10c1afe5dad874b30d177338",
+      "assetFilesCompared": 34
+    },
+    {
+      "abi": "armeabi-v7a",
+      "bytes": 14404324,
+      "sha256": "bbe9a0aef6414d6e3fd7f27c6f47bfbfb9b7452d58e82d760f981f46fa4bdfd7",
+      "assetFilesCompared": 34
+    }
+  ],
+  "lintErrors": 0,
+  "lintWarnings": 4,
+  "signature": "absent; apksigner expected DOES NOT VERIFY / Missing META-INF/MANIFEST.MF",
+  "permissions": [],
+  "preview": {
+    "inlineScripts": 23,
+    "cspHashesVerified": true,
+    "renderedBrowser": false,
+    "bytes": 1456502,
+    "sha256": "66f8ca28578271cb21263fa265b4480766fdc9f886c3490e8ffb2835185fa5dc"
+  },
+  "tests": {
+    "plainNodeEntries": 442,
+    "individualChecks": 664,
+    "nativeCanvas": 86,
+    "JavaBoundaryChecks": 177
+  },
+  "installable": false
+}

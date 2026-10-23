@@ -1,0 +1,21 @@
+{
+  "source": [
+    4,
+    9
+  ],
+  "angle": 33,
+  "continuousPlan": {
+    "x": 1.7885449392539212,
+    "y": 2.7541176881649947,
+    "integerWidth": 2,
+    "integerHeight": 3
+  },
+  "chosen": {
+    "width": 2,
+    "height": 3
+  },
+  "maxIntegerRaster": [
+    3,
+    3
+  ]
+}

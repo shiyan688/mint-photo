@@ -1,0 +1,10 @@
+{
+  "type": "public NASA portrait plus deliberately manual test mask; NOT automatic segmentation proof",
+  "width": 1000,
+  "height": 1250,
+  "rgbaSha256": "863b923bf4634fa36d14c5726c157c960648c7b2761c53a6a8b1e90630f0063a",
+  "sourceUnchanged": true,
+  "originalPngReplay": true,
+  "browser": false,
+  "android": false
+}

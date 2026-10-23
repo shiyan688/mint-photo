@@ -1,0 +1,17 @@
+{
+  "artifacts": [
+    {
+      "abi": "arm64-v8a",
+      "bytes": 17675738,
+      "sha256": "32781240391dfec3fd962a4925fa7eb9544584b559684c9fa3dbeb2bdb43da0f"
+    },
+    {
+      "abi": "armeabi-v7a",
+      "bytes": 14380520,
+      "sha256": "3914892f257bcb264f77244049b59acabd6897b984c7cfa8676edece44132b6a"
+    }
+  ],
+  "inlineScripts": 17,
+  "previewBytes": 1386763,
+  "previewSha256": "c034195aa6ceedf8fbeb1bd2111545c9eb9cb2e40670e9e66bb68b4c6d829dc0"
+}

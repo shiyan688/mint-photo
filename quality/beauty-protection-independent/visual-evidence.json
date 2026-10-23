@@ -1,0 +1,8 @@
+{
+  "pngSha256": "8cf535d4d8334aeb5cf0a0ba4b6284a2eb60a255723c9a2cc825544155feb1db",
+  "width": 1848,
+  "height": 1160,
+  "resultRgbaSha256": "675d21cf85dadf0f838e0e0f6200a72351fdea153a0e110a331c8a8a54cabf67",
+  "fixture": "Existing public NASA adult portrait composite; not actual group photo",
+  "note": "Raw mask panel crosses both faces, but production blend is restricted to face-1 frozen writeBounds. Pixel exactness is tested independently in results.json."
+}

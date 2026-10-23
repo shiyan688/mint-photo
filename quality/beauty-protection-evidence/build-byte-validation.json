@@ -1,0 +1,47 @@
+{
+  "artifacts": [
+    {
+      "abi": "arm64-v8a",
+      "bytes": 17947837,
+      "sha256": "b7e362286cf75c6d4b3ade77142a250ef939327bdcaa33c3f7bebc99a5239dfe",
+      "assetFilesCompared": 82
+    },
+    {
+      "abi": "armeabi-v7a",
+      "bytes": 14652619,
+      "sha256": "fa9abd2405a308f1b136e324e3c253c59decb198640cb26dc6e76408ed1f1969",
+      "assetFilesCompared": 82
+    }
+  ],
+  "lintErrors": 0,
+  "lintWarnings": 4,
+  "permissions": [],
+  "signature": "absent; unsigned compilation artifact, not installable",
+  "preview": {
+    "inlineScripts": 71,
+    "cspHashesVerified": true,
+    "renderedBrowser": false,
+    "bytes": 2149114,
+    "sha256": "7d5f0808d39a756acad85d361c0ddefd0659806203ab0c8df975293de951f5a7"
+  },
+  "sourceModules": {
+    "beauty-protection.js": "ebd9abaa824b4e5bfb058585f6827868eb516c389fa77603c2b5f4819ff97583",
+    "portrait-people-operation.js": "c1f55380f8243d9b0b6f62b63dab83d7dd217785ea26ee722c9787fe66ba57c0",
+    "portrait-people-ui.js": "3911f0bdb79f8fe5e9a1128ca888d355ee995575b56c75c3e819b34848f316ae",
+    "portrait-ui.js": "5303038f85bb4c5b3d9b156942beedfce170322dfa1a7468e510c8add5cb05f6",
+    "manual-tools.js": "37617b5654e7479a2cc2b96ce047845a44cbc725a3f8f618069513d4f051a779",
+    "selection-edit.js": "e7e7f317775a2b3090a254fbea1c869ce2309ea8a623b05fc04ad1cb551a0fb5",
+    "manual-retouch-ui.js": "53a5ae68d4fe15cb1413e0d34c3288e2cec69b919f13a4536a2636496f6af4e7",
+    "photo-background.js": "ed2f0a327d47540a38eb51fdf7f8a681813e0916a01cfe098715aa5cecd03ef0",
+    "mask-refine.js": "1f87ce10085e42cf8e67309ac49dd6f608d40ecb32258ab8a76ed67b6bc4baa2",
+    "background-refine-operation.js": "69dfea399fe96114cd623ca2512a8cd17873038024ced2d73738be46e89daccd",
+    "background-refine-ui.js": "cd15f5402f31852766c5b53b03932fc20fc5cd3ec371a0d39a520859ea2b43fc",
+    "project-backup.js": "fc73ace09637a830aadea8c94fce8915772e1045681b83587c3185f373729d4a",
+    "project-backup-transport.js": "96a4b661b369cba01dfe063a8ffa55c407f30b384aba5b25b649de7ef56dc9db",
+    "project-backup-ui.js": "26250d4086daabfcb2ab05594e8b1a1970c5d6b4e5d2fb0aa023340dcac7ac18",
+    "project-library-controller.js": "152d80fd402ffdca7f357a879aa1a258442a3fc21c52841fb5e5e833e2ac9f0d",
+    "editor.js": "7942cac3e391f04addef302cd422a6b91f8a40b3f17d0a5e5b564bc0b80369af",
+    "project-core.js": "7f0ef1e92b6688f00fef2d12fe09a2dd88e5a23a9deb37c57bd3edb3feaed5b8"
+  },
+  "testBoundary": "NativeCanvas actual PNG; controlled DOM, file chooser, bridge and fault-injected IndexedDB. No Android/WebView or browser persistence."
+}

@@ -1,0 +1,9 @@
+{
+  "name": "minimal-v2",
+  "recordVersion": 2,
+  "totalBytes": 413,
+  "manifestLength": 255,
+  "sourceLength": 78,
+  "manifestSha256": "eed86392c1b66127fa48365d29f423f40e52650d17973f3bfd82b669e0b61dfa",
+  "sourceSha256": "276a34c0692e95ef9ed6fe373b24c844ffdaf88289b2af8c1049e54f335ccbe1"
+}

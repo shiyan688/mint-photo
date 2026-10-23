@@ -1,0 +1,310 @@
+{
+  "generatedAt": "2026-10-22T20:15:46.080Z",
+  "scope": "Independent production adapter/editor/codec with actual native Skia Canvas and PNG. Injected DOM, chooser and storage. NOT browser, Android WebView, emulator, phone touch, real inference, memory-profiler or performance certification.",
+  "production": [
+    {
+      "file": "index.html",
+      "sha256": "0c36096fe9cfa1b49a87b7fcc2f6b1dc11bd15619b2d8b82a202bff3aedd8c35"
+    },
+    {
+      "file": "photo-background.js",
+      "sha256": "ed2f0a327d47540a38eb51fdf7f8a681813e0916a01cfe098715aa5cecd03ef0"
+    },
+    {
+      "file": "background-refine-operation.js",
+      "sha256": "69dfea399fe96114cd623ca2512a8cd17873038024ced2d73738be46e89daccd"
+    },
+    {
+      "file": "background-refine-ui.js",
+      "sha256": "cd15f5402f31852766c5b53b03932fc20fc5cd3ec371a0d39a520859ea2b43fc"
+    },
+    {
+      "file": "portrait-ui.js",
+      "sha256": "a7089263c48ddf47e38f77d0be9fdc7a3ddc4b32658661b7e101dd81412f3ca3"
+    },
+    {
+      "file": "project-core.js",
+      "sha256": "517b2d51f725f16f715ee14400e6facdfc2a6ab81bf69ff4b7b0d6c658977d4e"
+    },
+    {
+      "file": "editor.js",
+      "sha256": "7942cac3e391f04addef302cd422a6b91f8a40b3f17d0a5e5b564bc0b80369af"
+    },
+    {
+      "file": "image-import.js",
+      "sha256": "65beb10ebb576ba6efdc91bdbd2c756d7bd39a4bd40f8a74284e4788e928bd78"
+    },
+    {
+      "file": "image-overlay.js",
+      "sha256": "800751bc88f2539e51f742d57fe6287b44c2c2c8c74f958d297cf878790d579c"
+    }
+  ],
+  "results": [
+    {
+      "name": "production HTML loads frozen image-asset dependency before photo-background factory",
+      "status": "passed",
+      "elapsedMs": 1.0531409999999823
+    },
+    {
+      "name": "identity-sized empty mask replaces background with exact embedded RGBA and no source mutation",
+      "status": "passed",
+      "elapsedMs": 76.34156899999999
+    },
+    {
+      "name": "opaque kept foreground is coordinate-identical for all fits and positions, including same photo background",
+      "status": "passed",
+      "elapsedMs": 6.345757999999989
+    },
+    {
+      "name": "continuous mask and partial source/background alpha match independent linear-light source-over oracle",
+      "status": "passed",
+      "elapsedMs": 2.508876999999984
+    },
+    {
+      "name": "zero source alpha never reappears under a full retained mask",
+      "status": "passed",
+      "elapsedMs": 1.3987209999999664
+    },
+    {
+      "name": "fill crops only background at left center and right anchors",
+      "status": "passed",
+      "elapsedMs": 1.5092260000000124
+    },
+    {
+      "name": "fit letterbox placement is exact and backdrop applies beneath transparent image and empty margins",
+      "status": "passed",
+      "elapsedMs": 2.252822999999978
+    },
+    {
+      "name": "transparent texel hidden RGB cannot contaminate interpolation fringes",
+      "status": "passed",
+      "elapsedMs": 4.186857000000032
+    },
+    {
+      "name": "fractional fit margins use area coverage rather than a binary edge",
+      "status": "passed",
+      "elapsedMs": 0.7463910000000169
+    },
+    {
+      "name": "odd-sized severe minification preserves area-weighted linear light and alpha without hidden-RGB bleed",
+      "status": "passed",
+      "elapsedMs": 2.8808859999999754
+    },
+    {
+      "name": "unready valid image operation leaves input identity and allocates no output",
+      "status": "passed",
+      "elapsedMs": 0.29466199999990295
+    },
+    {
+      "name": "invalid target budget fails before Canvas reads or output allocation",
+      "status": "passed",
+      "elapsedMs": 1.057547999999997
+    },
+    {
+      "name": "invalid nested schema and metadata fail before Canvas read and never invoke accessor",
+      "status": "passed",
+      "elapsedMs": 2.6711500000000115
+    },
+    {
+      "name": "declared source dimensions must agree exactly with bounded importer normalization",
+      "status": "passed",
+      "elapsedMs": 221.0452130000001
+    },
+    {
+      "name": "photo asset over frozen edge/pixel budget cannot reach input pixels",
+      "status": "passed",
+      "elapsedMs": 0.46075100000007296
+    },
+    {
+      "name": "cancellation leaves input intact and releases no caller canvas",
+      "status": "passed",
+      "elapsedMs": 1.8880940000000237
+    },
+    {
+      "name": "output allocation failure preserves input and releases only newly allocated Canvas",
+      "status": "passed",
+      "elapsedMs": 5.17870599999992
+    },
+    {
+      "name": "new image mode is strict while old background-refine schema remains byte-identical",
+      "status": "passed",
+      "elapsedMs": 11.10145
+    },
+    {
+      "name": "old color blur and transparent refinement retain exact existing engine pixels",
+      "status": "passed",
+      "elapsedMs": 60.359511999999995
+    },
+    {
+      "name": "shared external-asset quota counts background, overlays and redo before project mutation",
+      "status": "passed",
+      "elapsedMs": 7.254412000000002
+    },
+    {
+      "name": "actual production PNG plus undo redo preserve original bytes and portable embedded photo",
+      "status": "passed",
+      "elapsedMs": 615.6333409999999
+    },
+    {
+      "name": "missing photo-background core fails closed and cannot silently return the source",
+      "status": "passed",
+      "elapsedMs": 17.786126000000195
+    },
+    {
+      "name": "history after crop and rotate retains stage dimensions and background-independent foreground coordinates",
+      "status": "passed",
+      "elapsedMs": 67.70693200000005
+    },
+    {
+      "metric": "portable-backup",
+      "bytes": 1525,
+      "sourceSha256": "94b982f5d8a7560ee36c7a4b70c0ecdd97afb970c8a8b8548f7782d6728afa11",
+      "restoredRgbaSha256": "f9b80c277d18c705c280668900177e657cc912230b67d22ba491f3ec804a229b",
+      "ops": 1,
+      "redo": 1
+    },
+    {
+      "name": "portable backup restores original bytes, image background, ordered edits and redo into fresh session",
+      "status": "passed",
+      "elapsedMs": 523.8657850000002
+    },
+    {
+      "name": "actual PNG JPEG WebP local picker imports save only bounded embedded RGBA and preserve main source",
+      "status": "passed",
+      "elapsedMs": 1456.425612
+    },
+    {
+      "name": "real 1600x800 background normalization exposes source dimensions and preserves original main photograph",
+      "status": "passed",
+      "elapsedMs": 530.336656
+    },
+    {
+      "name": "fit fill position reset and backdrop controls never change mask or source geometry",
+      "status": "passed",
+      "elapsedMs": 59.516295000000355
+    },
+    {
+      "name": "picker cancellation preserves existing draft and stale picker selection after mode change is ignored",
+      "status": "passed",
+      "elapsedMs": 26.251948000000084
+    },
+    {
+      "name": "cancelled decode and later replacement cannot overwrite a newer chosen background",
+      "status": "passed",
+      "elapsedMs": 42.31289300000026
+    },
+    {
+      "name": "Back cancels background decode without canceling the existing ready mask or main photograph",
+      "status": "passed",
+      "elapsedMs": 25.341882000000624
+    },
+    {
+      "name": "failed replacement main-photo import invalidates pending background but preserves and unlocks current draft",
+      "status": "passed",
+      "elapsedMs": 27.77024799999981
+    },
+    {
+      "name": "successful main-photo replacement rejects both late background decode and stale control handlers",
+      "status": "passed",
+      "elapsedMs": 27.697257999999238
+    },
+    {
+      "name": "invalid imported file and resource-quota rejection leave existing background unchanged",
+      "status": "passed",
+      "elapsedMs": 1782.8970909999998
+    },
+    {
+      "name": "zoom changes view only and cannot alter saved picture placement, mask coordinates or exported pixels",
+      "status": "passed",
+      "elapsedMs": 464.98087699999996
+    },
+    {
+      "name": "stale source revision rejects Apply without changing committed image or source",
+      "status": "passed",
+      "elapsedMs": 28.549316999999974
+    },
+    {
+      "metric": "public-evidence",
+      "source": "NASA S97-00568 public adult portrait, derived informational QA fixture",
+      "sourceSha256": "3059be06e8bb1396c42dd327aad8c7eae41cff4a22edb37c0adae2169dd54a21",
+      "sourceUnchanged": true,
+      "sourceSize": [
+        1000,
+        1250
+      ],
+      "fillRgbaSha256": "f9ea74e5c8d21917a45e6b24e48b636c3aea2bca2c674a571ebfabff520a39a4",
+      "fitRgbaSha256": "4b80555ef6f0a6f7efcef5358968b90809346738b33baa1fbe7fcba5f2f646a0",
+      "maskSource": "Official MediaPipe0.10.21 CPU host; NOT Android inference parity",
+      "newInference": false,
+      "android": false,
+      "webview": false
+    },
+    {
+      "name": "public NASA fixture plus saved host mask produces full-size actual editor PNG evidence",
+      "status": "passed",
+      "elapsedMs": 18478.016260999997
+    },
+    {
+      "metric": "saved-refinement-and-photo-background",
+      "source": "NASA S97-00568 public adult portrait, derived informational QA fixture",
+      "sourceSha256": "3059be06e8bb1396c42dd327aad8c7eae41cff4a22edb37c0adae2169dd54a21",
+      "sourceUnchanged": true,
+      "sourceSize": [
+        1000,
+        1250
+      ],
+      "savedRecipe": "quality/mask-refine-evidence/public-refinement-recipe.json",
+      "savedManualStrokeCount": 2,
+      "newModelInference": false,
+      "refinementChangedMaskPixels": 13625,
+      "opaqueFullyRetainedPixels": 642857,
+      "retainedMaxRgbaDifference": 0,
+      "rois": [
+        {
+          "name": "face-interior",
+          "x": 0.35,
+          "y": 0.26,
+          "w": 0.3,
+          "h": 0.22,
+          "selection": "refined confidence exactly 1 and source alpha 255",
+          "pixels": 80828,
+          "maxRgbaDifference": 0
+        },
+        {
+          "name": "torso-interior",
+          "x": 0.3,
+          "y": 0.65,
+          "w": 0.35,
+          "h": 0.24,
+          "selection": "refined confidence exactly 1 and source alpha 255",
+          "pixels": 104700,
+          "maxRgbaDifference": 0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "coarse-fill",
+          "png": "b02-b03-coarse-fill.png",
+          "rgbaSha256": "f9ea74e5c8d21917a45e6b24e48b636c3aea2bca2c674a571ebfabff520a39a4"
+        },
+        {
+          "name": "refined-fill",
+          "png": "b02-b03-refined-fill.png",
+          "rgbaSha256": "6ef120f80b58b3520ca3a83df3fa5cad39ec5a3045fb6d231fadc5854025d708"
+        },
+        {
+          "name": "refined-fit",
+          "png": "b02-b03-refined-fit.png",
+          "rgbaSha256": "31514f6e408a293840cfe8f4b2998483e8d41480d64c15583a54e355ee82c6c6"
+        }
+      ],
+      "androidWebView": false,
+      "device": false
+    },
+    {
+      "name": "archived two-stroke refinement composes with photo backgrounds and preserves opaque foreground ROI exactly",
+      "status": "passed",
+      "elapsedMs": 33438.584694000005
+    }
+  ]
+}

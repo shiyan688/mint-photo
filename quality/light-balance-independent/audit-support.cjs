@@ -1,0 +1,22 @@
+'use strict';
+// Independent bounded Android adapter audit. Production scripts execute unchanged
+// in the installed native-Canvas + controlled DOM harness. This is NOT WebView,
+// handset, touchscreen, Android encoder, or broad shared-core quality evidence.
+const test=require('node:test'), assert=require('node:assert/strict'), path=require('node:path');
+const root=process.env.MINT_MOBILE_ROOT||path.resolve(__dirname,'../..');
+const {makeHarness,plain,assets}=require(path.join(root,'quality/paint-layer-evidence/editor-harness.cjs'));
+const {canvas,pixels,hash,decode,copy}=require(path.join(root,'quality/text-overlay-independent/native-canvas.cjs'));
+const L=require(path.join(assets,'light-balance.js')),LO=require(path.join(assets,'light-balance-operation.js')),P=require(path.join(assets,'preset-operation.js')),C=P.codec(),Lev=require(path.join(assets,'levels.js')),Tone=require(path.join(assets,'advanced-tone.js')),Beauty=require(path.join(assets,'portrait-engine.js')),Basic=require(path.join(assets,'local-adjustments.js'));
+const image=c=>({width:c.width,height:c.height,data:pixels(c)});
+function paintImage(im){const c=canvas(im.width,im.height),x=c.getContext('2d'),d=x.createImageData(im.width,im.height);d.data.set(im.data);x.putImageData(d,0,0);return c;}
+function photo(alpha=false,w=160,h=120){const c=canvas(w,h),x=c.getContext('2d'),d=x.createImageData(w,h);for(let y=0;y<h;y++)for(let x=0;x<w;x++){const center=x>w*.3&&x<w*.7&&y>h*.3&&y<h*.7;d.data.set(center?[148,124,108,alpha?0:255]:[42+(x*5+y*3)%124,55+(x*2+y*7)%123,67+(x*3+y*2)%119,alpha?(x<w/4?0:x<w/2?128:255):255],(y*w+x)*4);}c.getContext('2d').putImageData(d,0,0);return c;}
+async function start(tool='light-balance',options={}){const h=makeHarness(canvas,options.navigation!==false),c=photo(!!options.alpha,options.width||160,options.height||120),bytes=c.toBuffer('image/png'),blob=h.file('independent-synthetic.png',c.width,c.height,{type:'image/png',bytes,image:await decode(bytes)});const extra=new Map(),lookup=h.env.document.getElementById.bind(h.env.document),panel=h.node('toolPanel');h.env.document.getElementById=id=>extra.get(id)||lookup(id);panel.prepend=e=>{panel.children.unshift(e);e.parentNode=panel;if(e.id)extra.set(e.id,e);};const storage=new Map();h.env.localStorage={getItem:k=>storage.get(k)??null,setItem:(k,v)=>storage.set(k,String(v)),removeItem:k=>storage.delete(k)};h.env.TextDecoder=TextDecoder;const readers=[],Reader=h.env.FileReader;h.env.FileReader=class extends Reader{readAsArrayBuffer(blob){this.blob=blob;readers.push(this);}};await h.load(blob);h.setTool(tool);h.paint();return Object.assign(h,{photo:c,bytes,blob,storage,readers,async upload(text,finish=true){const n=h.node('presetFile');n.files=[new Blob([text])];n.onchange({target:n});if(finish)await this.finishImport();},async finishImport(i=readers.length-1){const r=readers[i];r.result=await r.blob.arrayBuffer();r.onload();},yes(){h.click('confirmYes');},change(key,value,event='oninput'){const e=h.node(key);assert(e,'Missing #'+key);e.value=String(value);e[event]({target:e});},sample(){h.click('lb-sample');h.paint();h.event('pointerdown');h.event('pointerup');h.paint();}});}
+const mutate=(h,k,v)=>h.change('lb-'+k,v,['r','g','b'].includes(k)?'onchange':'oninput');
+const snapshot=h=>plain({ops:h.state.ops,redo:h.state.redo,draft:h.state.draft,revision:h.state.projectRevision});
+const activeRecipe=()=>({...L.defaults(),shadows:31,highlights:-23,whiteBalance:{r:.93,g:1.05,b:1.21}});
+function preset(){const r=plain(C.defaults('Independent portable v3'));r.controls.basic={exposure:11,contrast:-8,saturation:9,temperature:13};r.controls.lightBalance=activeRecipe();r.controls.levels=Lev.defaults();r.controls.levels.channels.rgb.gamma=1.27;r.controls.levels.channels.blue.outputWhite=236;r.controls.advancedTone=Tone.defaults();r.controls.advancedTone.curves.red[2]=.56;return r;}
+async function loadRecipe(h,r){await h.upload(C.stringify(r));if(h.node('confirmDialog').open)h.yes();h.paint();}
+function compareRGBA(actual,expected,message){assert.equal(actual.width,expected.width);assert.equal(actual.height,expected.height);assert.equal(Buffer.compare(Buffer.from(pixels(actual)),Buffer.from(expected.data)),0,message);}
+
+
+module.exports={root,assets,start,snapshot,plain,photo,image,paintImage,canvas,pixels,hash,decode,copy,L,LO,P,C,Lev,Tone,Beauty,Basic,mutate,activeRecipe,preset,loadRecipe,compareRGBA};

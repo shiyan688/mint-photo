@@ -1,0 +1,140 @@
+{
+  "kind": "synthetic native Canvas output, not app/device screenshot",
+  "dimensions": {
+    "width": 480,
+    "height": 360
+  },
+  "oldRecipe": {
+    "version": 1,
+    "text": "薄荷 · 多行文字\nA quieter afternoon",
+    "x": 0.5,
+    "y": 0.5,
+    "size": 0.17,
+    "boxWidth": 0.9,
+    "rotation": 0,
+    "align": "center",
+    "fontFamily": "sans",
+    "bold": true,
+    "italic": false,
+    "lineHeight": 1.25,
+    "color": "#ffffff",
+    "opacity": 0.63,
+    "outlineWidth": 0.05,
+    "outlineColor": "#000000",
+    "shadow": true
+  },
+  "rawHistory": [
+    {
+      "type": "text-overlay",
+      "action": "add",
+      "id": "text-mvl9gb9b-1-5utwob3d",
+      "recipe": {
+        "version": 1,
+        "text": "薄荷 · 多行文字\nA quieter afternoon",
+        "x": 0.5,
+        "y": 0.5,
+        "size": 0.17,
+        "boxWidth": 0.9,
+        "rotation": 0,
+        "align": "center",
+        "fontFamily": "sans",
+        "bold": true,
+        "italic": false,
+        "lineHeight": 1.25,
+        "color": "#ffffff",
+        "opacity": 0.63,
+        "outlineWidth": 0.05,
+        "outlineColor": "#000000",
+        "shadow": true
+      }
+    },
+    {
+      "type": "text-overlay",
+      "action": "replace",
+      "id": "text-mvl9gb9b-1-5utwob3d",
+      "recipe": {
+        "version": 1,
+        "text": "编辑同一个段落\nReplacement, not duplicate",
+        "x": 0.5,
+        "y": 0.5,
+        "size": 0.17,
+        "boxWidth": 0.9,
+        "rotation": -12,
+        "align": "center",
+        "fontFamily": "sans",
+        "bold": true,
+        "italic": false,
+        "lineHeight": 1.4,
+        "color": "#ffedb0",
+        "opacity": 0.63,
+        "outlineWidth": 0.05,
+        "outlineColor": "#000000",
+        "shadow": true
+      }
+    }
+  ],
+  "redo": [
+    {
+      "type": "text-overlay",
+      "action": "replace",
+      "id": "text-mvl9gb9b-1-5utwob3d",
+      "recipe": {
+        "version": 1,
+        "text": "",
+        "x": 0.5,
+        "y": 0.5,
+        "size": 0.17,
+        "boxWidth": 0.9,
+        "rotation": -12,
+        "align": "center",
+        "fontFamily": "sans",
+        "bold": true,
+        "italic": false,
+        "lineHeight": 1.4,
+        "color": "#ffedb0",
+        "opacity": 0.63,
+        "outlineWidth": 0.05,
+        "outlineColor": "#000000",
+        "shadow": true
+      }
+    }
+  ],
+  "panels": [
+    {
+      "label": "Synthetic original",
+      "width": 480,
+      "height": 360,
+      "rgbaSha256": "6d452b9d905377880b9204b1aee888d2c32c0f39c9d0ee524eb78da200bbea64"
+    },
+    {
+      "label": "Initial committed paragraph",
+      "width": 480,
+      "height": 360,
+      "rgbaSha256": "d26c717ff10f7aa6b20b22091cff0c89965c5addd90b2efe4e27599c4899f332"
+    },
+    {
+      "label": "Replacement preview",
+      "width": 480,
+      "height": 360,
+      "rgbaSha256": "628595f5d6758cdd5c14b29d09b34aef524bbf25b356775bfd5f061fc7d7a128"
+    },
+    {
+      "label": "Replacement committed",
+      "width": 480,
+      "height": 360,
+      "rgbaSha256": "628595f5d6758cdd5c14b29d09b34aef524bbf25b356775bfd5f061fc7d7a128"
+    },
+    {
+      "label": "Incorrect double-paint control",
+      "width": 480,
+      "height": 360,
+      "rgbaSha256": "44a26d50c25811cb9a9b6eff6c3b1ad5227feafc70af524805b2df72b4f10953"
+    },
+    {
+      "label": "Cleared replacement",
+      "width": 480,
+      "height": 360,
+      "rgbaSha256": "6d452b9d905377880b9204b1aee888d2c32c0f39c9d0ee524eb78da200bbea64"
+    }
+  ]
+}

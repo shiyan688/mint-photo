@@ -1,0 +1,41 @@
+{
+  "artifacts": [
+    {
+      "abi": "arm64-v8a",
+      "bytes": 17747856,
+      "sha256": "b25058a8bd372371f0395d5a1fa44d4e7df7444cbabea6fce642c126b948985f",
+      "assetFilesCompared": 47
+    },
+    {
+      "abi": "armeabi-v7a",
+      "bytes": 14452638,
+      "sha256": "6bf19077efec356c4b03e169f989e776504b98f16b2c8fbc7b517515b2d07f08",
+      "assetFilesCompared": 47
+    }
+  ],
+  "lintErrors": 0,
+  "lintWarnings": 4,
+  "signature": "absent; not installable",
+  "permissions": [],
+  "preview": {
+    "inlineScripts": 36,
+    "cspHashesVerified": true,
+    "renderedBrowser": false,
+    "bytes": 1596682,
+    "sha256": "ec5b16ec35b9e208a1335cd0a494480fe66c55902e05698c6ae16d5a361b57e7"
+  },
+  "tests": {
+    "nodeEntries": 855,
+    "individualPureChecks": 1077,
+    "nativeCanvasNode": 173,
+    "nativeCanvasStandaloneGeometry": 14,
+    "totalNativeCanvas": 187,
+    "JavaBoundaryChecks": 256
+  },
+  "notRun": [
+    "actual browser CSS layout",
+    "Android WebView",
+    "physical multitouch handset",
+    "signed installation"
+  ]
+}

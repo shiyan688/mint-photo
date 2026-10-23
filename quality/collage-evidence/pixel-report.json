@@ -1,0 +1,60 @@
+{
+  "validation": "Production editor in controlled DOM with native Canvas; not Android/WebView or browser",
+  "fixtures": "Self-authored synthetic geometric RGBA, no private data",
+  "reports": [
+    {
+      "count": 2,
+      "layout": "horizontal",
+      "output": {
+        "width": 1600,
+        "height": 1000,
+        "rgbaSha256": "360c3c17e5126ba9c0eed54dc3baa4154bd77a7eac5e8e2dab5a83d7a7d74412"
+      },
+      "preview": {
+        "width": 900,
+        "height": 563
+      },
+      "alphaPreserved": false,
+      "originalBlobBytesPreserved": true,
+      "undoRedoExact": true,
+      "primaryIsCurrentProcessedWork": true,
+      "geometryBeforeCollage": false
+    },
+    {
+      "count": 3,
+      "layout": "grid",
+      "output": {
+        "width": 1200,
+        "height": 1600,
+        "rgbaSha256": "759d1bc521c462b9e803072c25dc5387cfda5a0a25264a378f4546b95650fd9c"
+      },
+      "preview": {
+        "width": 675,
+        "height": 900
+      },
+      "alphaPreserved": false,
+      "originalBlobBytesPreserved": true,
+      "undoRedoExact": true,
+      "primaryIsCurrentProcessedWork": true,
+      "geometryBeforeCollage": true
+    },
+    {
+      "count": 4,
+      "layout": "grid",
+      "output": {
+        "width": 1600,
+        "height": 1100,
+        "rgbaSha256": "ab50982640664cec395a8179d064a63e7d51d6f1bd696d8d2e060f739db5e098"
+      },
+      "preview": {
+        "width": 900,
+        "height": 619
+      },
+      "alphaPreserved": true,
+      "originalBlobBytesPreserved": true,
+      "undoRedoExact": true,
+      "primaryIsCurrentProcessedWork": true,
+      "geometryBeforeCollage": false
+    }
+  ]
+}

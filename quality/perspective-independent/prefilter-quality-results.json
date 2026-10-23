@@ -1,0 +1,1103 @@
+{
+  "runtime": "v24.19.0",
+  "scope": "Independent host synthetic analysis, not Android/WebView",
+  "coreSha256": "3a3b57ea8da4ce4a7c99b180a454e9f00a4242a0460621d267ad5487fbe66557",
+  "results": [
+    {
+      "name": "prefilter-checker",
+      "input": [
+        256,
+        256
+      ],
+      "output": [
+        17,
+        17
+      ],
+      "error": {
+        "max": 1,
+        "mae": 0.4083044982698962,
+        "rms": 0.6389870877176598,
+        "alphaMax": 0,
+        "alphaMae": 0
+      },
+      "plan": {
+        "version": 1,
+        "recipe": {
+          "version": 1,
+          "quad": [
+            {
+              "x": 0,
+              "y": 0
+            },
+            {
+              "x": 1,
+              "y": 0
+            },
+            {
+              "x": 1,
+              "y": 1
+            },
+            {
+              "x": 0,
+              "y": 1
+            }
+          ],
+          "outputFraction": {
+            "width": 0.06640625,
+            "height": 0.06640625
+          }
+        },
+        "sourceSize": {
+          "width": 256,
+          "height": 256
+        },
+        "outputSize": {
+          "width": 17,
+          "height": 17
+        },
+        "renderedSize": {
+          "width": 17,
+          "height": 17
+        },
+        "workUnits": 89352,
+        "estimatedBytes": 611460,
+        "mipBytes": 348160,
+        "mipLevels": [
+          {
+            "level": 1,
+            "width": 128,
+            "height": 128,
+            "scale": 2,
+            "pixels": 16384,
+            "bytes": 262144
+          },
+          {
+            "level": 2,
+            "width": 64,
+            "height": 64,
+            "scale": 4,
+            "pixels": 4096,
+            "bytes": 65536
+          },
+          {
+            "level": 3,
+            "width": 32,
+            "height": 32,
+            "scale": 8,
+            "pixels": 1024,
+            "bytes": 16384
+          },
+          {
+            "level": 4,
+            "width": 16,
+            "height": 16,
+            "scale": 16,
+            "pixels": 256,
+            "bytes": 4096
+          }
+        ],
+        "sampling": {
+          "filter": "linear-premultiplied-anisotropic-mipmap",
+          "maxSamples": 16,
+          "sampleCountBound": 1,
+          "tapsPerSample": 8,
+          "majorFootprintBound": 15.058823529411764,
+          "minorFootprintBound": 15.058823529411764,
+          "baseFootprintBound": 15.058823529411764,
+          "anisotropyBound": 1,
+          "maySoftenMinorAxis": false
+        },
+        "renderScale": {
+          "x": 1,
+          "y": 1
+        },
+        "kind": "resample",
+        "copyRect": null,
+        "outputToSourceMatrixNormalized": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "sourceToOutputMatrixNormalized": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "geometry": {
+          "area": 1,
+          "minDenominator": 1,
+          "maxDenominator": 1,
+          "matrixCondition": 1,
+          "minJacobian": 1,
+          "maxJacobian": 1,
+          "jacobianConditionBound": 2
+        },
+        "limits": {
+          "maxEdge": 16384,
+          "maxPixels": 67108864,
+          "maxBytes": 536870912,
+          "maxWorkUnits": 268435456
+        },
+        "estimates": {
+          "sourcePixels": 65536,
+          "declaredOutputPixels": 289,
+          "outputPixels": 289,
+          "sourceBytes": 262144,
+          "outputBytes": 1156,
+          "totalRgbaBytes": 263300,
+          "mipBytes": 348160,
+          "mipPixels": 21760,
+          "totalBytes": 611460,
+          "extraBytes": 351364,
+          "staticTableBytes": 2048,
+          "workUnits": 89352,
+          "mipWorkUnits": 87040,
+          "sampleWorkUnits": 2312,
+          "maxFootprintBound": 15.058823529411764,
+          "sampleCountBound": 1,
+          "tapsPerSample": 8,
+          "bilinearTaps": 2312
+        }
+      }
+    },
+    {
+      "name": "prefilter-sharp-text",
+      "input": [
+        577,
+        289
+      ],
+      "output": [
+        97,
+        49
+      ],
+      "error": {
+        "max": 131,
+        "mae": 4.023774458236903,
+        "rms": 8.381561822354366,
+        "alphaMax": 0,
+        "alphaMae": 0
+      },
+      "plan": {
+        "version": 1,
+        "recipe": {
+          "version": 1,
+          "quad": [
+            {
+              "x": 0,
+              "y": 0
+            },
+            {
+              "x": 1,
+              "y": 0
+            },
+            {
+              "x": 1,
+              "y": 1
+            },
+            {
+              "x": 0,
+              "y": 1
+            }
+          ],
+          "outputFraction": {
+            "width": 0.1681109185441941,
+            "height": 0.1695501730103806
+          }
+        },
+        "sourceSize": {
+          "width": 577,
+          "height": 289
+        },
+        "outputSize": {
+          "width": 97,
+          "height": 49
+        },
+        "renderedSize": {
+          "width": 97,
+          "height": 49
+        },
+        "workUnits": 296812,
+        "estimatedBytes": 1569080,
+        "mipBytes": 883056,
+        "mipLevels": [
+          {
+            "level": 1,
+            "width": 289,
+            "height": 145,
+            "scale": 2,
+            "pixels": 41905,
+            "bytes": 670480
+          },
+          {
+            "level": 2,
+            "width": 145,
+            "height": 73,
+            "scale": 4,
+            "pixels": 10585,
+            "bytes": 169360
+          },
+          {
+            "level": 3,
+            "width": 73,
+            "height": 37,
+            "scale": 8,
+            "pixels": 2701,
+            "bytes": 43216
+          }
+        ],
+        "sampling": {
+          "filter": "linear-premultiplied-anisotropic-mipmap",
+          "maxSamples": 16,
+          "sampleCountBound": 2,
+          "tapsPerSample": 8,
+          "majorFootprintBound": 5.948453608247422,
+          "minorFootprintBound": 5.8979591836734695,
+          "baseFootprintBound": 5.8979591836734695,
+          "anisotropyBound": 1.0085613384225731,
+          "maySoftenMinorAxis": false
+        },
+        "renderScale": {
+          "x": 1,
+          "y": 1
+        },
+        "kind": "resample",
+        "copyRect": null,
+        "outputToSourceMatrixNormalized": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "sourceToOutputMatrixNormalized": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "geometry": {
+          "area": 1,
+          "minDenominator": 1,
+          "maxDenominator": 1,
+          "matrixCondition": 1,
+          "minJacobian": 1,
+          "maxJacobian": 1,
+          "jacobianConditionBound": 2
+        },
+        "limits": {
+          "maxEdge": 16384,
+          "maxPixels": 67108864,
+          "maxBytes": 536870912,
+          "maxWorkUnits": 268435456
+        },
+        "estimates": {
+          "sourcePixels": 166753,
+          "declaredOutputPixels": 4753,
+          "outputPixels": 4753,
+          "sourceBytes": 667012,
+          "outputBytes": 19012,
+          "totalRgbaBytes": 686024,
+          "mipBytes": 883056,
+          "mipPixels": 55191,
+          "totalBytes": 1569080,
+          "extraBytes": 904116,
+          "staticTableBytes": 2048,
+          "workUnits": 296812,
+          "mipWorkUnits": 220764,
+          "sampleWorkUnits": 76048,
+          "maxFootprintBound": 5.948453608247422,
+          "sampleCountBound": 2,
+          "tapsPerSample": 8,
+          "bilinearTaps": 76048
+        }
+      }
+    },
+    {
+      "name": "prefilter-odd-ramp",
+      "input": [
+        577,
+        289
+      ],
+      "output": [
+        97,
+        49
+      ],
+      "error": {
+        "max": 3,
+        "mae": 0.04095658882109545,
+        "rms": 0.29773439100208876,
+        "alphaMax": 0,
+        "alphaMae": 0
+      },
+      "plan": {
+        "version": 1,
+        "recipe": {
+          "version": 1,
+          "quad": [
+            {
+              "x": 0,
+              "y": 0
+            },
+            {
+              "x": 1,
+              "y": 0
+            },
+            {
+              "x": 1,
+              "y": 1
+            },
+            {
+              "x": 0,
+              "y": 1
+            }
+          ],
+          "outputFraction": {
+            "width": 0.1681109185441941,
+            "height": 0.1695501730103806
+          }
+        },
+        "sourceSize": {
+          "width": 577,
+          "height": 289
+        },
+        "outputSize": {
+          "width": 97,
+          "height": 49
+        },
+        "renderedSize": {
+          "width": 97,
+          "height": 49
+        },
+        "workUnits": 296812,
+        "estimatedBytes": 1569080,
+        "mipBytes": 883056,
+        "mipLevels": [
+          {
+            "level": 1,
+            "width": 289,
+            "height": 145,
+            "scale": 2,
+            "pixels": 41905,
+            "bytes": 670480
+          },
+          {
+            "level": 2,
+            "width": 145,
+            "height": 73,
+            "scale": 4,
+            "pixels": 10585,
+            "bytes": 169360
+          },
+          {
+            "level": 3,
+            "width": 73,
+            "height": 37,
+            "scale": 8,
+            "pixels": 2701,
+            "bytes": 43216
+          }
+        ],
+        "sampling": {
+          "filter": "linear-premultiplied-anisotropic-mipmap",
+          "maxSamples": 16,
+          "sampleCountBound": 2,
+          "tapsPerSample": 8,
+          "majorFootprintBound": 5.948453608247422,
+          "minorFootprintBound": 5.8979591836734695,
+          "baseFootprintBound": 5.8979591836734695,
+          "anisotropyBound": 1.0085613384225731,
+          "maySoftenMinorAxis": false
+        },
+        "renderScale": {
+          "x": 1,
+          "y": 1
+        },
+        "kind": "resample",
+        "copyRect": null,
+        "outputToSourceMatrixNormalized": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "sourceToOutputMatrixNormalized": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "geometry": {
+          "area": 1,
+          "minDenominator": 1,
+          "maxDenominator": 1,
+          "matrixCondition": 1,
+          "minJacobian": 1,
+          "maxJacobian": 1,
+          "jacobianConditionBound": 2
+        },
+        "limits": {
+          "maxEdge": 16384,
+          "maxPixels": 67108864,
+          "maxBytes": 536870912,
+          "maxWorkUnits": 268435456
+        },
+        "estimates": {
+          "sourcePixels": 166753,
+          "declaredOutputPixels": 4753,
+          "outputPixels": 4753,
+          "sourceBytes": 667012,
+          "outputBytes": 19012,
+          "totalRgbaBytes": 686024,
+          "mipBytes": 883056,
+          "mipPixels": 55191,
+          "totalBytes": 1569080,
+          "extraBytes": 904116,
+          "staticTableBytes": 2048,
+          "workUnits": 296812,
+          "mipWorkUnits": 220764,
+          "sampleWorkUnits": 76048,
+          "maxFootprintBound": 5.948453608247422,
+          "sampleCountBound": 2,
+          "tapsPerSample": 8,
+          "bilinearTaps": 76048
+        }
+      }
+    },
+    {
+      "name": "prefilter-alpha",
+      "input": [
+        257,
+        129
+      ],
+      "output": [
+        17,
+        9
+      ],
+      "error": {
+        "max": 0,
+        "mae": 0,
+        "rms": 0,
+        "alphaMax": 8,
+        "alphaMae": 3.803921568627451
+      },
+      "plan": {
+        "version": 1,
+        "recipe": {
+          "version": 1,
+          "quad": [
+            {
+              "x": 0,
+              "y": 0
+            },
+            {
+              "x": 1,
+              "y": 0
+            },
+            {
+              "x": 1,
+              "y": 1
+            },
+            {
+              "x": 0,
+              "y": 1
+            }
+          ],
+          "outputFraction": {
+            "width": 0.06614785992217899,
+            "height": 0.06976744186046512
+          }
+        },
+        "sourceSize": {
+          "width": 257,
+          "height": 129
+        },
+        "outputSize": {
+          "width": 17,
+          "height": 9
+        },
+        "renderedSize": {
+          "width": 17,
+          "height": 9
+        },
+        "workUnits": 47424,
+        "estimatedBytes": 313128,
+        "mipBytes": 179904,
+        "mipLevels": [
+          {
+            "level": 1,
+            "width": 129,
+            "height": 65,
+            "scale": 2,
+            "pixels": 8385,
+            "bytes": 134160
+          },
+          {
+            "level": 2,
+            "width": 65,
+            "height": 33,
+            "scale": 4,
+            "pixels": 2145,
+            "bytes": 34320
+          },
+          {
+            "level": 3,
+            "width": 33,
+            "height": 17,
+            "scale": 8,
+            "pixels": 561,
+            "bytes": 8976
+          },
+          {
+            "level": 4,
+            "width": 17,
+            "height": 9,
+            "scale": 16,
+            "pixels": 153,
+            "bytes": 2448
+          }
+        ],
+        "sampling": {
+          "filter": "linear-premultiplied-anisotropic-mipmap",
+          "maxSamples": 16,
+          "sampleCountBound": 2,
+          "tapsPerSample": 8,
+          "majorFootprintBound": 15.117647058823529,
+          "minorFootprintBound": 14.333333333333334,
+          "baseFootprintBound": 14.333333333333334,
+          "anisotropyBound": 1.054719562243502,
+          "maySoftenMinorAxis": false
+        },
+        "renderScale": {
+          "x": 1,
+          "y": 1
+        },
+        "kind": "resample",
+        "copyRect": null,
+        "outputToSourceMatrixNormalized": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "sourceToOutputMatrixNormalized": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "geometry": {
+          "area": 1,
+          "minDenominator": 1,
+          "maxDenominator": 1,
+          "matrixCondition": 1,
+          "minJacobian": 1,
+          "maxJacobian": 1,
+          "jacobianConditionBound": 2
+        },
+        "limits": {
+          "maxEdge": 16384,
+          "maxPixels": 67108864,
+          "maxBytes": 536870912,
+          "maxWorkUnits": 268435456
+        },
+        "estimates": {
+          "sourcePixels": 33153,
+          "declaredOutputPixels": 153,
+          "outputPixels": 153,
+          "sourceBytes": 132612,
+          "outputBytes": 612,
+          "totalRgbaBytes": 133224,
+          "mipBytes": 179904,
+          "mipPixels": 11244,
+          "totalBytes": 313128,
+          "extraBytes": 182564,
+          "staticTableBytes": 2048,
+          "workUnits": 47424,
+          "mipWorkUnits": 44976,
+          "sampleWorkUnits": 2448,
+          "maxFootprintBound": 15.117647058823529,
+          "sampleCountBound": 2,
+          "tapsPerSample": 8,
+          "bilinearTaps": 2448
+        }
+      },
+      "hiddenRgbInvariant": true,
+      "noCyan": true
+    },
+    {
+      "name": "prefilter-anisotropic",
+      "input": [
+        256,
+        64
+      ],
+      "output": [
+        256,
+        8
+      ],
+      "error": {
+        "max": 0,
+        "mae": 0,
+        "rms": 0,
+        "alphaMax": 0,
+        "alphaMae": 0
+      },
+      "plan": {
+        "version": 1,
+        "recipe": {
+          "version": 1,
+          "quad": [
+            {
+              "x": 0,
+              "y": 0
+            },
+            {
+              "x": 1,
+              "y": 0
+            },
+            {
+              "x": 1,
+              "y": 1
+            },
+            {
+              "x": 0,
+              "y": 1
+            }
+          ],
+          "outputFraction": {
+            "width": 1,
+            "height": 0.125
+          }
+        },
+        "sourceSize": {
+          "width": 256,
+          "height": 64
+        },
+        "outputSize": {
+          "width": 256,
+          "height": 8
+        },
+        "renderedSize": {
+          "width": 256,
+          "height": 8
+        },
+        "workUnits": 65536,
+        "estimatedBytes": 73728,
+        "mipBytes": 0,
+        "mipLevels": [],
+        "sampling": {
+          "filter": "linear-premultiplied-anisotropic-mipmap",
+          "maxSamples": 16,
+          "sampleCountBound": 8,
+          "tapsPerSample": 4,
+          "majorFootprintBound": 8,
+          "minorFootprintBound": 1,
+          "baseFootprintBound": 1,
+          "anisotropyBound": 8,
+          "maySoftenMinorAxis": false
+        },
+        "renderScale": {
+          "x": 1,
+          "y": 1
+        },
+        "kind": "resample",
+        "copyRect": null,
+        "outputToSourceMatrixNormalized": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "sourceToOutputMatrixNormalized": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "geometry": {
+          "area": 1,
+          "minDenominator": 1,
+          "maxDenominator": 1,
+          "matrixCondition": 1,
+          "minJacobian": 1,
+          "maxJacobian": 1,
+          "jacobianConditionBound": 2
+        },
+        "limits": {
+          "maxEdge": 16384,
+          "maxPixels": 67108864,
+          "maxBytes": 536870912,
+          "maxWorkUnits": 268435456
+        },
+        "estimates": {
+          "sourcePixels": 16384,
+          "declaredOutputPixels": 2048,
+          "outputPixels": 2048,
+          "sourceBytes": 65536,
+          "outputBytes": 8192,
+          "totalRgbaBytes": 73728,
+          "mipBytes": 0,
+          "mipPixels": 0,
+          "totalBytes": 73728,
+          "extraBytes": 10240,
+          "staticTableBytes": 2048,
+          "workUnits": 65536,
+          "mipWorkUnits": 0,
+          "sampleWorkUnits": 65536,
+          "maxFootprintBound": 8,
+          "sampleCountBound": 8,
+          "tapsPerSample": 4,
+          "bilinearTaps": 65536
+        }
+      }
+    },
+    {
+      "name": "prefilter-anisotropic-over-cap",
+      "input": [
+        256,
+        128
+      ],
+      "output": [
+        256,
+        4
+      ],
+      "error": {
+        "max": 188,
+        "mae": 127.5,
+        "rms": 141.12583037842506,
+        "alphaMax": 0,
+        "alphaMae": 0
+      },
+      "plan": {
+        "version": 1,
+        "recipe": {
+          "version": 1,
+          "quad": [
+            {
+              "x": 0,
+              "y": 0
+            },
+            {
+              "x": 1,
+              "y": 0
+            },
+            {
+              "x": 1,
+              "y": 1
+            },
+            {
+              "x": 0,
+              "y": 1
+            }
+          ],
+          "outputFraction": {
+            "width": 1,
+            "height": 0.03125
+          }
+        },
+        "sourceSize": {
+          "width": 256,
+          "height": 128
+        },
+        "outputSize": {
+          "width": 256,
+          "height": 4
+        },
+        "renderedSize": {
+          "width": 256,
+          "height": 4
+        },
+        "workUnits": 163840,
+        "estimatedBytes": 266240,
+        "mipBytes": 131072,
+        "mipLevels": [
+          {
+            "level": 1,
+            "width": 128,
+            "height": 64,
+            "scale": 2,
+            "pixels": 8192,
+            "bytes": 131072
+          }
+        ],
+        "sampling": {
+          "filter": "linear-premultiplied-anisotropic-mipmap",
+          "maxSamples": 16,
+          "sampleCountBound": 16,
+          "tapsPerSample": 8,
+          "majorFootprintBound": 32,
+          "minorFootprintBound": 1,
+          "baseFootprintBound": 2,
+          "anisotropyBound": 32,
+          "maySoftenMinorAxis": true
+        },
+        "renderScale": {
+          "x": 1,
+          "y": 1
+        },
+        "kind": "resample",
+        "copyRect": null,
+        "outputToSourceMatrixNormalized": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "sourceToOutputMatrixNormalized": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "geometry": {
+          "area": 1,
+          "minDenominator": 1,
+          "maxDenominator": 1,
+          "matrixCondition": 1,
+          "minJacobian": 1,
+          "maxJacobian": 1,
+          "jacobianConditionBound": 2
+        },
+        "limits": {
+          "maxEdge": 16384,
+          "maxPixels": 67108864,
+          "maxBytes": 536870912,
+          "maxWorkUnits": 268435456
+        },
+        "estimates": {
+          "sourcePixels": 32768,
+          "declaredOutputPixels": 1024,
+          "outputPixels": 1024,
+          "sourceBytes": 131072,
+          "outputBytes": 4096,
+          "totalRgbaBytes": 135168,
+          "mipBytes": 131072,
+          "mipPixels": 8192,
+          "totalBytes": 266240,
+          "extraBytes": 137216,
+          "staticTableBytes": 2048,
+          "workUnits": 163840,
+          "mipWorkUnits": 32768,
+          "sampleWorkUnits": 131072,
+          "maxFootprintBound": 32,
+          "sampleCountBound": 16,
+          "tapsPerSample": 8,
+          "bilinearTaps": 131072
+        }
+      },
+      "limitNote": "At32:1 anisotropy, the16-sample cap deliberately increases base LOD and softens unminified-axis high frequencies."
+    },
+    {
+      "name": "prefilter-near-unity",
+      "input": [
+        257,
+        129
+      ],
+      "output": [
+        256,
+        128
+      ],
+      "error": {
+        "max": 8,
+        "mae": 0.147918701171875,
+        "rms": 0.40274176308693765,
+        "alphaMax": 0,
+        "alphaMae": 0
+      },
+      "plan": {
+        "version": 1,
+        "recipe": {
+          "version": 1,
+          "quad": [
+            {
+              "x": 0,
+              "y": 0
+            },
+            {
+              "x": 1,
+              "y": 0
+            },
+            {
+              "x": 1,
+              "y": 1
+            },
+            {
+              "x": 0,
+              "y": 1
+            }
+          ],
+          "outputFraction": {
+            "width": 0.9961089494163424,
+            "height": 0.9922480620155039
+          }
+        },
+        "sourceSize": {
+          "width": 257,
+          "height": 129
+        },
+        "outputSize": {
+          "width": 256,
+          "height": 128
+        },
+        "renderedSize": {
+          "width": 256,
+          "height": 128
+        },
+        "workUnits": 557828,
+        "estimatedBytes": 397844,
+        "mipBytes": 134160,
+        "mipLevels": [
+          {
+            "level": 1,
+            "width": 129,
+            "height": 65,
+            "scale": 2,
+            "pixels": 8385,
+            "bytes": 134160
+          }
+        ],
+        "sampling": {
+          "filter": "linear-premultiplied-anisotropic-mipmap",
+          "maxSamples": 16,
+          "sampleCountBound": 2,
+          "tapsPerSample": 8,
+          "majorFootprintBound": 1.0078125,
+          "minorFootprintBound": 1.00390625,
+          "baseFootprintBound": 1.00390625,
+          "anisotropyBound": 1.0038910505836576,
+          "maySoftenMinorAxis": false
+        },
+        "renderScale": {
+          "x": 1,
+          "y": 1
+        },
+        "kind": "resample",
+        "copyRect": null,
+        "outputToSourceMatrixNormalized": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "sourceToOutputMatrixNormalized": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "geometry": {
+          "area": 1,
+          "minDenominator": 1,
+          "maxDenominator": 1,
+          "matrixCondition": 1,
+          "minJacobian": 1,
+          "maxJacobian": 1,
+          "jacobianConditionBound": 2
+        },
+        "limits": {
+          "maxEdge": 16384,
+          "maxPixels": 67108864,
+          "maxBytes": 536870912,
+          "maxWorkUnits": 268435456
+        },
+        "estimates": {
+          "sourcePixels": 33153,
+          "declaredOutputPixels": 32768,
+          "outputPixels": 32768,
+          "sourceBytes": 132612,
+          "outputBytes": 131072,
+          "totalRgbaBytes": 263684,
+          "mipBytes": 134160,
+          "mipPixels": 8385,
+          "totalBytes": 397844,
+          "extraBytes": 267280,
+          "staticTableBytes": 2048,
+          "workUnits": 557828,
+          "mipWorkUnits": 33540,
+          "sampleWorkUnits": 524288,
+          "maxFootprintBound": 1.0078125,
+          "sampleCountBound": 2,
+          "tapsPerSample": 8,
+          "bilinearTaps": 524288
+        }
+      },
+      "bilinearComparison": {
+        "max": 5,
+        "mae": 0.147003173828125,
+        "rms": 0.3964795643181058,
+        "alphaMax": 0,
+        "alphaMae": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,692 @@
+{
+  "runtime": "v24.19.0",
+  "scope": "Independent host synthetic analysis, not Android/WebView",
+  "coreSha256": "38d468669b11972df53ea0efb2e746518e131896b12b31a7e8567ad267b13282",
+  "results": [
+    {
+      "name": "prefilter-checker",
+      "input": [
+        256,
+        256
+      ],
+      "output": [
+        17,
+        17
+      ],
+      "error": {
+        "max": 119,
+        "mae": 21.501730103806228,
+        "rms": 30.33640680526735
+      },
+      "plan": {
+        "version": 1,
+        "recipe": {
+          "version": 1,
+          "quad": [
+            {
+              "x": 0,
+              "y": 0
+            },
+            {
+              "x": 1,
+              "y": 0
+            },
+            {
+              "x": 1,
+              "y": 1
+            },
+            {
+              "x": 0,
+              "y": 1
+            }
+          ],
+          "outputFraction": {
+            "width": 0.06640625,
+            "height": 0.06640625
+          }
+        },
+        "sourceSize": {
+          "width": 256,
+          "height": 256
+        },
+        "outputSize": {
+          "width": 17,
+          "height": 17
+        },
+        "renderedSize": {
+          "width": 17,
+          "height": 17
+        },
+        "workUnits": 1156,
+        "estimatedBytes": 263300,
+        "renderScale": {
+          "x": 1,
+          "y": 1
+        },
+        "kind": "resample",
+        "copyRect": null,
+        "outputToSourceMatrixNormalized": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "sourceToOutputMatrixNormalized": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "geometry": {
+          "area": 1,
+          "minDenominator": 1,
+          "maxDenominator": 1,
+          "matrixCondition": 1,
+          "minJacobian": 1,
+          "maxJacobian": 1,
+          "jacobianConditionBound": 2
+        },
+        "limits": {
+          "maxEdge": 16384,
+          "maxPixels": 67108864,
+          "maxBytes": 536870912,
+          "maxWorkUnits": 268435456
+        },
+        "estimates": {
+          "sourcePixels": 65536,
+          "declaredOutputPixels": 289,
+          "outputPixels": 289,
+          "sourceBytes": 262144,
+          "outputBytes": 1156,
+          "totalRgbaBytes": 263300,
+          "extraBytes": 3204,
+          "staticTableBytes": 2048,
+          "workUnits": 1156,
+          "bilinearTaps": 1156
+        }
+      }
+    },
+    {
+      "name": "prefilter-sharp-text",
+      "input": [
+        577,
+        289
+      ],
+      "output": [
+        97,
+        49
+      ],
+      "error": {
+        "max": 224,
+        "mae": 20.70039974752788,
+        "rms": 41.47260622526038
+      },
+      "plan": {
+        "version": 1,
+        "recipe": {
+          "version": 1,
+          "quad": [
+            {
+              "x": 0,
+              "y": 0
+            },
+            {
+              "x": 1,
+              "y": 0
+            },
+            {
+              "x": 1,
+              "y": 1
+            },
+            {
+              "x": 0,
+              "y": 1
+            }
+          ],
+          "outputFraction": {
+            "width": 0.1681109185441941,
+            "height": 0.1695501730103806
+          }
+        },
+        "sourceSize": {
+          "width": 577,
+          "height": 289
+        },
+        "outputSize": {
+          "width": 97,
+          "height": 49
+        },
+        "renderedSize": {
+          "width": 97,
+          "height": 49
+        },
+        "workUnits": 19012,
+        "estimatedBytes": 686024,
+        "renderScale": {
+          "x": 1,
+          "y": 1
+        },
+        "kind": "resample",
+        "copyRect": null,
+        "outputToSourceMatrixNormalized": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "sourceToOutputMatrixNormalized": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "geometry": {
+          "area": 1,
+          "minDenominator": 1,
+          "maxDenominator": 1,
+          "matrixCondition": 1,
+          "minJacobian": 1,
+          "maxJacobian": 1,
+          "jacobianConditionBound": 2
+        },
+        "limits": {
+          "maxEdge": 16384,
+          "maxPixels": 67108864,
+          "maxBytes": 536870912,
+          "maxWorkUnits": 268435456
+        },
+        "estimates": {
+          "sourcePixels": 166753,
+          "declaredOutputPixels": 4753,
+          "outputPixels": 4753,
+          "sourceBytes": 667012,
+          "outputBytes": 19012,
+          "totalRgbaBytes": 686024,
+          "extraBytes": 21060,
+          "staticTableBytes": 2048,
+          "workUnits": 19012,
+          "bilinearTaps": 19012
+        }
+      }
+    },
+    {
+      "name": "prefilter-odd-ramp",
+      "input": [
+        577,
+        289
+      ],
+      "output": [
+        97,
+        49
+      ],
+      "error": {
+        "max": 1,
+        "mae": 0.051055473735886106,
+        "rms": 0.22595458334781818
+      },
+      "plan": {
+        "version": 1,
+        "recipe": {
+          "version": 1,
+          "quad": [
+            {
+              "x": 0,
+              "y": 0
+            },
+            {
+              "x": 1,
+              "y": 0
+            },
+            {
+              "x": 1,
+              "y": 1
+            },
+            {
+              "x": 0,
+              "y": 1
+            }
+          ],
+          "outputFraction": {
+            "width": 0.1681109185441941,
+            "height": 0.1695501730103806
+          }
+        },
+        "sourceSize": {
+          "width": 577,
+          "height": 289
+        },
+        "outputSize": {
+          "width": 97,
+          "height": 49
+        },
+        "renderedSize": {
+          "width": 97,
+          "height": 49
+        },
+        "workUnits": 19012,
+        "estimatedBytes": 686024,
+        "renderScale": {
+          "x": 1,
+          "y": 1
+        },
+        "kind": "resample",
+        "copyRect": null,
+        "outputToSourceMatrixNormalized": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "sourceToOutputMatrixNormalized": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "geometry": {
+          "area": 1,
+          "minDenominator": 1,
+          "maxDenominator": 1,
+          "matrixCondition": 1,
+          "minJacobian": 1,
+          "maxJacobian": 1,
+          "jacobianConditionBound": 2
+        },
+        "limits": {
+          "maxEdge": 16384,
+          "maxPixels": 67108864,
+          "maxBytes": 536870912,
+          "maxWorkUnits": 268435456
+        },
+        "estimates": {
+          "sourcePixels": 166753,
+          "declaredOutputPixels": 4753,
+          "outputPixels": 4753,
+          "sourceBytes": 667012,
+          "outputBytes": 19012,
+          "totalRgbaBytes": 686024,
+          "extraBytes": 21060,
+          "staticTableBytes": 2048,
+          "workUnits": 19012,
+          "bilinearTaps": 19012
+        }
+      }
+    },
+    {
+      "name": "prefilter-alpha",
+      "input": [
+        257,
+        129
+      ],
+      "output": [
+        17,
+        9
+      ],
+      "error": {
+        "max": 255,
+        "mae": 5,
+        "rms": 35.70714214271425
+      },
+      "plan": {
+        "version": 1,
+        "recipe": {
+          "version": 1,
+          "quad": [
+            {
+              "x": 0,
+              "y": 0
+            },
+            {
+              "x": 1,
+              "y": 0
+            },
+            {
+              "x": 1,
+              "y": 1
+            },
+            {
+              "x": 0,
+              "y": 1
+            }
+          ],
+          "outputFraction": {
+            "width": 0.06614785992217899,
+            "height": 0.06976744186046512
+          }
+        },
+        "sourceSize": {
+          "width": 257,
+          "height": 129
+        },
+        "outputSize": {
+          "width": 17,
+          "height": 9
+        },
+        "renderedSize": {
+          "width": 17,
+          "height": 9
+        },
+        "workUnits": 612,
+        "estimatedBytes": 133224,
+        "renderScale": {
+          "x": 1,
+          "y": 1
+        },
+        "kind": "resample",
+        "copyRect": null,
+        "outputToSourceMatrixNormalized": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "sourceToOutputMatrixNormalized": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "geometry": {
+          "area": 1,
+          "minDenominator": 1,
+          "maxDenominator": 1,
+          "matrixCondition": 1,
+          "minJacobian": 1,
+          "maxJacobian": 1,
+          "jacobianConditionBound": 2
+        },
+        "limits": {
+          "maxEdge": 16384,
+          "maxPixels": 67108864,
+          "maxBytes": 536870912,
+          "maxWorkUnits": 268435456
+        },
+        "estimates": {
+          "sourcePixels": 33153,
+          "declaredOutputPixels": 153,
+          "outputPixels": 153,
+          "sourceBytes": 132612,
+          "outputBytes": 612,
+          "totalRgbaBytes": 133224,
+          "extraBytes": 2660,
+          "staticTableBytes": 2048,
+          "workUnits": 612,
+          "bilinearTaps": 612
+        }
+      },
+      "hiddenRgbInvariant": true,
+      "noCyan": true
+    },
+    {
+      "name": "prefilter-anisotropic",
+      "input": [
+        256,
+        64
+      ],
+      "output": [
+        256,
+        8
+      ],
+      "error": {
+        "max": 0,
+        "mae": 0,
+        "rms": 0
+      },
+      "plan": {
+        "version": 1,
+        "recipe": {
+          "version": 1,
+          "quad": [
+            {
+              "x": 0,
+              "y": 0
+            },
+            {
+              "x": 1,
+              "y": 0
+            },
+            {
+              "x": 1,
+              "y": 1
+            },
+            {
+              "x": 0,
+              "y": 1
+            }
+          ],
+          "outputFraction": {
+            "width": 1,
+            "height": 0.125
+          }
+        },
+        "sourceSize": {
+          "width": 256,
+          "height": 64
+        },
+        "outputSize": {
+          "width": 256,
+          "height": 8
+        },
+        "renderedSize": {
+          "width": 256,
+          "height": 8
+        },
+        "workUnits": 8192,
+        "estimatedBytes": 73728,
+        "renderScale": {
+          "x": 1,
+          "y": 1
+        },
+        "kind": "resample",
+        "copyRect": null,
+        "outputToSourceMatrixNormalized": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "sourceToOutputMatrixNormalized": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "geometry": {
+          "area": 1,
+          "minDenominator": 1,
+          "maxDenominator": 1,
+          "matrixCondition": 1,
+          "minJacobian": 1,
+          "maxJacobian": 1,
+          "jacobianConditionBound": 2
+        },
+        "limits": {
+          "maxEdge": 16384,
+          "maxPixels": 67108864,
+          "maxBytes": 536870912,
+          "maxWorkUnits": 268435456
+        },
+        "estimates": {
+          "sourcePixels": 16384,
+          "declaredOutputPixels": 2048,
+          "outputPixels": 2048,
+          "sourceBytes": 65536,
+          "outputBytes": 8192,
+          "totalRgbaBytes": 73728,
+          "extraBytes": 10240,
+          "staticTableBytes": 2048,
+          "workUnits": 8192,
+          "bilinearTaps": 8192
+        }
+      }
+    },
+    {
+      "name": "prefilter-near-unity",
+      "input": [
+        257,
+        129
+      ],
+      "output": [
+        256,
+        128
+      ],
+      "error": {
+        "max": 10,
+        "mae": 0.294921875,
+        "rms": 0.6269500827418399
+      },
+      "plan": {
+        "version": 1,
+        "recipe": {
+          "version": 1,
+          "quad": [
+            {
+              "x": 0,
+              "y": 0
+            },
+            {
+              "x": 1,
+              "y": 0
+            },
+            {
+              "x": 1,
+              "y": 1
+            },
+            {
+              "x": 0,
+              "y": 1
+            }
+          ],
+          "outputFraction": {
+            "width": 0.9961089494163424,
+            "height": 0.9922480620155039
+          }
+        },
+        "sourceSize": {
+          "width": 257,
+          "height": 129
+        },
+        "outputSize": {
+          "width": 256,
+          "height": 128
+        },
+        "renderedSize": {
+          "width": 256,
+          "height": 128
+        },
+        "workUnits": 131072,
+        "estimatedBytes": 263684,
+        "renderScale": {
+          "x": 1,
+          "y": 1
+        },
+        "kind": "resample",
+        "copyRect": null,
+        "outputToSourceMatrixNormalized": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "sourceToOutputMatrixNormalized": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        "geometry": {
+          "area": 1,
+          "minDenominator": 1,
+          "maxDenominator": 1,
+          "matrixCondition": 1,
+          "minJacobian": 1,
+          "maxJacobian": 1,
+          "jacobianConditionBound": 2
+        },
+        "limits": {
+          "maxEdge": 16384,
+          "maxPixels": 67108864,
+          "maxBytes": 536870912,
+          "maxWorkUnits": 268435456
+        },
+        "estimates": {
+          "sourcePixels": 33153,
+          "declaredOutputPixels": 32768,
+          "outputPixels": 32768,
+          "sourceBytes": 132612,
+          "outputBytes": 131072,
+          "totalRgbaBytes": 263684,
+          "extraBytes": 133120,
+          "staticTableBytes": 2048,
+          "workUnits": 131072,
+          "bilinearTaps": 131072
+        }
+      },
+      "bilinearComparison": {
+        "max": 0,
+        "mae": 0,
+        "rms": 0
+      }
+    }
+  ]
+}

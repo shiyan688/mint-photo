@@ -1,0 +1,58 @@
+[
+  {
+    "name": "01_kim",
+    "ok": true,
+    "landmarks": 478,
+    "width": 875,
+    "height": 1000
+  },
+  {
+    "name": "02_chawla",
+    "ok": true,
+    "landmarks": 478,
+    "width": 900,
+    "height": 958
+  },
+  {
+    "name": "03_williams",
+    "ok": true,
+    "landmarks": 478,
+    "width": 891,
+    "height": 1000
+  },
+  {
+    "name": "04_yamazaki",
+    "ok": true,
+    "landmarks": 478,
+    "width": 893,
+    "height": 1000
+  },
+  {
+    "name": "05_mukai",
+    "ok": true,
+    "landmarks": 478,
+    "width": 897,
+    "height": 1000
+  },
+  {
+    "name": "06_chiao",
+    "ok": true,
+    "landmarks": 478,
+    "width": 900,
+    "height": 898
+  },
+  {
+    "name": "07_onizuka",
+    "ok": true,
+    "landmarks": 478,
+    "width": 900,
+    "height": 967
+  },
+  {
+    "name": "08_trinh",
+    "ok": true,
+    "landmarks": 478,
+    "width": 900,
+    "height": 955
+  }
+]

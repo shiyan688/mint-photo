@@ -1,0 +1,33 @@
+{
+  "sha256": {
+    "quality/sharpness-independent/README.md": "d80191aed970ab837316cc452838daedc5dff4ed15b6464628928753709ccc12",
+    "quality/sharpness-independent/build-evidence.cjs": "8ad260779ffb641c345e150070ce3ccd76946fb26533fc54daa24313b7908d5a",
+    "quality/sharpness-independent/generation.log": "4215530f75965d73385ac2cde9cfa8decaf9bf8d6e947b98d7c0363ae41911ab",
+    "quality/sharpness-independent/modern-equipment-source-25-50-100.png": "36ff177afb0d67fb3b6eccb25231af146a3630ef31ae7a6ad45f7b278ffa13b3",
+    "quality/sharpness-independent/modern-face-source-25-50-100.png": "0fdaa6313b8532ace279354a97acc7c2ce74976bf6295a38b20354f7953b1da1",
+    "quality/sharpness-independent/modern-helmet-edge-source-25-50-100.png": "6309ae0fc8be7ded774116256f8d31e932dbbad7db7c2ae05a76f37cf2f55d9c",
+    "quality/sharpness-independent/modern-max-radius-zero-threshold.png": "2d9f7738507aee8640c1b47441636fa1469a5893519d2c26c5f00b85a8fbccf3",
+    "quality/sharpness-independent/modern-portrait-100.png": "692eb71b22c0de4f1d1fdb82423c77667128deed3e63e857f5d9a4a48ca736d4",
+    "quality/sharpness-independent/modern-portrait-25.png": "5fec465a280fa55b5fd05cf6d65a8055c8088c73fa5fdf40d5915a0dec39fbf8",
+    "quality/sharpness-independent/modern-portrait-50.png": "7a1a4d62f79b1eb09c799d68a642f3da8983103a04b16b7ccd12fde731ba9a67",
+    "quality/sharpness-independent/modern-portrait-source.png": "006ab9fb237eb19069d60e7e0314d910553b072b5ae4b587065342688ad09433",
+    "quality/sharpness-independent/pixel-evidence.json": "d8d492c9b74b561050ab6abb2434ad109623a2ba1dc5a4bd3a0bdf7c0392618f",
+    "quality/sharpness-independent/portrait-100.png": "6ba4b4ec6550df797afb686799583bc0d60e1fb868512a677833dd59923d0131",
+    "quality/sharpness-independent/portrait-25.png": "7cd3e6c138571d4afee10107c203188c8aa9353893f3170de66df8e2f780da08",
+    "quality/sharpness-independent/portrait-50.png": "d5109df06abaf3c83c4f9c03dbc33271e3de6631c9243f296d1ae6d3ae3eefea",
+    "quality/sharpness-independent/portrait-face-source-25-50-100.png": "9312f34afa1760031aab3bd081be71baffd7027cc39632c60069d74c1ccd66c4",
+    "quality/sharpness-independent/portrait-full-source-25-50-100.png": "c0655a4c8ed4aa02e661e87274e86e8c18ee45ac24c2fa9306bfe80556390259",
+    "quality/sharpness-independent/portrait-radius-threshold-sweep.png": "4b2004feba6b9f1639b34a531360da8ce7835fabf643b71581bc827dd2a89d25",
+    "quality/sharpness-independent/portrait-source.png": "bf81e04a2ca5a1aa42f2284f2cdb53dd9e58c562e16d81a3597047f44662cc41",
+    "quality/sharpness-independent/synthetic-100.png": "b40e1c85e5fc88bfb02bc646a76017f7b460bae21c0e176fccffeb225e032ae5",
+    "quality/sharpness-independent/synthetic-25.png": "b4ba06c08efac9b2fab1384c903fdebde524283044373b0c03ced75cd2338970",
+    "quality/sharpness-independent/synthetic-50.png": "c5ea523809e7052b9756966fb3172f16f20147fd05f62b4e1bb7e62c31bf1003",
+    "quality/sharpness-independent/synthetic-edges-radius3-source-25-50-100.png": "0f31968ad2da37234ec886e9f5c54fb4187cdff73df8934e502939b0773d56d3",
+    "quality/sharpness-independent/synthetic-edges-source-25-50-100.png": "482ea439764bfccd8b6dfc527571efb7d69e49e2759744d89514a22356e0ea8b",
+    "quality/sharpness-independent/synthetic-noise-threshold-sweep.png": "d17761d96e727ff87c2a6e7b6b47f9a84b07e9227d8b45d7b32a5921c03dbade",
+    "quality/sharpness-independent/synthetic-source.png": "32c1308d9ebf27c19e28d2c8232301431bb44511e180916a0f9b1437add9e3dd",
+    "quality/sharpness-independent/test-results.tap": "ee819657f45ff15af3cfa676ecda480989bea0a349acd6f11574d9da2d113707",
+    "tests/sharpness-independent.test.cjs": "4a75c75a1b241381f842709c0e5a6214c347be688303d399a066ad7a9841665a",
+    "app/src/main/assets/sharpness.js": "44e95137e818d4157370975a795364ee6e303d719c0db4456f71d5e08bc6d707"
+  }
+}

@@ -1,0 +1,9 @@
+* text=auto
+*.sh text eol=lf
+gradlew text eol=lf
+*.png binary
+*.jpg binary
+*.task binary
+*.tflite binary
+*.jar binary
+app/src/main/assets/** -text

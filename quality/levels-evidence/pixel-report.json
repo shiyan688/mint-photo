@@ -1,0 +1,29 @@
+{
+  "kind": "Actual production native Canvas pixels; controlled DOM, not WebView",
+  "panels": [
+    {
+      "label": "自制测试图 · 不是私人照片",
+      "width": 480,
+      "height": 360,
+      "rgbaSha256": "6d452b9d905377880b9204b1aee888d2c32c0f39c9d0ee524eb78da200bbea64"
+    },
+    {
+      "label": "整体黑白点 + 中间调",
+      "width": 480,
+      "height": 360,
+      "rgbaSha256": "05836177b45a63ddb08fd2ed8586724088dce43a252b9760119238c10ab95443"
+    },
+    {
+      "label": "再调蓝通道 γ",
+      "width": 480,
+      "height": 360,
+      "rgbaSha256": "30897e613942fabf84866c9df558c295960ec4776272c26e367b546960557d29"
+    },
+    {
+      "label": "全部中性 · 精确恢复",
+      "width": 480,
+      "height": 360,
+      "rgbaSha256": "6d452b9d905377880b9204b1aee888d2c32c0f39c9d0ee524eb78da200bbea64"
+    }
+  ]
+}

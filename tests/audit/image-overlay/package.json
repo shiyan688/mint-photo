@@ -1,0 +1,12 @@
+{
+  "name": "mint-image-overlay-independent-audit",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test": "node --test independent-core-import.cjs import-format-boundaries.test.cjs editor-independent.test.cjs operation-project.test.cjs"
+  },
+  "devDependencies": {
+    "@napi-rs/canvas": "0.1.100",
+    "sharp": "0.35.5"
+  }
+}

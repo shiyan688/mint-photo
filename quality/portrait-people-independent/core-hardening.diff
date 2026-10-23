@@ -1,0 +1,26 @@
+--- /workspace/shared/mobile-multiface-independent/frozen-portrait-people-cde5049.js	2026-10-22 10:00:02.375715775 -0700
++++ /workspace/scratch/902a42ed06ad/portrait-people-candidate/portrait-people.js	2026-10-22 09:59:49.293740396 -0700
+@@ -19,6 +19,11 @@
+   const typed = Object.getPrototypeOf(Uint8Array.prototype);
+   const typedGet = name => Object.getOwnPropertyDescriptor(typed,name).get;
+   const typedLength = typedGet('length'), typedBuffer = typedGet('buffer');
++  // Native internal-slot checks: instance properties can be shadowed or getters.
++  // byteLength also rejects SharedArrayBuffer even with a spoofed prototype.
++  const bufferByteLength = Object.getOwnPropertyDescriptor(ArrayBuffer.prototype,'byteLength').get;
++  const resizableDescriptor = Object.getOwnPropertyDescriptor(ArrayBuffer.prototype,'resizable');
++  const bufferResizable = resizableDescriptor && resizableDescriptor.get;
+   function fail(code,message,Type) { const e = new (Type || Error)(message); e.code=code; throw e; }
+   function record(v, required, optional, label) {
+     if (!v || typeof v!=='object' || (Object.getPrototypeOf(v)!==Object.prototype && Object.getPrototypeOf(v)!==null)) fail('INVALID_RECORD',label+' must be a plain own-data record.',TypeError);
+@@ -119,7 +124,10 @@
+     for(const k of ['length','buffer','byteLength','byteOffset'])if(own(data,k))fail('IMAGE_DATA','Typed-array properties cannot be overridden.',TypeError);
+     if(Object.getOwnPropertySymbols(data).length)fail('IMAGE_DATA','Typed-array symbols cannot be overridden.',TypeError);
+     const buffer=typedBuffer.call(data);if(Object.getPrototypeOf(buffer)!==ArrayBuffer.prototype)fail('IMAGE_DATA','Shared/resizable/foreign image buffers are unsupported.',TypeError);
+-    if(buffer.resizable===true||typedLength.call(data)!==size.width*size.height*4)fail('IMAGE_DATA','Expected exactly width * height * 4 non-resizable RGBA bytes.',TypeError);
++    let resizable=false;
++    try {bufferByteLength.call(buffer);resizable=bufferResizable?bufferResizable.call(buffer):false;}
++    catch(error){fail('IMAGE_DATA','Expected a genuine non-shared ArrayBuffer backing store.',TypeError);}
++    if(resizable||typedLength.call(data)!==size.width*size.height*4)fail('IMAGE_DATA','Expected exactly width * height * 4 non-resizable RGBA bytes.',TypeError);
+     return{width:size.width,height:size.height,data};
+   }
+   function cancel(c){if(c.shouldCancel&&c.shouldCancel())fail('CANCELLED','Portrait processing was cancelled.');}

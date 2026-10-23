@@ -1,0 +1,89 @@
+name: Tests and Android preview
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: android-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  tests:
+    name: Pure logic and JVM boundaries
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4.3.0
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: '24'
+      - uses: actions/setup-java@c5195efecf7bdfc987ee8bae7a71cb8b11521c00 # v4.7.1
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Pure logic, pixel algorithms and bridge parity
+        run: node tests/run-ci.cjs
+      - name: Native payload boundaries and static bridge checks
+        run: sh tests/native/run.sh
+      - name: Report coverage boundary
+        if: always()
+        run: |
+          cat >> "$GITHUB_STEP_SUMMARY" <<'EOF'
+          These jobs execute the supplied pure JavaScript suites and JVM payload tests.
+          The historical `beauty-protection-independent` photo audit is excluded because
+          its original RGBA fixtures are not included in the source archive; the synthetic
+          beauty core, operation, UI and selection tests still run. See `docs/CI.md`.
+          This is not real Android/WebView, touch, storage, model-quality or device-performance acceptance.
+          EOF
+
+  android:
+    name: Installable debug preview
+    needs: tests
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4.3.0
+        with:
+          persist-credentials: false
+      - uses: actions/setup-java@c5195efecf7bdfc987ee8bae7a71cb8b11521c00 # v4.7.1
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Install pinned Android platform and build tools
+        run: sdkmanager 'platforms;android-35' 'build-tools;35.0.0'
+      - name: Build ARM previews and run Android lint
+        run: sh gradlew --no-daemon -PportraitAbiSplits :app:assembleDebug :app:lintDebug
+      - name: Verify APK signatures and produce hashes
+        shell: bash
+        run: |
+          for apk in app/build/outputs/apk/debug/*.apk; do
+            "$ANDROID_HOME/build-tools/35.0.0/apksigner" verify --verbose "$apk"
+            "$ANDROID_HOME/build-tools/35.0.0/zipalign" -c -P 16 4 "$apk"
+          done
+          python3 tests/verify-apk.py > app/build/outputs/apk/debug/VERIFICATION.json
+          cd app/build/outputs/apk/debug
+          sha256sum *.apk > SHA256SUMS.txt
+          printf '%s\n' 'Debug preview only. CI uses an ephemeral debug certificate; a later build may require a clean install. Export projects before uninstalling. This is not a production release or device acceptance result.' > PREVIEW.txt
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: mint-photo-0.2.0-preview-${{ github.run_number }}
+          path: |
+            app/build/outputs/apk/debug/*.apk
+            app/build/outputs/apk/debug/SHA256SUMS.txt
+            app/build/outputs/apk/debug/PREVIEW.txt
+            app/build/outputs/apk/debug/VERIFICATION.json
+          if-no-files-found: error
+          retention-days: 14
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        if: always()
+        with:
+          name: android-lint-${{ github.run_number }}
+          path: app/build/reports/lint-results-debug.*
+          retention-days: 14

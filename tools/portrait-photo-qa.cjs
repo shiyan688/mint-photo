@@ -1,0 +1,12 @@
+'use strict';
+const fs=require('fs'),path=require('path'),crypto=require('crypto');
+const root=path.resolve(__dirname,'..'),E=require('../app/src/main/assets/portrait-engine.js'),fixtures=path.resolve(process.argv[2]||'qa-fixtures'),out=path.resolve(process.argv[3]||'qa-renders');fs.mkdirSync(out,{recursive:true});
+const report=[];const names=fs.readdirSync(fixtures).filter(f=>/^\d.*\.json$/.test(f));
+for(const name of names){const m=JSON.parse(fs.readFileSync(path.join(fixtures,name))),im={width:m.width,height:m.height,data:new Uint8ClampedArray(fs.readFileSync(path.join(fixtures,m.name+'.rgba')))},original=im.data.slice();
+const cases=[['zero',{}],['natural',{smooth:16,underEye:12,redness:8}],['peach',{smooth:18,underEye:12,redness:8,lip:18,blush:12,palette:'peach'}]];
+for(const key of ['smooth','brighten','underEye','redness','lip','blush'])for(const value of [25,50,100])cases.push([key+value,{[key]:value}]);
+for(const value of [25,50,100])cases.push(['combined'+value,{smooth:value,brighten:value,underEye:value,redness:value,lip:value,blush:value,palette:'rose'}]);
+for(const [label,settings]of cases){const t=Date.now(),result=E.beauty(im,settings,m.landmarks);let changed=0,maxDelta=0,alphaMismatch=0,addedClips=0;for(let i=0;i<im.data.length;i+=4){let c=false;for(let k=0;k<3;k++){let d=Math.abs(result.data[i+k]-im.data[i+k]);if(d)c=true;maxDelta=Math.max(maxDelta,d);if(result.data[i+k]===255&&im.data[i+k]!==255)addedClips++;}if(c)changed++;if(result.data[i+3]!==im.data[i+3])alphaMismatch++;}if(alphaMismatch)throw Error('alpha mismatch');if(label==='zero'&&changed)throw Error('zero mismatch');if(Buffer.compare(Buffer.from(im.data),Buffer.from(original)))throw Error('source mutation');const outputPath=path.join(out,m.name+'-'+label+'.rgba');if(process.env.QA_VERIFY_EXISTING==='1'){if(Buffer.compare(fs.readFileSync(outputPath),Buffer.from(result.data)))throw Error('replay mismatch '+outputPath);}else fs.writeFileSync(outputPath,result.data);report.push({name:m.name,label,settings,width:m.width,height:m.height,changed,maxDelta,alphaMismatch,addedClips,ms:Date.now()-t});}
+console.log(m.name+' '+cases.length+' cases rendered',report.at(-1));
+}
+fs.writeFileSync(path.join(out,'results.json'),JSON.stringify({coreSha256:crypto.createHash('sha256').update(fs.readFileSync(path.join(root,'app/src/main/assets/portrait-engine.js'))).digest('hex'),results:report},null,2));

@@ -1,0 +1,44 @@
+{
+  "testedSha256": "bffb259472939058f936a5f0b925d14e87cb194e38697a0eb730f19c402867fd",
+  "note": "Tester-selected natural tonal mark; no acne diagnosis, no ground-truth or aesthetic necessity. Private QA only, not endorsement.",
+  "targetPixels": {
+    "x": 289,
+    "y": 537
+  },
+  "sourcePixels": {
+    "x": 313,
+    "y": 537
+  },
+  "settings": {
+    "version": 1,
+    "type": "repair-stroke",
+    "sourceRevision": "qa-natural-mark-r1",
+    "sampleMode": "manual",
+    "radius": 0.0077,
+    "hardness": 0.35,
+    "strength": 1,
+    "points": [
+      {
+        "x": 0.32254464285714285,
+        "y": 0.5375375375375375
+      }
+    ],
+    "source": {
+      "x": 0.34933035714285715,
+      "y": 0.5375375375375375
+    },
+    "selection": null
+  },
+  "results": [
+    {
+      "mode": "heal",
+      "changedPixels": 119,
+      "outsideBrushChanged": 0
+    },
+    {
+      "mode": "clone",
+      "changedPixels": 120,
+      "outsideBrushChanged": 0
+    }
+  ]
+}

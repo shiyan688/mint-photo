@@ -1,0 +1,12 @@
+{
+  "syntheticOnly": true,
+  "sourceHash": "83a2cec85aa97d75bf0e52db9166efd701dad710620ee2de25e43f4b3332fc36",
+  "addedHash": "632becb14ef712b9dff6ac57fd3c2c04256a8c5f612cdbb688858e2a6927e01b",
+  "replacementHash": "5fc87a76e1b52c7a398da1a0ecd91dd30c63552a890f000ca653cbeb3702264b",
+  "workingAsset": [
+    180,
+    120
+  ],
+  "mainOriginalPreserved": true,
+  "notWebViewOrHandset": true
+}

@@ -1,0 +1,45 @@
+{
+  "audit": "Android canvas padding independent source/replay/native-pixel audit",
+  "dateUtc": "2026-10-22T11:53:35Z",
+  "results": {
+    "pureAndControlledEditor": {
+      "tests": 15,
+      "pass": 15,
+      "fail": 0,
+      "report": "pure-results.tap"
+    },
+    "realNativeCanvas": {
+      "tests": 19,
+      "pass": 19,
+      "fail": 0,
+      "report": "native-results.tap"
+    },
+    "total": 34,
+    "randomizedForwardScatterCases": 400
+  },
+  "productionSha256": {
+    "canvas-padding.js": "91412cfaefd331c6fc5fffb8f9f58256dd25eb6306de6511cdec1cd2a2deb995",
+    "canvas-padding-operation.js": "7a6305c66089e3ab82a61c09e8dc1317de20d9c8c6f970f17cd80243e57490e5",
+    "canvas-padding-ui.js": "584dff11226e2fe7e15b81a2bb3a56ef5b424804189fb81d46fa28c975ce1f87",
+    "project-core.js": "56a8c2b7b6bc09796ebb5cbb7d9b0161aa0ad1b359b66dc40d9c5c41407ab807",
+    "editor.js": "6b47243511d769840b3b44b97c249ec4dadfb8b5dc585f382954e2df67b03c2e"
+  },
+  "tests": [
+    "tests/canvas-padding-independent.test.cjs",
+    "tests/native-canvas/canvas-padding-independent.test.cjs"
+  ],
+  "evidence": [
+    "source.png",
+    "asymmetric-white.png",
+    "transparent.png",
+    "contact-sheet.png",
+    "pixel-evidence.json"
+  ],
+  "scopeNotes": [
+    "Production sources unchanged. Test-only state/action probe; all shipped production modules execute in the same VM before editor setup.",
+    "RGBA and PNG pixels use installed @napi-rs/canvas, not a substitute renderer. Existing native adapter explicitly resets CTM around putImageData to isolate installed-library divergence from browser semantics.",
+    "Pure bytes preserve hidden RGB and alpha exactly. Canvas decode/readback can premultiply or discard hidden RGB before padding; no claim of original-file hidden-RGB preservation through Canvas.",
+    "80MP retained source path is metadata/controlled decoder testing, not allocation of an 80MP native image.",
+    "DOM, decoder completion dispatch, IndexedDB, timers, and Android.saveImage transport are controlled. No real browser/WebView, Android device, APK, SAF gallery save/reopen, model inference, lifecycle/low-memory OS test, EXIF/color-management test, or accessibility gesture verification."
+  ]
+}

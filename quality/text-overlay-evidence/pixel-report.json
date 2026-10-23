@@ -1,0 +1,153 @@
+{
+  "fixture": "Own synthetic opaque raster, no photograph or personal data.",
+  "renderer": "Actual MintProjectCore.effectiveOperations and MintTextOverlay in installed native Skia Canvas; not a browser/WebView/screenshot.",
+  "width": 480,
+  "height": 360,
+  "cases": [
+    {
+      "label": "原始测试底图",
+      "rawOperations": [],
+      "effectiveOperations": [],
+      "rgbaSha256": "b6e249ba080ec4858131de23e853cdaaabb90cbe083b438b8284b44714e371e6"
+    },
+    {
+      "label": "新增多行文字",
+      "rawOperations": [
+        {
+          "type": "text-overlay",
+          "action": "add",
+          "id": "qa-paragraph",
+          "recipe": {
+            "version": 1,
+            "text": "薄荷 · 暖光\n让日常值得记住",
+            "x": 0.5,
+            "y": 0.5,
+            "size": 0.085,
+            "boxWidth": 0.9,
+            "rotation": -12,
+            "align": "center",
+            "fontFamily": "sans",
+            "bold": true,
+            "italic": false,
+            "lineHeight": 1.25,
+            "color": "#ffffff",
+            "opacity": 1,
+            "outlineWidth": 0.04,
+            "outlineColor": "#000000",
+            "shadow": true
+          }
+        }
+      ],
+      "effectiveOperations": [
+        {
+          "type": "text-overlay",
+          "action": "add",
+          "id": "qa-paragraph",
+          "recipe": {
+            "version": 1,
+            "text": "薄荷 · 暖光\n让日常值得记住",
+            "x": 0.5,
+            "y": 0.5,
+            "size": 0.085,
+            "boxWidth": 0.9,
+            "rotation": -12,
+            "align": "center",
+            "fontFamily": "sans",
+            "bold": true,
+            "italic": false,
+            "lineHeight": 1.25,
+            "color": "#ffffff",
+            "opacity": 1,
+            "outlineWidth": 0.04,
+            "outlineColor": "#000000",
+            "shadow": true
+          }
+        }
+      ],
+      "rgbaSha256": "7f22b48d4ab02fe3b0ae28079bd106fda4c362fc6248d06db0c48351116dfcb0"
+    },
+    {
+      "label": "修改最近段落",
+      "rawOperations": [
+        {
+          "type": "text-overlay",
+          "action": "add",
+          "id": "qa-paragraph",
+          "recipe": {
+            "version": 1,
+            "text": "薄荷 · 暖光\n让日常值得记住",
+            "x": 0.5,
+            "y": 0.5,
+            "size": 0.085,
+            "boxWidth": 0.9,
+            "rotation": -12,
+            "align": "center",
+            "fontFamily": "sans",
+            "bold": true,
+            "italic": false,
+            "lineHeight": 1.25,
+            "color": "#ffffff",
+            "opacity": 1,
+            "outlineWidth": 0.04,
+            "outlineColor": "#000000",
+            "shadow": true
+          }
+        },
+        {
+          "type": "text-overlay",
+          "action": "replace",
+          "id": "qa-paragraph",
+          "recipe": {
+            "version": 1,
+            "text": "同一段文字\n改样式仍可撤销",
+            "x": 0.5,
+            "y": 0.5,
+            "size": 0.08,
+            "boxWidth": 0.9,
+            "rotation": 18,
+            "align": "center",
+            "fontFamily": "sans",
+            "bold": true,
+            "italic": false,
+            "lineHeight": 1.25,
+            "color": "#ffd5a0",
+            "opacity": 1,
+            "outlineWidth": 0.04,
+            "outlineColor": "#000000",
+            "shadow": true
+          }
+        }
+      ],
+      "effectiveOperations": [
+        {
+          "type": "text-overlay",
+          "action": "add",
+          "id": "qa-paragraph",
+          "recipe": {
+            "version": 1,
+            "text": "同一段文字\n改样式仍可撤销",
+            "x": 0.5,
+            "y": 0.5,
+            "size": 0.08,
+            "boxWidth": 0.9,
+            "rotation": 18,
+            "align": "center",
+            "fontFamily": "sans",
+            "bold": true,
+            "italic": false,
+            "lineHeight": 1.25,
+            "color": "#ffd5a0",
+            "opacity": 1,
+            "outlineWidth": 0.04,
+            "outlineColor": "#000000",
+            "shadow": true
+          }
+        }
+      ],
+      "rgbaSha256": "99b3d852c94ee26688fda23c1ee8cf78023c9b5e0f96d07fafd11e449b7c5b5e"
+    }
+  ],
+  "undoRestoresPreviousParagraph": true,
+  "clearReplacementRestoresSource": true,
+  "sameAspectSameFontWrapEqual": true
+}

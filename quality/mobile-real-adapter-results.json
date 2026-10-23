@@ -1,0 +1,286 @@
+{
+  "checks": 30,
+  "coreSha256": "65cebaaaf65797e9661ee213d28083eec4c4f194fc14384ebd8ec8340cc00b2c",
+  "limits": "Actual production apply function in Node VM with pixel Canvas adapter. Public actual MediaPipe landmark arrays. Not an Android, WebView, face-inference or SOTA quality validation.",
+  "results": [
+    {
+      "fixture": "victor",
+      "values": {
+        "brighten": 0
+      },
+      "byteExactToReviewedCore": true,
+      "alphaUnchanged": true,
+      "outputSha256": "bd1e2d71d7c17fdc1e450c7f9ee73ec713b3b7c10d20fe5472af7962ebdd59bd"
+    },
+    {
+      "fixture": "victor",
+      "values": {
+        "brighten": 25
+      },
+      "byteExactToReviewedCore": true,
+      "alphaUnchanged": true,
+      "outputSha256": "432c171d369c84608940d5615256cf635b2708227e65810ee33d3321908839ab"
+    },
+    {
+      "fixture": "victor",
+      "values": {
+        "brighten": 50
+      },
+      "byteExactToReviewedCore": true,
+      "alphaUnchanged": true,
+      "outputSha256": "8b0f5ded28bd2d556351bb0266bcd9185c3bfa802cd50919c9150403907a4a1e"
+    },
+    {
+      "fixture": "victor",
+      "values": {
+        "brighten": 100
+      },
+      "byteExactToReviewedCore": true,
+      "alphaUnchanged": true,
+      "outputSha256": "487a27e68d2b7c6de1fa3d89079b6708901e6f4581c70b48edeb3a5251889e36"
+    },
+    {
+      "fixture": "victor",
+      "values": {
+        "smooth": 25
+      },
+      "byteExactToReviewedCore": true,
+      "alphaUnchanged": true,
+      "outputSha256": "72523e3c5aacc961a74ab4a957eccf56ccc459f981a953d49fd4b608376d2327"
+    },
+    {
+      "fixture": "victor",
+      "values": {
+        "smooth": 50
+      },
+      "byteExactToReviewedCore": true,
+      "alphaUnchanged": true,
+      "outputSha256": "677faa2c1af8862e081755196e62898b0324d34fecadc9e1c967cf833dcf7691"
+    },
+    {
+      "fixture": "victor",
+      "values": {
+        "smooth": 100
+      },
+      "byteExactToReviewedCore": true,
+      "alphaUnchanged": true,
+      "outputSha256": "83dcc12fd355fa870a29af902d93b42f9aab11db2d70772b99fee47e15a04d78"
+    },
+    {
+      "fixture": "victor",
+      "values": {
+        "brighten": 25,
+        "smooth": 25
+      },
+      "byteExactToReviewedCore": true,
+      "alphaUnchanged": true,
+      "outputSha256": "d0aa4a45f2f40f0c622c31269359d6c461e404bb6e2cc0e68571712145f8c029"
+    },
+    {
+      "fixture": "victor",
+      "values": {
+        "brighten": 50,
+        "smooth": 50
+      },
+      "byteExactToReviewedCore": true,
+      "alphaUnchanged": true,
+      "outputSha256": "abd7a3fe77d0bc6fb60ecb27cd5eb70f678db2b911ce54b1b1951ed944566c58"
+    },
+    {
+      "fixture": "victor",
+      "values": {
+        "brighten": 100,
+        "smooth": 100
+      },
+      "byteExactToReviewedCore": true,
+      "alphaUnchanged": true,
+      "outputSha256": "ebd93679e448ce7bc4caeab9fab0f0e783ee8a6c038721b41e52e606162b8ad9"
+    },
+    {
+      "fixture": "suni",
+      "values": {
+        "brighten": 0
+      },
+      "byteExactToReviewedCore": true,
+      "alphaUnchanged": true,
+      "outputSha256": "6bd04d4edf100a6e64d1fcc192b7a410b086dc840c66a8aa8d6513c505b7c9d7"
+    },
+    {
+      "fixture": "suni",
+      "values": {
+        "brighten": 25
+      },
+      "byteExactToReviewedCore": true,
+      "alphaUnchanged": true,
+      "outputSha256": "92e7e727246a75d1a9389d1d3c0303711f23e4cce3e897b35d861ea027d84c06"
+    },
+    {
+      "fixture": "suni",
+      "values": {
+        "brighten": 50
+      },
+      "byteExactToReviewedCore": true,
+      "alphaUnchanged": true,
+      "outputSha256": "2a7177869c6eff465232b1ab19f3dc16cca9698e025e72672eb55d4c318aa106"
+    },
+    {
+      "fixture": "suni",
+      "values": {
+        "brighten": 100
+      },
+      "byteExactToReviewedCore": true,
+      "alphaUnchanged": true,
+      "outputSha256": "8a84d785101accf3bb84940c08b1baa470cf2e7f56bcd225f90ad23a8c0a4493"
+    },
+    {
+      "fixture": "suni",
+      "values": {
+        "smooth": 25
+      },
+      "byteExactToReviewedCore": true,
+      "alphaUnchanged": true,
+      "outputSha256": "7a7f8dcbff1afdad4dd3543ea4ebec83aa1a1cc1d48492ce1dc075bf592132c9"
+    },
+    {
+      "fixture": "suni",
+      "values": {
+        "smooth": 50
+      },
+      "byteExactToReviewedCore": true,
+      "alphaUnchanged": true,
+      "outputSha256": "62cacd6cd0fe6929e0a039c0c92deb73532f2455040aa1b7d74308a76693eae1"
+    },
+    {
+      "fixture": "suni",
+      "values": {
+        "smooth": 100
+      },
+      "byteExactToReviewedCore": true,
+      "alphaUnchanged": true,
+      "outputSha256": "8182083fa6a87611afee30316814b0c3eb65dc7c5b53d9c3fcd02d838788a433"
+    },
+    {
+      "fixture": "suni",
+      "values": {
+        "brighten": 25,
+        "smooth": 25
+      },
+      "byteExactToReviewedCore": true,
+      "alphaUnchanged": true,
+      "outputSha256": "bdf921650076bd60d02887090f3a3a5782977a2b7ae29a9abc519b2ba12c6954"
+    },
+    {
+      "fixture": "suni",
+      "values": {
+        "brighten": 50,
+        "smooth": 50
+      },
+      "byteExactToReviewedCore": true,
+      "alphaUnchanged": true,
+      "outputSha256": "9d933a98f7760a7baad06b09e821727ee7b1b4034f795b1dce2993d061c1120d"
+    },
+    {
+      "fixture": "suni",
+      "values": {
+        "brighten": 100,
+        "smooth": 100
+      },
+      "byteExactToReviewedCore": true,
+      "alphaUnchanged": true,
+      "outputSha256": "2feb541886b1b07c13959eb2ab74ca65feb8c4bc4750cb275df601502a5c59bd"
+    },
+    {
+      "fixture": "eileen",
+      "values": {
+        "brighten": 0
+      },
+      "byteExactToReviewedCore": true,
+      "alphaUnchanged": true,
+      "outputSha256": "717951a5ffdf6105a4a93e5df3fd7d60ffe39e4a8d7164cfbc9bd3784e546acd"
+    },
+    {
+      "fixture": "eileen",
+      "values": {
+        "brighten": 25
+      },
+      "byteExactToReviewedCore": true,
+      "alphaUnchanged": true,
+      "outputSha256": "c895197c85ffc11cfc5e479f1f839f0d200018bafc134a529ac32607e3ee5fcf"
+    },
+    {
+      "fixture": "eileen",
+      "values": {
+        "brighten": 50
+      },
+      "byteExactToReviewedCore": true,
+      "alphaUnchanged": true,
+      "outputSha256": "76c82a6f9c30df4fc4a66bd4bc6a6a14d102d0ec7c886b7f46ddaba75c212ef6"
+    },
+    {
+      "fixture": "eileen",
+      "values": {
+        "brighten": 100
+      },
+      "byteExactToReviewedCore": true,
+      "alphaUnchanged": true,
+      "outputSha256": "2d898130932beaef7666ea58a7aa5029f824a7b1d08f86be0af828d2985985f3"
+    },
+    {
+      "fixture": "eileen",
+      "values": {
+        "smooth": 25
+      },
+      "byteExactToReviewedCore": true,
+      "alphaUnchanged": true,
+      "outputSha256": "30f3493785b1f5393366b017a2083832ae5340be36bfa952d30c2859af357700"
+    },
+    {
+      "fixture": "eileen",
+      "values": {
+        "smooth": 50
+      },
+      "byteExactToReviewedCore": true,
+      "alphaUnchanged": true,
+      "outputSha256": "341e0cb3f0269268c502c6d9bd2d92c69fc558818c3998eb908968ba61c74039"
+    },
+    {
+      "fixture": "eileen",
+      "values": {
+        "smooth": 100
+      },
+      "byteExactToReviewedCore": true,
+      "alphaUnchanged": true,
+      "outputSha256": "9b438e923e26dffb5659e5a7f3252381b09167c337901838427b6ee7f2f1b1a7"
+    },
+    {
+      "fixture": "eileen",
+      "values": {
+        "brighten": 25,
+        "smooth": 25
+      },
+      "byteExactToReviewedCore": true,
+      "alphaUnchanged": true,
+      "outputSha256": "2642c5554a26e71fa305e57b9fc06da944b427c6f7831940514b423131aa48bf"
+    },
+    {
+      "fixture": "eileen",
+      "values": {
+        "brighten": 50,
+        "smooth": 50
+      },
+      "byteExactToReviewedCore": true,
+      "alphaUnchanged": true,
+      "outputSha256": "0e0b7ec4bb542036ceec6515adcb044bee2b99a54b4097d1ec830e8e959722a8"
+    },
+    {
+      "fixture": "eileen",
+      "values": {
+        "brighten": 100,
+        "smooth": 100
+      },
+      "byteExactToReviewedCore": true,
+      "alphaUnchanged": true,
+      "outputSha256": "c0727d219c888306b4620aa27cc0fac3f657969311d1f8303bbcd75ad168054b"
+    }
+  ]
+}

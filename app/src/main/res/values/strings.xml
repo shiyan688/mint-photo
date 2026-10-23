@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">薄荷修图</string>
+    <string name="import_unavailable">没有可用的文件选择器，请启用系统“文件”应用。</string>
+    <string name="import_invalid">请选择可以读取的图片文件。</string>
+    <string name="exit_title">离开薄荷修图？</string>
+    <string name="exit_message">请先导出需要保留的图片。未保存的编辑可能会丢失。</string>
+    <string name="exit_export_message">图片正在准备或保存中。请等待完成后再离开。</string>
+    <string name="exit_confirm">离开</string>
+    <string name="exit_cancel">继续编辑</string>
+    <string name="load_failed">编辑器加载失败，请关闭后重新打开。</string>
+    <string name="renderer_failed">系统回收了编辑器。重新打开后，可从已保存的草稿继续。</string>
+</resources>

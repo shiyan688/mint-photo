@@ -1,0 +1,107 @@
+{
+  "version": "0.2.0-preview",
+  "android_version_code": 4,
+  "app_label": "薄荷修图",
+  "application_id": "com.qingyan.editor.portrait",
+  "verified_on": "2026-10-24",
+  "timezone": "Asia/Shanghai",
+  "build": {
+    "variant": "debug",
+    "tasks": [
+      "assembleDebug",
+      "lintDebug"
+    ],
+    "status": "success",
+    "jdk": "17.0.8.1",
+    "gradle": "8.9",
+    "agp": "8.7.3",
+    "platform": 35,
+    "build_tools": "35.0.0",
+    "min_sdk": 26,
+    "target_sdk": 35
+  },
+  "apk_checks": {
+    "v2_debug_signatures_verified": true,
+    "zip_alignment_16_kib": true,
+    "native_load_alignment_16_kib": true,
+    "requested_permissions": [],
+    "production_signing_key_created": false,
+    "certificate_sha256": "9568938180e730ff427953661b885677603b682d408d0cfdd4b68aa4e8ee0f8e"
+  },
+  "apks": [
+    {
+      "apk": "mint-photo-0.2.0-preview-arm64-v8a.apk",
+      "bytes": 20998208,
+      "sha256": "93335f1028dbe89686709c50bcb72437fe5fbc3ac829b36860cf4cca3b86d11f",
+      "source_assets_matched": 85,
+      "asset_manifest_sha256": "ebd90efbd3d34ee089c1e777c41dd6412c09acf35363098ed8a2b988ce8cbf69",
+      "native_libraries": [
+        {
+          "file": "lib/arm64-v8a/libmediapipe_tasks_jni.so",
+          "load_alignments": [
+            16384,
+            16384,
+            16384
+          ]
+        }
+      ]
+    },
+    {
+      "apk": "mint-photo-0.2.0-preview-armeabi-v7a.apk",
+      "bytes": 17702990,
+      "sha256": "a5a8e394402544ed84894376214dc07110db3232715f9792798827e4cea9d073",
+      "source_assets_matched": 85,
+      "asset_manifest_sha256": "ebd90efbd3d34ee089c1e777c41dd6412c09acf35363098ed8a2b988ce8cbf69",
+      "native_libraries": [
+        {
+          "file": "lib/armeabi-v7a/libmediapipe_tasks_jni.so",
+          "load_alignments": [
+            16384,
+            16384,
+            16384
+          ]
+        }
+      ]
+    }
+  ],
+  "lint": {
+    "errors": 0,
+    "warnings": 3,
+    "warning_ids": [
+      "UnusedAttribute",
+      "GradleDependency",
+      "ObsoleteSdkInt"
+    ]
+  },
+  "tests": {
+    "pure_ci": {
+      "passed": 1645,
+      "failed": 0,
+      "excluded_suite": "beauty-protection-independent.test.cjs requires original archived RGBA portraits, absent from source ZIP"
+    },
+    "jvm_payload": {
+      "passed": 1116,
+      "failed": 0
+    },
+    "native_bridge_static": {
+      "passed": 37,
+      "failed": 0
+    },
+    "native_canvas_local": {
+      "total": 282,
+      "passed": 279,
+      "failed": 0,
+      "skipped": 3,
+      "skip_reason": "Original 2.rgba.gz portrait composite is absent. Three additional local photo cases passed here, but explicitly skip when their fixture is omitted from the public source."
+    }
+  },
+  "scope": "Source algorithms, controlled DOM/storage/bridge tests, native Skia pixels/PNG, compilation, lint, signatures and package byte checks. Not Android/WebView runtime or device acceptance.",
+  "not_tested": [
+    "installation on an Android phone",
+    "physical touchscreen and keyboard",
+    "Android storage providers and process death",
+    "actual browser IndexedDB durability",
+    "device memory/performance",
+    "photographic quality across representative people/scenes"
+  ]
+}

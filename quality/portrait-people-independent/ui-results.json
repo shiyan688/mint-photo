@@ -1,0 +1,59 @@
+{
+  "createdAt": "2026-10-22T17:05:09.903Z",
+  "scope": "Independent combined production-JS UI state harness with controlled DOM and native callback stub; not a rendered browser or Android test",
+  "root": "/workspace/scratch/902a42ed06ad/mobile-oct22/薄荷人像",
+  "digests": {
+    "portrait-people-ui.js": "082e260798fdaf99b1bb9639be1b06ee65878b98b11e127cc48849a61f1487dc",
+    "portrait-ui.js": "5e91211ac3194b68aaa86c18ea3e60a967fa913f464fdad8532062ab929e9c57",
+    "manual-retouch-ui.js": "e5da6a4563c374a26184fb05b7f7e17d40ffaaf10d5443467cfcd7bb716bae11",
+    "face-detection.js": "40ffd4e77402d1cac392d5458ea250ed54dec08c9d3d4cdcd648ab7b4455cae0"
+  },
+  "results": [
+    {
+      "name": "combined native-boundary and people UI never choose index zero in a two-face batch",
+      "pass": true
+    },
+    {
+      "name": "per-face values survive explicit switching but not reversed redetection acceptance",
+      "pass": true
+    },
+    {
+      "name": "declined staged redetection and later stale confirmation preserve original edits",
+      "pass": true
+    },
+    {
+      "name": "native callbacks bind both source revision and exact source/draft identity, not dimensions",
+      "pass": true
+    },
+    {
+      "name": "unsupported native model, malformed mesh and wrong detection dimensions never reach face selection",
+      "pass": true
+    },
+    {
+      "name": "ID-photo waits for explicit choice and frames chosen second face, not first",
+      "pass": true
+    },
+    {
+      "name": "ID-photo cancel and source revision change invalidate retained picker buttons without losing draft",
+      "pass": true
+    },
+    {
+      "name": "autoheal waits for choice and only receives the selected second-face landmarks",
+      "pass": true
+    },
+    {
+      "name": "autoheal overlapping selected-neighbor geometry is rejected with no automatic target",
+      "pass": true
+    },
+    {
+      "name": "generic picker cancels existing pointer before it can survive into the explicit choice flow",
+      "pass": true
+    },
+    {
+      "name": "current gestures are rejected after redetection and duplicate native completion is ignored",
+      "pass": true
+    }
+  ],
+  "passed": 11,
+  "failed": 0
+}

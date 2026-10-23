@@ -1,0 +1,6 @@
+da716f9ecb4ef98b01a65de1bdff27157ea88cb40f65782aaec130c2444ecd55  app/src/main/assets/project-library.js
+8055e69fcd6dfe6069068ad4aaa2be952ab32afc54ec88b8036a60077b03fde1  app/src/main/assets/project-library-controller.js
+b42f0edd7f262cc101c3254d74199bc30615f684f3946dcf6628319d41e0a97b  app/src/main/assets/project-library-ui.js
+09712bacb552fc95521baf25afdfec87a6a32c128a314b6fdc2ba3d75b2cae29  app/src/main/assets/editor.js
+2d863b2b39f85f748fa5e1e74ae1863714e7d56794708a160a1ee610d4f27204  tests/project-library-independent.test.cjs
+7c2499efa151852d8781434d7a8fbf1844f7bda5b1fa04e3d465428cd53e698e  docs/quality/project-library-independent/fault-idb.cjs

@@ -1,0 +1,62 @@
+{
+  "createdAt": "2026-10-22T17:05:09.970Z",
+  "runtime": "v24.19.0",
+  "corePath": "/workspace/scratch/902a42ed06ad/mobile-oct22/薄荷人像/app/src/main/assets/portrait-people.js",
+  "wrapperPath": "/workspace/scratch/902a42ed06ad/mobile-oct22/薄荷人像/app/src/main/assets/portrait-people-operation.js",
+  "results": [
+    {
+      "api": "shared-core",
+      "case": "own resizable getter",
+      "expected": "do not invoke backing-buffer shadow getter; native fixed buffer may be accepted",
+      "accepted": true,
+      "getterCalls": 0,
+      "error": null,
+      "pass": true
+    },
+    {
+      "api": "shared-core",
+      "case": "SharedArrayBuffer with ArrayBuffer.prototype and own resizable:false",
+      "nativeSharedByteLength": 4,
+      "expected": "reject genuinely shared backing storage regardless of prototype",
+      "accepted": false,
+      "error": "Expected a genuine non-shared ArrayBuffer backing store.",
+      "pass": true
+    },
+    {
+      "api": "shared-core",
+      "case": "resizable buffer with own false shadow",
+      "nativeResizable": true,
+      "expected": "reject actually resizable backing buffer",
+      "accepted": false,
+      "error": "Expected exactly width * height * 4 non-resizable RGBA bytes.",
+      "pass": true
+    },
+    {
+      "api": "mobile-wrapper",
+      "case": "own resizable getter",
+      "expected": "do not invoke backing-buffer shadow getter; native fixed buffer may be accepted",
+      "accepted": true,
+      "getterCalls": 0,
+      "error": null,
+      "pass": true
+    },
+    {
+      "api": "mobile-wrapper",
+      "case": "SharedArrayBuffer with ArrayBuffer.prototype and own resizable:false",
+      "nativeSharedByteLength": 4,
+      "expected": "reject genuinely shared backing storage regardless of prototype",
+      "accepted": false,
+      "error": "Expected a genuine non-shared ArrayBuffer backing store.",
+      "pass": true
+    },
+    {
+      "api": "mobile-wrapper",
+      "case": "resizable buffer with own false shadow",
+      "nativeResizable": true,
+      "expected": "reject actually resizable backing buffer",
+      "accepted": false,
+      "error": "Expected exactly width * height * 4 non-resizable RGBA bytes.",
+      "pass": true
+    }
+  ]
+}

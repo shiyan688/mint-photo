@@ -1,0 +1,135 @@
+{
+  "fixture": "Own synthetic raster; no personal photo or third-party stock asset.",
+  "renderer": "Actual MintCanvasPadding pure RGBA output; native Skia PNG encoding and contact-sheet only, not Android screenshot.",
+  "source": {
+    "width": 480,
+    "height": 360,
+    "rgbaSha256": "f88efea28056bb7edafdae3aff849c43cae5459c67d337dcb7518e5f5cc8ff5e"
+  },
+  "cases": [
+    {
+      "label": "原图 / 零留白",
+      "recipe": {
+        "version": 1,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0,
+        "color": "#ffffff",
+        "opacity": 1
+      },
+      "plan": {
+        "inputSize": {
+          "width": 480,
+          "height": 360
+        },
+        "outputSize": {
+          "width": 480,
+          "height": 360
+        },
+        "padding": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "rgbaSha256": "f88efea28056bb7edafdae3aff849c43cae5459c67d337dcb7518e5f5cc8ff5e",
+      "sourceRegionMismatchedBytes": 0,
+      "png": "case-0.png"
+    },
+    {
+      "label": "均匀白边 5%",
+      "recipe": {
+        "version": 1,
+        "top": 0.05,
+        "right": 0.05,
+        "bottom": 0.05,
+        "left": 0.05,
+        "color": "#ffffff",
+        "opacity": 1
+      },
+      "plan": {
+        "inputSize": {
+          "width": 480,
+          "height": 360
+        },
+        "outputSize": {
+          "width": 516,
+          "height": 396
+        },
+        "padding": {
+          "top": 18,
+          "right": 18,
+          "bottom": 18,
+          "left": 18
+        }
+      },
+      "rgbaSha256": "4d3c721ba9f7d519903847cd1019d6189122aa49f2634a11f4f92326602ad70e",
+      "sourceRegionMismatchedBytes": 0,
+      "png": "case-1.png"
+    },
+    {
+      "label": "底部加宽 15%",
+      "recipe": {
+        "version": 1,
+        "top": 0.06,
+        "right": 0.06,
+        "bottom": 0.15,
+        "left": 0.06,
+        "color": "#ffffff",
+        "opacity": 1
+      },
+      "plan": {
+        "inputSize": {
+          "width": 480,
+          "height": 360
+        },
+        "outputSize": {
+          "width": 524,
+          "height": 436
+        },
+        "padding": {
+          "top": 22,
+          "right": 22,
+          "bottom": 54,
+          "left": 22
+        }
+      },
+      "rgbaSha256": "d8317154655332a7d43d55aa0be124f8c45f704cbbe576f313d0949f97b88e34",
+      "sourceRegionMismatchedBytes": 0,
+      "png": "case-2.png"
+    },
+    {
+      "label": "透明留白 5%",
+      "recipe": {
+        "version": 1,
+        "top": 0.05,
+        "right": 0.05,
+        "bottom": 0.05,
+        "left": 0.05,
+        "color": "#ffffff",
+        "opacity": 0
+      },
+      "plan": {
+        "inputSize": {
+          "width": 480,
+          "height": 360
+        },
+        "outputSize": {
+          "width": 516,
+          "height": 396
+        },
+        "padding": {
+          "top": 18,
+          "right": 18,
+          "bottom": 18,
+          "left": 18
+        }
+      },
+      "rgbaSha256": "38a996de9b7ecf14ff3758869601934fcff4d07fc9bb4060c6ae290d7a7604c7",
+      "sourceRegionMismatchedBytes": 0,
+      "png": "case-3.png"
+    }
+  ]
+}

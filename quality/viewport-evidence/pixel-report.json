@@ -1,0 +1,24 @@
+{
+  "kind": "Production pixels + mathematical viewport simulation; not actual DOM screenshot",
+  "source": {
+    "width": 800,
+    "height": 600,
+    "rgbaSha256": "d9239d1876eea7efe4a502bd30ce04a7a67dc6a9d59f31ae7276e30ce6fdee7d"
+  },
+  "edited": {
+    "width": 800,
+    "height": 600,
+    "rgbaSha256": "aae71a76123377d1781bb75de4a0d9b2e979ea5311ff1eb865ebdbf64fc2e9f1"
+  },
+  "view": {
+    "u": 0.5,
+    "v": 0.5,
+    "zoom": 3
+  },
+  "geometry": {
+    "left": -485,
+    "top": -138.75,
+    "width": 1650,
+    "height": 1237.5
+  }
+}

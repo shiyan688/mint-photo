@@ -1,0 +1,201 @@
+{
+  "scope": "Computed synthetic RGBA arrays in Node only. No browser, Android, Canvas or encoder claim.",
+  "runtime": "v24.19.0",
+  "capsule": {
+    "width": 9,
+    "height": 9,
+    "recipe": {
+      "version": 1,
+      "mode": "cover",
+      "blockSize": 0.04,
+      "color": "#123456",
+      "strokes": [
+        {
+          "radius": 0.1111111111111111,
+          "points": [
+            {
+              "x": 0.25,
+              "y": 0.5
+            },
+            {
+              "x": 0.75,
+              "y": 0.5
+            }
+          ]
+        }
+      ]
+    },
+    "actualMaskRows": [
+      ".........",
+      ".........",
+      ".........",
+      "..#####..",
+      ".#######.",
+      "..#####..",
+      ".........",
+      ".........",
+      "........."
+    ],
+    "coveredPixels": 17,
+    "actualOpaqueRgba": [
+      18,
+      52,
+      86,
+      255
+    ],
+    "outsideRgba": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "sourceStayedTransparent": true
+  },
+  "mosaic": {
+    "width": 8,
+    "height": 8,
+    "blockEdge": 2,
+    "firstCellInput": [
+      [
+        100,
+        0,
+        0,
+        255
+      ],
+      [
+        0,
+        100,
+        0,
+        128
+      ],
+      [
+        0,
+        0,
+        100,
+        0
+      ],
+      [
+        100,
+        100,
+        100,
+        64
+      ]
+    ],
+    "firstCellActualOutput": [
+      [
+        71,
+        43,
+        14,
+        255
+      ],
+      [
+        71,
+        43,
+        14,
+        128
+      ],
+      [
+        0,
+        0,
+        100,
+        0
+      ],
+      [
+        71,
+        43,
+        14,
+        64
+      ]
+    ],
+    "calculation": {
+      "alphaSum": 447,
+      "redWeightedSum": 31900,
+      "greenWeightedSum": 19200,
+      "blueWeightedSum": 6400,
+      "roundedRgb": [
+        71,
+        43,
+        14
+      ]
+    },
+    "sourceSha256Before": "6eed9889320bb50592888c35f98a449517334f00f22c6a0edfcab02b6cf6c4dd",
+    "sourceSha256AfterSuccessAndCancellation": "6eed9889320bb50592888c35f98a449517334f00f22c6a0edfcab02b6cf6c4dd",
+    "outputSha256": "455c3a7bdb294479468cc839147e49cde2c6632b4ce2b77cf5c6a8a2048c3f62",
+    "cancelled": {
+      "name": "AbortError",
+      "code": "REDACT_CANCELLED",
+      "hookCalls": 5
+    }
+  },
+  "plans": [
+    {
+      "width": 1953,
+      "height": 4096,
+      "pixels": 7999488,
+      "active": true,
+      "mode": "mosaic",
+      "blockEdge": 20,
+      "gridColumns": 98,
+      "gridRows": 205,
+      "gridCells": 20090,
+      "strokeCount": 1,
+      "totalPoints": 4096,
+      "segmentCount": 4095,
+      "segmentRows": 16773120,
+      "workPixels": 40771584,
+      "extraBytes": 35867222
+    },
+    {
+      "width": 4096,
+      "height": 149,
+      "pixels": 610304,
+      "active": true,
+      "mode": "mosaic",
+      "blockEdge": 1,
+      "gridColumns": 4096,
+      "gridRows": 149,
+      "gridCells": 610304,
+      "strokeCount": 1,
+      "totalPoints": 4096,
+      "segmentCount": 4095,
+      "segmentRows": 610155,
+      "workPixels": 2441067,
+      "extraBytes": 8089700
+    },
+    {
+      "width": 4000,
+      "height": 2000,
+      "pixels": 8000000,
+      "active": true,
+      "mode": "mosaic",
+      "blockEdge": 20,
+      "gridColumns": 200,
+      "gridRows": 100,
+      "gridCells": 20000,
+      "strokeCount": 1,
+      "totalPoints": 4096,
+      "segmentCount": 4095,
+      "segmentRows": 8190000,
+      "workPixels": 32190000,
+      "extraBytes": 35877188
+    },
+    {
+      "width": 1,
+      "height": 4096,
+      "pixels": 4096,
+      "active": true,
+      "mode": "mosaic",
+      "blockEdge": 1,
+      "gridColumns": 1,
+      "gridRows": 4096,
+      "gridCells": 4096,
+      "strokeCount": 1,
+      "totalPoints": 4096,
+      "segmentCount": 4095,
+      "segmentRows": 16773120,
+      "workPixels": 16785408,
+      "extraBytes": 3829864
+    }
+  ],
+  "testCommand": "node --test redact-core.test.cjs"
+}

@@ -1,0 +1,49 @@
+{
+  "auditedAtUtc": "2026-10-22T20:37:33Z",
+  "scope": "Independent tests/evidence only; reviewer changed no production source or desktop files and installed no dependencies.",
+  "productionSha256": {
+    "manual-tools.js": "37617b5654e7479a2cc2b96ce047845a44cbc725a3f8f618069513d4f051a779",
+    "manual-retouch-ui.js": "53a5ae68d4fe15cb1413e0d34c3288e2cec69b919f13a4536a2636496f6af4e7",
+    "selection-edit.js": "e7e7f317775a2b3090a254fbea1c869ce2309ea8a623b05fc04ad1cb551a0fb5",
+    "project-core.js": "7f0ef1e92b6688f00fef2d12fe09a2dd88e5a23a9deb37c57bd3edb3feaed5b8",
+    "editor.js": "7942cac3e391f04addef302cd422a6b91f8a40b3f17d0a5e5b564bc0b80369af"
+  },
+  "legacyOracleSha256": "d28e4cef2a7f589a667e89b691bad72d31f0907d40ed47fe897f564d3dd12762",
+  "independentTests": {"tests": 35, "passed": 35, "failed": 0, "log": "final-independent.tap"},
+  "focusedTests": {"tests": 105, "passed": 105, "failed": 0, "log": "final-focused.tap"},
+  "independentLegacyExactComparisons": 110,
+  "counterexamplesResolved": [
+    "Subtract from unrestricted starts from full selection.",
+    "Add and subtract append with correct visible semantics after inversion.",
+    "Feather on unrestricted does not create an empty selection.",
+    "Manual export work limits are checked before rendering.",
+    "Tiny nonzero jitter no longer doubles new-mode tap dose.",
+    "Repair radius display is short and readable after a deformation mode."
+  ],
+  "independentFieldProbe": {
+    "fixture": "36 mixed legacy/new strokes with hard selection",
+    "bilinearJacobianSamples": 57600,
+    "maxNeighborGradient": 0.4400000412691639,
+    "minimumSampledJacobian": 0.5152471759902824,
+    "reportedLowerBound": 0.1426920210185856,
+    "outOfBoundsNodes": 0,
+    "limitedSteps": 229,
+    "skippedSteps": 68
+  },
+  "integrationVerified": [
+    "All four new UI commands change actual controlled-surface RGBA and replay after project round-trip.",
+    "Original source RGBA and Blob identity remain unchanged.",
+    "Cancellation, stale callbacks, local undo and clear preserve history boundaries.",
+    "Android refuses nonopaque input and deformation after repair donor selection.",
+    "Both export modes failing rejects the stroke; working-size-only availability is stated explicitly.",
+    "256 MiB Android host allowance, aggregate 800 million work units, and operation-order geometry are preflighted."
+  ],
+  "intentionalLimitations": [
+    "Selection protects destinations, not all bilinear source/donor contributions. The legacy 35-pixel source-influence counterexample still passes as documentation of that contract.",
+    "Core alpha stays at the destination; mobile continues to reject translucent deformation input.",
+    "Work and byte estimates are policy guards, not measured runtime or peak process memory.",
+    "Synthetic and controlled-DOM tests do not certify Android/WebView touch, phone timing, downloads or native gallery behavior.",
+    "No face recognition, learned beautification, identity reconstruction or neighboring-person semantic isolation is claimed."
+  ],
+  "reviewDisposition": "No unresolved functional blocker found within the tested cloud scope. Re-run and refresh hashes if production changes."
+}

@@ -1,0 +1,56 @@
+{
+  "artifacts": [
+    {
+      "abi": "arm64-v8a",
+      "bytes": 17868285,
+      "sha256": "e8c2b7feaedef48429997a078e840daa3876a80db5770abc5ba3995187b173cf",
+      "assetFilesCompared": 70
+    },
+    {
+      "abi": "armeabi-v7a",
+      "bytes": 14573067,
+      "sha256": "1bb331946bac48cef662c74949d39612e7a4d8c08008c0c42bba41f6339e92a6",
+      "assetFilesCompared": 70
+    }
+  ],
+  "lintErrors": 0,
+  "lintWarnings": 4,
+  "permissions": [],
+  "signature": "absent; not installable; apksigner negative result also checked separately",
+  "preview": {
+    "inlineScripts": 59,
+    "cspHashesVerified": true,
+    "renderedBrowser": false,
+    "bytes": 1959734,
+    "sha256": "6d1a8c7e8a3c18b4246a1130ee2ff4e5e23f753ef523a23b85001c9a051e296e"
+  },
+  "sourceModules": {
+    "project-library.js": "da716f9ecb4ef98b01a65de1bdff27157ea88cb40f65782aaec130c2444ecd55",
+    "project-library-controller.js": "8055e69fcd6dfe6069068ad4aaa2be952ab32afc54ec88b8036a60077b03fde1",
+    "project-library-ui.js": "b42f0edd7f262cc101c3254d74199bc30615f684f3946dcf6628319d41e0a97b",
+    "editor.js": "09712bacb552fc95521baf25afdfec87a6a32c128a314b6fdc2ba3d75b2cae29"
+  },
+  "testBoundary": "NativeCanvas PNG execution is real; all IndexedDB and DOM tests are controlled/fault-injected, no browser persistence or Android cold-start pass.",
+  "tests": {
+    "nodeEntries": 1309,
+    "individualPureChecks": 1566,
+    "projectLibraryStorageControlled": 35,
+    "projectLibraryControllerControlled": 16,
+    "projectLibraryUiControlled": 35,
+    "projectLibraryIndependentControlled": 25,
+    "nativeCanvasNode": 251,
+    "nativeCanvasStandaloneGeometry": 14,
+    "totalNativeCanvas": 265,
+    "projectLibraryNativeCanvas": 11,
+    "JavaBoundaryChecks": 656
+  },
+  "notRun": [
+    "real browser IndexedDB persistence",
+    "Android WebView cold start and process death",
+    "actual picker/modal/keyboard/layout",
+    "device low disk and OS eviction",
+    "real cross-tab scheduling",
+    "signed install",
+    "SOTA learned retouch"
+  ]
+}

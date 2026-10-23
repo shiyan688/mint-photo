@@ -1,0 +1,49 @@
+{
+  "scope": "synthetic planar fixture, actual production editor+NativeCanvas; not Android/WebView",
+  "recipe": {
+    "type": "perspective",
+    "recipe": {
+      "version": 1,
+      "quad": [
+        {
+          "x": 0.17,
+          "y": 0.1
+        },
+        {
+          "x": 0.88,
+          "y": 0.18
+        },
+        {
+          "x": 0.96,
+          "y": 0.88
+        },
+        {
+          "x": 0.06,
+          "y": 0.95
+        }
+      ],
+      "outputFraction": {
+        "width": 0.7619047619047619,
+        "height": 0.6875
+      }
+    }
+  },
+  "source": {
+    "width": 420,
+    "height": 320,
+    "pngSha256": "11e680fd8031f6354a8414cbe3f59e229acd5f0b261f18d16919c44fae072138",
+    "rgbaSha256": "aa18111b3834ae4758c45c44a76310bef0f747bb0d8abe20627b388016199831",
+    "unchanged": true
+  },
+  "output": {
+    "width": 320,
+    "height": 220,
+    "pngSha256": "282f6a14fb6c1495c48cffcf1d24e9846b8e8cf5442322d79f37b64fabe1e2f5",
+    "rgbaSha256": "bcfb4e21363487cdaee0df2a9174a36eec2f17a0d2f0f10beee971c9db726c22"
+  },
+  "previewMatchesOriginalPng": true,
+  "undoRedoExact": true,
+  "draftReplayExact": true,
+  "originalBlobUnchanged": true,
+  "coreSha256": "3a3b57ea8da4ce4a7c99b180a454e9f00a4242a0460621d267ad5487fbe66557"
+}

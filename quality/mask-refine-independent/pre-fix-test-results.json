@@ -1,0 +1,168 @@
+{
+  "generatedAt": "2026-10-22T19:41:09.819Z",
+  "scope": "Independent production-code/Skia audit. No browser, WebView, Android device, real model, memory-profiler or timing certification.",
+  "production": [
+    {
+      "file": "mask-refine.js",
+      "sha256": "1f87ce10085e42cf8e67309ac49dd6f608d40ecb32258ab8a76ed67b6bc4baa2"
+    },
+    {
+      "file": "background-refine-operation.js",
+      "sha256": "50b93d0a3f4e596c58ca31cd28d5f701f170b816e5659bb6813def6c73b7c097"
+    },
+    {
+      "file": "background-refine-ui.js",
+      "sha256": "d2ce6d79f564d3dceac894f141d177c009e2cb324592c9f3e692230818a46e5d"
+    },
+    {
+      "file": "portrait-ui.js",
+      "sha256": "a7089263c48ddf47e38f77d0be9fdc7a3ddc4b32658661b7e101dd81412f3ca3"
+    },
+    {
+      "file": "project-core.js",
+      "sha256": "4eb5855a8e2fead97ac724bddc0168b7a2c75b55095df06021d40c1bfc807ef2"
+    },
+    {
+      "file": "editor.js",
+      "sha256": "3cf9265448a605702687b3f3f239e205403ef566b84c0f688e81f9e3e0f89880"
+    },
+    {
+      "file": "portrait-engine.js",
+      "sha256": "5cde7dcd60aab1d68e1ec5fb026c6396c2f395c1597dd03113c34674ba57d524"
+    }
+  ],
+  "results": [
+    {
+      "name": "256 continuous confidence values survive exact-size alpha export without thresholding",
+      "status": "passed",
+      "elapsedMs": 14.181840000000022
+    },
+    {
+      "name": "color composition uses true alpha in linear light, including partial source alpha",
+      "status": "passed",
+      "elapsedMs": 3.3836310000000367
+    },
+    {
+      "name": "transparent mode multiplies existing alpha and never creates opacity",
+      "status": "passed",
+      "elapsedMs": 10.715129999999931
+    },
+    {
+      "name": "sparse and dense samplings of the same polyline have bit-identical pixels and plan",
+      "status": "passed",
+      "elapsedMs": 11.770148999999947
+    },
+    {
+      "name": "reverse traversal and repeated path segments do not compound coverage within one stroke",
+      "status": "passed",
+      "elapsedMs": 9.82871799999998
+    },
+    {
+      "name": "keep/erase order is replayed and each separate stroke compounds continuously",
+      "status": "passed",
+      "elapsedMs": 2.0823369999999386
+    },
+    {
+      "metric": "extreme-combinations",
+      "cases": 96
+    },
+    {
+      "name": "extreme radius, hardness, signed shifts and feather stay finite in [0,1] at all edges",
+      "status": "passed",
+      "elapsedMs": 100.26178500000003
+    },
+    {
+      "name": "no-op strengths and empty mask have bit-exact baseline, independent of brush settings",
+      "status": "passed",
+      "elapsedMs": 1.7170579999999518
+    },
+    {
+      "name": "pixel/edge/work budgets reject before input read or canvas allocation",
+      "status": "passed",
+      "elapsedMs": 4.969561999999996
+    },
+    {
+      "name": "aggregate replay budgets include every refinement and use ordered intermediate dimensions",
+      "status": "passed",
+      "elapsedMs": 3.990122000000042
+    },
+    {
+      "name": "cancellation prevents composite reads and leaves the source unchanged",
+      "status": "passed",
+      "elapsedMs": 4.487318000000073
+    },
+    {
+      "name": "allocation failure releases only newly allocated output and preserves source",
+      "status": "passed",
+      "elapsedMs": 3.300747000000001
+    },
+    {
+      "name": "legacy background replay stays byte-compatible and retains its prior encoded-space blend",
+      "status": "passed",
+      "elapsedMs": 88.17938300000003
+    },
+    {
+      "metric": "original-png",
+      "width": 1800,
+      "height": 1200,
+      "sha256": "a6123f777d575323ff99c36c5005fc75abd988bd0279a0b71906a79fadffe386",
+      "alphaLevels": 143
+    },
+    {
+      "name": "preview is rerasterized at working size and original PNG uses original-resolution normalized strokes",
+      "status": "passed",
+      "elapsedMs": 13831.470790000001
+    },
+    {
+      "name": "green mask inspection is an overlay only and is never committed or exported",
+      "status": "passed",
+      "elapsedMs": 312.334648
+    },
+    {
+      "name": "manual undo/redo, canceled strokes and zero-strength gestures restore exact recipes",
+      "status": "passed",
+      "elapsedMs": 26.955246999999872
+    },
+    {
+      "name": "manual replacement while native detection is pending ignores its stale callback",
+      "status": "passed",
+      "elapsedMs": 19.81498399999873
+    },
+    {
+      "name": "Cancel and tool replacement detach old controls and reject old native results",
+      "status": "passed",
+      "elapsedMs": 16.679690999999366
+    },
+    {
+      "name": "out-of-order native callbacks cannot overwrite a newer successful mask",
+      "status": "passed",
+      "elapsedMs": 22.853817999999592
+    },
+    {
+      "name": "native timeout exits loading and permits manual correction without late mutation",
+      "status": "passed",
+      "elapsedMs": 25.696271000000706
+    },
+    {
+      "name": "JSON project round-trip retains the exact portable base and ordered refinement recipe",
+      "status": "passed",
+      "elapsedMs": 263.9576700000016
+    },
+    {
+      "name": "refinement uses its own operation-stage dimensions after crop and rotate",
+      "status": "passed",
+      "elapsedMs": 83.85996499999965
+    },
+    {
+      "name": "replay fails closed if the Portrait UI module is missing",
+      "status": "failed",
+      "error": "Missing expected exception.",
+      "elapsedMs": 27.56514199999947
+    },
+    {
+      "name": "replay fails closed if the mask, operation, or composition module is missing",
+      "status": "passed",
+      "elapsedMs": 50.98819399999957
+    }
+  ]
+}

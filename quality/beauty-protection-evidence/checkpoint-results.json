@@ -1,0 +1,45 @@
+{
+  "checkpoint": "v31",
+  "nodeRunnerEntries": 1626,
+  "nodeFailures": 0,
+  "independentChecks": 48,
+  "independentIncludedAsWrapper": true,
+  "nativeCanvasEditorTests": 282,
+  "nativePaintCoreTests": 21,
+  "independentGeometryTests": 14,
+  "jvmChecks": 1116,
+  "staticBridgeChecks": 37,
+  "newNativeTests": 8,
+  "sourceOriginalUnchanged": true,
+  "currentStagePreserved": {
+    "originalFileUnchanged": true,
+    "preexistingWarmToneAndManualClonePreserved": true,
+    "protectedPixelsDifferentFromFileOriginal": 176,
+    "clonePixelsPreserved": 159,
+    "order": [
+      "filter",
+      "manual",
+      "portrait-people"
+    ],
+    "pngMatchesReplay": true
+  },
+  "runtimeLimitations": [
+    "No Android/WebView runtime",
+    "No physical multitouch or device performance",
+    "No actual SAF/IndexedDB",
+    "Injected DOM and previous CPU detector replies",
+    "No new learned retouch or SOTA claim"
+  ],
+  "signing": "No signing; no new key; current compiled APKs cannot install",
+  "coreHashes": {
+    "beauty-protection.js": "ebd9abaa824b4e5bfb058585f6827868eb516c389fa77603c2b5f4819ff97583",
+    "mask-refine.js": "1f87ce10085e42cf8e67309ac49dd6f608d40ecb32258ab8a76ed67b6bc4baa2",
+    "portrait-people.js": "0de2c158f3a23c6e4de8326e7474ad809e02d41ccc2931a5ccfba76505a02b3a",
+    "portrait-engine.js": "5cde7dcd60aab1d68e1ec5fb026c6396c2f395c1597dd03113c34674ba57d524",
+    "portrait-people-operation.js": "c1f55380f8243d9b0b6f62b63dab83d7dd217785ea26ee722c9787fe66ba57c0",
+    "portrait-people-ui.js": "3911f0bdb79f8fe5e9a1128ca888d355ee995575b56c75c3e819b34848f316ae",
+    "portrait-ui.js": "5303038f85bb4c5b3d9b156942beedfce170322dfa1a7468e510c8add5cb05f6",
+    "project-core.js": "7f0ef1e92b6688f00fef2d12fe09a2dd88e5a23a9deb37c57bd3edb3feaed5b8",
+    "project-backup.js": "fc73ace09637a830aadea8c94fce8915772e1045681b83587c3185f373729d4a"
+  }
+}

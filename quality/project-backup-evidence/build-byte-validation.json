@@ -1,0 +1,36 @@
+{
+  "artifacts": [
+    {
+      "abi": "arm64-v8a",
+      "bytes": 17911956,
+      "sha256": "9925eb69600d2f1b72fcb2b762ff40f609c1a33e43529c093aa2b48d8c124b26",
+      "assetFilesCompared": 76
+    },
+    {
+      "abi": "armeabi-v7a",
+      "bytes": 14616738,
+      "sha256": "4290d23423ce7b563b8dd1329d5052b9f4357e39440f74cdded4c6e8fd40a5ac",
+      "assetFilesCompared": 76
+    }
+  ],
+  "lintErrors": 0,
+  "lintWarnings": 4,
+  "permissions": [],
+  "signature": "absent; unsigned compilation artifact, not installable",
+  "preview": {
+    "inlineScripts": 65,
+    "cspHashesVerified": true,
+    "renderedBrowser": false,
+    "bytes": 2034450,
+    "sha256": "94f5b3778e4657c943ffe9817e7ba660eda56c90d76f1b9a17bd3d43970ba647"
+  },
+  "sourceModules": {
+    "project-backup.js": "fc73ace09637a830aadea8c94fce8915772e1045681b83587c3185f373729d4a",
+    "project-backup-transport.js": "96a4b661b369cba01dfe063a8ffa55c407f30b384aba5b25b649de7ef56dc9db",
+    "project-backup-ui.js": "26250d4086daabfcb2ab05594e8b1a1970c5d6b4e5d2fb0aa023340dcac7ac18",
+    "project-library-controller.js": "152d80fd402ffdca7f357a879aa1a258442a3fc21c52841fb5e5e833e2ac9f0d",
+    "editor.js": "ff77b55f6dbf2e32e4018d52691ae1fcf47bafcefbd8db571475ba214fb5557f",
+    "project-core.js": "a308234c44e6dc7210560a69d3d14a098b1546ede6b329ad9a227b0079be2b8f"
+  },
+  "testBoundary": "NativeCanvas actual PNG; controlled DOM, file chooser, bridge and fault-injected IndexedDB. No Android/WebView or browser persistence."
+}

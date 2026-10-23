@@ -1,0 +1,218 @@
+{
+  "tests": [
+    {
+      "name": "shared frozen bytes and UMD API; legacy engine SHA frozen",
+      "pass": true
+    },
+    {
+      "name": "fresh detection is detached, complete, zeroed and batch-local",
+      "pass": true
+    },
+    {
+      "name": "zero faces and zero controls preserve every source byte including hidden RGB",
+      "pass": true
+    },
+    {
+      "name": "2 independent beauty faces exactly equal immutable-input legacy deltas",
+      "pass": true,
+      "changedPixelsPerFace": [
+        2183,
+        2131
+      ],
+      "resources": {
+        "pixels": 153600,
+        "workPixels": 153600,
+        "activeFaces": 2,
+        "retainedOutputBytes": 614400,
+        "maxConcurrentEngineOutputBytes": 614400,
+        "engineTemporaryBytes": 16590880,
+        "extraPeakBytes": 17819680,
+        "estimatedPeakExtraBytes": 17819680,
+        "cumulativeTypedArrayBytes": 34410560,
+        "workUnits": 15513600,
+        "estimatedWorkUnits": 15513600,
+        "staticEngineTableBytes": 17412,
+        "excludes": "source, canvas/native/GPU/history copies, JS objects, VM overhead and delayed collection between calls; not a measured real-device peak"
+      }
+    },
+    {
+      "name": "5 independent beauty faces exactly equal immutable-input legacy deltas",
+      "pass": true,
+      "changedPixelsPerFace": [
+        2179,
+        2158,
+        2359,
+        2312,
+        2328
+      ],
+      "resources": {
+        "pixels": 153600,
+        "workPixels": 153600,
+        "activeFaces": 5,
+        "retainedOutputBytes": 614400,
+        "maxConcurrentEngineOutputBytes": 614400,
+        "engineTemporaryBytes": 16590880,
+        "extraPeakBytes": 17819680,
+        "estimatedPeakExtraBytes": 17819680,
+        "cumulativeTypedArrayBytes": 86026400,
+        "workUnits": 38553600,
+        "estimatedWorkUnits": 38553600,
+        "staticEngineTableBytes": 17412,
+        "excludes": "source, canvas/native/GPU/history copies, JS objects, VM overhead and delayed collection between calls; not a measured real-device peak"
+      }
+    },
+    {
+      "name": "2 independent reshape faces exactly equal immutable-input legacy deltas",
+      "pass": true,
+      "changedPixelsPerFace": [
+        3724,
+        3734
+      ],
+      "resources": {
+        "pixels": 153600,
+        "workPixels": 153600,
+        "activeFaces": 2,
+        "retainedOutputBytes": 614400,
+        "maxConcurrentEngineOutputBytes": 614400,
+        "engineTemporaryBytes": 0,
+        "extraPeakBytes": 1228800,
+        "estimatedPeakExtraBytes": 1228800,
+        "cumulativeTypedArrayBytes": 1228800,
+        "workUnits": 1075200,
+        "estimatedWorkUnits": 1075200,
+        "staticEngineTableBytes": 17412,
+        "excludes": "source, canvas/native/GPU/history copies, JS objects, VM overhead and delayed collection between calls; not a measured real-device peak"
+      }
+    },
+    {
+      "name": "5 independent reshape faces exactly equal immutable-input legacy deltas",
+      "pass": true,
+      "changedPixelsPerFace": [
+        3713,
+        3740,
+        3824,
+        3835,
+        3903
+      ],
+      "resources": {
+        "pixels": 153600,
+        "workPixels": 153600,
+        "activeFaces": 5,
+        "retainedOutputBytes": 614400,
+        "maxConcurrentEngineOutputBytes": 614400,
+        "engineTemporaryBytes": 0,
+        "extraPeakBytes": 1228800,
+        "estimatedPeakExtraBytes": 1228800,
+        "cumulativeTypedArrayBytes": 3072000,
+        "workUnits": 2457600,
+        "estimatedWorkUnits": 2457600,
+        "staticEngineTableBytes": 17412,
+        "excludes": "source, canvas/native/GPU/history copies, JS objects, VM overhead and delayed collection between calls; not a measured real-device peak"
+      }
+    },
+    {
+      "name": "inactive neighbors stay byte exact for beauty",
+      "pass": true
+    },
+    {
+      "name": "inactive neighbors stay byte exact for reshape",
+      "pass": true
+    },
+    {
+      "name": "beauty preserves alpha and transparent hidden RGB with nonzero parameters",
+      "pass": true
+    },
+    {
+      "name": "any nonopaque source rejects active reshape; planSize flags the alpha precondition",
+      "pass": true
+    },
+    {
+      "name": "overlap is rejected even when the neighbor is inactive",
+      "pass": true
+    },
+    {
+      "name": "active influence pair overlap rejected outside protected mesh boxes",
+      "pass": true
+    },
+    {
+      "name": "source, batch, model and topology binding reject stale/mixed metadata",
+      "pass": true
+    },
+    {
+      "name": "explicit 468 detector works without relaxing the default detector pin",
+      "pass": true
+    },
+    {
+      "name": "strict record validation rejects getters without executing them and inherited defaults",
+      "pass": true
+    },
+    {
+      "name": "strict schema rejects unknown/symbol/sparse/oversized/duplicate/missing and nonfinite values",
+      "pass": true
+    },
+    {
+      "name": "shape and buffer limits checked before engine invocation or output allocation",
+      "pass": true,
+      "largePlanWithoutImageAllocation": {
+        "pixels": 16777216,
+        "workPixels": 1048576,
+        "activeFaces": 2,
+        "retainedOutputBytes": 67108864,
+        "maxConcurrentEngineOutputBytes": 67108864,
+        "engineTemporaryBytes": 117442592,
+        "extraPeakBytes": 251660320,
+        "estimatedPeakExtraBytes": 251660320,
+        "cumulativeTypedArrayBytes": 369102912,
+        "workUnits": 216006656,
+        "estimatedWorkUnits": 216006656,
+        "staticEngineTableBytes": 17412,
+        "excludes": "source, canvas/native/GPU/history copies, JS objects, VM overhead and delayed collection between calls; not a measured real-device peak"
+      }
+    },
+    {
+      "name": "image validation rejects accessors, shared bytes, wrong lengths and dimension overflow",
+      "pass": true
+    },
+    {
+      "name": "ArrayBuffer native-brand/resizable checks never execute shadow accessors",
+      "pass": true,
+      "nativeResizableGetterAvailable": true,
+      "shadowGetterInvocations": 0
+    },
+    {
+      "name": "old engines without ArrayBuffer.resizable still use native backing brand checks",
+      "pass": true
+    },
+    {
+      "name": "cancellation before, after each face and during merge returns no partial output",
+      "pass": true
+    },
+    {
+      "name": "unexpected out-of-support writes and alpha mutations reject atomically",
+      "pass": true
+    },
+    {
+      "name": "independent support proof covers color-only controls and work-grid scaling/aspects",
+      "pass": true,
+      "verifiedDirectChangedPixels": 185189
+    },
+    {
+      "name": "outer lips beyond OVAL are explicitly included in support",
+      "pass": true
+    },
+    {
+      "name": "bounded off-frame landmarks preserve engine clamp semantics",
+      "pass": true
+    },
+    {
+      "name": "single-face legacy behavior remains available unchanged",
+      "pass": true,
+      "legacyManualBeautyDigest": "ae85c2cd45743455a041de6e56368352f072a001f0abbc32e0e69a14d7126981"
+    }
+  ],
+  "engineSha256": "5cde7dcd60aab1d68e1ec5fb026c6396c2f395c1597dd03113c34674ba57d524",
+  "coreSha256": "0de2c158f3a23c6e4de8326e7474ad809e02d41ccc2931a5ccfba76505a02b3a",
+  "fixtures": "Existing MediaPipe host astronaut 478 mesh; transformed copies, no model/network/dependency changes",
+  "passed": 27,
+  "failed": 0
+}

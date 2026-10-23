@@ -1,0 +1,76 @@
+{
+  "when": "2026-10-22T11:07:34.957Z",
+  "limits": "Installed @napi-rs/canvas raster math (putImageData is wrapped to ignore CTM, correcting the installed library’s non-spec behavior) plus shipped handlers in controlled DOM; no Android WebView, Chromium UI, model or handset execution.",
+  "sourceHashes": {
+    "geometry.js": "c8a0dc83278229ed9b07978801afe3a1a835eb505415ffc91e937a51d77590ba",
+    "editor.js": "0bf157af0433a65d7dfbdbc4910597f9fe140af8f346615c6c56f0f15dd4a2fb",
+    "project-core.js": "936220623b6b22d4d87b3bbacf0d2994f3e39ed274cbf16250d81c74df1886e4",
+    "portrait-ui.js": "3934a964805a7152f4aa53ced7a70815a733e5e75a19b7a962e6daf0ea4df215",
+    "manual-retouch-ui.js": "3898f3639eace80300732742138b48314ba8c328825a61012528dd738a2d135e",
+    "advanced-tone-ui.js": "eddd400bde5f2f7218ef17f0d1f3ab26ddd433835fed0663965dd4ee5bee5d3c"
+  },
+  "passes": [
+    "rotate clockwise and horizontal/vertical flips preserve every opaque pixel exactly",
+    "four rotations and double flips are exact full-frame identities",
+    "integer-aligned crop picks exact source pixels including right and bottom boundaries",
+    "fractional crop current renderer and planning round dimensions consistently",
+    "mixed ordered crop/manual/tone/flip/rotate project roundtrip and replay are deterministic",
+    "crop cancel/reset and rejected transform confirmation preserve earlier manual history",
+    "crop pointer cancellation, lost capture and late pointerup cannot commit transient geometry",
+    "completed face result is reused on unchanged pixels but invalidated after every geometry/history change",
+    "in-flight face callback after geometry commit cannot populate a new draft",
+    "new shared geometry mixes with legacy crops, repair, liquify and tone without replay drift",
+    "crop Apply plus transform buttons write new geometry history and keep original Blob/undo",
+    "fixed corner selection uses nearest handle and narrow ratio resizing stays in source bounds",
+    "new geometry invalidates face coordinates and rejects old in-flight results like legacy operations",
+    "full-frame shrink then small-crop center drag moves without resizing; outside gesture has no effect"
+  ],
+  "findings": [],
+  "diagnostics": {
+    "fractional crop current renderer and planning round dimensions consistently": [
+      {
+        "x": 0.13,
+        "y": 0.17,
+        "w": 0.58,
+        "h": 0.53,
+        "width": 59,
+        "height": 39,
+        "sha256": "fe5b3bfd85474f3960a436ab3591fd59c90bd08be07259ff7179efeb70ea7645"
+      },
+      {
+        "x": 0.9,
+        "y": 0.9,
+        "w": 0.1,
+        "h": 0.1,
+        "width": 10,
+        "height": 7,
+        "sha256": "5b33d5096555087bac0cb04c5f8869cd3250896fe618ca3ef4d8183d7657a6e1"
+      },
+      {
+        "x": 0,
+        "y": 0,
+        "w": 0.005,
+        "h": 0.005,
+        "width": 1,
+        "height": 1,
+        "sha256": "e3820096cb82366b860b8a4e668453a7aaaf423af03bdf289fa308ea03a79332"
+      }
+    ],
+    "mixed ordered crop/manual/tone/flip/rotate project roundtrip and replay are deterministic": {
+      "output": [
+        154,
+        206
+      ],
+      "source": "ef840dd7125ba89167bc2897597af178e6fc4a8d19e638df732d84687f2eae09",
+      "result": "e3ce2d0db1d64f15c7a10a3bab7e072ab9eddf8aadcecba99f61f35f94b4b576"
+    },
+    "new shared geometry mixes with legacy crops, repair, liquify and tone without replay drift": {
+      "output": [
+        140,
+        185
+      ],
+      "source": "ef840dd7125ba89167bc2897597af178e6fc4a8d19e638df732d84687f2eae09",
+      "result": "9f7ed75580f2c46bd007914a8858275c78109ca9d622b2543eda7aa87150c107"
+    }
+  }
+}

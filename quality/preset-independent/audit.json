@@ -1,0 +1,55 @@
+{
+  "timestamp_utc": "2026-10-22T10:47:28.586639+00:00",
+  "scope": "Bounded Android named-preset milestone. No production changes by auditor. No browser, Android WebView, emulator, handset, model inference, native SAF/gallery/export runtime, signing, upload, or installed dependencies.",
+  "results": {
+    "controlled_production_workflows": {
+      "passed": 23,
+      "failed": 0,
+      "log": "quality/preset-independent/workflows.tap"
+    },
+    "native_skia_pixels": {
+      "passed": 6,
+      "failed": 0,
+      "log": "quality/preset-independent/pixels.tap"
+    }
+  },
+  "runtime": {
+    "node": "24.19.0",
+    "preinstalled_napi_rs_canvas": "0.1.100"
+  },
+  "fixed_findings": [
+    {
+      "id": "P1",
+      "description": "Reset did not invalidate a pending JSON FileReader; late completion silently resurrected imported controls.",
+      "fixed_by": "Production implementation updated",
+      "independently_retested": true
+    },
+    {
+      "id": "P2",
+      "description": "Reset/color-only did not invalidate face callback and late completion repopulated cleared landmarks.",
+      "fixed_by": "Production implementation updated",
+      "independently_retested": true
+    },
+    {
+      "id": "P3",
+      "description": "Generation invalidation made old detector stale but left PortraitUI job outstanding, preventing replacement request; repeated detect had the same cancellation mismatch.",
+      "fixed_by": "Parent production adapter cancellation changes",
+      "independently_retested": true
+    }
+  ],
+  "unresolved_findings": [],
+  "source_sha256": {
+    "app/src/main/assets/preset-codec.js": "e69a72b82d6b6c5dc565b39bcb7df21bd0c5842c99735f87eae784c97c7eb84d",
+    "app/src/main/assets/preset-library.js": "490bf736ae8bf230633be1fa1383f9ce2a8cc99ae25e79ac3b0d11c0220b619b",
+    "app/src/main/assets/preset-operation.js": "d7df8905064a97b84acf0f272265221f2697cf2aeefea55cd7d35cb9b6654c34",
+    "app/src/main/assets/preset-ui.js": "b78ec77bc6cde3eae9fca794a032294ce85af8dc8aedba2a1f3bcb67d776c483",
+    "app/src/main/assets/editor.js": "cb03d7bb9ccc10e3506c19d27f716bc506ec08364e9dd982f2b58a4645f475c7",
+    "app/src/main/assets/project-core.js": "f13fbb813b1718009fb7650324f8ee31af3d66dba6730544912ecbaace377990",
+    "app/src/main/assets/advanced-tone-ui.js": "eddd400bde5f2f7218ef17f0d1f3ab26ddd433835fed0663965dd4ee5bee5d3c",
+    "app/src/main/assets/portrait-ui.js": "3934a964805a7152f4aa53ced7a70815a733e5e75a19b7a962e6daf0ea4df215",
+    "app/src/main/java/com/qingyan/editor/MainActivity.java": "8d93230b01a3b7279e48e69ea9fb916153a670d1d1c12d70e4276a92d6acb254",
+    "app/src/main/java/com/qingyan/editor/PresetPayload.java": "691801037e46b112cf2f1925593ea9147ade53f7528bf29202abaded50464109",
+    "tests/preset-independent.test.cjs": "8a4d5f5ae9f837bea4b6a027ead6cfdea45c48471d9d4a44e42beabf9f5b14d8",
+    "tests/native-canvas/preset-pixels-independent.test.cjs": "7c9fd2baa74ba9d8451b14b18b9979310be031a3f73f932342c62802ba3afdac"
+  }
+}

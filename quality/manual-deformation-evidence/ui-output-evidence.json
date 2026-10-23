@@ -1,0 +1,69 @@
+{
+  "runtime": "Actual editor with NativeCanvas PNG, injected DOM; not WebView",
+  "cases": [
+    {
+      "family": "grid",
+      "kind": "bloat",
+      "radius": 0.25,
+      "strength": 1,
+      "rgbaSha256": "8ad8bd0248a22da0c011fd39ef277e0d1fdb5fece62b0e4cd9337fda649ea794",
+      "sourceBlobUnchanged": true
+    },
+    {
+      "family": "grid",
+      "kind": "pucker",
+      "radius": 0.25,
+      "strength": 1,
+      "rgbaSha256": "0d1afdbd54de160c2272ee3e75cda42b9277505719ddc1759ddab8ffc057576c",
+      "sourceBlobUnchanged": true
+    },
+    {
+      "family": "grid",
+      "kind": "twist-cw",
+      "radius": 0.25,
+      "strength": 1,
+      "rgbaSha256": "e2e632692f57b3ba7fc0d06d9c73c4a1edf68bc485cfbcf55a5e63a5e09f532f",
+      "sourceBlobUnchanged": true
+    },
+    {
+      "family": "grid",
+      "kind": "twist-ccw",
+      "radius": 0.25,
+      "strength": 1,
+      "rgbaSha256": "c7ccb185d50358e011b16d083270f289dd7f77b1a89a0ca1064b749779e4c912",
+      "sourceBlobUnchanged": true
+    },
+    {
+      "family": "circle",
+      "kind": "bloat",
+      "radius": 0.25,
+      "strength": 1,
+      "rgbaSha256": "8cfd7311ba7e583edd06006b1dcdf8f677573b4e8271ec7ced989c401f8b8ed3",
+      "sourceBlobUnchanged": true
+    },
+    {
+      "family": "circle",
+      "kind": "pucker",
+      "radius": 0.25,
+      "strength": 1,
+      "rgbaSha256": "0678f4632b20f23f96106c3393e80af279f4ad79a4ff54317d099b9403ad7147",
+      "sourceBlobUnchanged": true
+    },
+    {
+      "family": "circle",
+      "kind": "twist-cw",
+      "radius": 0.25,
+      "strength": 1,
+      "rgbaSha256": "72c6afbf71746bf7b038b17fa0b689129f9e8a2235053baf4b89b877ab748458",
+      "sourceBlobUnchanged": true
+    },
+    {
+      "family": "circle",
+      "kind": "twist-ccw",
+      "radius": 0.25,
+      "strength": 1,
+      "rgbaSha256": "96cd96f72ce77ad2bfd70648003df51616e9fa145fb158941bf3d191d66e73db",
+      "sourceBlobUnchanged": true
+    }
+  ]
+}

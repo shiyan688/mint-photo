@@ -1,0 +1,249 @@
+{
+  "fixture": "Generated grid, filled circle and asymmetric east marker; no user or downloaded images.",
+  "coreSha256": "37617b5654e7479a2cc2b96ce047845a44cbc725a3f8f618069513d4f051a779",
+  "size": [
+    257,
+    257
+  ],
+  "effects": {
+    "grid": {
+      "original": {
+        "rgbaSha256": "3e0f33853b4adfc83291c7d07f34a424b1407d25f5ab0b10325feb4af021ad52"
+      },
+      "bloat": {
+        "rgbaSha256": "0963305dce079350aaf3eb7d1cfbfd11ee98216b0928a21c8f4356ed56280f0f",
+        "diagnostics": {
+          "totalSteps": 1,
+          "limitedSteps": 0,
+          "skippedSteps": 0,
+          "maxEdgeGradient": 0.35479736328125,
+          "minJacobianLowerBound": 0.24824385188953912,
+          "maxDisplacement": 9.996002467310133,
+          "changedPixels": 13497,
+          "estimatedWork": 5638076,
+          "estimatedMemoryBytes": 3420196
+        }
+      },
+      "pucker": {
+        "rgbaSha256": "a53eb23b4d0c2b14b77a986bba324ed60f2175b2ae7cf22646baa16cf84b2a84",
+        "diagnostics": {
+          "totalSteps": 1,
+          "limitedSteps": 0,
+          "skippedSteps": 0,
+          "maxEdgeGradient": 0.35479736328125,
+          "minJacobianLowerBound": 0.24824385188953912,
+          "maxDisplacement": 9.996002467310133,
+          "changedPixels": 13693,
+          "estimatedWork": 5638076,
+          "estimatedMemoryBytes": 3420196
+        }
+      },
+      "twist-cw": {
+        "rgbaSha256": "eb0edc97eb4571e28a038d242cb8dbbc6112bde26197c761677751f09228baa4",
+        "diagnostics": {
+          "totalSteps": 1,
+          "limitedSteps": 1,
+          "skippedSteps": 0,
+          "maxEdgeGradient": 0.43999580075335076,
+          "minJacobianLowerBound": 0.1426965517359672,
+          "maxDisplacement": 12.396361060284812,
+          "changedPixels": 14407,
+          "estimatedWork": 5638076,
+          "estimatedMemoryBytes": 3420196
+        }
+      },
+      "twist-ccw": {
+        "rgbaSha256": "03f71e65d69e1184da495a206c86db68012b0e6c01a41389def0fc1e82639ce4",
+        "diagnostics": {
+          "totalSteps": 1,
+          "limitedSteps": 1,
+          "skippedSteps": 0,
+          "maxEdgeGradient": 0.43999580075335076,
+          "minJacobianLowerBound": 0.1426965517359672,
+          "maxDisplacement": 12.396361060284812,
+          "changedPixels": 14407,
+          "estimatedWork": 5638076,
+          "estimatedMemoryBytes": 3420196
+        }
+      }
+    },
+    "circle": {
+      "original": {
+        "rgbaSha256": "0c6f3c3647020f72d06b0219022256ddd3e52a099a0c91f5e8bedb5f9b56d425",
+        "whiteArea": 4049
+      },
+      "bloat": {
+        "rgbaSha256": "f2e0b990c4e5e013629d896dfddef47886aed6a248c23c3ef4c09cb668da69be",
+        "diagnostics": {
+          "totalSteps": 1,
+          "limitedSteps": 0,
+          "skippedSteps": 0,
+          "maxEdgeGradient": 0.35479736328125,
+          "minJacobianLowerBound": 0.24824385188953912,
+          "maxDisplacement": 9.996002467310133,
+          "changedPixels": 2160,
+          "estimatedWork": 5638076,
+          "estimatedMemoryBytes": 3420196
+        },
+        "whiteArea": 6037
+      },
+      "pucker": {
+        "rgbaSha256": "0678f4632b20f23f96106c3393e80af279f4ad79a4ff54317d099b9403ad7147",
+        "diagnostics": {
+          "totalSteps": 1,
+          "limitedSteps": 0,
+          "skippedSteps": 0,
+          "maxEdgeGradient": 0.35479736328125,
+          "minJacobianLowerBound": 0.24824385188953912,
+          "maxDisplacement": 9.996002467310133,
+          "changedPixels": 1256,
+          "estimatedWork": 5638076,
+          "estimatedMemoryBytes": 3420196
+        },
+        "whiteArea": 2925
+      },
+      "twist-cw": {
+        "rgbaSha256": "71fe18548e0b1f80fe5c4bf34ddd596637950ac0ef4af1bad1ff0122ddf40e0b",
+        "diagnostics": {
+          "totalSteps": 1,
+          "limitedSteps": 1,
+          "skippedSteps": 0,
+          "maxEdgeGradient": 0.43999580075335076,
+          "minJacobianLowerBound": 0.1426965517359672,
+          "maxDisplacement": 12.396361060284812,
+          "changedPixels": 288,
+          "estimatedWork": 5638076,
+          "estimatedMemoryBytes": 3420196
+        },
+        "whiteArea": 4101
+      },
+      "twist-ccw": {
+        "rgbaSha256": "c0654bd317a9153a470194f1e4176f74f239bce074cc86230c0c5b76506d01de",
+        "diagnostics": {
+          "totalSteps": 1,
+          "limitedSteps": 1,
+          "skippedSteps": 0,
+          "maxEdgeGradient": 0.43999580075335076,
+          "minJacobianLowerBound": 0.1426965517359672,
+          "maxDisplacement": 12.396361060284812,
+          "changedPixels": 288,
+          "estimatedWork": 5638076,
+          "estimatedMemoryBytes": 3420196
+        },
+        "whiteArea": 4101
+      }
+    },
+    "marker": {
+      "original": {
+        "rgbaSha256": "b2a2aee08593ac3f218c4c32c043f88f362194a57cfe1fe3aa8268fddc2ae398",
+        "centroid": {
+          "x": 166.5,
+          "y": 128,
+          "total": 29440
+        }
+      },
+      "bloat": {
+        "rgbaSha256": "a287adccd734e9d44fa1e67703e009de739fa1e84f891ea77fd3bab6b53cc900",
+        "diagnostics": {
+          "totalSteps": 1,
+          "limitedSteps": 0,
+          "skippedSteps": 0,
+          "maxEdgeGradient": 0.35479736328125,
+          "minJacobianLowerBound": 0.24824385188953912,
+          "maxDisplacement": 9.996002467310133,
+          "changedPixels": 270,
+          "estimatedWork": 5638076,
+          "estimatedMemoryBytes": 3420196
+        },
+        "centroid": {
+          "x": 174.93067483250064,
+          "y": 128,
+          "total": 43433
+        }
+      },
+      "pucker": {
+        "rgbaSha256": "f29194b282ac119aa550b899a1c3310ff97a1e89dd9f44e62524af0d747dd1c6",
+        "diagnostics": {
+          "totalSteps": 1,
+          "limitedSteps": 0,
+          "skippedSteps": 0,
+          "maxEdgeGradient": 0.35479736328125,
+          "minJacobianLowerBound": 0.24824385188953912,
+          "maxDisplacement": 9.996002467310133,
+          "changedPixels": 150,
+          "estimatedWork": 5638076,
+          "estimatedMemoryBytes": 3420196
+        },
+        "centroid": {
+          "x": 160.60742224766267,
+          "y": 128,
+          "total": 20964
+        }
+      },
+      "twist-cw": {
+        "rgbaSha256": "716d12f214945c11101a7a4ed16b69fd06c72a552a4a8ea009d676d7119d97b9",
+        "diagnostics": {
+          "totalSteps": 1,
+          "limitedSteps": 1,
+          "skippedSteps": 0,
+          "maxEdgeGradient": 0.43999580075335076,
+          "minJacobianLowerBound": 0.1426965517359672,
+          "maxDisplacement": 12.396361060284812,
+          "changedPixels": 227,
+          "estimatedWork": 5638076,
+          "estimatedMemoryBytes": 3420196
+        },
+        "centroid": {
+          "x": 165.77203045855558,
+          "y": 136.617557277515,
+          "total": 29811
+        }
+      },
+      "twist-ccw": {
+        "rgbaSha256": "a526eb1a3264fa1310a722c881093d74d1d77bbb21e5bc32fe56900f9be59346",
+        "diagnostics": {
+          "totalSteps": 1,
+          "limitedSteps": 1,
+          "skippedSteps": 0,
+          "maxEdgeGradient": 0.43999580075335076,
+          "minJacobianLowerBound": 0.1426965517359672,
+          "maxDisplacement": 12.396361060284812,
+          "changedPixels": 227,
+          "estimatedWork": 5638076,
+          "estimatedMemoryBytes": 3420196
+        },
+        "centroid": {
+          "x": 165.77203045855558,
+          "y": 119.382442722485,
+          "total": 29811
+        }
+      }
+    }
+  },
+  "resources": {
+    "1080x1080": {
+      "width": 1080,
+      "height": 1080,
+      "pixels": 1166400,
+      "workUnits": 21557240,
+      "maxWorkingBytes": 25433800,
+      "totalSteps": 1
+    },
+    "2048x1536": {
+      "width": 2048,
+      "height": 1536,
+      "pixels": 3145728,
+      "workUnits": 54611192,
+      "maxWorkingBytes": 65028104,
+      "totalSteps": 1
+    },
+    "4096x4096": {
+      "width": 4096,
+      "height": 4096,
+      "pixels": 16777216,
+      "workUnits": 309206264,
+      "maxWorkingBytes": 337674248,
+      "totalSteps": 1
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "createdAt": "2026-10-22T21:12:39.804Z",
+  "scope": "Real JS backup codec and production native reader in ordinary JVM; not Android SAF, Activity, WebView, or device proof",
+  "sourcePngSha256": "7cd86c7757c5c3d7e12d075acdbbabf6e52b6f6520ad5accbbcd295346246e9d",
+  "backupSha256": "6d0d08484d3b11bd378ce7c3967cbb21666dafad99fdda23597de0eb1f8e191c",
+  "backupBytes": 783932,
+  "results": [
+    {
+      "name": "Version 2 masks, exact landmarks, source PNG and redo round-trip through real backup codec",
+      "pass": true
+    },
+    {
+      "name": "valid-v2-protection",
+      "pass": true,
+      "jsAccepted": true,
+      "nativeEnvelopeAccepted": true,
+      "note": "Native reader is generic bounded/envelope validation; JS performs operation-specific rejection."
+    },
+    {
+      "name": "stale-batch",
+      "pass": true,
+      "jsAccepted": false,
+      "nativeEnvelopeAccepted": true,
+      "note": "Native reader is generic bounded/envelope validation; JS performs operation-specific rejection."
+    },
+    {
+      "name": "wrong-geometry",
+      "pass": true,
+      "jsAccepted": false,
+      "nativeEnvelopeAccepted": true,
+      "note": "Native reader is generic bounded/envelope validation; JS performs operation-specific rejection."
+    },
+    {
+      "name": "wrong-order",
+      "pass": true,
+      "jsAccepted": false,
+      "nativeEnvelopeAccepted": true,
+      "note": "Native reader is generic bounded/envelope validation; JS performs operation-specific rejection."
+    },
+    {
+      "name": "hard-edge",
+      "pass": true,
+      "jsAccepted": false,
+      "nativeEnvelopeAccepted": true,
+      "note": "Native reader is generic bounded/envelope validation; JS performs operation-specific rejection."
+    },
+    {
+      "name": "legacy-hidden-mask",
+      "pass": true,
+      "jsAccepted": false,
+      "nativeEnvelopeAccepted": true,
+      "note": "Native reader is generic bounded/envelope validation; JS performs operation-specific rejection."
+    }
+  ],
+  "passed": 7,
+  "failed": 0
+}

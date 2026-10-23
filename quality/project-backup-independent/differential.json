@@ -1,0 +1,506 @@
+[
+  {
+    "name": "control-valid",
+    "bytes": 367,
+    "js": true,
+    "java": true,
+    "expectedJS": true,
+    "expectedNative": true
+  },
+  {
+    "name": "valid-negative-zero",
+    "bytes": 411,
+    "js": true,
+    "java": true,
+    "expectedJS": true,
+    "expectedNative": true
+  },
+  {
+    "name": "valid-smallest-positive",
+    "bytes": 415,
+    "js": true,
+    "java": true,
+    "expectedJS": true,
+    "expectedNative": true
+  },
+  {
+    "name": "valid-tiny-negative",
+    "bytes": 416,
+    "js": true,
+    "java": true,
+    "expectedJS": true,
+    "expectedNative": true
+  },
+  {
+    "name": "valid-128-char-number",
+    "bytes": 537,
+    "js": true,
+    "java": true,
+    "expectedJS": true,
+    "expectedNative": true
+  },
+  {
+    "name": "bad-number-5",
+    "bytes": 415,
+    "js": false,
+    "java": false,
+    "expectedJS": false,
+    "expectedNative": false
+  },
+  {
+    "name": "bad-number-6",
+    "bytes": 416,
+    "js": false,
+    "java": false,
+    "expectedJS": false,
+    "expectedNative": false
+  },
+  {
+    "name": "bad-number-7",
+    "bytes": 414,
+    "js": false,
+    "java": false,
+    "expectedJS": false,
+    "expectedNative": false
+  },
+  {
+    "name": "bad-number-8",
+    "bytes": 415,
+    "js": false,
+    "java": false,
+    "expectedJS": false,
+    "expectedNative": false
+  },
+  {
+    "name": "bad-number-9",
+    "bytes": 411,
+    "js": false,
+    "java": false,
+    "expectedJS": false,
+    "expectedNative": false
+  },
+  {
+    "name": "bad-number-10",
+    "bytes": 412,
+    "js": false,
+    "java": false,
+    "expectedJS": false,
+    "expectedNative": false
+  },
+  {
+    "name": "bad-number-11",
+    "bytes": 411,
+    "js": false,
+    "java": false,
+    "expectedJS": false,
+    "expectedNative": false
+  },
+  {
+    "name": "bad-number-12",
+    "bytes": 411,
+    "js": false,
+    "java": false,
+    "expectedJS": false,
+    "expectedNative": false
+  },
+  {
+    "name": "bad-number-13",
+    "bytes": 411,
+    "js": false,
+    "java": false,
+    "expectedJS": false,
+    "expectedNative": false
+  },
+  {
+    "name": "bad-number-14",
+    "bytes": 411,
+    "js": false,
+    "java": false,
+    "expectedJS": false,
+    "expectedNative": false
+  },
+  {
+    "name": "bad-number-15",
+    "bytes": 412,
+    "js": false,
+    "java": false,
+    "expectedJS": false,
+    "expectedNative": false
+  },
+  {
+    "name": "bad-number-16",
+    "bytes": 412,
+    "js": false,
+    "java": false,
+    "expectedJS": false,
+    "expectedNative": false
+  },
+  {
+    "name": "bad-number-17",
+    "bytes": 412,
+    "js": false,
+    "java": false,
+    "expectedJS": false,
+    "expectedNative": false
+  },
+  {
+    "name": "bad-number-18",
+    "bytes": 417,
+    "js": false,
+    "java": false,
+    "expectedJS": false,
+    "expectedNative": false
+  },
+  {
+    "name": "bad-number-19",
+    "bytes": 413,
+    "js": false,
+    "java": false,
+    "expectedJS": false,
+    "expectedNative": false
+  },
+  {
+    "name": "bad-number-20",
+    "bytes": 538,
+    "js": false,
+    "java": false,
+    "expectedJS": false,
+    "expectedNative": false
+  },
+  {
+    "name": "bad-tail-21",
+    "bytes": 368,
+    "js": false,
+    "java": false,
+    "expectedJS": false,
+    "expectedNative": false
+  },
+  {
+    "name": "bad-tail-22",
+    "bytes": 368,
+    "js": false,
+    "java": false,
+    "expectedJS": false,
+    "expectedNative": false
+  },
+  {
+    "name": "bad-tail-23",
+    "bytes": 368,
+    "js": false,
+    "java": false,
+    "expectedJS": false,
+    "expectedNative": false
+  },
+  {
+    "name": "bad-tail-24",
+    "bytes": 369,
+    "js": false,
+    "java": false,
+    "expectedJS": false,
+    "expectedNative": false
+  },
+  {
+    "name": "bad-tail-25",
+    "bytes": 368,
+    "js": false,
+    "java": false,
+    "expectedJS": false,
+    "expectedNative": false
+  },
+  {
+    "name": "duplicate-26",
+    "bytes": 384,
+    "js": false,
+    "java": false,
+    "expectedJS": false,
+    "expectedNative": false
+  },
+  {
+    "name": "duplicate-27",
+    "bytes": 400,
+    "js": false,
+    "java": false,
+    "expectedJS": false,
+    "expectedNative": false
+  },
+  {
+    "name": "duplicate-28",
+    "bytes": 430,
+    "js": false,
+    "java": false,
+    "expectedJS": false,
+    "expectedNative": false
+  },
+  {
+    "name": "poison-29",
+    "bytes": 399,
+    "js": false,
+    "java": false,
+    "expectedJS": false,
+    "expectedNative": false
+  },
+  {
+    "name": "poison-30",
+    "bytes": 399,
+    "js": false,
+    "java": false,
+    "expectedJS": false,
+    "expectedNative": false
+  },
+  {
+    "name": "poison-31",
+    "bytes": 401,
+    "js": false,
+    "java": false,
+    "expectedJS": false,
+    "expectedNative": false
+  },
+  {
+    "name": "poison-32",
+    "bytes": 404,
+    "js": false,
+    "java": false,
+    "expectedJS": false,
+    "expectedNative": false
+  },
+  {
+    "name": "bad-string-33",
+    "bytes": 363,
+    "js": false,
+    "java": false,
+    "expectedJS": false,
+    "expectedNative": false
+  },
+  {
+    "name": "bad-string-34",
+    "bytes": 363,
+    "js": false,
+    "java": false,
+    "expectedJS": false,
+    "expectedNative": false
+  },
+  {
+    "name": "bad-string-35",
+    "bytes": 364,
+    "js": false,
+    "java": false,
+    "expectedJS": false,
+    "expectedNative": false
+  },
+  {
+    "name": "bad-string-36",
+    "bytes": 363,
+    "js": false,
+    "java": false,
+    "expectedJS": false,
+    "expectedNative": false
+  },
+  {
+    "name": "bad-string-37",
+    "bytes": 361,
+    "js": false,
+    "java": false,
+    "expectedJS": false,
+    "expectedNative": false
+  },
+  {
+    "name": "bad-string-38",
+    "bytes": 360,
+    "js": false,
+    "java": false,
+    "expectedJS": false,
+    "expectedNative": false
+  },
+  {
+    "name": "bad-string-39",
+    "bytes": 358,
+    "js": false,
+    "java": false,
+    "expectedJS": false,
+    "expectedNative": false
+  },
+  {
+    "name": "bad-utf8-40",
+    "bytes": 359,
+    "js": false,
+    "java": false,
+    "expectedJS": false,
+    "expectedNative": false
+  },
+  {
+    "name": "bad-utf8-41",
+    "bytes": 360,
+    "js": false,
+    "java": false,
+    "expectedJS": false,
+    "expectedNative": false
+  },
+  {
+    "name": "bad-utf8-42",
+    "bytes": 361,
+    "js": false,
+    "java": false,
+    "expectedJS": false,
+    "expectedNative": false
+  },
+  {
+    "name": "bad-utf8-43",
+    "bytes": 361,
+    "js": false,
+    "java": false,
+    "expectedJS": false,
+    "expectedNative": false
+  },
+  {
+    "name": "bad-utf8-44",
+    "bytes": 359,
+    "js": false,
+    "java": false,
+    "expectedJS": false,
+    "expectedNative": false
+  },
+  {
+    "name": "bad-utf8-45",
+    "bytes": 358,
+    "js": false,
+    "java": false,
+    "expectedJS": false,
+    "expectedNative": false
+  },
+  {
+    "name": "bom",
+    "bytes": 370,
+    "js": false,
+    "java": false,
+    "expectedJS": false,
+    "expectedNative": false
+  },
+  {
+    "name": "deep-65",
+    "bytes": 496,
+    "js": false,
+    "java": false,
+    "expectedJS": false,
+    "expectedNative": false
+  },
+  {
+    "name": "key-257",
+    "bytes": 630,
+    "js": false,
+    "java": false,
+    "expectedJS": false,
+    "expectedNative": false
+  },
+  {
+    "name": "bad-envelope-49",
+    "bytes": 413,
+    "js": false,
+    "java": false,
+    "expectedJS": false,
+    "expectedNative": false
+  },
+  {
+    "name": "bad-envelope-50",
+    "bytes": 413,
+    "js": false,
+    "java": false,
+    "expectedJS": false,
+    "expectedNative": false
+  },
+  {
+    "name": "bad-envelope-51",
+    "bytes": 413,
+    "js": false,
+    "java": false,
+    "expectedJS": false,
+    "expectedNative": false
+  },
+  {
+    "name": "bad-envelope-52",
+    "bytes": 413,
+    "js": false,
+    "java": false,
+    "expectedJS": false,
+    "expectedNative": false
+  },
+  {
+    "name": "bad-envelope-53",
+    "bytes": 413,
+    "js": false,
+    "java": false,
+    "expectedJS": false,
+    "expectedNative": false
+  },
+  {
+    "name": "bad-envelope-54",
+    "bytes": 413,
+    "js": false,
+    "java": false,
+    "expectedJS": false,
+    "expectedNative": false
+  },
+  {
+    "name": "bad-envelope-55",
+    "bytes": 413,
+    "js": false,
+    "java": false,
+    "expectedJS": false,
+    "expectedNative": false
+  },
+  {
+    "name": "bad-envelope-56",
+    "bytes": 413,
+    "js": false,
+    "java": false,
+    "expectedJS": false,
+    "expectedNative": false
+  },
+  {
+    "name": "truncate-0",
+    "bytes": 0,
+    "js": false,
+    "java": false,
+    "expectedJS": false,
+    "expectedNative": false
+  },
+  {
+    "name": "truncate-1",
+    "bytes": 1,
+    "js": false,
+    "java": false,
+    "expectedJS": false,
+    "expectedNative": false
+  },
+  {
+    "name": "truncate-79",
+    "bytes": 79,
+    "js": false,
+    "java": false,
+    "expectedJS": false,
+    "expectedNative": false
+  },
+  {
+    "name": "truncate-80",
+    "bytes": 80,
+    "js": false,
+    "java": false,
+    "expectedJS": false,
+    "expectedNative": false
+  },
+  {
+    "name": "truncate-412",
+    "bytes": 412,
+    "js": false,
+    "java": false,
+    "expectedJS": false,
+    "expectedNative": false
+  },
+  {
+    "name": "trailing-byte",
+    "bytes": 414,
+    "js": false,
+    "java": false,
+    "expectedJS": false,
+    "expectedNative": false
+  }
+]

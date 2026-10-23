@@ -1,0 +1,50 @@
+{
+  "createdUtc": "2026-10-22T16:18:08.454Z",
+  "scope": "Actual shipped JS/editor with installed Native Canvas and controlled DOM. Self-authored geometric source only, not Android/WebView/device screenshot or SOTA.",
+  "source": {
+    "width": 640,
+    "height": 420,
+    "rgbaSha256": "21d3c51239e28aa26c81932da169a516d8e652aef1647e92639bd6c1a473e0b4",
+    "fileSha256": "efd180188f85bbcc31d1a62d4769db1d33b37c4994d8d784af186a4fe8f5168e"
+  },
+  "outputs": [
+    {
+      "name": "expand-minus8",
+      "angleDegreesClockwise": -8,
+      "mode": "expand",
+      "width": 693,
+      "height": 505,
+      "rgbaSha256": "47e7fa154099adefc8c100a2d8ae950f5b140e50e109750c56782cbfb6b461d0",
+      "zeroAlphaPixels": 80112,
+      "partialAlphaPixels": 2108,
+      "sourceBlobUnchanged": true,
+      "actualFullEditorPngParity": true
+    },
+    {
+      "name": "crop-minus8",
+      "angleDegreesClockwise": -8,
+      "mode": "crop",
+      "width": 598,
+      "height": 340,
+      "rgbaSha256": "52a8d4fb9f45adc5d50bf0c9e1ab821bd3878f5f3d22f37c071ec432f472662f",
+      "zeroAlphaPixels": 0,
+      "partialAlphaPixels": 0,
+      "sourceBlobUnchanged": true,
+      "actualFullEditorPngParity": true
+    },
+    {
+      "name": "quarter90",
+      "angleDegreesClockwise": 90,
+      "mode": "expand",
+      "width": 420,
+      "height": 640,
+      "rgbaSha256": "fc8de519d30328d587638996885a7f07532da815fb013f5293905dff5b517d3f",
+      "zeroAlphaPixels": 0,
+      "partialAlphaPixels": 0,
+      "sourceBlobUnchanged": true,
+      "actualFullEditorPngParity": true
+    }
+  ],
+  "coreSha256": "7b28d67aba28747e85abf95c12b39522153871c4d084038bcb053244fa11f98e",
+  "exact90MatchesGeometry": true
+}

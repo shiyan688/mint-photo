@@ -1,0 +1,56 @@
+{
+  "source": "Public NASA adult portraits; labeled synthetic composite, not real group photograph",
+  "hostDetectionCount": 2,
+  "pointsEach": [
+    478,
+    478
+  ],
+  "model": {
+    "id": "mediapipe-face-landmarker",
+    "modelSha256": "64184e229b263107bc2b804c6625db1341ff2bb731874b0bcc2fe6544e0bc9ff",
+    "topology": "MediaPipe478"
+  },
+  "sourceSize": [
+    900,
+    500
+  ],
+  "inactiveFaceId": "face-2",
+  "inactiveBounds": {
+    "minX": 528,
+    "minY": 130,
+    "maxX": 814,
+    "maxY": 448
+  },
+  "inactiveChangedPixels": 0,
+  "changedPixels": 51958,
+  "outsideSelectedSupportChangedPixels": 0,
+  "sourceFileSha256": "7cd86c7757c5c3d7e12d075acdbbabf6e52b6f6520ad5accbbcd295346246e9d",
+  "originalUnchanged": true,
+  "selectedRgbaSha256": "d4cea697061764ca8ef65e20737b8e394e49efa1dd095a980294afe2f6c83827",
+  "twoRgbaSha256": "2b0eee16430a0133e18ac1d00ae110e233778933eb8c3ca0fe2d8e4142381946",
+  "actualOriginalPngRgbaSha256": "2b0eee16430a0133e18ac1d00ae110e233778933eb8c3ca0fe2d8e4142381946",
+  "overlapRejection": {
+    "code": "FACE_OVERLAP",
+    "message": "人物距离较近，调整或取样区域可能碰到另一人；本次已拒绝，请降低塑形幅度或使用手动局部工具"
+  },
+  "five": {
+    "hostDetectionCount": 5,
+    "corePlan": {
+      "pixels": 612000,
+      "workPixels": 612000,
+      "activeFaces": 5,
+      "retainedOutputBytes": 2448000,
+      "maxConcurrentEngineOutputBytes": 2448000,
+      "engineTemporaryBytes": 9793056,
+      "extraPeakBytes": 14689056,
+      "estimatedPeakExtraBytes": 14689056,
+      "cumulativeTypedArrayBytes": 61205280,
+      "workUnits": 52632000,
+      "estimatedWorkUnits": 52632000,
+      "staticEngineTableBytes": 17412,
+      "excludes": "source, canvas/native/GPU/history copies, JS objects, VM overhead and delayed collection between calls; not a measured real-device peak"
+    },
+    "rgbaSha256": "c22398191fbbc961854fa90912d69ec064c2f9f59da64aec78301b4e94bc2de2"
+  },
+  "limits": "Controlled DOM + actual Native Canvas pixel/export; real host CPU model inference; not Android/WebView/phone or proof of recognition recall / portrait quality / SOTA"
+}

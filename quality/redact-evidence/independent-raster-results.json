@@ -1,0 +1,6 @@
+{
+  "cases": 858,
+  "rgbaValuesCompared": 6752000,
+  "candidateCoreHash": "76feabea4b8b940bf26d9b807e2799ce5012ef6973841f38120770a537c9da61",
+  "result": "PASS exact independent distance-mask / premultiplied block mean / immutable source / order invariance"
+}

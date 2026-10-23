@@ -1,0 +1,50 @@
+{
+  "artifacts": [
+    {
+      "abi": "arm64-v8a",
+      "bytes": 17849110,
+      "sha256": "d82c8ac8c08ea10fede9f4b3c24a17cf676b0e0904d5f569094d933fe661a017",
+      "assetFilesCompared": 67
+    },
+    {
+      "abi": "armeabi-v7a",
+      "bytes": 14553892,
+      "sha256": "97b99b5759e2d5280a291b67cd6f4aa9ab134fc44d374dd671932e2253c9db2a",
+      "assetFilesCompared": 67
+    }
+  ],
+  "lintErrors": 0,
+  "lintWarnings": 4,
+  "signature": "absent; not installable",
+  "permissions": [],
+  "preview": {
+    "inlineScripts": 56,
+    "cspHashesVerified": true,
+    "renderedBrowser": false,
+    "bytes": 1896002,
+    "sha256": "8f143f82c9002dd80133fd92e98dc8fb6f59aefab67b24bb708dabc00a8527c0"
+  },
+  "tests": {
+    "nodeEntries": 1198,
+    "individualPureChecks": 1455,
+    "latestCoreChecks": 40,
+    "nativeCanvasNode": 240,
+    "nativeCanvasStandaloneGeometry": 14,
+    "totalNativeCanvas": 254,
+    "JavaBoundaryChecks": 656,
+    "independentPerspectiveChecks": 38
+  },
+  "notRun": [
+    "actual browser CSS layout",
+    "Android WebView",
+    "physical multitouch handset",
+    "signed installation",
+    "actual device memory/performance",
+    "camera perspective or calibrated metric dimensions"
+  ],
+  "sampling": {
+    "kernel": "linear-premultiplied-anisotropic-mipmap",
+    "maxDirectionalSamples": 16,
+    "aboveCapMaySoften": true
+  }
+}

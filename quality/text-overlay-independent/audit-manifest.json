@@ -1,0 +1,49 @@
+{
+  "recordedAt": "2026-10-22T11:33:20.202Z",
+  "node": "v24.19.0",
+  "nativeCanvas": "0.1.100",
+  "counts": {
+    "plain": {
+      "tests": 16,
+      "pass": 16,
+      "fail": 0,
+      "skipped": 0
+    },
+    "native": {
+      "tests": 13,
+      "pass": 13,
+      "fail": 0,
+      "skipped": 0
+    }
+  },
+  "font": {
+    "path": "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+    "testAlias": "sans-serif",
+    "sha256": "b76b0433203017ca80401b2ee0dd69350349871c4b19d504c34dbdd80541690a"
+  },
+  "scope": "Full production editor replay with controlled DOM/storage/transport; real native Skia PNG pixels, not Android/WebView/device evidence.",
+  "productionSha256": {
+    "app/src/main/assets/text-overlay.js": "44874197cdf371f6763228d61a67c75346c50e37c2267e2b9e69e33f314f93a1",
+    "app/src/main/assets/text-overlay-operation.js": "69c3694dd0d4961addcd912ad737775941671b7f7fb19ead0d23731ab275c4c2",
+    "app/src/main/assets/text-overlay-ui.js": "fa879820b0efcf823a99d031463abf1028f74fd9b671ca3a971d3592acc52035",
+    "app/src/main/assets/project-core.js": "4d495ff752152e195d537d4e34cddf55c59e9d534932b2d5dff08f56d80a5e41",
+    "app/src/main/assets/editor.js": "6ddfd2133affcabdb94c63344712ff5af602c67dde186c874f875b61ff121f9b"
+  },
+  "artifactSha256": {
+    "tests/text-overlay-independent.test.cjs": "3d4ca6f2ae66f0c6ecc5a7c4f6666697eac8e5216a6527be675916d5818c0e33",
+    "tests/native-canvas/text-overlay-pixels-independent.test.cjs": "add4a4fc6b58ef748f94a4372ae7e7f6bca583efd3eca7e7678c0801b0b49b59",
+    "quality/text-overlay-independent/README.md": "468527517e230fa30bebf6a7262f7ac478690c51f77e69dda880d6f439ae1ef2",
+    "quality/text-overlay-independent/cleared.png": "871d1362095262f024f158486ae49d20a9d6d8b0ea8e1f72e7439f95d99e1060",
+    "quality/text-overlay-independent/contact-sheet.png": "2d1a515cadfd69a6735e6e365690649754b8a73d29d1959dbe06c000ae235fd3",
+    "quality/text-overlay-independent/doublepaint-control.png": "fb68c67e9fc7b935c79cf957a33758895421b6d8919936dcc43f0fe4ae8b482e",
+    "quality/text-overlay-independent/editor-harness.cjs": "bd791e3f00843becc0ed684159007dec5d896b071defe22f71ba77501e7fd3fa",
+    "quality/text-overlay-independent/initial.png": "0536f806c18ca951390159f2ac5d0149f47b261d99f2361a9d10152be6c8a998",
+    "quality/text-overlay-independent/native-canvas.cjs": "20c97c3f6f1ab3600750f74808e9ddf2aef70f7d43883651191297b9dda4f4bd",
+    "quality/text-overlay-independent/native-results.tap": "2506dbd9c9fdbe44c0a3ab7c885a49a074a7d4eb9d84a56805fab251ce956b9c",
+    "quality/text-overlay-independent/pixel-evidence.json": "0f81cb6a07008739a8e0e78e9bf7ae5680d98822a82a156c8c08044848016ff4",
+    "quality/text-overlay-independent/pure-results.tap": "a645fd5a848245ce2c4ec03d0715ca32ca895ed21fec9bdf7f19566e7066b120",
+    "quality/text-overlay-independent/replacement-committed.png": "1f1e7bee6ce3732ff1fce9f4358fb0c4c5ab79d0e2cd72b31fde87d5f6880d76",
+    "quality/text-overlay-independent/replacement-preview.png": "1f1e7bee6ce3732ff1fce9f4358fb0c4c5ab79d0e2cd72b31fde87d5f6880d76",
+    "quality/text-overlay-independent/source.png": "871d1362095262f024f158486ae49d20a9d6d8b0ea8e1f72e7439f95d99e1060"
+  }
+}

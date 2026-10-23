@@ -1,0 +1,40 @@
+{
+  "artifacts": [
+    {
+      "abi": "arm64-v8a",
+      "bytes": 17933234,
+      "sha256": "8fbb55c1cd547c3a4a24a50111cf4f61d95175a823a36c8cf8ab969aa2d77dee",
+      "assetFilesCompared": 80
+    },
+    {
+      "abi": "armeabi-v7a",
+      "bytes": 14638016,
+      "sha256": "d91dbe3c6e215a4ee17266117f66bf4919e0e3117c2b1c99eb0fccbe458903d0",
+      "assetFilesCompared": 80
+    }
+  ],
+  "lintErrors": 0,
+  "lintWarnings": 4,
+  "permissions": [],
+  "signature": "absent; unsigned compilation artifact, not installable",
+  "preview": {
+    "inlineScripts": 69,
+    "cspHashesVerified": true,
+    "renderedBrowser": false,
+    "bytes": 2100727,
+    "sha256": "e8d7291df0a994662bb52dc4a13a53b6370bd190cb5ccd5daef9ddc3d3d75b5e"
+  },
+  "sourceModules": {
+    "photo-background.js": "ed2f0a327d47540a38eb51fdf7f8a681813e0916a01cfe098715aa5cecd03ef0",
+    "mask-refine.js": "1f87ce10085e42cf8e67309ac49dd6f608d40ecb32258ab8a76ed67b6bc4baa2",
+    "background-refine-operation.js": "69dfea399fe96114cd623ca2512a8cd17873038024ced2d73738be46e89daccd",
+    "background-refine-ui.js": "cd15f5402f31852766c5b53b03932fc20fc5cd3ec371a0d39a520859ea2b43fc",
+    "project-backup.js": "fc73ace09637a830aadea8c94fce8915772e1045681b83587c3185f373729d4a",
+    "project-backup-transport.js": "96a4b661b369cba01dfe063a8ffa55c407f30b384aba5b25b649de7ef56dc9db",
+    "project-backup-ui.js": "26250d4086daabfcb2ab05594e8b1a1970c5d6b4e5d2fb0aa023340dcac7ac18",
+    "project-library-controller.js": "152d80fd402ffdca7f357a879aa1a258442a3fc21c52841fb5e5e833e2ac9f0d",
+    "editor.js": "7942cac3e391f04addef302cd422a6b91f8a40b3f17d0a5e5b564bc0b80369af",
+    "project-core.js": "517b2d51f725f16f715ee14400e6facdfc2a6ab81bf69ff4b7b0d6c658977d4e"
+  },
+  "testBoundary": "NativeCanvas actual PNG; controlled DOM, file chooser, bridge and fault-injected IndexedDB. No Android/WebView or browser persistence."
+}

@@ -1,0 +1,56 @@
+{
+  "source": "NASA S97-00568 public adult portrait, derived informational QA fixture",
+  "sourceSha256": "3059be06e8bb1396c42dd327aad8c7eae41cff4a22edb37c0adae2169dd54a21",
+  "sourceUnchanged": true,
+  "sourceSize": [
+    1000,
+    1250
+  ],
+  "savedRecipe": "quality/mask-refine-evidence/public-refinement-recipe.json",
+  "savedManualStrokeCount": 2,
+  "newModelInference": false,
+  "refinementChangedMaskPixels": 13625,
+  "opaqueFullyRetainedPixels": 642857,
+  "retainedMaxRgbaDifference": 0,
+  "rois": [
+    {
+      "name": "face-interior",
+      "x": 0.35,
+      "y": 0.26,
+      "w": 0.3,
+      "h": 0.22,
+      "selection": "refined confidence exactly 1 and source alpha 255",
+      "pixels": 80828,
+      "maxRgbaDifference": 0
+    },
+    {
+      "name": "torso-interior",
+      "x": 0.3,
+      "y": 0.65,
+      "w": 0.35,
+      "h": 0.24,
+      "selection": "refined confidence exactly 1 and source alpha 255",
+      "pixels": 104700,
+      "maxRgbaDifference": 0
+    }
+  ],
+  "outputs": [
+    {
+      "name": "coarse-fill",
+      "png": "b02-b03-coarse-fill.png",
+      "rgbaSha256": "f9ea74e5c8d21917a45e6b24e48b636c3aea2bca2c674a571ebfabff520a39a4"
+    },
+    {
+      "name": "refined-fill",
+      "png": "b02-b03-refined-fill.png",
+      "rgbaSha256": "6ef120f80b58b3520ca3a83df3fa5cad39ec5a3045fb6d231fadc5854025d708"
+    },
+    {
+      "name": "refined-fit",
+      "png": "b02-b03-refined-fit.png",
+      "rgbaSha256": "31514f6e408a293840cfe8f4b2998483e8d41480d64c15583a54e355ee82c6c6"
+    }
+  ],
+  "androidWebView": false,
+  "device": false
+}

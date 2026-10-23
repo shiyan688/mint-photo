@@ -1,0 +1,21 @@
+{
+  "scope": "Actual mobile ordered-preset operation on one licensed public NASA derived portrait. CPU JS, not Android/WebView or quality acceptance. Complete production mobile editor original-size PNG path also passed on native Skia with controlled DOM/file bridge.",
+  "width": 897,
+  "height": 1000,
+  "landmarks": 478,
+  "presetVersion": 2,
+  "activeGroups": [
+    "beauty",
+    "basic",
+    "levels",
+    "advancedTone"
+  ],
+  "sourceRgbaSha256": "fb04f53789a6c982dea47d47b745c82346e61776fe9affb55b67c6a08021fb6b",
+  "recipeSha256": "e8c4c66baa16f3956f9dec17badf486401bcb7a2271202992ec477f2b25e863c",
+  "mobileOutputRgbaSha256": "b335e9c82b878cecf7e42a821c7bd0c454badb1adc620fcdae93db8ea731e080",
+  "desktopExpectedRgbaSha256": "b335e9c82b878cecf7e42a821c7bd0c454badb1adc620fcdae93db8ea731e080",
+  "byteIdentical": true,
+  "sourceUnchanged": true,
+  "mobileEditorNativePngExact": true,
+  "mobileOriginalBlobUnchanged": true
+}

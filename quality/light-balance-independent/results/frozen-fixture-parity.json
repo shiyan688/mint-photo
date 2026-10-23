@@ -1,0 +1,35 @@
+{
+  "started": "2026-10-22T15:18:42.697Z",
+  "completed": "2026-10-22T15:20:54.757Z",
+  "status": "pass",
+  "scope": "Installed native Canvas plus actual mobile production adapters/editor Apply and Save events; controlled DOM, image decoder, native save transport. Not Android WebView/phone/gallery.",
+  "fixture": {
+    "name": "05_mukai",
+    "width": 897,
+    "height": 1000,
+    "landmarks": 478,
+    "inputRGBASha256": "fb04f53789a6c982dea47d47b745c82346e61776fe9affb55b67c6a08021fb6b",
+    "inputPNGBytes": 1535078,
+    "recipeSha256": "a493a02696f520740a36c12869717e8c647b39196da3df7cd25035e5f2927061"
+  },
+  "expectedRGBASha256": "63a27a4dfef6e425923241e9ac8d642b19f5100890b88cd46ace31230fde3162",
+  "mobilePureRGBASha256": "63a27a4dfef6e425923241e9ac8d642b19f5100890b88cd46ace31230fde3162",
+  "independentChainRGBASha256": "63a27a4dfef6e425923241e9ac8d642b19f5100890b88cd46ace31230fde3162",
+  "completeEditorRGBASha256": "63a27a4dfef6e425923241e9ac8d642b19f5100890b88cd46ace31230fde3162",
+  "nativePNGDecodedRGBASha256": "63a27a4dfef6e425923241e9ac8d642b19f5100890b88cd46ace31230fde3162",
+  "exportPNGBytes": 1587362,
+  "originalBlobAndSourcePreserved": true,
+  "undoRedoFullSizeReplayParity": true,
+  "sourceStableDuringRun": true,
+  "sourceSha256": {
+    "light-balance.js": "bfd8cb0be2fbdaea50ce59b5646cf6a99ae3a980fdb97cd554a901761860dac1",
+    "preset-codec.js": "b03d59aab2fa6b32639ceb1ddc0d22e680adde21a2834aece6cea9e79645e5d6",
+    "preset-operation.js": "c963b6c7b77c3a3991bb31bd5373a746765f96c3820ad03f2edbb9ccf82b2687",
+    "preset-ui.js": "0aaa27b997d28668016de58bcd4530d2e4b23d521835072e9e61cb567051a538",
+    "editor.js": "22574106b7608d10fd8644049e048900cc7eb1e409f73c60aa770270f78f888e",
+    "portrait-engine.js": "5cde7dcd60aab1d68e1ec5fb026c6396c2f395c1597dd03113c34674ba57d524",
+    "local-adjustments.js": "1fff1c416893849296fbd6cca6bad0ab854766a819017ce7990486f05eda7757",
+    "levels.js": "1e454e275c24e2e99b7b6e32bad3569a3ce996e73e2d8cc895c00aea5daf327f",
+    "advanced-tone.js": "bf2d10e8044856fbdaabcc24d4c6c43cf3d818a25127fc50c6299fa93eb61628"
+  }
+}

@@ -1,0 +1,75 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.qingyan.editor'
+    compileSdk 35
+    buildToolsVersion '35.0.0'
+
+    defaultConfig {
+        applicationId 'com.qingyan.editor.portrait'
+        minSdk 26
+        targetSdk 35
+        // Keep the application ID and increase the Android upgrade sequence.
+        versionCode 4
+        versionName '0.2.0-preview'
+        testInstrumentationRunner project.hasProperty('portraitBridgeTest')
+                ? 'com.qingyan.editor.PortraitBridgeSmokeInstrumentation'
+                : 'com.qingyan.editor.PortraitSmokeInstrumentation'
+    }
+
+    signingConfigs {
+        debug {
+            if (System.getenv('MINT_TEST_KEYSTORE')) {
+                storeFile file(System.getenv('MINT_TEST_KEYSTORE'))
+                storePassword 'android'
+                keyAlias 'androiddebugkey'
+                keyPassword 'android'
+            }
+        }
+    }
+
+    buildTypes {
+        debug {
+            // Standard local/CI debug signing produces an installable preview APK.
+            // This is never a production signing identity.
+            signingConfig signingConfigs.debug
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    // Attachment-friendly ARM builds. Default remains the validated four-ABI APK.
+    // ./gradlew -PportraitAbiSplits :app:assembleDebug
+    // Add -PportraitUniversal to emit an additional universal APK in split mode.
+    splits {
+        abi {
+            enable project.hasProperty('portraitAbiSplits')
+            reset()
+            include 'arm64-v8a', 'armeabi-v7a'
+            universalApk project.hasProperty('portraitUniversal')
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    buildFeatures {
+        buildConfig true
+    }
+
+    lint {
+        abortOnError true
+        checkReleaseBuilds true
+    }
+}
+
+dependencies {
+    // Pinned official MediaPipe runtime; models are bundled for entirely offline inference.
+    implementation 'com.google.mediapipe:tasks-vision:1.0.0'
+}

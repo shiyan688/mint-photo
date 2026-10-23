@@ -1,0 +1,70 @@
+{
+  "createdAt": "2026-10-22T21:11:18.160Z",
+  "scope": "Production UI modules inside controlled DOM/VM event harness; not browser, WebView, Android, or real device",
+  "portraitWrapperSha256": "5303038f85bb4c5b3d9b156942beedfce170322dfa1a7468e510c8add5cb05f6",
+  "sha256": "3911f0bdb79f8fe5e9a1128ca888d355ee995575b56c75c3e819b34848f316ae",
+  "results": [
+    {
+      "name": "beauty starts version 2 with null protection and zero values; reshape stays legacy",
+      "pass": true
+    },
+    {
+      "name": "two faces never silently select and one auto-selected face still requires explicit numbered brush authorization",
+      "pass": true
+    },
+    {
+      "name": "uncommitted brush leaves operation unchanged, blocks Apply, and cancelled release retains every parameter",
+      "pass": true
+    },
+    {
+      "name": "crossing brush stays attached to explicit selected face and duplicate finish cannot commit twice",
+      "pass": true
+    },
+    {
+      "name": "second pointer start cancels first stroke without taking ownership or committing partial protection",
+      "pass": true
+    },
+    {
+      "name": "face, mode, sliders, detection, selection, release and manual switches cancel an unfinished stroke",
+      "pass": true
+    },
+    {
+      "name": "stale revision, canvas replacement, in-place resize, face geometry and draft replacement cannot commit old pointer",
+      "pass": true
+    },
+    {
+      "name": "mask undo redo never changes beauty controls or other person parameters",
+      "pass": true
+    },
+    {
+      "name": "parameter reset preserves protection; no-effect mask-only operation cannot Apply",
+      "pass": true
+    },
+    {
+      "name": "clear and feather are undoable mask edits; selected face clearing preserves neighbor protection",
+      "pass": true
+    },
+    {
+      "name": "zero strength commits no stroke or undo record and invalid brush values do not alter pixels",
+      "pass": true
+    },
+    {
+      "name": "redetection is staged; acceptance clears all masks/history and reversed new numbering never inherits settings",
+      "pass": true
+    },
+    {
+      "name": "mask-only edits still need redetection confirmation; stale confirmation cannot replace later edits",
+      "pass": true
+    },
+    {
+      "name": "top-level PortraitUI treats zero-parameter protected draft as changed and requires manual-switch confirmation",
+      "pass": true
+    },
+    {
+      "name": "top-level manual-switch stale confirmation cannot discard a replacement draft",
+      "pass": true
+    }
+  ],
+  "passed": 15,
+  "failed": 0
+}

@@ -1,0 +1,66 @@
+{
+  "ops": [
+    {
+      "type": "manual",
+      "sourceRevision": "1",
+      "selection": null,
+      "liquify": [],
+      "repair": [
+        {
+          "version": 1,
+          "type": "repair-stroke",
+          "mode": "clone",
+          "sourceRevision": "1",
+          "radius": 0.018,
+          "hardness": 0.4,
+          "strength": 1,
+          "points": [
+            {
+              "x": 0.52,
+              "y": 0.42
+            },
+            {
+              "x": 0.55,
+              "y": 0.42
+            }
+          ],
+          "sampleMode": "manual",
+          "source": {
+            "x": 0.24,
+            "y": 0.42
+          },
+          "selection": null
+        }
+      ]
+    },
+    {
+      "type": "straighten",
+      "recipe": {
+        "version": 1,
+        "angle": 17.3,
+        "mode": "expand"
+      }
+    },
+    {
+      "type": "geometry",
+      "recipe": {
+        "version": 1,
+        "crop": {
+          "x": 0.12883435582822086,
+          "y": 0.17164179104477612,
+          "w": 0.6625766871165644,
+          "h": 0.6194029850746269
+        },
+        "quarterTurns": 0,
+        "flipX": false,
+        "flipY": false
+      }
+    }
+  ],
+  "dimensions": [
+    108,
+    83
+  ],
+  "pixelHash": "c2ab6f309580b828176ebe806d794e074c4cff2a39f1c61a00925aca8997f7a3",
+  "sourceBytesHash": "bacbcb87da6a727640c7048ea01f32c229b5986d76e640202da4eeddb363a3da"
+}

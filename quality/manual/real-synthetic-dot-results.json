@@ -1,0 +1,88 @@
+{
+  "testedSha256": "bffb259472939058f936a5f0b925d14e87cb194e38697a0eb730f19c402867fd",
+  "image": "05_mukai: licensed public NASA source; synthetic spots are test overlays, not actual skin conditions",
+  "width": 897,
+  "height": 1000,
+  "results": [
+    {
+      "landmark": 205,
+      "target": {
+        "x": 0.34895390272140503,
+        "y": 0.527915358543396
+      },
+      "source": {
+        "x": 0.3800309004962534,
+        "y": 0.5163700407208355
+      },
+      "syntheticDefect": true,
+      "beforeMAE": 154.5897435897436,
+      "afterMAE": 3.965811965811966,
+      "relativeError": 0.025653784486094986,
+      "outsideChanged": 0
+    },
+    {
+      "landmark": 425,
+      "target": {
+        "x": 0.6588330864906311,
+        "y": 0.5628442764282227
+      },
+      "source": {
+        "x": 0.6826183908427935,
+        "y": 0.54151131076302
+      },
+      "syntheticDefect": true,
+      "beforeMAE": 150.03252032520325,
+      "afterMAE": 5.666666666666667,
+      "relativeError": 0.03776958924894332,
+      "outsideChanged": 0
+    },
+    {
+      "landmark": 50,
+      "target": {
+        "x": 0.32001015543937683,
+        "y": 0.495334655046463
+      },
+      "source": {
+        "x": 0.3328826693955575,
+        "y": 0.4674617921773297
+      },
+      "syntheticDefect": true,
+      "beforeMAE": 145.35833333333332,
+      "afterMAE": 3.9833333333333334,
+      "relativeError": 0.027403542968526057,
+      "outsideChanged": 0
+    },
+    {
+      "landmark": 280,
+      "target": {
+        "x": 0.6914185285568237,
+        "y": 0.5364714860916138
+      },
+      "source": {
+        "x": 0.6914185285568237,
+        "y": 0.49983725185737954
+      },
+      "syntheticDefect": true,
+      "beforeMAE": 144.425,
+      "afterMAE": 5.116666666666666,
+      "relativeError": 0.03542784605619987,
+      "outsideChanged": 0
+    },
+    {
+      "landmark": 151,
+      "target": {
+        "x": 0.5419459939002991,
+        "y": 0.2858012318611145
+      },
+      "source": {
+        "x": 0.5181606895481365,
+        "y": 0.3071341975263173
+      },
+      "syntheticDefect": true,
+      "beforeMAE": 169.6910569105691,
+      "afterMAE": 7.4227642276422765,
+      "relativeError": 0.04374281333844385,
+      "outsideChanged": 0
+    }
+  ]
+}

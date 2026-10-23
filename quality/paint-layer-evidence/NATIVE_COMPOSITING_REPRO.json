@@ -1,0 +1,50 @@
+{
+  "backend": "@napi-rs/canvas",
+  "version": "0.1.100",
+  "results": [
+    {
+      "opacity": 0.25,
+      "expectedAlpha": 191,
+      "actual": [
+        255,
+        0,
+        0,
+        239
+      ],
+      "conforms": false
+    },
+    {
+      "opacity": 0.5,
+      "expectedAlpha": 128,
+      "actual": [
+        255,
+        0,
+        0,
+        191
+      ],
+      "conforms": false
+    },
+    {
+      "opacity": 0.75,
+      "expectedAlpha": 64,
+      "actual": [
+        255,
+        0,
+        0,
+        112
+      ],
+      "conforms": false
+    },
+    {
+      "opacity": 1,
+      "expectedAlpha": 0,
+      "actual": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "conforms": true
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "scope": "Read-only pre-extension audit of Android v29. No production edits by the independent reviewer.",
+  "coreSha256": "d28e4cef2a7f589a667e89b691bad72d31f0907d40ed47fe897f564d3dd12762",
+  "frozenArchiveMatches": ["manual-tools.js", "manual-retouch-ui.js", "project-core.js", "editor.js"],
+  "targetedExistingTests": {"tests": 47, "passed": 47, "failed": 0},
+  "newCounterexampleTests": {"tests": 9, "passed": 4, "expectedFailures": 5, "log": "v29-counterexamples.tap"},
+  "confirmedGaps": [
+    "Subtract from unrestricted creates base:none and excludes the whole image.",
+    "Add after inversion removes visible selected pixels because raw modes are not swapped.",
+    "Subtract after inversion does not remove visible selected pixels because raw modes are not swapped.",
+    "Feather on unrestricted creates base:none and excludes the whole image.",
+    "ProjectCore.planExport accepts a 3000x2400 original-size recipe with 20 wide pushes that liquify rejects as MANUAL_WORK_LIMIT."
+  ],
+  "sourceIsolationCounterexample": {
+    "image": [101, 65], "hardSelection": "x <= 50", "excludedDestinationChanges": 0,
+    "selectedPixelsChangedByOnlyChangingExcludedSource": 35, "maximumRedChannelDifference": 67,
+    "meaning": "The existing contract protects destination pixels, not all source-donor contributions. It must not be described as neighboring-person isolation."
+  },
+  "translucentCore": {"alphaChanges": 0, "transparentRgbaChanges": 0, "sourceMutated": false, "changedVisiblePixels": 931,
+    "androidPolicy": "Android rejects nonopaque liquify inputs to avoid fixed-alpha silhouette clipping; retain this guard."},
+  "independentFieldProbe": {
+    "fixture": "40 aggressive crossing push/restore commands, alternating unrestricted and hard half-plane selection",
+    "bilinearJacobianSamples": 57600, "maxNeighborGradient": 0.44000003021193956,
+    "minimumSampledJacobian": 0.546903983213296, "outOfBoundsNodes": 0,
+    "reportedLowerBound": 0.1426920328324224, "limitedSteps": 267, "skippedSteps": 239,
+    "method": "Only an in-memory VM copy was instrumented to expose actual displacement arrays. Production source was not edited."
+  },
+  "notVerified": ["Android device", "WebView touch behavior", "device timing", "peak process memory", "learned facial reconstruction", "neighboring-person semantic isolation"]
+}

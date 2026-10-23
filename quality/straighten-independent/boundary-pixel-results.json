@@ -1,0 +1,569 @@
+{
+  "cases": 2058,
+  "inverseCorners": 8232,
+  "maxOutsidePixels": 1.1368683772161603e-13,
+  "minQuantizedOpaqueAlpha": 255,
+  "representativeNativePngs": 35,
+  "representatives": [
+    {
+      "source": [
+        8,
+        8
+      ],
+      "angle": 36.86989764584402,
+      "output": [
+        6,
+        6
+      ],
+      "allPixelsOpaque": true,
+      "pngDecoded": [
+        6,
+        6
+      ]
+    },
+    {
+      "source": [
+        8,
+        8
+      ],
+      "angle": 36.86989764584401,
+      "output": [
+        6,
+        6
+      ],
+      "allPixelsOpaque": true,
+      "pngDecoded": [
+        6,
+        6
+      ]
+    },
+    {
+      "source": [
+        8,
+        8
+      ],
+      "angle": 36.86989764584403,
+      "output": [
+        6,
+        6
+      ],
+      "allPixelsOpaque": true,
+      "pngDecoded": [
+        6,
+        6
+      ]
+    },
+    {
+      "source": [
+        8,
+        8
+      ],
+      "angle": -36.86989764584402,
+      "output": [
+        6,
+        6
+      ],
+      "allPixelsOpaque": true,
+      "pngDecoded": [
+        6,
+        6
+      ]
+    },
+    {
+      "source": [
+        8,
+        8
+      ],
+      "angle": -36.86989764584401,
+      "output": [
+        6,
+        6
+      ],
+      "allPixelsOpaque": true,
+      "pngDecoded": [
+        6,
+        6
+      ]
+    },
+    {
+      "source": [
+        18,
+        18
+      ],
+      "angle": 22.619864948040426,
+      "output": [
+        14,
+        14
+      ],
+      "allPixelsOpaque": true,
+      "pngDecoded": [
+        14,
+        14
+      ]
+    },
+    {
+      "source": [
+        18,
+        18
+      ],
+      "angle": 22.619864948040423,
+      "output": [
+        14,
+        14
+      ],
+      "allPixelsOpaque": true,
+      "pngDecoded": [
+        14,
+        14
+      ]
+    },
+    {
+      "source": [
+        18,
+        18
+      ],
+      "angle": 22.61986494804043,
+      "output": [
+        13,
+        13
+      ],
+      "allPixelsOpaque": true,
+      "pngDecoded": [
+        13,
+        13
+      ]
+    },
+    {
+      "source": [
+        18,
+        18
+      ],
+      "angle": -22.619864948040426,
+      "output": [
+        14,
+        14
+      ],
+      "allPixelsOpaque": true,
+      "pngDecoded": [
+        14,
+        14
+      ]
+    },
+    {
+      "source": [
+        18,
+        18
+      ],
+      "angle": -22.619864948040423,
+      "output": [
+        14,
+        14
+      ],
+      "allPixelsOpaque": true,
+      "pngDecoded": [
+        14,
+        14
+      ]
+    },
+    {
+      "source": [
+        24,
+        24
+      ],
+      "angle": 28.072486935852957,
+      "output": [
+        18,
+        18
+      ],
+      "allPixelsOpaque": true,
+      "pngDecoded": [
+        18,
+        18
+      ]
+    },
+    {
+      "source": [
+        24,
+        24
+      ],
+      "angle": 28.072486935852954,
+      "output": [
+        18,
+        18
+      ],
+      "allPixelsOpaque": true,
+      "pngDecoded": [
+        18,
+        18
+      ]
+    },
+    {
+      "source": [
+        24,
+        24
+      ],
+      "angle": 28.07248693585296,
+      "output": [
+        18,
+        18
+      ],
+      "allPixelsOpaque": true,
+      "pngDecoded": [
+        18,
+        18
+      ]
+    },
+    {
+      "source": [
+        24,
+        24
+      ],
+      "angle": -28.072486935852957,
+      "output": [
+        18,
+        18
+      ],
+      "allPixelsOpaque": true,
+      "pngDecoded": [
+        18,
+        18
+      ]
+    },
+    {
+      "source": [
+        24,
+        24
+      ],
+      "angle": -28.072486935852954,
+      "output": [
+        18,
+        18
+      ],
+      "allPixelsOpaque": true,
+      "pngDecoded": [
+        18,
+        18
+      ]
+    },
+    {
+      "source": [
+        32,
+        32
+      ],
+      "angle": 16.26020470831196,
+      "output": [
+        26,
+        26
+      ],
+      "allPixelsOpaque": true,
+      "pngDecoded": [
+        26,
+        26
+      ]
+    },
+    {
+      "source": [
+        32,
+        32
+      ],
+      "angle": 16.260204708311957,
+      "output": [
+        26,
+        26
+      ],
+      "allPixelsOpaque": true,
+      "pngDecoded": [
+        26,
+        26
+      ]
+    },
+    {
+      "source": [
+        32,
+        32
+      ],
+      "angle": 16.260204708311964,
+      "output": [
+        25,
+        25
+      ],
+      "allPixelsOpaque": true,
+      "pngDecoded": [
+        25,
+        25
+      ]
+    },
+    {
+      "source": [
+        32,
+        32
+      ],
+      "angle": -16.26020470831196,
+      "output": [
+        26,
+        26
+      ],
+      "allPixelsOpaque": true,
+      "pngDecoded": [
+        26,
+        26
+      ]
+    },
+    {
+      "source": [
+        32,
+        32
+      ],
+      "angle": -16.260204708311957,
+      "output": [
+        26,
+        26
+      ],
+      "allPixelsOpaque": true,
+      "pngDecoded": [
+        26,
+        26
+      ]
+    },
+    {
+      "source": [
+        42,
+        42
+      ],
+      "angle": 43.60281897270362,
+      "output": [
+        30,
+        30
+      ],
+      "allPixelsOpaque": true,
+      "pngDecoded": [
+        30,
+        30
+      ]
+    },
+    {
+      "source": [
+        42,
+        42
+      ],
+      "angle": 43.602818972703616,
+      "output": [
+        30,
+        30
+      ],
+      "allPixelsOpaque": true,
+      "pngDecoded": [
+        30,
+        30
+      ]
+    },
+    {
+      "source": [
+        42,
+        42
+      ],
+      "angle": 43.60281897270363,
+      "output": [
+        30,
+        30
+      ],
+      "allPixelsOpaque": true,
+      "pngDecoded": [
+        30,
+        30
+      ]
+    },
+    {
+      "source": [
+        42,
+        42
+      ],
+      "angle": -43.60281897270362,
+      "output": [
+        30,
+        30
+      ],
+      "allPixelsOpaque": true,
+      "pngDecoded": [
+        30,
+        30
+      ]
+    },
+    {
+      "source": [
+        42,
+        42
+      ],
+      "angle": -43.602818972703616,
+      "output": [
+        30,
+        30
+      ],
+      "allPixelsOpaque": true,
+      "pngDecoded": [
+        30,
+        30
+      ]
+    },
+    {
+      "source": [
+        48,
+        48
+      ],
+      "angle": 18.924644416051233,
+      "output": [
+        38,
+        38
+      ],
+      "allPixelsOpaque": true,
+      "pngDecoded": [
+        38,
+        38
+      ]
+    },
+    {
+      "source": [
+        48,
+        48
+      ],
+      "angle": 18.92464441605123,
+      "output": [
+        38,
+        38
+      ],
+      "allPixelsOpaque": true,
+      "pngDecoded": [
+        38,
+        38
+      ]
+    },
+    {
+      "source": [
+        48,
+        48
+      ],
+      "angle": 18.924644416051237,
+      "output": [
+        38,
+        38
+      ],
+      "allPixelsOpaque": true,
+      "pngDecoded": [
+        38,
+        38
+      ]
+    },
+    {
+      "source": [
+        48,
+        48
+      ],
+      "angle": -18.924644416051233,
+      "output": [
+        38,
+        38
+      ],
+      "allPixelsOpaque": true,
+      "pngDecoded": [
+        38,
+        38
+      ]
+    },
+    {
+      "source": [
+        48,
+        48
+      ],
+      "angle": -18.92464441605123,
+      "output": [
+        38,
+        38
+      ],
+      "allPixelsOpaque": true,
+      "pngDecoded": [
+        38,
+        38
+      ]
+    },
+    {
+      "source": [
+        50,
+        50
+      ],
+      "angle": 12.68038349181982,
+      "output": [
+        42,
+        42
+      ],
+      "allPixelsOpaque": true,
+      "pngDecoded": [
+        42,
+        42
+      ]
+    },
+    {
+      "source": [
+        50,
+        50
+      ],
+      "angle": 12.680383491819818,
+      "output": [
+        42,
+        42
+      ],
+      "allPixelsOpaque": true,
+      "pngDecoded": [
+        42,
+        42
+      ]
+    },
+    {
+      "source": [
+        50,
+        50
+      ],
+      "angle": 12.680383491819821,
+      "output": [
+        42,
+        42
+      ],
+      "allPixelsOpaque": true,
+      "pngDecoded": [
+        42,
+        42
+      ]
+    },
+    {
+      "source": [
+        50,
+        50
+      ],
+      "angle": -12.68038349181982,
+      "output": [
+        42,
+        42
+      ],
+      "allPixelsOpaque": true,
+      "pngDecoded": [
+        42,
+        42
+      ]
+    },
+    {
+      "source": [
+        50,
+        50
+      ],
+      "angle": -12.680383491819818,
+      "output": [
+        42,
+        42
+      ],
+      "allPixelsOpaque": true,
+      "pngDecoded": [
+        42,
+        42
+      ]
+    }
+  ]
+}

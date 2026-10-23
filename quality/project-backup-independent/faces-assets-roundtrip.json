@@ -1,0 +1,11 @@
+{
+  "sourceBytesEqual": true,
+  "historyEqual": true,
+  "redoEqual": true,
+  "embeddedAssetEqual": true,
+  "faceCount": 2,
+  "landmarksPerFace": 478,
+  "rgbaSha256": "d8c498352f5b566a6fff47cca11ec94bb32d8e03d5dacff96544147fcf64d7d9",
+  "sourceSha256": "9295ac1d93f774021973dab765d19f0bc8eb83cd679df47b4f14f288a1321f94",
+  "scope": "Actual NativeCanvas PNG; production editor/codec/storage; injected DOM/IDB/file sink, not Android"
+}

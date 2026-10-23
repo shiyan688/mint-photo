@@ -1,0 +1,505 @@
+{
+  "schema_version": "1.0",
+  "pack_id": "asian-background-portrait-smoke-qa-2026-10-22",
+  "created_utc": "2026-10-22",
+  "purpose_zh": "本地人像修图信息性 smoke QA；不是亚洲人脸族裔基准，不是美貌评分，不是SOTA证据。",
+  "count": 8,
+  "identity_provenance": "Names come from source captions; no image-based face identification.",
+  "background_method": "Record documented birthplace, family background or self-description separately. Do not infer ethnicity from images, names, citizenship or birthplace. Metadata must not drive automatic ethnicity classification or preset selection.",
+  "restrictions": {
+    "copyright_basis": "NASA-origin imagery; generally not subject to copyright in the United States, subject to NASA media usage guidelines. Not a Creative Commons license and not a model release.",
+    "license_url": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+    "source_permission_summary_zh": "NASA说明其内容在美国通常不受版权保护；教育、信息性及不暗示背书的事实性使用一般无需另行许可，并应署名来源。第三方版权、NASA标志及人物肖像权另行适用。",
+    "pack_intended_scope_zh": "私人、非公开、本地的信息性研究与 smoke QA 样例；保留原图、署名和出处，修改结果另存且标明是测试处理。该用途边界是本包的保守建议，不是NASA对美颜测试逐项授予的许可或法律意见。",
+    "commercial_release_cleared": false,
+    "model_release_obtained": false,
+    "commercial_use_warning_zh": "NASA明确提醒可识别人物的商业使用可能侵犯隐私/公开形象权，需取得本人许可；现任NASA人员不可用于商业产品/广告等。商业开发、对外演示、营销、应用内样例、训练或数据集再分发均不能凭本包推定已清权。涉及这些用途时请先取得所需许可或改用带模特授权的自愿样本。",
+    "endorsement": "No NASA, JAXA, NASDA, photographer or subject endorsement. Logos and insignia are not granted for branding.",
+    "jurisdiction": "Copyright statement is US-specific; other jurisdictions and personality rights require separate assessment.",
+    "checked_on": "2026-10-22"
+  },
+  "limitations_zh": [
+    "小样本方便样本，不代表亚洲地区、族群或审美偏好。",
+    "全部为专业职业肖像，大多正面、均匀光线；缺少严重瑕疵、逆光、低光、侧脸、眼镜/口罩遮挡、复杂妆容和手机自拍。",
+    "缺少18–25岁及60岁以上覆盖；部分年龄仅有官方履历证明，精确值不可用。",
+    "历史扫描/编辑/拍摄处理可能存在，NASA orig 不等于未经处理的RAW。",
+    "无修图真值、无人物偏好问卷或主观审美标签；不可推断SOTA、商业可用性或人群公平性。",
+    "未运行模型、GPU、CPU、桌面或Android性能测试；此包只验证文件完整性与输入可读性。"
+  ],
+  "images": [
+    {
+      "id": "01_kim",
+      "name": "Jonny Kim",
+      "capture_date": "2024-08-06",
+      "credit": "NASA/Josh Valcarcel",
+      "background": {
+        "type": "official_family_background",
+        "statement_zh": "NASA 官方履历记载其父母为韩裔美国移民；本人在洛杉矶出生及成长。",
+        "source_url": "https://www.nasa.gov/wp-content/uploads/2023/08/kim-jb.pdf",
+        "source_excerpt": "Born and raised in Los Angeles, California to Korean-American immigrants."
+      },
+      "adult": {
+        "verified": true,
+        "method": "official_career_chronology",
+        "statement_zh": "官方履历记载2002年高中毕业后入伍、2012年大学毕业任海军军官；肖像拍于2024年，明确为成人。没有从人脸估龄，也不强填出生日期。",
+        "source_url": "https://www.nasa.gov/wp-content/uploads/2023/08/kim-jb.pdf",
+        "age_at_capture_years": null
+      },
+      "qa_zh": "正面、微笑露齿、白色航天服、细发丝与额头纹理；大面积白色非皮肤区域可查蒙版误溢出。",
+      "file": "images/01_kim.jpg",
+      "photo_url": "https://images-assets.nasa.gov/image/jsc2024e052605_alt/jsc2024e052605_alt~orig.jpg",
+      "size_bytes": 2927608,
+      "sha256": "4807d6ff31c34867ab51319a7787ba6f616edd7e7d1d10921716d856715bcc9f",
+      "width": 5202,
+      "height": 6502,
+      "mode": "RGB",
+      "nasa_id": "jsc2024e052605_alt",
+      "source_url": "https://images-assets.nasa.gov/image/jsc2024e052605_alt/metadata.json",
+      "source_api_url": "https://images-api.nasa.gov/search?nasa_id=jsc2024e052605_alt",
+      "metadata_url": "https://images-assets.nasa.gov/image/jsc2024e052605_alt/metadata.json",
+      "source_asset_variant": "NASA published ~orig.jpg; not camera RAW; bytes preserved unchanged",
+      "downloaded_at_utc": "2026-10-22",
+      "transformations_applied": [],
+      "decoded_successfully": true,
+      "visual_review": "single adult portrait; face visible; no model inference performed",
+      "rights": {
+        "license_url": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+        "policy_ref": "#/restrictions",
+        "commercial_release_cleared": false,
+        "model_release_obtained": false
+      },
+      "source_metadata": {
+        "title": "jsc2024e052605_alt",
+        "date_created": "2024-08-06T00:00:00Z",
+        "caption": "jsc2024e052605_alt (Aug. 6, 2024) --- Official portrait of NASA astronaut Jonny Kim posing in a spacesuit at NASA's Johnson Space Center. Credit: NASA/Josh Valcarcel",
+        "center": "JSC",
+        "photographer": "Josh Valcarcel – NASA – John",
+        "copyright_flag": null,
+        "copyright_notice": "NASA – Johnson Space Center",
+        "usage_terms": "For copyright and restrictions refer to - http://www.nasa.gov/multimedia/guidelines/index.html"
+      },
+      "source_url_note": "Verified NASA metadata record; the public image-library SPA detail route could not be opened by the text browsing tool.",
+      "asset_collection_url": "https://images-assets.nasa.gov/image/jsc2024e052605_alt/collection.json"
+    },
+    {
+      "id": "02_chawla",
+      "name": "Kalpana Chawla",
+      "capture_date": "2002-03-08",
+      "credit": "NASA",
+      "background": {
+        "type": "official_birthplace",
+        "statement_zh": "NASA 官方履历记载出生于印度 Karnal。出生地不是族裔标签。",
+        "source_url": "https://www.nasa.gov/wp-content/uploads/2020/09/chawla_kalpana.pdf",
+        "source_excerpt": "Born in Karnal, India."
+      },
+      "adult": {
+        "verified": true,
+        "method": "official_education_chronology",
+        "statement_zh": "官方履历记载1982年获学士、1984年获硕士、1988年获博士；肖像拍于2002年，明确为成人。公开出生日期有不同版本，本包不强填精确年龄。",
+        "source_url": "https://www.nasa.gov/wp-content/uploads/2020/09/chawla_kalpana.pdf",
+        "age_at_capture_years": null
+      },
+      "qa_zh": "接近正面、露齿微笑、长发、面颊可见细节；橙色航天服可查肤色误选与边缘串色。",
+      "file": "images/02_chawla.jpg",
+      "photo_url": "https://images-assets.nasa.gov/image/KSC-02pd1127/KSC-02pd1127~orig.jpg",
+      "size_bytes": 1164940,
+      "sha256": "9684ac71dd860205208f36553443a4466e4ca2d67397e2e22e31f4f29d5a67bb",
+      "width": 2400,
+      "height": 3000,
+      "mode": "RGB",
+      "nasa_id": "KSC-02pd1127",
+      "source_url": "https://images-assets.nasa.gov/image/KSC-02pd1127/metadata.json",
+      "source_api_url": "https://images-api.nasa.gov/search?nasa_id=KSC-02pd1127",
+      "metadata_url": "https://images-assets.nasa.gov/image/KSC-02pd1127/metadata.json",
+      "source_asset_variant": "NASA published ~orig.jpg; not camera RAW; bytes preserved unchanged",
+      "downloaded_at_utc": "2026-10-22",
+      "transformations_applied": [],
+      "decoded_successfully": true,
+      "visual_review": "single adult portrait; face visible; no model inference performed",
+      "rights": {
+        "license_url": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+        "policy_ref": "#/restrictions",
+        "commercial_release_cleared": false,
+        "model_release_obtained": false
+      },
+      "source_metadata": {
+        "title": "KSC-02pd1127",
+        "date_created": "2002-03-08T00:00:00Z",
+        "caption": "JOHNSON SPACE CENTER, HOUSTON, Texas -- (JSC2002E5323)   -- Official portrait of astronaut Kalpana Chawla, mission specialist.",
+        "center": "KSC",
+        "photographer": "",
+        "copyright_flag": null,
+        "copyright_notice": null,
+        "usage_terms": null
+      },
+      "source_url_note": "Verified NASA metadata record; the public image-library SPA detail route could not be opened by the text browsing tool.",
+      "asset_collection_url": "https://images-assets.nasa.gov/image/KSC-02pd1127/collection.json"
+    },
+    {
+      "id": "03_williams",
+      "name": "Sunita Williams",
+      "capture_date": "2004-09-22",
+      "credit": "NASA/Mark Sowa",
+      "background": {
+        "type": "institutional_family_background",
+        "statement_zh": "Smithsonian Chandra 的介绍记载印度与斯洛文尼亚家庭背景；不将混合家庭背景简化成单一种族。",
+        "source_url": "https://chandra.si.edu/women/story.html",
+        "source_excerpt": "Indian-Slovenian descent."
+      },
+      "adult": {
+        "verified": true,
+        "method": "official_birth_date_and_capture_date",
+        "birth_date": "1965-09-19",
+        "age_at_capture_years": 39,
+        "source_url": "https://www.nasa.gov/wp-content/uploads/2024/09/williams-sl.pdf",
+        "statement_zh": "NASA 官方履历出生日期1965-09-19；拍摄日期2004-09-22，39岁。"
+      },
+      "qa_zh": "正面微笑、长发跨肩、白色航天服与高光；脸部相对全图较小，适合查检测与分割鲁棒性。",
+      "file": "images/03_williams.jpg",
+      "photo_url": "https://images-assets.nasa.gov/image/jsc2005e02663/jsc2005e02663~orig.jpg",
+      "size_bytes": 1205138,
+      "sha256": "70e75f837c938a162693ea7c932b191ba57b33e5e3f8d66aab489779d6173467",
+      "width": 2400,
+      "height": 3000,
+      "mode": "RGB",
+      "nasa_id": "jsc2005e02663",
+      "source_url": "https://images-assets.nasa.gov/image/jsc2005e02663/metadata.json",
+      "source_api_url": "https://images-api.nasa.gov/search?nasa_id=jsc2005e02663",
+      "metadata_url": "https://images-assets.nasa.gov/image/jsc2005e02663/metadata.json",
+      "source_asset_variant": "NASA published ~orig.jpg; not camera RAW; bytes preserved unchanged",
+      "downloaded_at_utc": "2026-10-22",
+      "transformations_applied": [],
+      "decoded_successfully": true,
+      "visual_review": "single adult portrait; face visible; no model inference performed",
+      "rights": {
+        "license_url": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+        "policy_ref": "#/restrictions",
+        "commercial_release_cleared": false,
+        "model_release_obtained": false
+      },
+      "source_metadata": {
+        "title": "Official Portrait of Astronaut Sunita L. Williams",
+        "date_created": "2004-09-22T00:00:00Z",
+        "caption": "JSC2005-E-02663 (22 Sept. 2004) --- Astronaut Sunita L. Williams",
+        "center": "JSC",
+        "photographer": "Mark Sowa",
+        "copyright_flag": null,
+        "copyright_notice": null,
+        "usage_terms": null
+      },
+      "source_url_note": "Verified NASA metadata record; the public image-library SPA detail route could not be opened by the text browsing tool.",
+      "asset_collection_url": "https://images-assets.nasa.gov/image/jsc2005e02663/collection.json"
+    },
+    {
+      "id": "04_yamazaki",
+      "name": "Naoko Yamazaki",
+      "capture_date": "2009-11-02",
+      "credit": "NASA/Robert Markowitz",
+      "background": {
+        "type": "official_birthplace",
+        "statement_zh": "NASA 2005 Astronaut Fact Book 记载1970年出生于日本千叶县松户；本条是出生地，不是族裔推断。",
+        "source_url": "https://searchpub.nssc.nasa.gov/servlet/sm.web.Fetch/Astronaut_Fact_Book_2005.pdf?did=1160778&rhid=1000&type=released",
+        "source_excerpt": "Born in 1970 in Matsudo, Chiba Prefecture, Japan."
+      },
+      "adult": {
+        "verified": true,
+        "method": "official_birth_year_and_capture_date",
+        "birth_year": 1970,
+        "age_at_capture_years": null,
+        "age_at_capture_range_years": [
+          38,
+          39
+        ],
+        "source_url": "https://searchpub.nssc.nasa.gov/servlet/sm.web.Fetch/Astronaut_Fact_Book_2005.pdf?did=1160778&rhid=1000&type=released",
+        "statement_zh": "官方出生年1970，肖像拍摄日期2009-11-02；按年界约38–39岁，不从外貌估龄。"
+      },
+      "qa_zh": "正面、刘海接近眉毛、长发、露齿微笑、橙色航天服；头发边缘与肤色保护。",
+      "file": "images/04_yamazaki.jpg",
+      "photo_url": "https://images-assets.nasa.gov/image/jsc2010e008472/jsc2010e008472~orig.jpg",
+      "size_bytes": 6311233,
+      "sha256": "00cae456fcf5e76a9ac74678669ad440b500d44384720ca21243eba40a802ce2",
+      "width": 5412,
+      "height": 7216,
+      "mode": "RGB",
+      "nasa_id": "jsc2010e008472",
+      "source_url": "https://images-assets.nasa.gov/image/jsc2010e008472/metadata.json",
+      "source_api_url": "https://images-api.nasa.gov/search?nasa_id=jsc2010e008472",
+      "metadata_url": "https://images-assets.nasa.gov/image/jsc2010e008472/metadata.json",
+      "source_asset_variant": "NASA published ~orig.jpg; not camera RAW; bytes preserved unchanged",
+      "downloaded_at_utc": "2026-10-22",
+      "transformations_applied": [],
+      "decoded_successfully": true,
+      "visual_review": "single adult portrait; face visible; no model inference performed",
+      "rights": {
+        "license_url": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+        "policy_ref": "#/restrictions",
+        "commercial_release_cleared": false,
+        "model_release_obtained": false
+      },
+      "source_metadata": {
+        "title": "jsc2010e008472",
+        "date_created": "2009-11-02T00:00:00Z",
+        "caption": "JSC2010-E-008472 (2 Nov. 2009) --- Japan Aerospace Exploration Agency (JAXA) astronaut Naoko Yamazaki, mission specialist (official portrait)",
+        "center": "JSC",
+        "photographer": "Robert Markowitz - NASA - JSC",
+        "copyright_flag": false,
+        "copyright_notice": null,
+        "usage_terms": null
+      },
+      "source_url_note": "Verified NASA metadata record; the public image-library SPA detail route could not be opened by the text browsing tool.",
+      "asset_collection_url": "https://images-assets.nasa.gov/image/jsc2010e008472/collection.json"
+    },
+    {
+      "id": "05_mukai",
+      "name": "Chiaki Mukai",
+      "capture_date": "1996-10-02",
+      "credit": "NASA",
+      "background": {
+        "type": "official_birthplace",
+        "statement_zh": "NASA 官方履历记载出生于日本群马县馆林。",
+        "source_url": "https://www.nasa.gov/wp-content/uploads/2016/01/mukai.pdf",
+        "source_excerpt": "Born May 6, 1952, in Tatebayashi, Gunma Prefecture, Japan."
+      },
+      "adult": {
+        "verified": true,
+        "method": "official_birth_date_and_capture_date",
+        "birth_date": "1952-05-06",
+        "age_at_capture_years": 44,
+        "source_url": "https://www.nasa.gov/wp-content/uploads/2016/01/mukai.pdf",
+        "statement_zh": "官方出生日期1952-05-06；肖像拍于1996-10-02，44岁。"
+      },
+      "qa_zh": "较紧的头肩构图、短发、微笑、眼周与面颊纹理；适合查过度磨皮与睫眉边缘。",
+      "source_notes_zh": "NASA 图像标题含STS-90，但肖像说明只确认人物、机构与日期。不要用该标题推导其任务履历。",
+      "file": "images/05_mukai.jpg",
+      "photo_url": "https://images-assets.nasa.gov/image/S97-00568/S97-00568~orig.jpg",
+      "size_bytes": 1688434,
+      "sha256": "953f91ea6e69d5bdc86e87380b127627e7e5dcf6c0a9d6b7b7edf3fa6d3ed8ad",
+      "width": 3298,
+      "height": 4122,
+      "mode": "RGB",
+      "nasa_id": "S97-00568",
+      "source_url": "https://images-assets.nasa.gov/image/S97-00568/metadata.json",
+      "source_api_url": "https://images-api.nasa.gov/search?nasa_id=S97-00568",
+      "metadata_url": "https://images-assets.nasa.gov/image/S97-00568/metadata.json",
+      "source_asset_variant": "NASA published ~orig.jpg; not camera RAW; bytes preserved unchanged",
+      "downloaded_at_utc": "2026-10-22",
+      "transformations_applied": [],
+      "decoded_successfully": true,
+      "visual_review": "single adult portrait; face visible; no model inference performed",
+      "rights": {
+        "license_url": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+        "policy_ref": "#/restrictions",
+        "commercial_release_cleared": false,
+        "model_release_obtained": false
+      },
+      "source_metadata": {
+        "title": "Official NASA Portrait of STS-90 Payload Specialist Chiaki Mukai",
+        "date_created": "1996-10-02T00:00:00Z",
+        "caption": "S97-00568 (2 Oct. 1996) --- Astronaut Chiaki Naito-Mukai, payload specialist, representing the National Space Development Agency (NASDA).",
+        "center": "JSC",
+        "photographer": "",
+        "copyright_flag": false,
+        "copyright_notice": null,
+        "usage_terms": null
+      },
+      "source_url_note": "Verified NASA metadata record; the public image-library SPA detail route could not be opened by the text browsing tool.",
+      "asset_collection_url": "https://images-assets.nasa.gov/image/S97-00568/collection.json"
+    },
+    {
+      "id": "06_chiao",
+      "name": "Leroy Chiao",
+      "capture_date": "1997-12-01",
+      "credit": "NASA",
+      "background": {
+        "type": "self_description_in_published_interview",
+        "statement_zh": "本人在公开采访中明确谈到自己的中国家庭传承。此来源为本人受访陈述，不是图像推断，也不是NASA官方族裔字段。",
+        "source_url": "https://thechinaproject.com/2016/02/06/qa-with-leroy-chiao-first-asian-american-and-ethnic-chinese-spacewalker-and-mission-commander/",
+        "source_excerpt": "It was something I wanted to do to recognize my Chinese heritage"
+      },
+      "adult": {
+        "verified": true,
+        "method": "official_birth_date_and_capture_date",
+        "birth_date": "1960-08-28",
+        "age_at_capture_years": 37,
+        "source_url": "https://ntrs.nasa.gov/api/citations/20000056996/downloads/20000056996.pdf",
+        "statement_zh": "NASA 的 A Tribute to Minority Astronauts: Past and Present 人物页记载1960-08-28出生；肖像拍于1997-12-01，37岁。"
+      },
+      "qa_zh": "短发、正面微笑、白色航天服、脸颊阴影；皮肤蒙版与白色物体隔离。",
+      "file": "images/06_chiao.jpg",
+      "photo_url": "https://images-assets.nasa.gov/image/S98-01237/S98-01237~orig.jpg",
+      "size_bytes": 1242538,
+      "sha256": "0f4e537e2b615564072e774f3a3133621b8e3db1dee2e8dd46ac25f18d40914f",
+      "width": 2800,
+      "height": 3500,
+      "mode": "RGB",
+      "nasa_id": "S98-01237",
+      "source_url": "https://images-assets.nasa.gov/image/S98-01237/metadata.json",
+      "source_api_url": "https://images-api.nasa.gov/search?nasa_id=S98-01237",
+      "metadata_url": "https://images-assets.nasa.gov/image/S98-01237/metadata.json",
+      "source_asset_variant": "NASA published ~orig.jpg; not camera RAW; bytes preserved unchanged",
+      "downloaded_at_utc": "2026-10-22",
+      "transformations_applied": [],
+      "decoded_successfully": true,
+      "visual_review": "single adult portrait; face visible; no model inference performed",
+      "rights": {
+        "license_url": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+        "policy_ref": "#/restrictions",
+        "commercial_release_cleared": false,
+        "model_release_obtained": false
+      },
+      "source_metadata": {
+        "title": "Official portrait of Leroy Chiao in EMU suit",
+        "date_created": "1997-12-01T00:00:00Z",
+        "caption": "S98-01237 (1 Dec 1997) --- Astronaut Leroy J. Chiao.",
+        "center": "JSC",
+        "photographer": "",
+        "copyright_flag": false,
+        "copyright_notice": null,
+        "usage_terms": null
+      },
+      "source_url_note": "Verified NASA metadata record; the public image-library SPA detail route could not be opened by the text browsing tool.",
+      "asset_collection_url": "https://images-assets.nasa.gov/image/S98-01237/collection.json"
+    },
+    {
+      "id": "07_onizuka",
+      "name": "Ellison S. Onizuka",
+      "capture_date": null,
+      "capture_date_candidates": [
+        "1978-01-31",
+        "1986-01-24"
+      ],
+      "credit": "NASA",
+      "background": {
+        "type": "official_family_background",
+        "statement_zh": "NASA 历史页记载其父母为日裔美国人。出生于夏威夷本身不被当作族裔依据。",
+        "source_url": "https://www.nasa.gov/history/the-crew-of-the-space-shuttle-challenger-sts-51l-mission/",
+        "source_excerpt": "of Japanese-American parents."
+      },
+      "adult": {
+        "verified": true,
+        "method": "official_birth_date_with_conflicting_capture_metadata",
+        "birth_date": "1946-06-24",
+        "age_at_capture_years": null,
+        "age_at_capture_range_years": [
+          31,
+          39
+        ],
+        "source_url": "https://www.nasa.gov/history/the-crew-of-the-space-shuttle-challenger-sts-51l-mission/",
+        "statement_zh": "官方出生日期1946-06-24。NASA caption称1978-01-31，但API date_created为1986-01-24；两种日期均为成人（31或39岁），精确拍摄年尚未解决。"
+      },
+      "qa_zh": "微侧头、微笑、短发与眼周细纹；浅蓝色制服、历史扫描图像。",
+      "source_notes_zh": "拍摄日期冲突被保留；不得用此图作精确年龄标定或年代表现结论。",
+      "file": "images/07_onizuka.jpg",
+      "photo_url": "https://images-assets.nasa.gov/image/S86-25964/S86-25964~orig.jpg",
+      "size_bytes": 1723404,
+      "sha256": "c34afcfe109e6d962bd3ebca65fbb8b878bc58bb5f0d4aa14e95201ea3dc254a",
+      "width": 3262,
+      "height": 4108,
+      "mode": "RGB",
+      "nasa_id": "S86-25964",
+      "source_url": "https://images-assets.nasa.gov/image/S86-25964/metadata.json",
+      "source_api_url": "https://images-api.nasa.gov/search?nasa_id=S86-25964",
+      "metadata_url": "https://images-assets.nasa.gov/image/S86-25964/metadata.json",
+      "source_asset_variant": "NASA published ~orig.jpg; not camera RAW; bytes preserved unchanged",
+      "downloaded_at_utc": "2026-10-22",
+      "transformations_applied": [],
+      "decoded_successfully": true,
+      "visual_review": "single adult portrait; face visible; no model inference performed",
+      "rights": {
+        "license_url": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+        "policy_ref": "#/restrictions",
+        "commercial_release_cleared": false,
+        "model_release_obtained": false
+      },
+      "source_metadata": {
+        "title": "Portrait - Astronaut Onizuka, Ellison S.",
+        "date_created": "1986-01-24T00:00:00Z",
+        "caption": "S86-25964 (31 Jan. 1978) --- Astronaut Ellison S. Onizuka. Photo credit: NASA    (NOTE: Astronaut Onizuka lost his life in the Jan. 28, 1986, STS-51L space shuttle Challenger accident, along with six other crew members.)",
+        "center": "JSC",
+        "photographer": "",
+        "copyright_flag": false,
+        "copyright_notice": null,
+        "usage_terms": null
+      },
+      "source_url_note": "Verified NASA metadata record; the public image-library SPA detail route could not be opened by the text browsing tool.",
+      "asset_collection_url": "https://images-assets.nasa.gov/image/S86-25964/collection.json"
+    },
+    {
+      "id": "08_trinh",
+      "name": "Eugene H. Trinh",
+      "capture_date": "1991-09-11",
+      "credit": "NASA",
+      "background": {
+        "type": "official_birthplace",
+        "statement_zh": "NASA 官方履历记载出生于越南西贡，2岁起在巴黎成长。出生地与成长经历均不等于族裔标签。",
+        "source_url": "https://www.nasa.gov/wp-content/uploads/2016/01/trinh.pdf",
+        "source_excerpt": "Born September 14, 1950, in Saigon,Vietnam"
+      },
+      "adult": {
+        "verified": true,
+        "method": "official_birth_date_and_capture_date",
+        "birth_date": "1950-09-14",
+        "age_at_capture_years": 40,
+        "source_url": "https://www.nasa.gov/wp-content/uploads/2016/01/trinh.pdf",
+        "statement_zh": "官方出生日期1950-09-14；图像API拍摄日期1991-09-11，40岁。Caption只给出1991年，精确日取API记录。"
+      },
+      "qa_zh": "近正面、闭嘴、短发、蓝色制服；适合检查嘴唇边界、发际与背景保留。",
+      "file": "images/08_trinh.jpg",
+      "photo_url": "https://images-assets.nasa.gov/image/S91-46260/S91-46260~orig.jpg",
+      "size_bytes": 925149,
+      "sha256": "f9b79468c0a5f9526fb295951dab0299032fb72450042005b3e7928677b8e788",
+      "width": 2726,
+      "height": 3408,
+      "mode": "RGB",
+      "nasa_id": "S91-46260",
+      "source_url": "https://images-assets.nasa.gov/image/S91-46260/metadata.json",
+      "source_api_url": "https://images-api.nasa.gov/search?nasa_id=S91-46260",
+      "metadata_url": "https://images-assets.nasa.gov/image/S91-46260/metadata.json",
+      "source_asset_variant": "NASA published ~orig.jpg; not camera RAW; bytes preserved unchanged",
+      "downloaded_at_utc": "2026-10-22",
+      "transformations_applied": [],
+      "decoded_successfully": true,
+      "visual_review": "single adult portrait; face visible; no model inference performed",
+      "rights": {
+        "license_url": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+        "policy_ref": "#/restrictions",
+        "commercial_release_cleared": false,
+        "model_release_obtained": false
+      },
+      "source_metadata": {
+        "title": "Official portrait of STS-50 USML payload specialist Eugene H. Trinh",
+        "date_created": "1991-09-11T00:00:00Z",
+        "caption": "S91-46260 (1991) --- Astronaut Eugene H. Trinh, STS-50 USML payload specialist.",
+        "center": "JSC",
+        "photographer": "",
+        "copyright_flag": null,
+        "copyright_notice": null,
+        "usage_terms": null
+      },
+      "source_url_note": "Verified NASA metadata record; the public image-library SPA detail route could not be opened by the text browsing tool.",
+      "asset_collection_url": "https://images-assets.nasa.gov/image/S91-46260/collection.json"
+    }
+  ],
+  "acceptance_snapshot": [
+    {
+      "file": "acceptance/STYLE-CONTROLS.zh-CN.md",
+      "sha256": "458f1a0bf624e64d5fd18873a6835ff2d6ae25ec3404c60b49ecd0d762656e98"
+    },
+    {
+      "file": "acceptance/beauty-style-acceptance.v1.json",
+      "sha256": "1f1e20968e897701e7e2efd8cc5dcf806dd83d251385f8ae1a0469cea7228516"
+    }
+  ],
+  "research_documents": [
+    {
+      "file": "docs/MAKEUP-MODELS.md",
+      "sha256": "c8032de34e83c615fc15874c9e288d04dd4c3a7cf71fa42cbe2293a33feb9d1e",
+      "status": "read-only decision research, not model execution or acceptance result"
+    },
+    {
+      "file": "docs/SKIN-ROUTES.zh-CN.md",
+      "sha256": "1303b7cef88818f8636e747d98efd3d20d9dae9c82256b27c72e2cfbd78c1694",
+      "status": "read-only decision research, not model execution or acceptance result"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "allFourOutputsUnchanged": true,
+  "beforeCoreSha256": "cde5049c0758f6eea4f476c7bc2180fb573dafebaa088c123f0430fc05d0b929",
+  "afterCoreSha256": "0de2c158f3a23c6e4de8326e7474ad809e02d41ccc2931a5ccfba76505a02b3a",
+  "outputSha256ByCase": {
+    "2-face actual composite beauty equals distinct immutable-input engine deltas": "17c705447ba8858575cc54f3dea539e9eb37aa04e02e02ece65515843c59076c",
+    "2-face actual composite reshape equals distinct immutable-input engine deltas": "253cce268ae669e4fda653023cf735dc604e684df93e6e9e8c080c45562c2050",
+    "5-face actual composite beauty equals distinct immutable-input engine deltas": "0207c888e9e1144c1bbc114e39052b5c918a9a39ee9eaa77f09705d1aeadc28a",
+    "5-face actual composite reshape equals distinct immutable-input engine deltas": "074c9f524e7279d6771dc1753ab4dfd4bb5ec49b78100bc0343e27e37ef3bec8"
+  }
+}

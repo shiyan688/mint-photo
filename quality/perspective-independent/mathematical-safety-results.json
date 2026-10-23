@@ -1,0 +1,37 @@
+{
+  "runtime": "v24.19.0",
+  "platform": "linux",
+  "scope": "Node host: pure RGBA8 math and actual operation/project modules; not Android/WebView",
+  "core": "/workspace/scratch/902a42ed06ad/mobile-oct22/薄荷人像/app/src/main/assets/perspective.js",
+  "counts": {
+    "mappingPoints": 31434,
+    "oracleRasters": 30,
+    "oracleChannels": 9960,
+    "seededGeometry": 394,
+    "jacobianSamples": 2205
+  },
+  "worstMappingAbsolutePixels": 7.275957614183426e-9,
+  "worstOracleByteDelta": 0,
+  "coreLimits": {
+    "maxEdge": 16384,
+    "maxPixels": 67108864,
+    "maxBytes": 536870912,
+    "maxWorkUnits": 268435456
+  },
+  "phoneLimits": {
+    "maxPixels": 8000000,
+    "maxEdge": 4096,
+    "maxExtraBytes": 134217728,
+    "aggregateWork": 128000000
+  },
+  "sourceHashes": {
+    "app/src/main/assets/perspective.js": "3a3b57ea8da4ce4a7c99b180a454e9f00a4242a0460621d267ad5487fbe66557",
+    "app/src/main/assets/perspective-operation.js": "238e8d9587e8538e3c4c4e10d3e3b607e5d1a33ed0511b89c375c949c1766a24",
+    "app/src/main/assets/project-core.js": "9fa1bbc2ccd98d477ef1983043dbf3cbbcea97c5e982e92e3f4b2ecfb53ed344",
+    "tests/perspective-independent.test.cjs": "c0e41356272367e3aa0fd57a5b859316bc13a5e09e8928b0223e0d3b3b735ebb",
+    "quality/perspective-independent/oracle.cjs": "c2c4c55f995188674529e551759ea7def4f61ae846443e78ec27ec47c7637110",
+    "quality/perspective-independent/prefilter-analysis.cjs": "4ad610a6210ec20c22362ad023a952f33913e9ef9b0c2d56da903e2405be9e01",
+    "quality/perspective-independent/make-evidence.cjs": "14ca62b2ee2895489f06781afaae2f7a07766c1c2388f29d3ac43bcec3a2e247",
+    "quality/text-overlay-independent/native-canvas.cjs": "20c97c3f6f1ab3600750f74808e9ddf2aef70f7d43883651191297b9dda4f4bd"
+  }
+}

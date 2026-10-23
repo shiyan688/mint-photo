@@ -1,0 +1,33 @@
+{
+  "runtime": "v24.19.0",
+  "platform": "linux",
+  "scope": "Node host: pure RGBA8 math and actual operation/project modules; not Android/WebView",
+  "core": "/workspace/scratch/902a42ed06ad/mobile-oct22/薄荷人像/app/src/main/assets/perspective.js",
+  "counts": {
+    "mappingPoints": 31434,
+    "oracleRasters": 48,
+    "oracleChannels": 4332,
+    "seededGeometry": 394
+  },
+  "worstMappingAbsolutePixels": 7.275957614183426e-9,
+  "worstOracleByteDelta": 0,
+  "coreLimits": {
+    "maxEdge": 16384,
+    "maxPixels": 67108864,
+    "maxBytes": 536870912,
+    "maxWorkUnits": 268435456
+  },
+  "phoneLimits": {
+    "maxPixels": 8000000,
+    "maxEdge": 4096,
+    "maxExtraBytes": 134217728,
+    "aggregateWork": 128000000
+  },
+  "sourceHashes": {
+    "app/src/main/assets/perspective.js": "38d468669b11972df53ea0efb2e746518e131896b12b31a7e8567ad267b13282",
+    "app/src/main/assets/perspective-operation.js": "b301c56b18f53c03e881c8586af5ac42a27839d28ebb601bb60bab1660d79f7a",
+    "app/src/main/assets/project-core.js": "9fa1bbc2ccd98d477ef1983043dbf3cbbcea97c5e982e92e3f4b2ecfb53ed344",
+    "tests/perspective-independent.test.cjs": "4b4ad45458660fdb174976a30b6f0b4854566745a61726e94b98fe647f44e8ba",
+    "quality/perspective-independent/oracle.cjs": "c2c4c55f995188674529e551759ea7def4f61ae846443e78ec27ec47c7637110"
+  }
+}

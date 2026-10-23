@@ -1,0 +1,354 @@
+{
+  "REPORT.md": {
+    "bytes": 12234,
+    "sha256": "02ba3a5ad90003963b446eee81e4a11e6cb8f9949c2bad463b759793f48e67e1"
+  },
+  "adapter-native-png.png": {
+    "bytes": 2104,
+    "sha256": "9c63dc3443c4e37ae346356b11a6bb4b2a0986342db4235cdb208cadfda12ea5"
+  },
+  "anisotropic-candidate-e917f3.js": {
+    "bytes": 28056,
+    "sha256": "e917f3ef6831b2ac2a7e76e8486782fd1542bbc23642cb8c7b1e41ca0077409a"
+  },
+  "anisotropic-test-candidate-first.txt": {
+    "bytes": 5032,
+    "sha256": "85b21d697300477fd19441e5fb7dc7e52a43c7fe177f3ae53b6b4a37db920bdf"
+  },
+  "bilinear-negative-control/REPORT.md": {
+    "bytes": 9701,
+    "sha256": "e2abe51c09599af4f5cea5d744cb9b0ff58f626ea4ef432d9c1d677c5464f134"
+  },
+  "bilinear-negative-control/adapter-native-png.png": {
+    "bytes": 2108,
+    "sha256": "c3b3bf29272bc2647fd9f8686fdeebde3eb6e4cdd03c0251cf08d4b4acd8e269"
+  },
+  "bilinear-negative-control/artifact-sha256.json": {
+    "bytes": 2774,
+    "sha256": "6c8ba36fe7b89b63e08615601be3ab9b9c14c1286816fb48d7cf235c12a3d1fa"
+  },
+  "bilinear-negative-control/evidence-output.txt": {
+    "bytes": 3256,
+    "sha256": "bbc22afbf7d90f4c587af3b6ec5d0316dc9898f236cc270976f595f03fbeedca"
+  },
+  "bilinear-negative-control/expanded-quality-analysis.log": {
+    "bytes": 14372,
+    "sha256": "752d3ac401bb7c2f3ec84b2dcba1c504969ad2166a9527ddf654142c13d2f1f7"
+  },
+  "bilinear-negative-control/expanded-quality-results.json": {
+    "bytes": 14372,
+    "sha256": "752d3ac401bb7c2f3ec84b2dcba1c504969ad2166a9527ddf654142c13d2f1f7"
+  },
+  "bilinear-negative-control/make-evidence.cjs": {
+    "bytes": 7641,
+    "sha256": "dbb9700ba4b8261a6886791ebedd161e231a0179da53e386aced4d1baad20285"
+  },
+  "bilinear-negative-control/mathematical-safety-results.json": {
+    "bytes": 1325,
+    "sha256": "3fce6c8aa9d094abe6510ad3728d1ac393a25dbe22c0afde3a9c5d897796c769"
+  },
+  "bilinear-negative-control/minification-contact-sheet.png": {
+    "bytes": 38205,
+    "sha256": "e0f01f43769533fc81c31f29f17c23744ce4481482c73f4076e3d113355e09f8"
+  },
+  "bilinear-negative-control/minify-checker-area-reference.png": {
+    "bytes": 180,
+    "sha256": "be5da2e7d646e35e718832775a858c2aa3559880ed64c8aee25aa6bf29d801e9"
+  },
+  "bilinear-negative-control/minify-checker-bilinear.png": {
+    "bytes": 1025,
+    "sha256": "bfc9fed38867003132e28d0374442ea1bcfd381d12a6acb1b9a7273474e7bdb5"
+  },
+  "bilinear-negative-control/minify-checker-source.png": {
+    "bytes": 1125,
+    "sha256": "cff0f9a537189321a1b862dd8a40dd13b29119cb3e7072f573ea281efc1a86a1"
+  },
+  "bilinear-negative-control/minify-sharp-text-area-reference.png": {
+    "bytes": 3558,
+    "sha256": "1da428ee51eb873d803a8bf590887d5895dd2a0470fb363f67ef3fc55f552d9d"
+  },
+  "bilinear-negative-control/minify-sharp-text-bilinear.png": {
+    "bytes": 2497,
+    "sha256": "8b00b1febb979b7f71fa2e7c909e0bc2c22bb72cc74cbb19e9bbb816db64473f"
+  },
+  "bilinear-negative-control/minify-sharp-text-source.png": {
+    "bytes": 39089,
+    "sha256": "c11025511dce26e1e7995065839edcbed6401ff5bf1b286d324f605e259562ad"
+  },
+  "bilinear-negative-control/oracle.cjs": {
+    "bytes": 3119,
+    "sha256": "c2c4c55f995188674529e551759ea7def4f61ae846443e78ec27ec47c7637110"
+  },
+  "bilinear-negative-control/perspective-independent.test.cjs.txt": {
+    "bytes": 20457,
+    "sha256": "4b4ad45458660fdb174976a30b6f0b4854566745a61726e94b98fe647f44e8ba"
+  },
+  "bilinear-negative-control/perspective-operation.js": {
+    "bytes": 4921,
+    "sha256": "b301c56b18f53c03e881c8586af5ac42a27839d28ebb601bb60bab1660d79f7a"
+  },
+  "bilinear-negative-control/perspective.js": {
+    "bytes": 20483,
+    "sha256": "38d468669b11972df53ea0efb2e746518e131896b12b31a7e8567ad267b13282"
+  },
+  "bilinear-negative-control/planar-contact-sheet.png": {
+    "bytes": 90767,
+    "sha256": "482ff454bdc4a6b0680f67d7bd65fbeada315e4377ada1a79728928ff0a8c6ae"
+  },
+  "bilinear-negative-control/planar-reference.png": {
+    "bytes": 10446,
+    "sha256": "0b4154d0d87b74f0c76f53d1c522a4b5ece2cc7e6da383adb4a953f7a495f8d0"
+  },
+  "bilinear-negative-control/project-core.js": {
+    "bytes": 28120,
+    "sha256": "9fa1bbc2ccd98d477ef1983043dbf3cbbcea97c5e982e92e3f4b2ecfb53ed344"
+  },
+  "bilinear-negative-control/synthetic-perspective-corrected.png": {
+    "bytes": 39181,
+    "sha256": "221b15bff39eeb56c6ca8d920202aaae43f22e27b5651a4e1c4cd8a5ae886bb6"
+  },
+  "bilinear-negative-control/synthetic-perspective-input.png": {
+    "bytes": 15688,
+    "sha256": "11e680fd8031f6354a8414cbe3f59e229acd5f0b261f18d16919c44fae072138"
+  },
+  "bilinear-negative-control/test-output-candidate.txt": {
+    "bytes": 2809,
+    "sha256": "9ac06983a70a85d82bc36831b6e4c10c58279564b1e417f9fdefbb981cdb0571"
+  },
+  "bilinear-negative-control/test-output-production.txt": {
+    "bytes": 3122,
+    "sha256": "82c370b258ec2d102bafd660a1e1464d73dc906b38e686799fb68d39932d58b5"
+  },
+  "bilinear-negative-control/visual-quality-results.json": {
+    "bytes": 3256,
+    "sha256": "bbc22afbf7d90f4c587af3b6ec5d0316dc9898f236cc270976f595f03fbeedca"
+  },
+  "evidence-output.txt": {
+    "bytes": 5094,
+    "sha256": "89ef7f0ee08dcfe5fd383c193622ef62cccbbdbece73a4ea6d3dc7fe7bf28747"
+  },
+  "isotropic-negative-control/SOURCE-NOTE.txt": {
+    "bytes": 324,
+    "sha256": "61e51d22e06a91c4d9e937c785a16fed1eafb556059650f4b4d6c036901da970"
+  },
+  "isotropic-negative-control/prefilter-alpha-area-reference.png": {
+    "bytes": 143,
+    "sha256": "4b7a21b4bf9f34e8790883a51e06a1ac76809911cc3e90d3ea88f1eea304abb4"
+  },
+  "isotropic-negative-control/prefilter-alpha-prefilter.png": {
+    "bytes": 183,
+    "sha256": "e05a84f3c6546bf365b99614b8aed5548358a213fb3fcae0d0edd615f8e83169"
+  },
+  "isotropic-negative-control/prefilter-analysis-candidate.log": {
+    "bytes": 19623,
+    "sha256": "90ebeafd12deeb530ba8b1170fed9fe03a059e1d19e8cd8a9072f0ac6d03b58e"
+  },
+  "isotropic-negative-control/prefilter-analysis.cjs": {
+    "bytes": 6203,
+    "sha256": "68847ab97ffb5725129de59498d15d8d3dff5c60a47071d63efede2599349f37"
+  },
+  "isotropic-negative-control/prefilter-anisotropic-area-reference.png": {
+    "bytes": 139,
+    "sha256": "ad12f5bcd7fa491cdd3b33f5dcab58262a750da7c4ab1f8c4cd58bf319006092"
+  },
+  "isotropic-negative-control/prefilter-anisotropic-prefilter.png": {
+    "bytes": 141,
+    "sha256": "91ec8f454f433037644de5f73da526cfd7ed1d00d840d9fbc5ddc4d67a70e7de"
+  },
+  "isotropic-negative-control/prefilter-checker-area-reference.png": {
+    "bytes": 180,
+    "sha256": "be5da2e7d646e35e718832775a858c2aa3559880ed64c8aee25aa6bf29d801e9"
+  },
+  "isotropic-negative-control/prefilter-checker-prefilter.png": {
+    "bytes": 116,
+    "sha256": "c68bc647a0da519d00f42800146faa93cd80504e16a5ae3ece1bf91e0df6df87"
+  },
+  "isotropic-negative-control/prefilter-contact-sheet.png": {
+    "bytes": 51259,
+    "sha256": "382e4e017aecf6a03205517602e5fce555239d8c6eb9ae286a08c3b9965dfa60"
+  },
+  "isotropic-negative-control/prefilter-near-unity-area-reference.png": {
+    "bytes": 17695,
+    "sha256": "d18dd7fe48172d47e6851623936d575dff31e30920c975605498529dd88eeea6"
+  },
+  "isotropic-negative-control/prefilter-near-unity-prefilter.png": {
+    "bytes": 17692,
+    "sha256": "ec053e0c055834cc42716b143d84ad157ef3b1f28e9fe23e828b641cc8321c76"
+  },
+  "isotropic-negative-control/prefilter-odd-ramp-area-reference.png": {
+    "bytes": 316,
+    "sha256": "87ef337b2849758cb32b2863630ceaf46f9c85ef922bb6dc1cd18d6232fa7d12"
+  },
+  "isotropic-negative-control/prefilter-odd-ramp-prefilter.png": {
+    "bytes": 317,
+    "sha256": "8281219a5926ccbbde1e1eb3fc5253abae4e8b77482fca6234e7062e574e4588"
+  },
+  "isotropic-negative-control/prefilter-quality-results.json": {
+    "bytes": 19623,
+    "sha256": "90ebeafd12deeb530ba8b1170fed9fe03a059e1d19e8cd8a9072f0ac6d03b58e"
+  },
+  "isotropic-negative-control/prefilter-sharp-text-area-reference.png": {
+    "bytes": 3558,
+    "sha256": "1da428ee51eb873d803a8bf590887d5895dd2a0470fb363f67ef3fc55f552d9d"
+  },
+  "isotropic-negative-control/prefilter-sharp-text-prefilter.png": {
+    "bytes": 3665,
+    "sha256": "4d5fb139a910930f9037a4ec2421f5828953edf2708c7d7213e50eaba6737be9"
+  },
+  "make-evidence.cjs": {
+    "bytes": 7797,
+    "sha256": "14ca62b2ee2895489f06781afaae2f7a07766c1c2388f29d3ac43bcec3a2e247"
+  },
+  "mathematical-safety-results.json": {
+    "bytes": 1735,
+    "sha256": "93c4c3a97ae34b8c2d2f86d4bf7949ea388b5c01584e8204c7c8d678af624f87"
+  },
+  "minification-contact-sheet.png": {
+    "bytes": 37755,
+    "sha256": "c6eecdc0208884e45e0aba9519893d4e1d511602d5b57ddb8bd4b84ecd157b79"
+  },
+  "minify-checker-area-reference.png": {
+    "bytes": 180,
+    "sha256": "be5da2e7d646e35e718832775a858c2aa3559880ed64c8aee25aa6bf29d801e9"
+  },
+  "minify-checker-production.png": {
+    "bytes": 116,
+    "sha256": "c68bc647a0da519d00f42800146faa93cd80504e16a5ae3ece1bf91e0df6df87"
+  },
+  "minify-checker-source.png": {
+    "bytes": 1125,
+    "sha256": "cff0f9a537189321a1b862dd8a40dd13b29119cb3e7072f573ea281efc1a86a1"
+  },
+  "minify-sharp-text-area-reference.png": {
+    "bytes": 3558,
+    "sha256": "1da428ee51eb873d803a8bf590887d5895dd2a0470fb363f67ef3fc55f552d9d"
+  },
+  "minify-sharp-text-production.png": {
+    "bytes": 3667,
+    "sha256": "0c846309782d452e7585b9e05cab7399de2a0a7fc756c74e3e634f9ce0a3dea2"
+  },
+  "minify-sharp-text-source.png": {
+    "bytes": 39089,
+    "sha256": "c11025511dce26e1e7995065839edcbed6401ff5bf1b286d324f605e259562ad"
+  },
+  "oracle.cjs": {
+    "bytes": 3119,
+    "sha256": "c2c4c55f995188674529e551759ea7def4f61ae846443e78ec27ec47c7637110"
+  },
+  "planar-contact-sheet.png": {
+    "bytes": 96632,
+    "sha256": "8bc4fc53150aefce0ac0506eb90c963b007bf9f9065df15d74bc7a94a93cb077"
+  },
+  "planar-reference.png": {
+    "bytes": 10446,
+    "sha256": "0b4154d0d87b74f0c76f53d1c522a4b5ece2cc7e6da383adb4a953f7a495f8d0"
+  },
+  "prefilter-alpha-area-reference.png": {
+    "bytes": 143,
+    "sha256": "4b7a21b4bf9f34e8790883a51e06a1ac76809911cc3e90d3ea88f1eea304abb4"
+  },
+  "prefilter-alpha-prefilter.png": {
+    "bytes": 184,
+    "sha256": "96d7137c3dede8037a8290c89a4c9ae9e1e2864ab1138f71f0ba31df98b20565"
+  },
+  "prefilter-analysis-candidate.log": {
+    "bytes": 21661,
+    "sha256": "5b525d1fbd00870db7325351c7ec607372684a3acc8dca661a5961aca4adb733"
+  },
+  "prefilter-analysis-production.log": {
+    "bytes": 25276,
+    "sha256": "f1c4fc805a75ff5597b0fbf01f557ecba64fe2c83a49c49f04f06d45067afc49"
+  },
+  "prefilter-analysis.cjs": {
+    "bytes": 6457,
+    "sha256": "4ad610a6210ec20c22362ad023a952f33913e9ef9b0c2d56da903e2405be9e01"
+  },
+  "prefilter-anisotropic-area-reference.png": {
+    "bytes": 139,
+    "sha256": "ad12f5bcd7fa491cdd3b33f5dcab58262a750da7c4ab1f8c4cd58bf319006092"
+  },
+  "prefilter-anisotropic-over-cap-area-reference.png": {
+    "bytes": 126,
+    "sha256": "48740a4f3262d4a67bf2a5f0842f29047d71b7e578e240953f4c20cb4704b3bb"
+  },
+  "prefilter-anisotropic-over-cap-prefilter.png": {
+    "bytes": 129,
+    "sha256": "53baa32367a10452a1529ab1f427d4639ec72f21303aae9a99f75caf4077c196"
+  },
+  "prefilter-anisotropic-prefilter.png": {
+    "bytes": 139,
+    "sha256": "ad12f5bcd7fa491cdd3b33f5dcab58262a750da7c4ab1f8c4cd58bf319006092"
+  },
+  "prefilter-checker-area-reference.png": {
+    "bytes": 180,
+    "sha256": "be5da2e7d646e35e718832775a858c2aa3559880ed64c8aee25aa6bf29d801e9"
+  },
+  "prefilter-checker-prefilter.png": {
+    "bytes": 116,
+    "sha256": "c68bc647a0da519d00f42800146faa93cd80504e16a5ae3ece1bf91e0df6df87"
+  },
+  "prefilter-contact-sheet.png": {
+    "bytes": 58785,
+    "sha256": "bcca1cb5b08d70d39d36cbc51722d107239680fdc51e58ff2b7a61d4c4feaaad"
+  },
+  "prefilter-near-unity-area-reference.png": {
+    "bytes": 17695,
+    "sha256": "d18dd7fe48172d47e6851623936d575dff31e30920c975605498529dd88eeea6"
+  },
+  "prefilter-near-unity-prefilter.png": {
+    "bytes": 17949,
+    "sha256": "292bff18b2b15ffd82e8c450fc3af46d3eabff44e7f92a8743d7ab1dc3b7bb97"
+  },
+  "prefilter-odd-ramp-area-reference.png": {
+    "bytes": 316,
+    "sha256": "87ef337b2849758cb32b2863630ceaf46f9c85ef922bb6dc1cd18d6232fa7d12"
+  },
+  "prefilter-odd-ramp-prefilter.png": {
+    "bytes": 317,
+    "sha256": "8281219a5926ccbbde1e1eb3fc5253abae4e8b77482fca6234e7062e574e4588"
+  },
+  "prefilter-quality-results.json": {
+    "bytes": 25276,
+    "sha256": "f1c4fc805a75ff5597b0fbf01f557ecba64fe2c83a49c49f04f06d45067afc49"
+  },
+  "prefilter-sharp-text-area-reference.png": {
+    "bytes": 3558,
+    "sha256": "1da428ee51eb873d803a8bf590887d5895dd2a0470fb363f67ef3fc55f552d9d"
+  },
+  "prefilter-sharp-text-prefilter.png": {
+    "bytes": 3667,
+    "sha256": "0c846309782d452e7585b9e05cab7399de2a0a7fc756c74e3e634f9ce0a3dea2"
+  },
+  "prefilter-test-candidate-first.txt": {
+    "bytes": 4241,
+    "sha256": "1770983fdb45cca765d6c90609958c124a163c5a51fe4eac30f9626f38d06dfd"
+  },
+  "prefilter-test-candidate-second.txt": {
+    "bytes": 6404,
+    "sha256": "f691ebbd8fb699492a10d40954f290bc09f607a75c356d6dbf1bc07f33e5c723"
+  },
+  "prefilter-test-candidate-third.txt": {
+    "bytes": 7753,
+    "sha256": "3eb1d281fec6cf0bfe5b28088e761c75c19567f7a2953c12df621953f668538a"
+  },
+  "synthetic-perspective-corrected.png": {
+    "bytes": 44019,
+    "sha256": "282f6a14fb6c1495c48cffcf1d24e9846b8e8cf5442322d79f37b64fabe1e2f5"
+  },
+  "synthetic-perspective-input.png": {
+    "bytes": 15688,
+    "sha256": "11e680fd8031f6354a8414cbe3f59e229acd5f0b261f18d16919c44fae072138"
+  },
+  "test-output-candidate.txt": {
+    "bytes": 2809,
+    "sha256": "9ac06983a70a85d82bc36831b6e4c10c58279564b1e417f9fdefbb981cdb0571"
+  },
+  "test-output-production.txt": {
+    "bytes": 4162,
+    "sha256": "8acada960af7f0dc7cfe28a7c0736e5a5ac9cbd62a4c166030d4ff383350e1c2"
+  },
+  "visual-quality-results.json": {
+    "bytes": 5094,
+    "sha256": "89ef7f0ee08dcfe5fd383c193622ef62cccbbdbece73a4ea6d3dc7fe7bf28747"
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "testedSha256": "bffb259472939058f936a5f0b925d14e87cb194e38697a0eb730f19c402867fd",
+  "note": "SYNTHETIC overlays, not real blemishes/acne or medical/clinical evidence. One public NASA adult portrait only.",
+  "width": 897,
+  "height": 1000,
+  "results": [
+    {
+      "variant": "soft-red-patch",
+      "synthetic": true,
+      "target": {
+        "x": 0.34895390272140503,
+        "y": 0.527915358543396
+      },
+      "source": {
+        "x": 0.39556939938367763,
+        "y": 0.5105973818095553
+      },
+      "beforeMAE": 6.0396174863387975,
+      "afterMAE": 5.904371584699454,
+      "relativeError": 0.9776068762723366,
+      "changedPixels": 244,
+      "outsideBrushChanged": 0
+    },
+    {
+      "variant": "three-red-cluster",
+      "synthetic": true,
+      "target": {
+        "x": 0.34895390272140503,
+        "y": 0.527915358543396
+      },
+      "source": {
+        "x": 0.39556939938367763,
+        "y": 0.5105973818095553
+      },
+      "beforeMAE": 7.877959927140255,
+      "afterMAE": 6.194899817850637,
+      "relativeError": 0.7863583815028902,
+      "changedPixels": 183,
+      "outsideBrushChanged": 0
+    },
+    {
+      "variant": "mixed-dark-light",
+      "synthetic": true,
+      "target": {
+        "x": 0.34895390272140503,
+        "y": 0.527915358543396
+      },
+      "source": {
+        "x": 0.39556939938367763,
+        "y": 0.5105973818095553
+      },
+      "beforeMAE": 8.200312989045383,
+      "afterMAE": 5.66510172143975,
+      "relativeError": 0.6908396946564885,
+      "changedPixels": 213,
+      "outsideBrushChanged": 0
+    }
+  ],
+  "boundary": [
+    {
+      "label": "below-lower-eyelid",
+      "rejected": true,
+      "reason": "自动修复不能覆盖眼眉唇、面部边界或其校准范围；请缩小笔刷或手动取样"
+    },
+    {
+      "label": "below-lower-lip",
+      "rejected": true,
+      "reason": "自动修复不能覆盖眼眉唇、面部边界或其校准范围；请缩小笔刷或手动取样"
+    },
+    {
+      "label": "inside-face-edge",
+      "rejected": true,
+      "reason": "自动修复不能覆盖眼眉唇、面部边界或其校准范围；请缩小笔刷或手动取样"
+    }
+  ]
+}

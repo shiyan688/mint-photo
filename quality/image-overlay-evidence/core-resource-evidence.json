@@ -1,0 +1,263 @@
+{
+  "limits": {
+    "maxPixels": 8000000,
+    "maxEdge": 4096,
+    "maxAssetPixels": 1048576,
+    "maxAssetEdge": 1024,
+    "maxAssetBytes": 4194304,
+    "maxAssetBase64Chars": 5592408,
+    "minSize": 0.02,
+    "maxSize": 2,
+    "edgeSamplesPerAxis": 4,
+    "maxMipTexelsPerPixel": 2,
+    "maxWorkUnits": 100000000,
+    "maxExtraBytes": 67108864,
+    "cancelIntervalPixels": 16384
+  },
+  "plans": [
+    {
+      "width": 4000,
+      "height": 2000,
+      "assetWidth": 1024,
+      "assetHeight": 1024,
+      "centerX": 2000,
+      "centerY": 1000,
+      "drawWidth": 4000,
+      "drawHeight": 4000,
+      "scale": 3.90625,
+      "cos": 1,
+      "sin": 0,
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 4000,
+        "height": 2000
+      },
+      "active": true,
+      "candidatePixels": 8000000,
+      "interiorPixels": 8000000,
+      "boundaryPixels": 0,
+      "samples": 8000000,
+      "mipLevels": 0,
+      "mipWidth": 1024,
+      "mipHeight": 1024,
+      "mipPixels": 0,
+      "mipSizes": [],
+      "workUnits": 58851288,
+      "extraBytes": 38291456
+    },
+    {
+      "width": 4000,
+      "height": 2000,
+      "assetWidth": 1024,
+      "assetHeight": 1024,
+      "centerX": 2000,
+      "centerY": 1000,
+      "drawWidth": 40,
+      "drawHeight": 40,
+      "scale": 0.0390625,
+      "cos": 0.7986355100472928,
+      "sin": 0.6018150231520483,
+      "bounds": {
+        "x": 1971,
+        "y": 971,
+        "width": 58,
+        "height": 58
+      },
+      "active": true,
+      "candidatePixels": 1716,
+      "interiorPixels": 1492,
+      "boundaryPixels": 224,
+      "samples": 5076,
+      "mipLevels": 4,
+      "mipWidth": 64,
+      "mipHeight": 64,
+      "mipPixels": 348160,
+      "mipSizes": [
+        {
+          "width": 512,
+          "height": 512
+        },
+        {
+          "width": 256,
+          "height": 256
+        },
+        {
+          "width": 128,
+          "height": 128
+        },
+        {
+          "width": 64,
+          "height": 64
+        }
+      ],
+      "workUnits": 23383852,
+      "extraBytes": 49432576
+    },
+    {
+      "width": 2828,
+      "height": 2828,
+      "assetWidth": 1024,
+      "assetHeight": 1024,
+      "centerX": 1414,
+      "centerY": 1414,
+      "drawWidth": 2828,
+      "drawHeight": 2828,
+      "scale": 2.76171875,
+      "cos": 0.7071067811865476,
+      "sin": 0.7071067811865475,
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 2828,
+        "height": 2828
+      },
+      "active": true,
+      "candidatePixels": 6628072,
+      "interiorPixels": 6621444,
+      "boundaryPixels": 6628,
+      "samples": 6727492,
+      "mipLevels": 0,
+      "mipWidth": 1024,
+      "mipHeight": 1024,
+      "mipPixels": 0,
+      "mipSizes": [],
+      "workUnits": 52393536,
+      "extraBytes": 38281792
+    },
+    {
+      "width": 4096,
+      "height": 1953,
+      "assetWidth": 1024,
+      "assetHeight": 1024,
+      "centerX": 2048,
+      "centerY": 976.5,
+      "drawWidth": 3906,
+      "drawHeight": 3906,
+      "scale": 3.814453125,
+      "cos": 0.7071067811865476,
+      "sin": 0.7071067811865475,
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 4096,
+        "height": 1953
+      },
+      "active": true,
+      "candidatePixels": 7862724,
+      "interiorPixels": 7860624,
+      "boundaryPixels": 2100,
+      "samples": 7894224,
+      "mipLevels": 0,
+      "mipWidth": 1024,
+      "mipHeight": 1024,
+      "mipPixels": 0,
+      "mipSizes": [],
+      "workUnits": 58290020,
+      "extraBytes": 38289408
+    },
+    {
+      "width": 1,
+      "height": 4096,
+      "assetWidth": 1024,
+      "assetHeight": 1024,
+      "centerX": 0.5,
+      "centerY": 2048,
+      "drawWidth": 0.02,
+      "drawHeight": 0.02,
+      "scale": 0.00001953125,
+      "cos": 1,
+      "sin": 0,
+      "bounds": {
+        "x": 0,
+        "y": 2047,
+        "width": 1,
+        "height": 2
+      },
+      "active": true,
+      "candidatePixels": 2,
+      "interiorPixels": 0,
+      "boundaryPixels": 2,
+      "samples": 32,
+      "mipLevels": 10,
+      "mipWidth": 1,
+      "mipHeight": 1,
+      "mipPixels": 349525,
+      "mipSizes": [
+        {
+          "width": 512,
+          "height": 512
+        },
+        {
+          "width": 256,
+          "height": 256
+        },
+        {
+          "width": 128,
+          "height": 128
+        },
+        {
+          "width": 64,
+          "height": 64
+        },
+        {
+          "width": 32,
+          "height": 32
+        },
+        {
+          "width": 16,
+          "height": 16
+        },
+        {
+          "width": 8,
+          "height": 8
+        },
+        {
+          "width": 4,
+          "height": 4
+        },
+        {
+          "width": 2,
+          "height": 2
+        },
+        {
+          "width": 1,
+          "height": 1
+        }
+      ],
+      "workUnits": 15383355,
+      "extraBytes": 17492640
+    },
+    {
+      "width": 4000,
+      "height": 2000,
+      "assetWidth": 1024,
+      "assetHeight": 1024,
+      "centerX": 2000,
+      "centerY": 1000,
+      "drawWidth": 1000,
+      "drawHeight": 1000,
+      "scale": 0.9765625,
+      "cos": 1,
+      "sin": 0,
+      "bounds": {
+        "x": 1500,
+        "y": 500,
+        "width": 1000,
+        "height": 1000
+      },
+      "active": false,
+      "candidatePixels": 0,
+      "interiorPixels": 0,
+      "boundaryPixels": 0,
+      "samples": 0,
+      "mipLevels": 0,
+      "mipWidth": 1024,
+      "mipHeight": 1024,
+      "mipPixels": 0,
+      "mipSizes": [],
+      "workUnits": 5592408,
+      "extraBytes": 2097152
+    }
+  ]
+}

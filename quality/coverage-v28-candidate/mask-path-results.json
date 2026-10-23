@@ -1,0 +1,42 @@
+{
+  "auditType": "production PortraitUI start/move/finish executed in controlled Node VM, no browser",
+  "productionPath": "app/src/main/assets/portrait-ui.js",
+  "productionSha256": "5e91211ac3194b68aaa86c18ea3e60a967fa913f464fdad8532062ab929e9c57",
+  "sameGeometricPath": {
+    "start": [
+      0.1,
+      0.1
+    ],
+    "end": [
+      0.9,
+      0.9
+    ]
+  },
+  "sparse": {
+    "moves": 1,
+    "maskWidth": 256,
+    "maskHeight": 256,
+    "brushRadiusFraction": 0.01,
+    "interiorDiagonalSamples": 200,
+    "zeroAlphaSamples": 58,
+    "belowHalfAlphaSamples": 74,
+    "minAlpha": 0,
+    "meanAlpha": 158.05
+  },
+  "dense": {
+    "moves": 400,
+    "maskWidth": 256,
+    "maskHeight": 256,
+    "brushRadiusFraction": 0.01,
+    "interiorDiagonalSamples": 200,
+    "zeroAlphaSamples": 0,
+    "belowHalfAlphaSamples": 0,
+    "minAlpha": 255,
+    "meanAlpha": 255
+  },
+  "comparison": {
+    "changedPixels": 982,
+    "maxDifference": 255
+  },
+  "conclusion": "Current mask painting depends on pointer-event density; sparse long movement can leave holes even on the stroke centerline. This is an alpha-mask correctness/precision gap, not proof about actual device event frequency."
+}

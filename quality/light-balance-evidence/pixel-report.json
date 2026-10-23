@@ -1,0 +1,41 @@
+{
+  "kind": "Native Canvas actual production mobile Apply + original-size PNG Save; controlled DOM/transport, not Android",
+  "coreSha256": "bfd8cb0be2fbdaea50ce59b5646cf6a99ae3a980fdb97cd554a901761860dac1",
+  "publicFixture": {
+    "name": "Chiaki Mukai, NASA public adult portrait test derivative",
+    "size": [
+      897,
+      1000
+    ],
+    "inputRGBASha256": "fb04f53789a6c982dea47d47b745c82346e61776fe9affb55b67c6a08021fb6b",
+    "rights": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+    "notEndorsementOrModelTraining": true
+  },
+  "moderate": {
+    "recipe": {
+      "version": 1,
+      "shadows": 25,
+      "highlights": -25,
+      "whiteBalance": {
+        "r": 1,
+        "g": 1,
+        "b": 1
+      }
+    },
+    "outputRGBASha256": "efc90a78d1a67eb7290fbce8316521d20ff3809b92ac635486fb72e108912d2d"
+  },
+  "fiveStage": {
+    "outputRGBASha256": "63a27a4dfef6e425923241e9ac8d642b19f5100890b88cd46ace31230fde3162"
+  },
+  "syntheticWhiteBalance": {
+    "gains": {
+      "r": 0.7424642623134797,
+      "g": 1.064435667328716,
+      "b": 1.7293032139009978
+    },
+    "sourceRGBASha256": "9e7821bbe33b68e467dc42b1db167406e0600191fd7a266f28dbe90910621ba8",
+    "outputRGBASha256": "1ca925d1f36cf005873d611b9effd45cf9fae72bedc20a1c5d59f4754c6c25ee"
+  },
+  "originalBlobUnchanged": true,
+  "notPhoneOrBrowserScreenshot": true
+}

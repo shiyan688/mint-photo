@@ -1,0 +1,11 @@
+'use strict';
+const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),cp=require('node:child_process');
+const root=process.env.MINT_MOBILE_ROOT||path.resolve(__dirname,'../..'),out=process.env.MINT_AUDIT_OUT||path.join(__dirname,'results'),label=process.argv[2]||'audit';
+fs.mkdirSync(out,{recursive:true});
+if(!/^[a-z0-9-]+$/.test(label))throw Error('Use a simple local report label');
+const names=['light-balance','light-balance-operation','light-balance-ui','preset-codec','preset-operation','preset-ui','preset-library','project-core','editor','portrait-engine','local-adjustments','levels','advanced-tone','viewport','viewport-ui','image-overlay-ui','image-import'];
+const fingerprint=()=>Object.fromEntries(names.map(n=>[n+'.js',crypto.createHash('sha256').update(fs.readFileSync(path.join(root,'app/src/main/assets',n+'.js'))).digest('hex')]));
+const started=new Date().toISOString(),before=fingerprint(),run=cp.spawnSync(process.execPath,['--test',path.join(__dirname,'mobile-light-balance.test.cjs')],{encoding:'utf8',env:process.env,maxBuffer:1024*1024*4}),after=fingerprint(),stable=JSON.stringify(before)===JSON.stringify(after),log=(run.stdout||'')+(run.stderr||'');
+fs.writeFileSync(path.join(out,label+'.tap'),log);
+const result={started,completed:new Date().toISOString(),sourceRoot:root,node:process.version,scope:'Independent production mobile adapters and event routing on installed native Canvas with controlled DOM. Not WebView/phone or broad shared-core numerical quality certification.',sourceStableDuringRun:stable,status:run.status,tests:Number(log.match(/(?:#|ℹ) tests (\d+)/)?.[1]||0),pass:Number(log.match(/(?:#|ℹ) pass (\d+)/)?.[1]||0),fail:Number(log.match(/(?:#|ℹ) fail (\d+)/)?.[1]||0),sourceSha256:before,...(!stable?{afterSha256:after}:{})};
+fs.writeFileSync(path.join(out,label+'.json'),JSON.stringify(result,null,2)+'\n');process.stdout.write(log);process.stdout.write('\nSource stable: '+stable+'\n');process.exitCode=run.status===0&&stable?0:1;

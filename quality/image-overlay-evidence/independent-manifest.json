@@ -1,0 +1,50 @@
+{
+  "scope": "Independent read-only Android local image-overlay milestone audit",
+  "test_count": 38,
+  "passed": 38,
+  "failed": 0,
+  "production_modified": false,
+  "source_sha256": {
+    "image-overlay.js": "800751bc88f2539e51f742d57fe6287b44c2c2c8c74f958d297cf878790d579c",
+    "image-import.js": "65beb10ebb576ba6efdc91bdbd2c756d7bd39a4bd40f8a74284e4788e928bd78",
+    "image-overlay-operation.js": "a5b01247fbab11d4478eb2ac9dcb93a96f3cbf51c8e5df22c0015c5120d0be6e",
+    "image-overlay-ui.js": "f97f519db9d41ec4385c46d8c29de8d29d7293386f9529673b68959e124f6cf9",
+    "project-core.js": "d5bc3f88286aa31bb7c1984027f615e95b1198ec58aa6e8e5a31fec181544123",
+    "editor.js": "f59e13abfdee54370e8e304bb887320ea5a5eb57e63eb92ac47f073202baa72e",
+    "index.html": "f53dc85ec02d0ba5427a8caab477b42f96a03f8a2bcf4204ca83414358b6e3f7"
+  },
+  "test_suites": [
+    "independent-core-import.cjs",
+    "import-format-boundaries.test.cjs",
+    "editor-independent.test.cjs",
+    "operation-project.test.cjs"
+  ],
+  "result": "all-independent-results.tap",
+  "limitations": [
+    "Controlled DOM, storage, timers and file picker harness; actual production JavaScript executed with native Skia raster/PNG/JPEG/WebP codecs.",
+    "Chromium could not launch: socket restriction, then approved-mode environment setup failure; no Chromium, Android WebView, device, performance or APK verification counted.",
+    "Core renderer intentionally uses encoded-sRGB premultiplied filtering and fixed4x4 edge coverage; not linear-light, analytic coverage or cross-backend bit-equivalence."
+  ],
+  "fixed_findings": [
+    {
+      "issue": "Blur-cancelled import left pick/file controls disabled",
+      "verified_fixed": true,
+      "regression": "pending import canceled by blur resets controls, ignores late completion and allows another import"
+    },
+    {
+      "issue": "JPEG parser accepted half-truncated stream without EOI",
+      "verified_fixed": true,
+      "regression": "patched JPEG parser rejects every byte-truncation near EOI, half-stream cut and trailing bytes before decode"
+    }
+  ],
+  "evidence_files": [
+    "core-import-evidence.json",
+    "still.png",
+    "still.jpg",
+    "still.webp",
+    "oriented6.jpeg",
+    "minified-alpha.png",
+    "integrated-replaced.png",
+    "integrated-export.png"
+  ]
+}

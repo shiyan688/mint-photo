@@ -1,0 +1,48 @@
+{
+  "artifacts": [
+    {
+      "abi": "arm64-v8a",
+      "bytes": 17828340,
+      "sha256": "68e9e5a10a735c3cb55efc263a128d75020697c35d103ac06c9276a8bafc0358",
+      "assetFilesCompared": 64
+    },
+    {
+      "abi": "armeabi-v7a",
+      "bytes": 14533122,
+      "sha256": "f98cfd578467c4592bd4226fb510dddf1d229437f1cd5b5ff97f9cac1aca39f0",
+      "assetFilesCompared": 64
+    }
+  ],
+  "lintErrors": 0,
+  "lintWarnings": 4,
+  "signature": "absent; not installable",
+  "permissions": [],
+  "preview": {
+    "inlineScripts": 53,
+    "cspHashesVerified": true,
+    "renderedBrowser": false,
+    "bytes": 1831174,
+    "sha256": "bc65d9a36892622ad6ee81e1b248966ca0429d232fe106e2cc5e6791e0935cc8"
+  },
+  "tests": {
+    "nodeEntries": 1112,
+    "individualPureChecks": 1369,
+    "nativeCanvasNode": 228,
+    "nativeCanvasStandaloneGeometry": 14,
+    "totalNativeCanvas": 242,
+    "JavaBoundaryChecks": 656,
+    "independentPeopleCore": 24,
+    "independentPeopleUi": 11,
+    "independentBackingStore": 6,
+    "nativeInstrumentationCompiledNotRunChecks": 48
+  },
+  "notRun": [
+    "actual browser CSS layout",
+    "Android WebView",
+    "physical multitouch handset",
+    "signed installation",
+    "multiple-face Android model inference",
+    "crowded real-group detection recall",
+    "device memory and performance"
+  ]
+}

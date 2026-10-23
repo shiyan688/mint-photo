@@ -1,0 +1,98 @@
+{
+  "kind": "Real production pixels on own synthetic fixture; controlled DOM, not Android screenshot",
+  "panels": [
+    {
+      "label": "自制测试图 · 非私人照片",
+      "width": 480,
+      "height": 360,
+      "rgbaSha256": "6d452b9d905377880b9204b1aee888d2c32c0f39c9d0ee524eb78da200bbea64"
+    },
+    {
+      "label": "逐笔独立颜色/大小/透明度",
+      "width": 480,
+      "height": 360,
+      "rgbaSha256": "274086b1ac73ff8980161e4fd8f84e232411f20e97ca9ad731e585618b1feae9"
+    },
+    {
+      "label": "半透明橡皮 · 照片未擦掉",
+      "width": 480,
+      "height": 360,
+      "rgbaSha256": "078938035afac783ae59aef23cf3fcee6dd9995e7df8b336dac26623cc2a4209"
+    },
+    {
+      "label": "重编最近层并清空 · 原图恢复",
+      "width": 480,
+      "height": 360,
+      "rgbaSha256": "6d452b9d905377880b9204b1aee888d2c32c0f39c9d0ee524eb78da200bbea64"
+    }
+  ],
+  "ops": [
+    {
+      "type": "paint-layer",
+      "action": "add",
+      "id": "paint-mvl9fccr-1",
+      "recipe": {
+        "version": 1,
+        "strokes": [
+          {
+            "mode": "paint",
+            "color": "#f4d280",
+            "width": 0.065,
+            "opacity": 1,
+            "points": [
+              {
+                "x": 0.12,
+                "y": 0.27
+              },
+              {
+                "x": 0.88,
+                "y": 0.27
+              }
+            ]
+          },
+          {
+            "mode": "paint",
+            "color": "#8acbb4",
+            "width": 0.1,
+            "opacity": 0.8,
+            "points": [
+              {
+                "x": 0.18,
+                "y": 0.68
+              },
+              {
+                "x": 0.82,
+                "y": 0.68
+              }
+            ]
+          },
+          {
+            "mode": "erase",
+            "color": "#8acbb4",
+            "width": 0.12,
+            "opacity": 0.5,
+            "points": [
+              {
+                "x": 0.5,
+                "y": 0.1
+              },
+              {
+                "x": 0.5,
+                "y": 0.9
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "type": "paint-layer",
+      "action": "replace",
+      "id": "paint-mvl9fccr-1",
+      "recipe": {
+        "version": 1,
+        "strokes": []
+      }
+    }
+  ]
+}

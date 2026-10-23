@@ -1,0 +1,145 @@
+{
+  "fixture": {
+    "name": "NASA S97-00568 / Chiaki Mukai",
+    "width": 897,
+    "height": 1000,
+    "sha256": "fb04f53789a6c982dea47d47b745c82346e61776fe9affb55b67c6a08021fb6b",
+    "rights": "Non-public informational QA; no endorsement, marketing or training permission. https://www.nasa.gov/nasa-brand-center/images-and-media/"
+  },
+  "renderer": "Production MintLocalToneOperation + unchanged MintLocalAdjustments. Native Skia contact-sheet layout, not Android WebView.",
+  "cases": [
+    {
+      "label": "原始测试图",
+      "operation": null,
+      "rgbaSha256": "fb04f53789a6c982dea47d47b745c82346e61776fe9affb55b67c6a08021fb6b",
+      "changedPixels": 0,
+      "alphaChanged": 0,
+      "outsideSelectedAreaChanged": null
+    },
+    {
+      "label": "径向：曝光 +8 / 对比 +5",
+      "operation": {
+        "type": "local-tone",
+        "sourceRevision": "qa-public-stage-1",
+        "layers": [
+          {
+            "id": "qa-layer",
+            "name": "公开照片局部调色演示",
+            "sourceRevision": "qa-public-stage-1",
+            "enabled": true,
+            "opacity": 1,
+            "adjustments": {
+              "exposure": 8,
+              "contrast": 5,
+              "saturation": 0,
+              "temperature": 0
+            },
+            "mask": {
+              "kind": "radial",
+              "cx": 0.45,
+              "cy": 0.44,
+              "rx": 0.29,
+              "ry": 0.36,
+              "feather": 0.95
+            }
+          }
+        ]
+      },
+      "rgbaSha256": "6a3a333943b0f59d6830c2f610e3a5d78f440772c2a25b9e645051be38003c73",
+      "changedPixels": 209257,
+      "alphaChanged": 0,
+      "outsideSelectedAreaChanged": null
+    },
+    {
+      "label": "渐变：饱和 -30 / 色温 -6",
+      "operation": {
+        "type": "local-tone",
+        "sourceRevision": "qa-public-stage-1",
+        "layers": [
+          {
+            "id": "qa-layer",
+            "name": "公开照片局部调色演示",
+            "sourceRevision": "qa-public-stage-1",
+            "enabled": true,
+            "opacity": 1,
+            "adjustments": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": -30,
+              "temperature": -6
+            },
+            "mask": {
+              "kind": "linear",
+              "x0": 0.2,
+              "y0": 0.18,
+              "x1": 0.7,
+              "y1": 0.7,
+              "reverse": false
+            }
+          }
+        ]
+      },
+      "rgbaSha256": "b16a96f14a641a19c34204488b23c451688696c4bc44549b347b5486fdcc7d7f",
+      "changedPixels": 723968,
+      "alphaChanged": 0,
+      "outsideSelectedAreaChanged": null
+    },
+    {
+      "label": "手绘选区：饱和 +30 / 色温 -10",
+      "operation": {
+        "type": "local-tone",
+        "sourceRevision": "qa-public-stage-1",
+        "layers": [
+          {
+            "id": "qa-layer",
+            "name": "公开照片局部调色演示",
+            "sourceRevision": "qa-public-stage-1",
+            "enabled": true,
+            "opacity": 1,
+            "adjustments": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 30,
+              "temperature": -10
+            },
+            "mask": {
+              "kind": "selection",
+              "selection": {
+                "version": 1,
+                "sourceRevision": "qa-public-stage-1",
+                "base": "none",
+                "inverted": false,
+                "feather": 0.025,
+                "commands": [
+                  {
+                    "kind": "brush",
+                    "mode": "add",
+                    "radius": 0.11,
+                    "points": [
+                      {
+                        "x": 0.28,
+                        "y": 0.79
+                      },
+                      {
+                        "x": 0.56,
+                        "y": 0.8
+                      },
+                      {
+                        "x": 0.7,
+                        "y": 0.85
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "rgbaSha256": "45d913622d1748295dc83a170d3be53c459ef15d27bc4f2b1a6da3e59b3677e4",
+      "changedPixels": 138204,
+      "alphaChanged": 0,
+      "outsideSelectedAreaChanged": 0
+    }
+  ]
+}

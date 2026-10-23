@@ -1,0 +1,28 @@
+{
+  "backend": "@napi-rs/canvas 0.1.100",
+  "tile": "fixed min(width,1000) x min(height,1000)",
+  "results": [
+    {
+      "kind": "diagonal",
+      "pixels": 1260000,
+      "n": 2214,
+      "alphaMax": 5,
+      "colorMax": 2,
+      "pmMax": 5,
+      "flat": 140988,
+      "flatBad": 0,
+      "seamBad": 0
+    },
+    {
+      "kind": "bent",
+      "pixels": 1260000,
+      "n": 11969,
+      "alphaMax": 19,
+      "colorMax": 2,
+      "pmMax": 13.411764705882362,
+      "flat": 307966,
+      "flatBad": 0,
+      "seamBad": 0
+    }
+  ]
+}

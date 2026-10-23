@@ -1,0 +1,63 @@
+{
+  "testedSha256": "bffb259472939058f936a5f0b925d14e87cb194e38697a0eb730f19c402867fd",
+  "note": "One public portrait, synthetic alterations only. Lowpass is diagnostic, not objective natural-retouch quality. New donor texture need not match original pixelwise.",
+  "results": [
+    {
+      "variant": "soft-red-patch",
+      "beforeMeanRGBBias": [
+        7.172131147540983,
+        -6.364754098360656,
+        -4.581967213114754
+      ],
+      "afterMeanRGBBias": [
+        3.7172131147540983,
+        5.10655737704918,
+        4.471311475409836
+      ],
+      "beforeRedGreenBias": 13.53688524590164,
+      "afterRedGreenBias": -1.389344262295082,
+      "beforeLP3MAE": 5.2103825136612025,
+      "afterLP3MAE": 4.116120218579235,
+      "sourceHighFreqRMS": 3.8946158715443615,
+      "healedHighFreqRMS": 3.5517255099966065
+    },
+    {
+      "variant": "three-red-cluster",
+      "beforeMeanRGBBias": [
+        7.3497267759562845,
+        -9.704918032786885,
+        -6.579234972677596
+      ],
+      "afterMeanRGBBias": [
+        3.6939890710382515,
+        5.590163934426229,
+        5.573770491803279
+      ],
+      "beforeRedGreenBias": 17.05464480874317,
+      "afterRedGreenBias": -1.8961748633879782,
+      "beforeLP3MAE": 5.621129326047359,
+      "afterLP3MAE": 4.41712204007286,
+      "sourceHighFreqRMS": 3.6701424162001204,
+      "healedHighFreqRMS": 3.727268688482014
+    },
+    {
+      "variant": "mixed-dark-light",
+      "beforeMeanRGBBias": [
+        -2.0892018779342725,
+        -2.8262910798122065,
+        -2.4741784037558685
+      ],
+      "afterMeanRGBBias": [
+        3.403755868544601,
+        5.014084507042254,
+        4.52112676056338
+      ],
+      "beforeRedGreenBias": 0.7370892018779343,
+      "afterRedGreenBias": -1.6103286384976525,
+      "beforeLP3MAE": 5.004694835680751,
+      "afterLP3MAE": 4.111111111111111,
+      "sourceHighFreqRMS": 4.0025422281282586,
+      "healedHighFreqRMS": 3.3427098169281453
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "timestamp_utc": "2026-10-22T11:08:55Z",
+  "scope": "Independent audit of the bounded mobile local-tone milestone. Production files were not changed by this auditor. Tests use pure typed-array pixel buffers, controlled DOM/decode/storage/encoder/native-bridge doubles, and the already-installed native Skia Canvas.",
+  "results": {
+    "independent_core_and_controlled_editor": {
+      "passed": 40,
+      "failed": 0,
+      "log": "quality/local-tone-independent/workflows.tap"
+    },
+    "native_skia_pixels": {
+      "passed": 8,
+      "failed": 0,
+      "log": "quality/local-tone-independent/pixels.tap"
+    }
+  },
+  "runtime": {
+    "node": "24.19.0",
+    "preinstalled_napi_rs_canvas": "0.1.100"
+  },
+  "verified": [
+    "Strict operation/layer/selection source revisions, own-data allowlists, getter non-execution, nonfinite/foreign/prototype/sparse/extra-field rejection, aggregate selection budgets, detached/shared-buffer rejection.",
+    "Independent sRGB arithmetic for radial/linear/reverse weighted local-tone results; alpha, hidden RGB and all zero-weight source bytes preserved in raw RGBA; exact zero-value/disabled/zero-opacity/explicit-empty masks.",
+    "Brush/lasso add/subtract/full/empty/invert/feather records and normalized geometry handles; selection is rerasterized at target export dimensions rather than stretching a preview mask.",
+    "Current batch supports up to 8 neutral or active layers, names/visibility/opacity, deletion, local undo, and all-at-once history commit. Older applied groups remain ordered history, not freely reopened layer editing.",
+    "Pointercancel, lostpointercapture, blur, hidden document, layer switch/delete, tool switch/cancel, detached callbacks and stale pointer-up do not append unfinished selections.",
+    "Apply, Undo/Redo, photo replacement and saved-draft restoration initialize live source revision. local-tone -> preset -> clone -> crop/rotate/flip replay matches separately chained pure stages at native Canvas boundary.",
+    "Candidate-preview rejection is atomic; live preview failure shows committed frame and disables Apply; failed commit preserves draft/history/redo/source; failed export sends no partial image and supports retry.",
+    "Original PNG Blob bytes and source RGBA remain unchanged through persistence, ordered replay, Undo/Redo and reset."
+  ],
+  "fixed_findings": [
+    {
+      "id": "LT-IMAGE-DATA",
+      "description": "Initial UI applied native ImageData directly to a strict plain-record operation adapter. 7/8 native Canvas checks failed at image-prototype validation.",
+      "fixed_by": "UI owner wrapped width, height and data in a plain own-data object.",
+      "independently_retested": true
+    },
+    {
+      "id": "LT-REVISION-ORDER",
+      "description": "Inspection identified setup occurring before project revision increment, conflicting with current-pointer revision checks.",
+      "fixed_by": "Parent moved successful revision increment before tool setup and added rollback restoration.",
+      "independently_retested": true,
+      "evidence_note": "Potential mismatch reported from source inspection; final behavioral tests verify Apply/Undo/Redo/import/restore remain drawable."
+    }
+  ],
+  "unresolved_findings": [],
+  "limits": [
+    "No browser, Android WebView, emulator, handset, actual touch accuracy, native SAF/gallery picker or real-device export/memory measurements.",
+    "No model inference, learned retouching quality, SOTA assertion, downloads, dependency installation, signing or APK installation.",
+    "Native Canvas stores premultiplied color; hidden RGB is verified in raw RGBA core tests, not claimed to survive Canvas decode/re-encode. The original Blob is preserved.",
+    "Core cancellation is synchronous and checked at layer boundaries, not live cancellation within a shared local-adjustment pixel loop.",
+    "Workflow pixel buffers and native bridge/decoder/storage events are controlled test doubles; real-pixel rendering has its own separately labeled native Canvas suite."
+  ],
+  "commands": [
+    "node --test --test-reporter=tap tests/local-tone-independent.test.cjs",
+    "NODE_PATH=/opt/codex/runtimes/codex-primary-runtime/dependencies/node/node_modules node --test --test-reporter=tap tests/native-canvas/local-tone-pixels-independent.test.cjs"
+  ],
+  "source_sha256": {
+    "app/src/main/assets/local-adjustments.js": "1fff1c416893849296fbd6cca6bad0ab854766a819017ce7990486f05eda7757",
+    "app/src/main/assets/manual-tools.js": "d28e4cef2a7f589a667e89b691bad72d31f0907d40ed47fe897f564d3dd12762",
+    "app/src/main/assets/manual-tools.cjs": "526ff09d56084acdef5a880eb6d21280b5137e95030aa44c583ef5ff52a1cf7e",
+    "app/src/main/assets/local-tone-operation.js": "3ac52c0a8d635be0c3d7000c729d6a4b625490e2d0aae51a64f6cdac93c437f8",
+    "app/src/main/assets/local-tone-ui.js": "e2ecd01e93f71a4f862f092e6f87912a2ed1dc6e7ffeb361811036d24ac9ed46",
+    "app/src/main/assets/editor.js": "0bf157af0433a65d7dfbdbc4910597f9fe140af8f346615c6c56f0f15dd4a2fb",
+    "app/src/main/assets/project-core.js": "936220623b6b22d4d87b3bbacf0d2994f3e39ed274cbf16250d81c74df1886e4",
+    "app/src/main/assets/index.html": "3bf3284e0e243e6160bb990160a3f83dc50effe2056e232281a334be6a090c57",
+    "tests/local-tone-independent.test.cjs": "66af4028252e0027feba387a582393fcd957ac878586787c20bcbd34213cb2cd",
+    "tests/native-canvas/local-tone-pixels-independent.test.cjs": "67b0584bc75399b47209bb20db2749eef2bbaa7b1a767811f05dea85f73617e0"
+  },
+  "final_revalidation": {
+    "ui_sha256": "e2ecd01e93f71a4f862f092e6f87912a2ed1dc6e7ffeb361811036d24ac9ed46",
+    "operation_sha256": "3ac52c0a8d635be0c3d7000c729d6a4b625490e2d0aae51a64f6cdac93c437f8",
+    "note": "Re-ran both complete independent suites on final frozen UI. Existing cases additionally verify that failed local undo retains its snapshot for retry, and stale live source revision blocks slider, clear, local undo and pointer start. Test counts unchanged."
+  }
+}

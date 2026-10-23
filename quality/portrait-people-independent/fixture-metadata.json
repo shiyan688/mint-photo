@@ -1,0 +1,18 @@
+[
+  {
+    "faces": 2,
+    "width": 900,
+    "height": 500,
+    "png_sha256": "7cd86c7757c5c3d7e12d075acdbbabf6e52b6f6520ad5accbbcd295346246e9d",
+    "rgba_sha256": "0df158c8d5ecab8c90a83de4b7a7dc3667c44782f04463f7ea793e934a859a0b",
+    "source": "/workspace/shared/mobile-multiface-qa/synthetic-2-adults-900.png"
+  },
+  {
+    "faces": 5,
+    "width": 900,
+    "height": 680,
+    "png_sha256": "9002f7b832558e4d8c9689b4f903ac1cd48f5dbdbec547c7de51bc9dbab1c035",
+    "rgba_sha256": "f9c42742603f203977756fb40e7b133c46c17843601c5c7ee8ebc9ae9accab74",
+    "source": "/workspace/shared/mobile-multiface-qa/synthetic-5-adults-900.png"
+  }
+]

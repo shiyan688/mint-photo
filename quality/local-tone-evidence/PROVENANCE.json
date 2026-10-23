@@ -1,0 +1,71 @@
+{
+  "purpose": "Private informational QA only. Never ship as app/marketing samples. No subject endorsement.",
+  "restrictions": {
+    "copyright_basis": "NASA-origin imagery; generally not subject to copyright in the United States, subject to NASA media usage guidelines. Not a Creative Commons license and not a model release.",
+    "license_url": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+    "source_permission_summary_zh": "NASA说明其内容在美国通常不受版权保护；教育、信息性及不暗示背书的事实性使用一般无需另行许可，并应署名来源。第三方版权、NASA标志及人物肖像权另行适用。",
+    "pack_intended_scope_zh": "私人、非公开、本地的信息性研究与 smoke QA 样例；保留原图、署名和出处，修改结果另存且标明是测试处理。该用途边界是本包的保守建议，不是NASA对美颜测试逐项授予的许可或法律意见。",
+    "commercial_release_cleared": false,
+    "model_release_obtained": false,
+    "commercial_use_warning_zh": "NASA明确提醒可识别人物的商业使用可能侵犯隐私/公开形象权，需取得本人许可；现任NASA人员不可用于商业产品/广告等。商业开发、对外演示、营销、应用内样例、训练或数据集再分发均不能凭本包推定已清权。涉及这些用途时请先取得所需许可或改用带模特授权的自愿样本。",
+    "endorsement": "No NASA, JAXA, NASDA, photographer or subject endorsement. Logos and insignia are not granted for branding.",
+    "jurisdiction": "Copyright statement is US-specific; other jurisdictions and personality rights require separate assessment.",
+    "checked_on": "2026-10-22"
+  },
+  "source": {
+    "id": "05_mukai",
+    "name": "Chiaki Mukai",
+    "capture_date": "1996-10-02",
+    "credit": "NASA",
+    "background": {
+      "type": "official_birthplace",
+      "statement_zh": "NASA 官方履历记载出生于日本群马县馆林。",
+      "source_url": "https://www.nasa.gov/wp-content/uploads/2016/01/mukai.pdf",
+      "source_excerpt": "Born May 6, 1952, in Tatebayashi, Gunma Prefecture, Japan."
+    },
+    "adult": {
+      "verified": true,
+      "method": "official_birth_date_and_capture_date",
+      "birth_date": "1952-05-06",
+      "age_at_capture_years": 44,
+      "source_url": "https://www.nasa.gov/wp-content/uploads/2016/01/mukai.pdf",
+      "statement_zh": "官方出生日期1952-05-06；肖像拍于1996-10-02，44岁。"
+    },
+    "qa_zh": "较紧的头肩构图、短发、微笑、眼周与面颊纹理；适合查过度磨皮与睫眉边缘。",
+    "source_notes_zh": "NASA 图像标题含STS-90，但肖像说明只确认人物、机构与日期。不要用该标题推导其任务履历。",
+    "file": "images/05_mukai.jpg",
+    "photo_url": "https://images-assets.nasa.gov/image/S97-00568/S97-00568~orig.jpg",
+    "size_bytes": 1688434,
+    "sha256": "953f91ea6e69d5bdc86e87380b127627e7e5dcf6c0a9d6b7b7edf3fa6d3ed8ad",
+    "width": 3298,
+    "height": 4122,
+    "mode": "RGB",
+    "nasa_id": "S97-00568",
+    "source_url": "https://images-assets.nasa.gov/image/S97-00568/metadata.json",
+    "source_api_url": "https://images-api.nasa.gov/search?nasa_id=S97-00568",
+    "metadata_url": "https://images-assets.nasa.gov/image/S97-00568/metadata.json",
+    "source_asset_variant": "NASA published ~orig.jpg; not camera RAW; bytes preserved unchanged",
+    "downloaded_at_utc": "2026-10-22",
+    "transformations_applied": [],
+    "decoded_successfully": true,
+    "visual_review": "single adult portrait; face visible; no model inference performed",
+    "rights": {
+      "license_url": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+      "policy_ref": "#/restrictions",
+      "commercial_release_cleared": false,
+      "model_release_obtained": false
+    },
+    "source_metadata": {
+      "title": "Official NASA Portrait of STS-90 Payload Specialist Chiaki Mukai",
+      "date_created": "1996-10-02T00:00:00Z",
+      "caption": "S97-00568 (2 Oct. 1996) --- Astronaut Chiaki Naito-Mukai, payload specialist, representing the National Space Development Agency (NASDA).",
+      "center": "JSC",
+      "photographer": "",
+      "copyright_flag": false,
+      "copyright_notice": null,
+      "usage_terms": null
+    },
+    "source_url_note": "Verified NASA metadata record; the public image-library SPA detail route could not be opened by the text browsing tool.",
+    "asset_collection_url": "https://images-assets.nasa.gov/image/S97-00568/collection.json"
+  }
+}

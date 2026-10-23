@@ -1,0 +1,14 @@
+{
+  "fixture": "synthetic RGBA gradient + embedded2x2 sticker",
+  "storage": "production adapter on fault-injected IndexedDB, NOT browser persistence",
+  "renderer": "installed NativeCanvas, authored DOM",
+  "originalBytesEqual": true,
+  "opsEqual": true,
+  "redoEqual": true,
+  "pngPixelsEqual": true,
+  "outputSize": {
+    "width": 72,
+    "height": 96
+  },
+  "rgbaSha256": "5dfc8c2e57dc5b384234a60036376e4d022118f6ee47a974a08f67f173bacf03"
+}

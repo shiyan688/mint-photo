@@ -1,0 +1,47 @@
+{
+  "kind": "Synthetic native Skia pixels and PNG, not Android or browser screenshots",
+  "alphaBoundary": "Hidden RGB is exact in pure byte tests; Canvas decode/premultiplication may discard hidden RGB before padding.",
+  "asymmetricRecipe": {
+    "version": 1,
+    "top": 0.05,
+    "right": 0.1,
+    "bottom": 0.2,
+    "left": 0.05,
+    "color": "#ffffff",
+    "opacity": 1
+  },
+  "rawHistory": [
+    {
+      "type": "canvas-padding",
+      "recipe": {
+        "version": 1,
+        "top": 0.1,
+        "right": 0.1,
+        "bottom": 0.1,
+        "left": 0.1,
+        "color": "#ffffff",
+        "opacity": 0
+      }
+    }
+  ],
+  "panels": [
+    {
+      "label": "Synthetic source · 480 × 360",
+      "width": 480,
+      "height": 360,
+      "rgbaSha256": "6d452b9d905377880b9204b1aee888d2c32c0f39c9d0ee524eb78da200bbea64"
+    },
+    {
+      "label": "Asymmetric white · no source scaling",
+      "width": 534,
+      "height": 450,
+      "rgbaSha256": "b5d3a175230a78e7309b4ba4e2c540f539fe94a901ac0fe7a254b6b6be19b1b9"
+    },
+    {
+      "label": "Transparent PNG · checkerboard is display only",
+      "width": 552,
+      "height": 432,
+      "rgbaSha256": "49446047bae10f1cbadabd19903f26b391a18958f57efbb04af60de47ecb0aa6"
+    }
+  ]
+}

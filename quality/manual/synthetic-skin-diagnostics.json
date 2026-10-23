@@ -1,0 +1,91 @@
+{
+  "note": "Custom diagnostic metrics, not a validated perceptual, identity, skin or SOTA benchmark. One portrait, three artificial overlays; metrics must be read with contact sheets.",
+  "definitions": {
+    "lowFrequency": "sigma3px separable Gaussian, 19tap; sRGB code values, no CIELAB/perceptual calibration",
+    "chroma": "R-G and (R+G)/2-B opponent values after blur, RMS over injected-overlay footprint",
+    "texture": "luma highpass RMS using same sigma3 blur, within0.7 brush radius; ratio to untouched original",
+    "seam": "absolute x/y first differences of result-minus-original luma in0.7\u20131.1 brush-radius band; p95 is not worst-case or universal seam acceptance"
+  },
+  "originalTextureHighPassRMS": 2.843729189416923,
+  "testedSha256": "bffb259472939058f936a5f0b925d14e87cb194e38697a0eb730f19c402867fd",
+  "results": [
+    {
+      "variant": "soft-red-patch",
+      "metrics": [
+        {
+          "phase": "before",
+          "lowFrequencyChromaRMS": 13.846835246704416,
+          "lowFrequencyRedMinusGreenBias": 11.618577620751166,
+          "lowFrequencyLuminanceBias": -2.9244734072753458,
+          "textureHighPassRMS": 3.0579645217253115,
+          "textureRatioToOriginal": 1.0753360527808609,
+          "boundaryAddedLumaGradientMean": 0.0,
+          "boundaryAddedLumaGradientP95": 0.0
+        },
+        {
+          "phase": "after",
+          "lowFrequencyChromaRMS": 2.088995366153973,
+          "lowFrequencyRedMinusGreenBias": -1.4708768810197028,
+          "lowFrequencyLuminanceBias": 4.3457444750527365,
+          "textureHighPassRMS": 2.578890516693304,
+          "textureRatioToOriginal": 0.9068692357523954,
+          "boundaryAddedLumaGradientMean": 0.517558458961474,
+          "boundaryAddedLumaGradientP95": 2.28698
+        }
+      ],
+      "chromaResidualReductionFraction": 0.8491355368259212
+    },
+    {
+      "variant": "three-red-cluster",
+      "metrics": [
+        {
+          "phase": "before",
+          "lowFrequencyChromaRMS": 13.254856966625175,
+          "lowFrequencyRedMinusGreenBias": 12.179171230131486,
+          "lowFrequencyLuminanceBias": -4.20707823489648,
+          "textureHighPassRMS": 4.41529500937177,
+          "textureRatioToOriginal": 1.55264257433637,
+          "boundaryAddedLumaGradientMean": 0.0,
+          "boundaryAddedLumaGradientP95": 0.0
+        },
+        {
+          "phase": "after",
+          "lowFrequencyChromaRMS": 2.2428735700033,
+          "lowFrequencyRedMinusGreenBias": -1.6958205515854479,
+          "lowFrequencyLuminanceBias": 4.579663495394312,
+          "textureHighPassRMS": 2.5838240637542507,
+          "textureRatioToOriginal": 0.908604122140068,
+          "boundaryAddedLumaGradientMean": 0.517558458961474,
+          "boundaryAddedLumaGradientP95": 2.28698
+        }
+      ],
+      "chromaResidualReductionFraction": 0.8307885497632526
+    },
+    {
+      "variant": "mixed-dark-light",
+      "metrics": [
+        {
+          "phase": "before",
+          "lowFrequencyChromaRMS": 0.9820564056905756,
+          "lowFrequencyRedMinusGreenBias": 0.5589381579988313,
+          "lowFrequencyLuminanceBias": -2.1642978897279614,
+          "textureHighPassRMS": 5.325905568165658,
+          "textureRatioToOriginal": 1.8728596196804799,
+          "boundaryAddedLumaGradientMean": 0.0,
+          "boundaryAddedLumaGradientP95": 0.0
+        },
+        {
+          "phase": "after",
+          "lowFrequencyChromaRMS": 2.1009975403709418,
+          "lowFrequencyRedMinusGreenBias": -1.4661647665170572,
+          "lowFrequencyLuminanceBias": 4.328771279014713,
+          "textureHighPassRMS": 2.589367099124982,
+          "textureRatioToOriginal": 0.9105533356556729,
+          "boundaryAddedLumaGradientMean": 0.517558458961474,
+          "boundaryAddedLumaGradientP95": 2.28698
+        }
+      ],
+      "chromaResidualReductionFraction": -1.1393858114428101
+    }
+  ]
+}

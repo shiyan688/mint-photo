@@ -1,0 +1,1698 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-10-22T19:28:12.813898+00:00",
+  "baseline_path": "/workspace/shared/photo-coverage-audit/coverage-103-current.json",
+  "baseline_sha256": "01fe7346a4b39d420d8cd950a600278b1ff50d3afd76373b6ebc4e888e3a42b3",
+  "scope": "Read-only bounded portrait/manual audit of v27; writes only audit artifacts. All 103 IDs retained, not all reaudited. No SOTA or full feature-parity conclusion.",
+  "classification": {
+    "A": "Feasible bounded classical cloud-code work using current dependencies and authorized rights.",
+    "B": "Quality/features need selected and vetted new model/SDK/license or separate API/private-upload authorization.",
+    "C": "Real browser/WebView/device or authorized signing validation, not replaceable by controlled tests."
+  },
+  "top_three_cloud_candidates": [
+    "A1",
+    "A2",
+    "A3"
+  ],
+  "findings": [
+    {
+      "id": "A1",
+      "rank": 1,
+      "category": "A",
+      "coverage_ids": [
+        "B02",
+        "B01"
+      ],
+      "title": "Upgrade the existing alpha brush to precise replayable mask refinement",
+      "priority": "highest cloud-code candidate",
+      "present": "Real keep/erase brush and undo already work; this is an upgrade, not adding a missing button.",
+      "gap": "Low-resolution raster-only edits and event-density-dependent painting fail the original-scale refinement requirement. No strength/hardness, edge contraction/expansion, or explicit fringe-color control.",
+      "evidence": [
+        "mask_ui",
+        "mask_precision",
+        "native_segmentation",
+        "background_render",
+        "background_schema"
+      ],
+      "runtime_probe": "mask-path-results.json",
+      "recommended_bounded_scope": [
+        "Keep the existing automatic raster mask as the immutable base; version source-bound normalized correction strokes and replay them at each render/export size.",
+        "Use event-density-invariant complete polyline sampling, opacity/strength and hardness; include cancel/undo, brush overlay and fully transparent/all-kept edge cases.",
+        "Add bounded deterministic edge shrink/grow as a separate alpha operation, with explicit limits; do not call feathering hair matting or claim automatic decontamination.",
+        "Update operation/project/backup validators and preserve legacy raster background operations. Test preview versus full export, geometry ordering, old project round-trip and work/memory rejection."
+      ],
+      "not_claimed": "This does not recover missed hair from a 256px segmenter or establish B01 matting quality."
+    },
+    {
+      "id": "A2",
+      "rank": 2,
+      "category": "A",
+      "coverage_ids": [
+        "T04",
+        "S03"
+      ],
+      "title": "Complete classical liquify modes without losing existing geometry safety",
+      "priority": "next substantial manual editing feature",
+      "present": "Push/restore, per-stroke selected-region restriction, source revision, fixed arc-length resampling and anti-fold bounds are already implemented.",
+      "gap": "No smooth/twirl/pinch/bloat command family or distinct editable freeze/unfreeze mask. Current selection is a partial protection mechanism, not absence of protection.",
+      "evidence": [
+        "liquify_schema",
+        "liquify_ui"
+      ],
+      "recommended_bounded_scope": [
+        "Add one or two deformation modes under strict schema and retain the current geometric/Jacobian budget checks.",
+        "Make freeze/unfreeze a reusable user mask, separate from each stroke selection; preserve original-scale coordinates and undo.",
+        "Test zero displacement in frozen zones, no grid folding, repeated strokes, restore and export-scale replay."
+      ],
+      "not_claimed": "No promise of automatic body pose correction, semantic occluder protection or transparency-safe warping."
+    },
+    {
+      "id": "A3",
+      "rank": 3,
+      "category": "A",
+      "coverage_ids": [
+        "B03"
+      ],
+      "title": "Composite an imported photo behind the existing person alpha",
+      "priority": "smaller independent product gap after mask precision",
+      "present": "Pure color, transparent, background blur and ID-photo crop exist; general image overlay exists but composites on top.",
+      "gap": "No local imported-image background mode or fit/crop/position/background-asset persistence under the person matte.",
+      "evidence": [
+        "background_render",
+        "background_schema",
+        "overlay_composite",
+        "mask_ui"
+      ],
+      "recommended_bounded_scope": [
+        "Reuse local image import and embedded-asset validation for user-selected backgrounds.",
+        "Composite behind the preserved foreground matte; save background positioning and assets in project/backup.",
+        "Test transparent pixels, hair-edge samples, fit/cover transforms, failure/cancel, source preservation and export replay."
+      ],
+      "not_claimed": "No generative background synthesis, relighting, automatic matching or guaranteed ID-photo compliance."
+    },
+    {
+      "id": "B1",
+      "category": "B",
+      "coverage_ids": [
+        "B01",
+        "R02",
+        "R11",
+        "C09",
+        "E01",
+        "E04",
+        "G09",
+        "G10"
+      ],
+      "title": "Learned matting and semantic/retouch quality beyond the two existing models",
+      "gap": "The repository contains face_landmarker.task and selfie_segmenter.tflite only. No learned hair matte, full body/garment/teeth parsing, learned blemish classifier, reconstruction or true super-resolution path is present. Existing landmarks/heuristics cannot establish these quality claims.",
+      "evidence": [
+        "native_segmentation",
+        "portrait_schema",
+        "skin_heuristic"
+      ],
+      "authorization_boundary": "Classical/manual approximations can continue in A. A chosen additional model/runtime needs compatibility, provenance and license review before integration; paid SDK/API use, persistent credentials and private-photo uploads require their specific authorization. Do not treat a model name or downloaded weight as quality acceptance.",
+      "quality_gate": "Use licensed/public or specifically authorized fixtures, explicit failure cases and task metrics (e.g. alpha ground-truth error/gradient), not a single pleasing portrait or softened edge.",
+      "note": "Simple manual eye/teeth color controls need not require a new model; reliable automatic semantic selection and quality parity are the unresolved B claim."
+    },
+    {
+      "id": "C1",
+      "category": "C",
+      "coverage_ids": [
+        "O01",
+        "O02",
+        "O07",
+        "B01",
+        "B02",
+        "T04",
+        "W06"
+      ],
+      "title": "Current artifact browser, signed-install and real-device acceptance remains open",
+      "gap": "v27 has current unsigned compile/lint and controlled tests, not current signed-install, browser-render, WebView, real handset touch, SAF durable save/reopen, process-kill or memory/latency acceptance.",
+      "evidence": [
+        "runtime_scope",
+        "browser_limit",
+        "test_scope",
+        "current_dependencies"
+      ],
+      "authorization_boundary": "Do not create a new signing key or use the denied no-sandbox browser route. Current audit did neither. Existing NativeCanvas/DOM reports cannot close this gate.",
+      "needed": [
+        "Permitted functioning browser for CSS layout, actual canvas, pointer capture, pinch/zoom and import/edit/export end-to-end.",
+        "Authorized signing with preserved upgrade identity, then current-build WebView/device install and SAF checks.",
+        "Measured device memory/latency, background/process-death recovery and lowest-supported WebView compatibility."
+      ],
+      "historical_evidence_rule": "Keep earlier emulator/bridge smoke tied to its old signed artifact; it does not validate later v27 features."
+    }
+  ],
+  "additional_A_gap": {
+    "coverage_ids": [
+      "R11"
+    ],
+    "title": "User-painted protection/erase-back for beauty",
+    "evidence": [
+      "portrait_schema"
+    ],
+    "note": "The current face schema cannot save this user mask; adding one is useful but overlaps the mask-foundation work. Distinguish it from existing repair/local-tone selection."
+  },
+  "production_snapshot_sha256": {
+    "app/build.gradle": "6962932a3ed6e096edeaad87b708948ddbaaaa1272f58aafe6fd2c91994967f5",
+    "app/src/main/AndroidManifest.xml": "e66f18d12ef6e60520a00d4ecbeddb165e70d9f2ac0d386a1c0235340460f0d8",
+    "app/src/main/assets/image-overlay.js": "800751bc88f2539e51f742d57fe6287b44c2c2c8c74f958d297cf878790d579c",
+    "app/src/main/assets/local-tone-ui.js": "e2ecd01e93f71a4f862f092e6f87912a2ed1dc6e7ffeb361811036d24ac9ed46",
+    "app/src/main/assets/manual-retouch-ui.js": "e5da6a4563c374a26184fb05b7f7e17d40ffaaf10d5443467cfcd7bb716bae11",
+    "app/src/main/assets/manual-tools.js": "d28e4cef2a7f589a667e89b691bad72d31f0907d40ed47fe897f564d3dd12762",
+    "app/src/main/assets/models/face_landmarker.task": "64184e229b263107bc2b804c6625db1341ff2bb731874b0bcc2fe6544e0bc9ff",
+    "app/src/main/assets/models/selfie_segmenter.tflite": "191ac9529ae506ee0beefa6b2c945a172dab9d07d1e802a290a4e4038226658b",
+    "app/src/main/assets/portrait-engine.js": "5cde7dcd60aab1d68e1ec5fb026c6396c2f395c1597dd03113c34674ba57d524",
+    "app/src/main/assets/portrait-people.js": "0de2c158f3a23c6e4de8326e7474ad809e02d41ccc2931a5ccfba76505a02b3a",
+    "app/src/main/assets/portrait-ui.js": "5e91211ac3194b68aaa86c18ea3e60a967fa913f464fdad8532062ab929e9c57",
+    "app/src/main/assets/project-core.js": "a308234c44e6dc7210560a69d3d14a098b1546ede6b329ad9a227b0079be2b8f",
+    "app/src/main/java/com/qingyan/editor/PortraitAnalyzer.java": "b8e802e551e67ee036582f463252a5455bf3dee90a567dfd61379959f87eb349",
+    "docs/CLOUD-VALIDATION-2026-10-22.json": "10a91ec5a0cca70d76d955de60ef40485db582dec06998055a30a609d097e542",
+    "docs/VALIDATION.md": "9db202431b9690702b8d947acea7e2526eb199b73742aa3b05331d182bb7753a",
+    "tests/run-pure.sh": "dd0cbb891e2ca298d80864bfe6ffa83b6f07024fc8e6b937c6183f3a0545d7fc"
+  },
+  "evidence": {
+    "mask_ui": {
+      "file": "app/src/main/assets/portrait-ui.js",
+      "lines": "67-76, 86-101",
+      "finding": "Actual person-mask keep/erase brush, mask view, 10-snapshot undo, cancellation rollback and background application already exist."
+    },
+    "mask_precision": {
+      "file": "app/src/main/assets/portrait-ui.js",
+      "lines": "9-11, 31, 68-75, 92-96",
+      "finding": "Manual masks start at max side 256; bytes are destructively repainted with a fixed falloff. Radius is the only brush parameter, min UI radius 1%; no stroke recipe, strength, hardness, edge shrink/grow or decontamination controls. move caps interpolation at 40 dabs per event."
+    },
+    "native_segmentation": {
+      "file": "app/src/main/java/com/qingyan/editor/PortraitAnalyzer.java",
+      "lines": "135-193",
+      "finding": "Only bundled selfie_segmenter.tflite is loaded for person separation; output is capped to side 256 and quantized from Float32 to 8-bit confidence."
+    },
+    "background_render": {
+      "file": "app/src/main/assets/portrait-engine.js",
+      "lines": "512-547",
+      "finding": "Background render only permits color, blur and transparent. Existing continuousAlpha input requires exact Float32 working pixels, but production portrait UI sends the byte-mask route. Feathering uses max(original, blurred alpha), not explicit shrink/grow or edge-color decontamination."
+    },
+    "background_schema": {
+      "file": "app/src/main/assets/project-core.js",
+      "lines": "108-116, 246-251",
+      "finding": "Saved background step permits bounded raster mask and color/blur/transparent fields, no normalized mask-stroke recipe or background image asset."
+    },
+    "liquify_schema": {
+      "file": "app/src/main/assets/manual-tools.js",
+      "lines": "107-126, 270-295, 327-420",
+      "finding": "Liquify accepts only push/restore, with source-bound selection snapshots and actual displacement geometry bounds. Existing push already resamples by arc length. There are no smooth/twirl/pinch/bloat command types."
+    },
+    "liquify_ui": {
+      "file": "app/src/main/assets/manual-retouch-ui.js",
+      "lines": "12-13, 18-28, 30-36",
+      "finding": "Only push/restore are exposed, with brush/lasso add/subtract/invert/feather selection. Those selections already protect pixels for saved strokes; not a complete persistent freeze/unfreeze workflow. Translucent source liquify is explicitly rejected."
+    },
+    "overlay_composite": {
+      "file": "app/src/main/assets/image-overlay.js",
+      "lines": "354-388",
+      "finding": "Imported image is source-over foreground compositing. It is not a background image under a retained person matte."
+    },
+    "portrait_schema": {
+      "file": "app/src/main/assets/portrait-people.js",
+      "lines": "15-16, 53-65, 80",
+      "finding": "Beauty controls are smooth/brighten/warmth/underEye/redness/lip/blush/palette; reshape slim/eyes/nose/jaw. Strict face record has no user-painted beauty protection/erase-back mask. Neighbor geometric protection is present."
+    },
+    "skin_heuristic": {
+      "file": "app/src/main/assets/portrait-engine.js",
+      "lines": "195-237, 250-251, 549",
+      "finding": "Skin eligibility uses landmark polygons and RGB/luminance heuristics, explicitly not learned parsing/retouch. Only seven classical beauty controls are advertised."
+    },
+    "local_tone": {
+      "file": "app/src/main/assets/local-tone-ui.js",
+      "lines": "141-157",
+      "finding": "Already has up to 8 local tone layers, brush/lasso add/subtract selections, radial/linear masks, exposure in both signs, contrast/saturation/temperature, opacity, local undo. Do not relabel this as a missing dodge/burn feature."
+    },
+    "runtime_scope": {
+      "file": "docs/CLOUD-VALIDATION-2026-10-22.json",
+      "jsonPointers": [
+        "/status",
+        "/androidBuild",
+        "/notRun",
+        "/permissions",
+        "/preview/renderedBrowser"
+      ],
+      "finding": "Current v27 report records unsigned builds, no current install/runtime or real browser rendering. NativeCanvas/controlled DOM is explicitly not WebView acceptance. No new signer was created."
+    },
+    "browser_limit": {
+      "file": "docs/VALIDATION.md",
+      "lines": "1-10, 104-112",
+      "finding": "Current v27 runtime gates remain open. Historical sandboxed Chromium failed before page load with Unix socket permission error. Historical signed emulator bridge smoke applies to earlier artifact, not current v27."
+    },
+    "test_scope": {
+      "file": "tests/run-pure.sh",
+      "lines": "1-5",
+      "finding": "Pure runner deliberately excludes editor.test.cjs because it needs a real browser."
+    },
+    "current_dependencies": {
+      "file": "app/build.gradle",
+      "lines": "16-40, 69-72",
+      "finding": "Current runtime dependency is the pinned MediaPipe Tasks Vision; debug signing only selected when MINT_TEST_KEYSTORE exists and release has no signing configuration."
+    }
+  },
+  "probe": {
+    "auditType": "production PortraitUI start/move/finish executed in controlled Node VM, no browser",
+    "productionPath": "app/src/main/assets/portrait-ui.js",
+    "productionSha256": "5e91211ac3194b68aaa86c18ea3e60a967fa913f464fdad8532062ab929e9c57",
+    "sameGeometricPath": {
+      "start": [
+        0.1,
+        0.1
+      ],
+      "end": [
+        0.9,
+        0.9
+      ]
+    },
+    "sparse": {
+      "moves": 1,
+      "maskWidth": 256,
+      "maskHeight": 256,
+      "brushRadiusFraction": 0.01,
+      "interiorDiagonalSamples": 200,
+      "zeroAlphaSamples": 58,
+      "belowHalfAlphaSamples": 74,
+      "minAlpha": 0,
+      "meanAlpha": 158.05
+    },
+    "dense": {
+      "moves": 400,
+      "maskWidth": 256,
+      "maskHeight": 256,
+      "brushRadiusFraction": 0.01,
+      "interiorDiagonalSamples": 200,
+      "zeroAlphaSamples": 0,
+      "belowHalfAlphaSamples": 0,
+      "minAlpha": 255,
+      "meanAlpha": 255
+    },
+    "comparison": {
+      "changedPixels": 982,
+      "maxDifference": 255
+    },
+    "conclusion": "Current mask painting depends on pointer-event density; sparse long movement can leave holes even on the stroke centerline. This is an alpha-mask correctness/precision gap, not proof about actual device event frequency."
+  },
+  "work_packages": [
+    {
+      "id": "R01",
+      "title": "纹理保留磨皮及光影平整，区分中性灰、高低频和柔润效果",
+      "acceptance": "50 张分层人像盲评；眉睫唇及发丝不被抹平，强度为零时像素不变。",
+      "baseline_android_stage": "partial_classical_not_learned",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "partial_source_present_not_quality_acceptance",
+        "tracks": [
+          "A",
+          "B",
+          "C"
+        ],
+        "summary": "Existing classical per-person controls provide only subsets of these broad work packages; no full acceptance status promoted.",
+        "evidence": [
+          "portrait_schema",
+          "skin_heuristic"
+        ]
+      }
+    },
+    {
+      "id": "R02",
+      "title": "自动祛痘与祛斑，强度分开，可保留痣点和雀斑",
+      "acceptance": "标注瑕疵级精确率/召回率；保留指定痣点，不能把所有色斑当缺陷。",
+      "baseline_android_stage": "partial_classical_not_learned",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "unfilled_subfeature_or_quality_gap",
+        "tracks": [
+          "A",
+          "B",
+          "C"
+        ],
+        "summary": "No dedicated control/semantic pipeline for full package in reviewed portrait schema; a manual implementation is possible without implying reliable learned selection.",
+        "evidence": [
+          "portrait_schema",
+          "skin_heuristic"
+        ]
+      }
+    },
+    {
+      "id": "R03",
+      "title": "面部皱纹分区淡化，含额头、眉间、眼周、鼻背、法令及口周",
+      "acceptance": "各区独立开关；不改变五官轮廓，左右可分别比较，保留自然折线。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "R04",
+      "title": "油光、汗珠、唇部干皮及细纹处理",
+      "acceptance": "高光不成为灰斑；唇色和唇线保持，失败可用画笔恢复原图。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "R05",
+      "title": "皮肤光泽、纹理、清晰度和立体光影分控",
+      "acceptance": "纹理增加不得凭空添加痣或疤；高光不裁切，局部与整体可对比。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "partial_source_present_not_quality_acceptance",
+        "tracks": [
+          "A",
+          "B",
+          "C"
+        ],
+        "summary": "Existing classical per-person controls provide only subsets of these broad work packages; no full acceptance status promoted.",
+        "evidence": [
+          "portrait_schema",
+          "skin_heuristic"
+        ]
+      }
+    },
+    {
+      "id": "R06",
+      "title": "肤色亮度、冷暖、色调、红润与可选肤色",
+      "acceptance": "白平衡与肤色分开；深肤色不能默认漂白，面颈交界无面具硬边。",
+      "baseline_android_stage": "partial_classical_candidate",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "partial_source_present_not_quality_acceptance",
+        "tracks": [
+          "A",
+          "B",
+          "C"
+        ],
+        "summary": "Existing classical per-person controls provide only subsets of these broad work packages; no full acceptance status promoted.",
+        "evidence": [
+          "portrait_schema",
+          "skin_heuristic"
+        ]
+      }
+    },
+    {
+      "id": "R07",
+      "title": "面部、身体及脸颈肤色统一，可吸取参考肤色",
+      "acceptance": "分别选参考与目标；衣服背景零改动，色差改善且光照层次保留。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "R08",
+      "title": "多人独立美颜与多人肤色协调，允许人工选择和覆盖",
+      "acceptance": "至少 5 人测试；只改选中人，不跨人误套；绝不强制所有人变同一肤色。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "partial_source_present_not_quality_acceptance",
+        "tracks": [
+          "A",
+          "B",
+          "C"
+        ],
+        "summary": "Existing classical per-person controls provide only subsets of these broad work packages; no full acceptance status promoted.",
+        "evidence": [
+          "portrait_schema",
+          "skin_heuristic"
+        ]
+      }
+    },
+    {
+      "id": "R09",
+      "title": "身体瑕疵、纹理、纹身及体毛处理",
+      "acceptance": "分区与强度明确；不改变肢体结构，衣物/边界受保护，生成结果需接受。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "R10",
+      "title": "手部皮肤、青筋及手形精修",
+      "acceptance": "手指数量、关节和饰品保持；跨手遮挡失败时提示而非硬修。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "R11",
+      "title": "胡须、妆容、五官和用户保护区；局部擦回",
+      "acceptance": "每项效果都能擦回；保护区逐像素不变，蒙版可视化且能编辑。",
+      "baseline_android_stage": "partial_candidate_tested",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "partial_source_present",
+        "tracks": [
+          "A",
+          "B",
+          "C"
+        ],
+        "summary": "Landmark feature/neighbor protections and manual repair selections exist; no per-face user-painted protection/erase-back mask in beauty schema, no semantic hair/beard parsing.",
+        "evidence": [
+          "portrait_schema",
+          "skin_heuristic",
+          "liquify_ui"
+        ]
+      }
+    },
+    {
+      "id": "R12",
+      "title": "黑眼圈、眼袋、卧蚕保留及鼻周瑕疵",
+      "acceptance": "眼袋与卧蚕可区分；鼻翼纹理和原始鼻形保留，不用统一模糊掩盖问题。",
+      "baseline_android_stage": "partial_classical_candidate",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "partial_source_present_not_quality_acceptance",
+        "tracks": [
+          "A",
+          "B",
+          "C"
+        ],
+        "summary": "Existing classical per-person controls provide only subsets of these broad work packages; no full acceptance status promoted.",
+        "evidence": [
+          "portrait_schema",
+          "skin_heuristic"
+        ]
+      }
+    },
+    {
+      "id": "R13",
+      "title": "胡青与胡渣分控；颈纹、双下巴及下颌阴影",
+      "acceptance": "去胡须和胡型保护分开；脖颈无亮暗断层，阴影增强不改变原有肤色。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "R14",
+      "title": "身体瘢痕、妊娠纹/线及腋下皮肤处理",
+      "acceptance": "仅做用户选择的外观编辑；区域独立可恢复，不把这些自然特征默认删除。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "E01",
+      "title": "眼瞳、眼白、高光独立增强；红眼和红血丝处理",
+      "acceptance": "左右独立；瞳孔边界、睫毛及反光不溢出，暗光眼睛不得涂成纯白。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "unfilled_subfeature_or_quality_gap",
+        "tracks": [
+          "A",
+          "B",
+          "C"
+        ],
+        "summary": "No dedicated control/semantic pipeline for full package in reviewed portrait schema; a manual implementation is possible without implying reliable learned selection.",
+        "evidence": [
+          "portrait_schema",
+          "skin_heuristic"
+        ]
+      }
+    },
+    {
+      "id": "E02",
+      "title": "眼镜反光去除与双眼皮贴修复",
+      "acceptance": "镜框保留；被遮挡的眼睛内容属生成推测，必须显示候选并可拒绝。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "E03",
+      "title": "眼球位置、眼睛对称、双眼皮和眼神光控制",
+      "acceptance": "视线一致、虹膜结构稳定；单眼调整不影响另一眼，可单项复原。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "E04",
+      "title": "牙齿亮度、去黄、清洁与边缘修补",
+      "acceptance": "只改牙齿；嘴唇牙龈不泛白，保留牙缝，不以医学修复宣传。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "unfilled_subfeature_or_quality_gap",
+        "tracks": [
+          "A",
+          "B",
+          "C"
+        ],
+        "summary": "No dedicated control/semantic pipeline for full package in reviewed portrait schema; a manual implementation is possible without implying reliable learned selection.",
+        "evidence": [
+          "portrait_schema",
+          "skin_heuristic"
+        ]
+      }
+    },
+    {
+      "id": "E05",
+      "title": "牙齿排齐、牙齿重建及露龈调整",
+      "acceptance": "和轻度美白分入口；标记外观重建，接受前对比，不宣称恢复真实牙齿。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "E06",
+      "title": "微笑、露齿笑、抿嘴笑及闭嘴控制",
+      "acceptance": "强度连续或档位清晰；嘴部结构与身份盲评通过，无多牙或牙齿漂移。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "E07",
+      "title": "同场次合影最佳表情替换及闭眼修复",
+      "acceptance": "优先同一人的真实参考帧，人工确认人脸配对；不能静默换成另一人。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "S01",
+      "title": "脸型和五官细调，含脸颊、太阳穴、颧骨、下颌、眉眼鼻口",
+      "acceptance": "各子项独立；左右可解锁；保存和撤销参数一致，低置信度时不强行变形。",
+      "baseline_android_stage": "partial_classical_candidate",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "partial_source_present_not_quality_acceptance",
+        "tracks": [
+          "A",
+          "B",
+          "C"
+        ],
+        "summary": "Existing classical per-person controls provide only subsets of these broad work packages; no full acceptance status promoted.",
+        "evidence": [
+          "portrait_schema",
+          "skin_heuristic"
+        ]
+      }
+    },
+    {
+      "id": "S02",
+      "title": "脸型预设、对称调整、面部流畅及轮廓提拉",
+      "acceptance": "显示预设实际参数；不把不同人套成同一张脸，参考网格无局部折叠。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "S03",
+      "title": "保背景形变与遮挡保护",
+      "acceptance": "背景直线、邻近人物和饰品受保护；变形场无翻折，保护区零位移。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "partial_source_present",
+        "tracks": [
+          "A",
+          "B",
+          "C"
+        ],
+        "summary": "Per-stroke selected-region bounds and neighboring-face geometry protection are present; not full automatic background/occluder protection.",
+        "evidence": [
+          "portrait_schema",
+          "liquify_schema"
+        ]
+      }
+    },
+    {
+      "id": "S04",
+      "title": "全身比例、纤细/丰满及肢体线条调整",
+      "acceptance": "按姿态和人体轮廓控制；手脚不拉断、衣服图案不中断，多人不串改。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "S05",
+      "title": "颈部、肩线、腰腹、腿部等区域塑形及体态管理",
+      "acceptance": "每个部位可独立回退；有坐姿/侧身/遮挡失败案例和限制提示。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "S06",
+      "title": "发缝、发际线与稀疏区域填补",
+      "acceptance": "新增发丝方向与色泽匹配；额头和耳朵不侵入，保持原有发型身份特征。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "S07",
+      "title": "颅顶及左右发量调整",
+      "acceptance": "只改指定头发轮廓；不把背景推弯；原始发量可一键恢复。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "S08",
+      "title": "人物内和背景侧碎发分开去除；白发处理",
+      "acceptance": "不能一律截平细发；发丝边界有 100% 放大对比，保留选择区域。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "S09",
+      "title": "发色、发型变换及动态头发",
+      "acceptance": "发色与换发型分开；动态输出需帧间一致，Android 当前入口与格式先实机核对。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "S10",
+      "title": "头身比、胸臀外观、上身/腰部长度与大腿小腿分控",
+      "acceptance": "只按用户主动选择处理；对应区域独立撤销，衣服纹理、手脚与邻近人物不受误伤。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "M01",
+      "title": "整套主题妆容与强度，允许自己保存搭配",
+      "acceptance": "同一主题可作用于不同脸型；有分项开关、透明度和遮挡修正，不复制竞品素材。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "M02",
+      "title": "眉毛、眼影、眼线、睫毛、美瞳和卧蚕分项",
+      "acceptance": "闭眼/侧脸/眼镜下贴合；左右独立，颜色及强度能复现。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "M03",
+      "title": "口红颜色和质地，腮红、修容及高光",
+      "acceptance": "唇齿边界不越界；色样和导出一致，纹理保留，左右遮挡正确。",
+      "baseline_android_stage": "partial_classical_candidate",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "partial_source_present_not_quality_acceptance",
+        "tracks": [
+          "A",
+          "B",
+          "C"
+        ],
+        "summary": "Existing classical per-person controls provide only subsets of these broad work packages; no full acceptance status promoted.",
+        "evidence": [
+          "portrait_schema",
+          "skin_heuristic"
+        ]
+      }
+    },
+    {
+      "id": "M04",
+      "title": "原妆增强及全脸/分部位淡妆",
+      "acceptance": "加妆与减妆分开测试；淡妆不凭空换皮或改五官，保留原图候选。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "M05",
+      "title": "雀斑、痣等装饰，颜色吸取与收藏",
+      "acceptance": "装饰与祛痣互不冲突；支持移动、强度与删除；每份资产记录授权。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "B01",
+      "title": "精细人像抠图、发丝边缘及透明导出",
+      "acceptance": "用透明真值集报 SAD/梯度等；逆光细发、半透明衣物无硬白边，alpha 正确。",
+      "baseline_android_stage": "baseline_only",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "partial_source_present_quality_open",
+        "tracks": [
+          "A",
+          "B",
+          "C"
+        ],
+        "summary": "256-side selfie alpha + manual edits/PNG path exist; precise hair matte quality is not established.",
+        "evidence": [
+          "mask_ui",
+          "native_segmentation",
+          "background_render"
+        ]
+      }
+    },
+    {
+      "id": "B02",
+      "title": "蒙版添加/减去、羽化、缩扩边、去黑白边",
+      "acceptance": "蒙版在缩放/旋转后坐标准确；原图级画笔，不以模糊边缘代替抠图。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "partial_with_reproduced_correctness_gap",
+        "tracks": [
+          "A",
+          "C"
+        ],
+        "summary": "Keep/erase/feather/undo exists, but low-res baked masks and sparse-path gaps remain; A1 is first priority.",
+        "evidence": [
+          "mask_precision",
+          "background_schema"
+        ]
+      }
+    },
+    {
+      "id": "B03",
+      "title": "纯色/透明/自定义图片背景与证件照尺寸流程",
+      "acceptance": "头发和饰品完整；尺寸/分辨率可校验；不给证件审核通过的保证。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "partial_source_present",
+        "tracks": [
+          "A",
+          "C"
+        ],
+        "summary": "Color/transparent/blur and ID-photo crop are present; imported-image background mode absent.",
+        "evidence": [
+          "mask_ui",
+          "background_render",
+          "overlay_composite"
+        ]
+      }
+    },
+    {
+      "id": "B04",
+      "title": "纯色棚拍背景/地面祛污、穿帮、光影均匀和色阶断层",
+      "acceptance": "地面与背景可分开，投影保留；非纯色不适用时明确提示。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "B05",
+      "title": "天空替换、主体配色及阴影融合",
+      "acceptance": "建筑细缝/玻璃/水面分别测；替天和人物色调可分控，遮罩可擦回。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "B06",
+      "title": "景深/镜头虚化及柔光效果",
+      "acceptance": "人物边缘不漏色；前后景深层次明确，光斑可控，不将均匀模糊标为真实景深。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "partial_source_present",
+        "tracks": [
+          "A",
+          "C"
+        ],
+        "summary": "Mask-based classical blur exists; no camera/depth lens quality acceptance performed.",
+        "evidence": [
+          "background_render"
+        ]
+      }
+    },
+    {
+      "id": "B07",
+      "title": "衣物粗细褶皱、线头毛球污渍处理，上下装分控",
+      "acceptance": "织物、文字和印花保持；折痕与结构褶皱区分，局部擦回可用。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "B08",
+      "title": "裙摆平整/蓬松、鞋面去污及道具修复",
+      "acceptance": "款式、装饰和鞋带拓扑保留；选择范围外不改，生成结果独立接受。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "B09",
+      "title": "宠物碎毛清理、亮眼及眼神光",
+      "acceptance": "猫狗毛色和眼睛结构保持；不能使用人脸网格强套，漏检可人工选择。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "G01",
+      "title": "中文指令编辑与自然语言操作助手",
+      "acceptance": "至少 30 条明确任务测成功率；参数操作需可撤销，不能一句话默默全图重画。",
+      "baseline_android_stage": "adapter_only_disabled",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "G02",
+      "title": "区域点选编辑、画笔局部重绘和对象替换",
+      "acceptance": "选区外 RGB/alpha 逐像素不变；提示词、模型、原图版本及候选记录完整。",
+      "baseline_android_stage": "adapter_only_disabled",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "G03",
+      "title": "智能消除、路人检测和可修正选区",
+      "acceptance": "目标消除与背景连贯分别评估；主角保护，线条不重复，拒绝结果不写入原图。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "G04",
+      "title": "扩图及自定义新画布",
+      "acceptance": "四边/角落/任意比例测；原画面默认不动，新尺寸和坐标变换写入历史。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "G05",
+      "title": "AI 布景、参考图融合及换衣/商品精修",
+      "acceptance": "参考对象、人物和衣物分开；衣物图案/身份/接触阴影分别验收，不能声称精确试穿。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "G06",
+      "title": "补光、柔化阴影、光影迁移和天气/季节变化",
+      "acceptance": "重打光不等于提高亮度；检查阴影方向、肤色与背景一致；拒绝身份漂移。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "G07",
+      "title": "人像写真、AI 分身、造型与创意特效",
+      "acceptance": "先明确使用对象和照片用途；生成与真实照片区别可见，支持删记录和撤回候选。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "G08",
+      "title": "老照片划痕/破损/噪点修复与上色",
+      "acceptance": "修复和推测上色分开；细节不可当历史事实，原片永久保留。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "G09",
+      "title": "人脸/身体/背景清晰修复、去模糊与降噪",
+      "acceptance": "以真实退化和合成退化分组；报保真与感知质量，不只展示锐化样图。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_implemented_by_reviewed_model_set",
+        "tracks": [
+          "B",
+          "C"
+        ],
+        "summary": "No learned restoration/super-resolution model in production assets; existing classical sharpen or resize is not equivalent.",
+        "evidence": [
+          "native_segmentation",
+          "skin_heuristic"
+        ]
+      }
+    },
+    {
+      "id": "G10",
+      "title": "真正超分辨率放大及分块拼接",
+      "acceptance": "输出实际尺寸改变；量测显存/时间、拼缝/色漂/幻觉，文字和五官不可乱造。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_implemented_by_reviewed_model_set",
+        "tracks": [
+          "B",
+          "C"
+        ],
+        "summary": "No learned restoration/super-resolution model in production assets; existing classical sharpen or resize is not equivalent.",
+        "evidence": [
+          "native_segmentation",
+          "skin_heuristic"
+        ]
+      }
+    },
+    {
+      "id": "G11",
+      "title": "候选、重试、取消、历史与计费/隐私确认",
+      "acceptance": "未接受不覆盖；照片改动后旧结果失效；不自动切换云端、不自动重试收费请求。",
+      "baseline_android_stage": "adapter_only_disabled",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "G12",
+      "title": "面部局部重绘，轻度修复与强度重构分档",
+      "acceptance": "高强度重构明确提示可能改变容貌；禁止以保真磨皮命名，接受前显示原脸。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "G13",
+      "title": "补草地、场景对象清理及局部材质修复",
+      "acceptance": "只改选中材质；前景遮挡、地平线和投影保持，空泛通用提示词不算专用工具完成。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "C01",
+      "title": "RAW 解码、相机适配与 16-bit 广色域编辑",
+      "acceptance": "用指定相机 RAW 样本逐种验收；处理链保持高位深，不是 8-bit 图标伪装 RAW。",
+      "baseline_android_stage": "not_implemented",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "C02",
+      "title": "色彩配置文件与 ICC 管理，sRGB/广色域导出",
+      "acceptance": "灰阶/色卡和参考色彩转换逐项比；ICC 嵌入及 EXIF 方向正确，跨端不无故变色。",
+      "baseline_android_stage": "not_implemented",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "C03",
+      "title": "直方图、RGB/Lab 读数和曝光告警",
+      "acceptance": "与像素统计真值一致；读取的是当前处理结果而非过期预览。",
+      "baseline_android_stage": "partial_source_and_control_pixels_tested",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "C04",
+      "title": "曝光、对比、高光/阴影、黑白场与白平衡吸管",
+      "acceptance": "数值与显示一致，零值恒等；灰卡校准和高光压缩用测试图验算。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "C05",
+      "title": "色阶、RGB 曲线与单色通道曲线",
+      "acceptance": "控制点插值稳定，可撤销、复制、保存；预览与导出数值一致。",
+      "baseline_android_stage": "partial_source_and_control_pixels_tested",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "C06",
+      "title": "HSL、颜色范围编辑、可选颜色及三向分级",
+      "acceptance": "范围选择可预览，肤色与天空独立测试，颜色过渡不出现明显分段。",
+      "baseline_android_stage": "partial_source_and_control_pixels_tested",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "C07",
+      "title": "细节、锐化、颗粒、镜头调整、透视和校准",
+      "acceptance": "分辨率改变后参数语义一致；镜头配置与图像方向正确，避免重复锐化。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "C08",
+      "title": "一键校准、多图色彩统一和参考追色",
+      "acceptance": "至少三种光照的同场组图对比；不靠全图 LUT 强行统一肤色或裁切高光。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "C09",
+      "title": "逐人物、皮肤/眼口牙/发/衣物语义局部调色",
+      "acceptance": "每类蒙版有准确率与边缘 QA；衣物/皮肤可独立控制，不将脸解析当全身解析。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "unfilled_subfeature_or_quality_gap",
+        "tracks": [
+          "A",
+          "B",
+          "C"
+        ],
+        "summary": "No dedicated control/semantic pipeline for full package in reviewed portrait schema; a manual implementation is possible without implying reliable learned selection.",
+        "evidence": [
+          "portrait_schema",
+          "skin_heuristic"
+        ]
+      }
+    },
+    {
+      "id": "C10",
+      "title": "天空、草地、水面、地面、建筑及宠物语义蒙版",
+      "acceptance": "各类与混合场景分别评估；未支持类别要明示，不能通通当背景。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "C11",
+      "title": "画笔、线性/径向渐变、色彩/亮度范围及蒙版加减",
+      "acceptance": "坐标、羽化、加减/反选顺序可复现；多个蒙版叠加及同步行为有测试。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "partial_source_present_do_not_duplicate",
+        "tracks": [
+          "A",
+          "C"
+        ],
+        "summary": "Manual local tone already supports radial/linear/brush/lasso masks, add/subtract, exposure and layer opacity; automatic color/luminance-range selection not established.",
+        "evidence": [
+          "local_tone"
+        ]
+      }
+    },
+    {
+      "id": "C12",
+      "title": "滤镜、胶片/CCD 外观、强度、收藏与自定义预设",
+      "acceptance": "同一预设有版本和参数；手机/电脑导出匹配，未授权资产不打包。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "T01",
+      "title": "裁剪、旋转、翻转、比例、尺寸、参考线与透视",
+      "acceptance": "EXIF 旋转先规范化；输入输出尺寸准确，连续操作及撤销后无错位。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "T02",
+      "title": "缩放、1比1、抓手、全屏、前后/参考对比",
+      "acceptance": "缩放不改变数据；高分辨率局部检查真实像素，手势与画笔不冲突。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "T03",
+      "title": "污点修复、选源修补与仿制图章",
+      "acceptance": "三者独立且可选源；纹理/边缘无重复印章，支持源点和结果撤销。",
+      "baseline_android_stage": "partial_candidate_tested",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "partial_source_present",
+        "tracks": [
+          "A",
+          "C"
+        ],
+        "summary": "Manual source healing/clone and small facial automatic donor selection exist; not generative content-aware fill.",
+        "evidence": [
+          "liquify_ui"
+        ]
+      }
+    },
+    {
+      "id": "T04",
+      "title": "完整液化：推拉、重建、平滑、旋转、收缩、膨胀、冻结/解冻",
+      "acceptance": "冻结区不动；变形网格不翻折，笔刷半径随原图尺度定义，可局部重建。",
+      "baseline_android_stage": "partial_candidate_tested",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "partial_source_present",
+        "tracks": [
+          "A",
+          "C"
+        ],
+        "summary": "Push/restore and protected selections exist; other liquify modes and dedicated freeze workflow absent.",
+        "evidence": [
+          "liquify_schema",
+          "liquify_ui"
+        ]
+      }
+    },
+    {
+      "id": "T05",
+      "title": "矩形/椭圆/套索/画笔选区，反选和羽化",
+      "acceptance": "相交/加减与边缘参数可保存；所有局部工具遵循同一选区坐标系。",
+      "baseline_android_stage": "partial_candidate_tested",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "partial_source_present",
+        "tracks": [
+          "A",
+          "C"
+        ],
+        "summary": "Manual core accepts brush/lasso add/subtract with inverse and feather; rectangle/ellipse commands are not accepted in this selection schema. Local-tone radial masks are not universal selection commands.",
+        "evidence": [
+          "liquify_schema",
+          "liquify_ui",
+          "local_tone"
+        ]
+      }
+    },
+    {
+      "id": "T06",
+      "title": "图像图层、移动缩放、顺序、蒙版与非破坏合成",
+      "acceptance": "至少 20 层测试；图层可重新编辑，透明度与混合结果有参考图验证。",
+      "baseline_android_stage": "not_full_image_layers",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "T07",
+      "title": "历史、撤销重做、独立版本和虚拟副本",
+      "acceptance": "100 步编辑撤回一致；副本不改原片，模型候选接受后只新增一次历史。",
+      "baseline_android_stage": "partial_candidate_tested",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "W01",
+      "title": "文件/文件夹导入、项目重命名、搜索与增量导入",
+      "acceptance": "100 张与目录嵌套测试；重名不覆盖，导入失败单独列出。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "W02",
+      "title": "星标/旗标/色标、筛选排序、元数据与对比选片",
+      "acceptance": "筛选不丢编辑；标签持久化，可按元数据追溯原片。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "W03",
+      "title": "AI 挑图：闭眼、曝光、相似组和质量筛选",
+      "acceptance": "逐标签报准确率；人工可覆盖；绝不根据模型低分自动删除照片。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "W04",
+      "title": "预设保存、导入导出、部分参数复制和批量同步",
+      "acceptance": "参数有版本；人像按目标重新定位，不复制上一张坐标蒙版造成串位。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "W05",
+      "title": "多图任务队列、进度、取消、失败隔离和恢复",
+      "acceptance": "100 张压力测试；取消后不提交新结果，断点恢复不重复付费或覆盖。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "W06",
+      "title": "可编辑项目、自动保存、崩溃恢复及素材路径重连",
+      "acceptance": "模拟崩溃后恢复至最近确认编辑；原片不修改，资源丢失可重新定位。",
+      "baseline_android_stage": "partial_operation_replay",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "validation_gate_only_reviewed",
+        "tracks": [
+          "C"
+        ],
+        "summary": "Only current v27 validation scope reviewed here; no new full functional or device acceptance.",
+        "evidence": [
+          "runtime_scope",
+          "browser_limit",
+          "test_scope"
+        ]
+      }
+    },
+    {
+      "id": "W07",
+      "title": "自动化修图工作流和创意配方批量设计",
+      "acceptance": "流程每步可追溯、可停；收费/联网步骤不得绕过授权，失败明确定位。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "W08",
+      "title": "相机联机拍摄及边拍边修",
+      "acceptance": "指定机型/固件/有无线链路验收；连接断开不损照片，不泛称支持所有相机。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "W09",
+      "title": "云备份、多人协作、跨设备工程与回收站",
+      "acceptance": "权限最小化、冲突处理、删除/恢复可验证；离线基础编辑不依赖云账号。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "W10",
+      "title": "在线选片、分享交付与商业生态对接",
+      "acceptance": "只分享选中成片；访问范围和有效期可配置，撤销后链接不可再访问。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "O01",
+      "title": "原图尺寸输出与预览/正式渲染分离",
+      "acceptance": "24MP 与大幅图保留指定尺寸；每一步原图级复算，不拿预览图直接保存。",
+      "baseline_android_stage": "source_compiled_not_device_verified",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "validation_gate_only_reviewed",
+        "tracks": [
+          "C"
+        ],
+        "summary": "Only current v27 validation scope reviewed here; no new full functional or device acceptance.",
+        "evidence": [
+          "runtime_scope",
+          "browser_limit",
+          "test_scope"
+        ]
+      }
+    },
+    {
+      "id": "O02",
+      "title": "JPEG/PNG/TIFF、透明、品质与体积控制",
+      "acceptance": "解码验证尺寸/alpha/位深；目标体积若仅近似需说明，失败不生成损坏文件。",
+      "baseline_android_stage": "source_compiled_not_device_verified",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "validation_gate_only_reviewed",
+        "tracks": [
+          "C"
+        ],
+        "summary": "Only current v27 validation scope reviewed here; no new full functional or device acceptance.",
+        "evidence": [
+          "runtime_scope",
+          "browser_limit",
+          "test_scope"
+        ]
+      }
+    },
+    {
+      "id": "O03",
+      "title": "ICC/元数据保留或隐私剥离与 AI 处理来源记录",
+      "acceptance": "EXIF 方向正确；定位信息默认可去除；不得误称改过的照片仍为原始传感器 RAW。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "O04",
+      "title": "目录结构、命名冲突、输出到新文件与完整导出清单",
+      "acceptance": "原片 hash 始终不变；同名文件不静默覆盖，失败清单含原因和可重试项。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "O05",
+      "title": "水印、多构图位置及带/无水印两版输出",
+      "acceptance": "横竖方图位置正确；只添加用户授权水印，不移除他人版权标识。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "O06",
+      "title": "证件照/普通照片排版、纸张尺寸 DPI 与打印",
+      "acceptance": "毫米尺寸和像素换算可验；打印前预览，设备设置不被静默修改。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "O07",
+      "title": "安装更新、无网可用、错误提示及资源释放",
+      "acceptance": "Windows 全新安装/卸载与 Android 权限拒绝/后台恢复测试；明确哪些工具必须联网。",
+      "baseline_android_stage": "source_compiled_not_device_verified",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "validation_gate_only_reviewed",
+        "tracks": [
+          "C"
+        ],
+        "summary": "Only current v27 validation scope reviewed here; no new full functional or device acceptance.",
+        "evidence": [
+          "runtime_scope",
+          "browser_limit",
+          "test_scope"
+        ]
+      }
+    },
+    {
+      "id": "A01",
+      "title": "文字字体、模板、收藏、描边阴影与排版控制",
+      "acceptance": "字体授权可追踪；中文换行/缩放不截断，重新打开仍可编辑。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "A02",
+      "title": "贴纸、边框、特效、素材搜索收藏与自定义素材",
+      "acceptance": "多层贴纸不烘焙失去编辑；素材可删除，授权与离线缓存范围明确。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "A03",
+      "title": "画笔、橡皮、取色、马赛克及局部涂绘",
+      "acceptance": "撤销后像素一致；坐标精确，马赛克需足够不可辨而非仅轻度模糊。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "A04",
+      "title": "拼图、自由拼、长图、间隔、圆角、画布与替换排序",
+      "acceptance": "9 图及长图内存测试；替换/排序/裁剪独立，导出尺寸和内容完整。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "A05",
+      "title": "手机相机、CCD 模拟、胶片效果及闪光质感",
+      "acceptance": "前后摄像头真机测；权限拒绝可恢复，预览与成片一致；不伪造相机硬件能力。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "A06",
+      "title": "实时美颜/妆容、白平衡、补光、网格与倒计时",
+      "acceptance": "固定机型报帧率、延迟、温升和耗电；无机型前不承诺实时性能。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "A07",
+      "title": "Live/Motion Photo 导入、编辑、关键帧和保留动态导出",
+      "acceptance": "指定厂商/机型格式分别测；照片/视频/音频关系完整，不能只输出静态 JPEG 冒充 Live。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "A08",
+      "title": "视频/动效编辑与帧间一致，动态头发等扩展",
+      "acceptance": "时间轴和声画同步；每帧脸型/妆容不闪跳；生成视频需独立费用与隐私确认。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    },
+    {
+      "id": "A09",
+      "title": "作品管理、收藏、分享、跟拍模板和创作社区入口",
+      "acceptance": "本地作品不等于可编辑工程；分享与发布需明确操作，不自动公开私人照片。",
+      "baseline_android_stage": "not_reaudited",
+      "full_acceptance_passed": false,
+      "v28_candidate_audit": {
+        "status": "not_reaudited_in_this_bounded_pass",
+        "tracks": []
+      }
+    }
+  ],
+  "validation_actions": {
+    "production_edited": false,
+    "software_installed": false,
+    "browser_started": false,
+    "security_bypass_attempted": false,
+    "new_signer_created": false,
+    "private_upload_performed": false,
+    "executed": "Existing Node runtime executed production PortraitUI gesture methods with controlled DOM stubs; no full suite or browser/device run."
+  },
+  "implementationCheckpoint": {
+    "version": 28,
+    "addressed": [
+      "B02"
+    ],
+    "status": "source and controlled cloud pixel/state paths implemented and independently tested; no full feature acceptance or Android validation",
+    "remainingA": [
+      "T04: liquify modes beyond push/restore",
+      "B03: direct local-photo background replacement rather than only color/blur/alpha"
+    ],
+    "remainingB": [
+      "Vetted learned skin/blemish/makeup/hair-matting quality and new license/runtime decisions"
+    ],
+    "remainingC": [
+      "Real browser/WebView layout and touch",
+      "Actual SAF/IndexedDB/process death and device resource tests",
+      "Authorized signing and installable current APK"
+    ],
+    "evidence": [
+      "../../docs/MASK-REFINE.zh-CN.md",
+      "../mask-refine-independent/README.md",
+      "../mask-refine-evidence/build-byte-validation.json"
+    ]
+  }
+}

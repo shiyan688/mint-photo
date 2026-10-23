@@ -1,0 +1,21 @@
+{
+  "fixture": "self-authored RGBA test raster + 2x2 transparent sticker; not user/private photo",
+  "runtime": "production editor and codec with real NativeCanvas PNG decode/render/export; DOM, IDB and file sink injected, not Android",
+  "backupBytes": 1550,
+  "backupSha256": "f590410f423cf31b1e81367fa39b3345872ede39516ae07109d006f9f5293399",
+  "originalBytesEqual": true,
+  "originalSha256": "94b982f5d8a7560ee36c7a4b70c0ecdd97afb970c8a8b8548f7782d6728afa11",
+  "sourceSize": {
+    "width": 96,
+    "height": 72
+  },
+  "outputSize": {
+    "width": 72,
+    "height": 96
+  },
+  "beforeRgbaSha256": "5dfc8c2e57dc5b384234a60036376e4d022118f6ee47a974a08f67f173bacf03",
+  "restoredRgbaSha256": "5dfc8c2e57dc5b384234a60036376e4d022118f6ee47a974a08f67f173bacf03",
+  "pngPixelsEqual": true,
+  "ops": 4,
+  "redo": 1
+}

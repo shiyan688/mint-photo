@@ -1,0 +1,35 @@
+{
+  "artifacts": [
+    {
+      "abi": "arm64-v8a",
+      "bytes": 17877169,
+      "sha256": "04e807a72772e513c1134b3d221df6261cc4c44fd25b5568ac3e1332b5adf8dc",
+      "assetFilesCompared": 73
+    },
+    {
+      "abi": "armeabi-v7a",
+      "bytes": 14581951,
+      "sha256": "b89cef83602812362a4c7a83cfaf26e85cc6568891fa111f2bb941ca30391947",
+      "assetFilesCompared": 73
+    }
+  ],
+  "lintErrors": 0,
+  "lintWarnings": 4,
+  "permissions": [],
+  "signature": "absent; not installable; apksigner negative result also checked separately",
+  "preview": {
+    "inlineScripts": 62,
+    "cspHashesVerified": true,
+    "renderedBrowser": false,
+    "bytes": 1983652,
+    "sha256": "e067ebc887091326f007d1de1438174e98ef8ed10ba80da49d0d056d6e01f566"
+  },
+  "sourceModules": {
+    "sharpness.js": "44e95137e818d4157370975a795364ee6e303d719c0db4456f71d5e08bc6d707",
+    "sharpness-operation.js": "397ac8e79ae138dd4b18c93d7e42ba651f247e8ca5a34f2d00bfe4b7455e0d38",
+    "sharpness-ui.js": "fdee58da70161078c690d4b612e122fa58c2b4e7cfb5e837902469830fdab24e",
+    "editor.js": "60876caba23ce26455ebf1dc2e6a67b207192ca2a6cf89893abca669dd5d73fb",
+    "project-core.js": "a308234c44e6dc7210560a69d3d14a098b1546ede6b329ad9a227b0079be2b8f"
+  },
+  "testBoundary": "NativeCanvas PNG execution is real; all IndexedDB and DOM tests are controlled/fault-injected, no browser persistence or Android cold-start pass."
+}

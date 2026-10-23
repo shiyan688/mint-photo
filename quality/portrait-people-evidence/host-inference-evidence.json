@@ -1,0 +1,328 @@
+{
+  "schema": "mobile-multiface-host-qa-v1",
+  "created_at_utc": "2026-10-22T16:37:56.505836+00:00",
+  "scope": "Local informational public-photo QA only. Synthetic composites, not actual group photos; no training/marketing/APK assets.",
+  "limitations": [
+    "Host Python CPU inference is not Android runtime, WebView, device performance, or ARM acceptance.",
+    "Five successful spaced faces do not prove general group-photo detection or correct face selection.",
+    "No model-release/marketing permission or endorsement is asserted."
+  ],
+  "source_manifest_sha256": "58a9cff5fdda2c8323689ba7514a1300cf605a1f66b3b6ac7cfba50162be4ce5",
+  "model": {
+    "file": "mobile-oct22/\u8584\u8377\u4eba\u50cf/app/src/main/assets/models/face_landmarker.task",
+    "sha256": "64184e229b263107bc2b804c6625db1341ff2bb731874b0bcc2fe6544e0bc9ff",
+    "runtime": "MediaPipe Tasks Python",
+    "version": "0.10.21",
+    "delegate": "CPU",
+    "num_faces": 5,
+    "running_mode": "IMAGE",
+    "min_face_detection_confidence": 0.5,
+    "min_face_presence_confidence": 0.5
+  },
+  "host": {
+    "python": "3.12.14",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+    "machine": "x86_64"
+  },
+  "sources": [
+    {
+      "id": "01_kim",
+      "name": "Jonny Kim",
+      "source_sha256": "4807d6ff31c34867ab51319a7787ba6f616edd7e7d1d10921716d856715bcc9f",
+      "source_file": "/workspace/shared/asian-portrait-qa/images/01_kim.jpg",
+      "source_url": "https://images-assets.nasa.gov/image/jsc2024e052605_alt/metadata.json",
+      "credit": "NASA/Josh Valcarcel",
+      "adult_verified_from_manifest": true,
+      "adult_evidence": {
+        "verified": true,
+        "method": "official_career_chronology",
+        "statement_zh": "\u5b98\u65b9\u5c65\u5386\u8bb0\u8f7d2002\u5e74\u9ad8\u4e2d\u6bd5\u4e1a\u540e\u5165\u4f0d\u30012012\u5e74\u5927\u5b66\u6bd5\u4e1a\u4efb\u6d77\u519b\u519b\u5b98\uff1b\u8096\u50cf\u62cd\u4e8e2024\u5e74\uff0c\u660e\u786e\u4e3a\u6210\u4eba\u3002\u6ca1\u6709\u4ece\u4eba\u8138\u4f30\u9f84\uff0c\u4e5f\u4e0d\u5f3a\u586b\u51fa\u751f\u65e5\u671f\u3002",
+        "source_url": "https://www.nasa.gov/wp-content/uploads/2023/08/kim-jb.pdf",
+        "age_at_capture_years": null
+      },
+      "original_size": [
+        5202,
+        6502
+      ],
+      "crop_original_pixels": [
+        2218,
+        937,
+        3483,
+        2202
+      ],
+      "individual_detection_size": [
+        720,
+        900
+      ],
+      "individual_detection_ms": 16.585,
+      "individual_detected_faces": 1,
+      "individual_landmark_count": 478
+    },
+    {
+      "id": "02_chawla",
+      "name": "Kalpana Chawla",
+      "source_sha256": "9684ac71dd860205208f36553443a4466e4ca2d67397e2e22e31f4f29d5a67bb",
+      "source_file": "/workspace/shared/asian-portrait-qa/images/02_chawla.jpg",
+      "source_url": "https://images-assets.nasa.gov/image/KSC-02pd1127/metadata.json",
+      "credit": "NASA",
+      "adult_verified_from_manifest": true,
+      "adult_evidence": {
+        "verified": true,
+        "method": "official_education_chronology",
+        "statement_zh": "\u5b98\u65b9\u5c65\u5386\u8bb0\u8f7d1982\u5e74\u83b7\u5b66\u58eb\u30011984\u5e74\u83b7\u7855\u58eb\u30011988\u5e74\u83b7\u535a\u58eb\uff1b\u8096\u50cf\u62cd\u4e8e2002\u5e74\uff0c\u660e\u786e\u4e3a\u6210\u4eba\u3002\u516c\u5f00\u51fa\u751f\u65e5\u671f\u6709\u4e0d\u540c\u7248\u672c\uff0c\u672c\u5305\u4e0d\u5f3a\u586b\u7cbe\u786e\u5e74\u9f84\u3002",
+        "source_url": "https://www.nasa.gov/wp-content/uploads/2020/09/chawla_kalpana.pdf",
+        "age_at_capture_years": null
+      },
+      "original_size": [
+        2400,
+        3000
+      ],
+      "crop_original_pixels": [
+        796,
+        630,
+        1597,
+        1432
+      ],
+      "individual_detection_size": [
+        720,
+        900
+      ],
+      "individual_detection_ms": 17.979,
+      "individual_detected_faces": 1,
+      "individual_landmark_count": 478
+    },
+    {
+      "id": "04_yamazaki",
+      "name": "Naoko Yamazaki",
+      "source_sha256": "00cae456fcf5e76a9ac74678669ad440b500d44384720ca21243eba40a802ce2",
+      "source_file": "/workspace/shared/asian-portrait-qa/images/04_yamazaki.jpg",
+      "source_url": "https://images-assets.nasa.gov/image/jsc2010e008472/metadata.json",
+      "credit": "NASA/Robert Markowitz",
+      "adult_verified_from_manifest": true,
+      "adult_evidence": {
+        "verified": true,
+        "method": "official_birth_year_and_capture_date",
+        "birth_year": 1970,
+        "age_at_capture_years": null,
+        "age_at_capture_range_years": [
+          38,
+          39
+        ],
+        "source_url": "https://searchpub.nssc.nasa.gov/servlet/sm.web.Fetch/Astronaut_Fact_Book_2005.pdf?did=1160778&rhid=1000&type=released",
+        "statement_zh": "\u5b98\u65b9\u51fa\u751f\u5e741970\uff0c\u8096\u50cf\u62cd\u6444\u65e5\u671f2009-11-02\uff1b\u6309\u5e74\u754c\u7ea638\u201339\u5c81\uff0c\u4e0d\u4ece\u5916\u8c8c\u4f30\u9f84\u3002"
+      },
+      "original_size": [
+        5412,
+        7216
+      ],
+      "crop_original_pixels": [
+        1828,
+        807,
+        3441,
+        2421
+      ],
+      "individual_detection_size": [
+        675,
+        900
+      ],
+      "individual_detection_ms": 14.924,
+      "individual_detected_faces": 1,
+      "individual_landmark_count": 478
+    },
+    {
+      "id": "05_mukai",
+      "name": "Chiaki Mukai",
+      "source_sha256": "953f91ea6e69d5bdc86e87380b127627e7e5dcf6c0a9d6b7b7edf3fa6d3ed8ad",
+      "source_file": "/workspace/shared/asian-portrait-qa/images/05_mukai.jpg",
+      "source_url": "https://images-assets.nasa.gov/image/S97-00568/metadata.json",
+      "credit": "NASA",
+      "adult_verified_from_manifest": true,
+      "adult_evidence": {
+        "verified": true,
+        "method": "official_birth_date_and_capture_date",
+        "birth_date": "1952-05-06",
+        "age_at_capture_years": 44,
+        "source_url": "https://www.nasa.gov/wp-content/uploads/2016/01/mukai.pdf",
+        "statement_zh": "\u5b98\u65b9\u51fa\u751f\u65e5\u671f1952-05-06\uff1b\u8096\u50cf\u62cd\u4e8e1996-10-02\uff0c44\u5c81\u3002"
+      },
+      "original_size": [
+        3298,
+        4122
+      ],
+      "crop_original_pixels": [
+        913,
+        860,
+        2505,
+        2452
+      ],
+      "individual_detection_size": [
+        720,
+        900
+      ],
+      "individual_detection_ms": 18.098,
+      "individual_detected_faces": 1,
+      "individual_landmark_count": 478
+    },
+    {
+      "id": "06_chiao",
+      "name": "Leroy Chiao",
+      "source_sha256": "0f4e537e2b615564072e774f3a3133621b8e3db1dee2e8dd46ac25f18d40914f",
+      "source_file": "/workspace/shared/asian-portrait-qa/images/06_chiao.jpg",
+      "source_url": "https://images-assets.nasa.gov/image/S98-01237/metadata.json",
+      "credit": "NASA",
+      "adult_verified_from_manifest": true,
+      "adult_evidence": {
+        "verified": true,
+        "method": "official_birth_date_and_capture_date",
+        "birth_date": "1960-08-28",
+        "age_at_capture_years": 37,
+        "source_url": "https://ntrs.nasa.gov/api/citations/20000056996/downloads/20000056996.pdf",
+        "statement_zh": "NASA \u7684 A Tribute to Minority Astronauts: Past and Present \u4eba\u7269\u9875\u8bb0\u8f7d1960-08-28\u51fa\u751f\uff1b\u8096\u50cf\u62cd\u4e8e1997-12-01\uff0c37\u5c81\u3002"
+      },
+      "original_size": [
+        2800,
+        3500
+      ],
+      "crop_original_pixels": [
+        1091,
+        761,
+        1839,
+        1508
+      ],
+      "individual_detection_size": [
+        720,
+        900
+      ],
+      "individual_detection_ms": 14.026,
+      "individual_detected_faces": 1,
+      "individual_landmark_count": 478
+    }
+  ],
+  "results": [
+    {
+      "image_file": "synthetic-2-adults-900.png",
+      "landmarks_file": "synthetic-2-adults-900.landmarks.json",
+      "synthetic_composite": true,
+      "not_real_group_photo": true,
+      "placements": [
+        {
+          "source_id": "01_kim",
+          "paste_xy": [
+            20,
+            58
+          ],
+          "size": [
+            420,
+            420
+          ]
+        },
+        {
+          "source_id": "02_chawla",
+          "paste_xy": [
+            460,
+            58
+          ],
+          "size": [
+            420,
+            420
+          ]
+        }
+      ],
+      "image_sha256": "7cd86c7757c5c3d7e12d075acdbbabf6e52b6f6520ad5accbbcd295346246e9d",
+      "landmarks_sha256": "a8ad7c084ed67f34aa9d4436b92ae8c8c970d7d9e2569b2122648832f991838d",
+      "expected_faces": 2,
+      "detected_faces": 2,
+      "landmark_counts": [
+        478,
+        478
+      ],
+      "detection_size": {
+        "width": 900,
+        "height": 500
+      },
+      "duration_ms": 25.155,
+      "pass": true
+    },
+    {
+      "image_file": "synthetic-5-adults-900.png",
+      "landmarks_file": "synthetic-5-adults-900.landmarks.json",
+      "synthetic_composite": true,
+      "not_real_group_photo": true,
+      "placements": [
+        {
+          "source_id": "01_kim",
+          "paste_xy": [
+            15,
+            64
+          ],
+          "size": [
+            280,
+            280
+          ]
+        },
+        {
+          "source_id": "02_chawla",
+          "paste_xy": [
+            310,
+            64
+          ],
+          "size": [
+            280,
+            280
+          ]
+        },
+        {
+          "source_id": "04_yamazaki",
+          "paste_xy": [
+            605,
+            64
+          ],
+          "size": [
+            280,
+            280
+          ]
+        },
+        {
+          "source_id": "05_mukai",
+          "paste_xy": [
+            160,
+            384
+          ],
+          "size": [
+            280,
+            280
+          ]
+        },
+        {
+          "source_id": "06_chiao",
+          "paste_xy": [
+            460,
+            384
+          ],
+          "size": [
+            280,
+            280
+          ]
+        }
+      ],
+      "image_sha256": "9002f7b832558e4d8c9689b4f903ac1cd48f5dbdbec547c7de51bc9dbab1c035",
+      "landmarks_sha256": "45a803fc2159840d5ea9d9977c6b87774aee8eadab2b97bb7d9632b4c2de569a",
+      "expected_faces": 5,
+      "detected_faces": 5,
+      "landmark_counts": [
+        478,
+        478,
+        478,
+        478,
+        478
+      ],
+      "detection_size": {
+        "width": 900,
+        "height": 680
+      },
+      "duration_ms": 65.66,
+      "pass": true
+    }
+  ],
+  "pass": true
+}

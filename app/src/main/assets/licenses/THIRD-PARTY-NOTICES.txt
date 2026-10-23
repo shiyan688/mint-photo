@@ -1,0 +1,54 @@
+ 第三方组件与素材声明
+
+本应用的人像模型在本机运行，不上传照片。所有模型随 APK 打包；应用不申请网络权限。
+
+ MediaPipe
+
+- 官方运行库：com.google.mediapipe:tasks-vision:1.0.0（与 tasks-core:1.0.0）。
+- 官方仓库：https://github.com/google-ai-edge/mediapipe
+- 许可：Apache License 2.0。许可证全文位于 app/src/main/assets/licenses/MEDIAPIPE-APACHE-2.0.txt。
+- 原始原生依赖 NOTICE 完整保留于 app/src/main/assets/licenses/tasks-core-1.0.0-NOTICE.txt，涵盖 TensorFlow Lite、XNNPACK 等被合并的代码及各自声明。
+- MediaPipe 官方隐私说明：https://developers.google.com/edge/mediapipe/solutions/tasks。此版本主动删除网络权限、datatransport 后台组件，防止指标联网传输。
+
+ 模型
+
+官方模型卡均声明 Apache License 2.0：
+- 人脸检测：https://storage.googleapis.com/mediapipe-assets/MediaPipe%20BlazeFace%20Model%20Card%20%28Short%20Range%29.pdf
+- 478 关键点：https://storage.googleapis.com/mediapipe-assets/Model%20Card%20MediaPipe%20Face%20Mesh%20V2.pdf
+- 附带表情模型（本应用不请求表情输出）：https://storage.googleapis.com/mediapipe-assets/Model%20Card%20Blendshape%20V2.pdf
+- 人像分割：https://storage.googleapis.com/mediapipe-assets/Model%20Card%20MediaPipe%20Selfie%20Segmentation.pdf
+
+精确下载地址、SHA-256、体积与运行库坐标见 MODEL-DEPENDENCIES.json，同一文件已打包在 APK 的 licenses 目录。
+
+ 演示照片
+
+NASA 宇航员 Eileen Collins 公共领域照片，scikit-image 分发的 astronaut.png。
+- 来源：https://raw.githubusercontent.com/scikit-image/scikit-image/v0.25.2/skimage/data/astronaut.png
+- 原始说明与公共领域声明：https://scikit-image.org/docs/stable/api/skimage.data.htmlskimage.data.astronaut
+- SHA-256：88431cd9653ccd539741b555fb0a46b61558b301d4110412b5bc28b5e3ea6cb5
+- 演示和自动测试用途，不是用户照片，不代表人物为本应用背书。
+
+ 运行时依赖
+
+依赖准确版本与其发布 POM 声明如下；原始包内提供的 NOTICE/LICENSE 文件均保留于 assets/licenses。
+- androidx.annotation:annotation:1.1.0: The Apache Software License, Version 2.0
+- com.google.mediapipe:tasks-vision:1.0.0: The Apache Software License, Version 2.0
+- com.google.mediapipe:tasks-core:1.0.0: The Apache Software License, Version 2.0
+- com.google.guava:guava:27.0.1-android: 继承上游项目声明；见官方项目及原始 NOTICE。
+- com.google.guava:failureaccess:1.0.1: 继承上游项目声明；见官方项目及原始 NOTICE。
+- com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava: 继承上游项目声明；见官方项目及原始 NOTICE。
+- com.google.code.findbugs:jsr305:3.0.2: The Apache Software License, Version 2.0
+- org.checkerframework:checker-compat-qual:2.5.3: GNU General Public License, version 2 (GPL2), with the classpath exception, The MIT License
+- com.google.errorprone:error_prone_annotations:2.2.0: Apache 2.0
+- com.google.j2objc:j2objc-annotations:1.1: The Apache Software License, Version 2.0
+- org.codehaus.mojo:animal-sniffer-annotations:1.17: 继承上游项目声明；见官方项目及原始 NOTICE。
+- com.google.flogger:flogger:0.6: Apache 2.0
+- com.google.flogger:flogger-system-backend:0.6: Apache 2.0
+- com.google.protobuf:protobuf-javalite:4.26.1: 继承上游项目声明；见官方项目及原始 NOTICE。
+- com.google.android.datatransport:transport-api:3.0.0: The Apache Software License, Version 2.0
+- com.google.android.datatransport:transport-backend-cct:3.1.0: The Apache Software License, Version 2.0
+- com.google.android.datatransport:transport-runtime:3.1.0: The Apache Software License, Version 2.0
+- com.google.firebase:firebase-encoders:17.0.0: The Apache Software License, Version 2.0
+- com.google.firebase:firebase-encoders-proto:16.0.0: The Apache Software License, Version 2.0
+- com.google.firebase:firebase-encoders-json:18.0.0: The Apache Software License, Version 2.0
+- javax.inject:javax.inject:1: 继承上游项目声明；见官方项目及原始 NOTICE。
