@@ -41,8 +41,9 @@ public final class AiFlowInstrumentation extends Instrumentation {
             until("document.readyState==='complete'&&document.querySelector('#portraitDemoBtn')&&typeof document.querySelector('#portraitDemoBtn').onclick==='function'&&typeof Android.editImage==='function'&&!Android.isExportBusy()",90000);
             AtomicReference<Boolean> blocked=new AtomicReference<>();runOnMainSync(()->blocked.set(web.getSettings().getBlockNetworkLoads()));require(blocked.get(),"WebView network stays blocked");
             require("true".equals(js("Android.samplePng('../index.html')===''&&Android.samplePng('missing')===''")),"sample bridge rejects filenames and unknown IDs");
+            verifyHomeActions();
             click("#importBtn");waitPicker();chooseDownloads();tapText("mint-e2e-source.png");until("document.querySelector('#imageInfo').textContent.includes('512 × 512')&&document.querySelector('#busy').hidden&&!Android.isExportBusy()",30000);
-            capture("photo-imported");verifyEditorLayout();measureAdjustments();capture("adjustments-neutral");js("window.__beforeAi=document.querySelector('#previewCanvas').toDataURL();true");
+            capture("photo-imported");verifyEditorLayout();measureAdjustments();capture("adjustments-neutral");verifyHomeAiEntry();js("window.__beforeAi=document.querySelector('#previewCanvas').toDataURL();true");
             js("(()=>{const t=MintAiTransport;window.MintAiTransport={receive:t.receive,send:(data,signal)=>{window.__sentImage=data.image;window.__sentMask=data.mask;return t.send(data,signal);}};})()");
             writePng("ai-e2e-before-erase.png","window.__beforeAi");
             stage="erase";openAi("erase","/v1/images/edits");paint();capture("erase-selected");send();
@@ -97,6 +98,66 @@ public final class AiFlowInstrumentation extends Instrumentation {
             JSONObject t=targets.getJSONObject(i);
             require(t.getDouble("w")>=39.5&&t.getDouble("h")>=39.5&&t.getBoolean("inViewport")&&t.getBoolean("uncovered"),"40 CSS px reachable touch target: "+t);
         }
+    }
+    private void reachTarget(String selector)throws Exception {
+        js("document.querySelector("+JSONObject.quote(selector)+").scrollIntoView({block:'center',inline:'nearest',behavior:'instant'});true");
+        settleLayout();assertTouchTargets(selector);
+    }
+    private void verifyHomeActions()throws Exception {
+        stage="home-surface";
+        require("true".equals(js("document.body.classList.contains('is-home')&&document.documentElement.scrollWidth<=innerWidth+1&&!document.querySelector('#aiDialog').open")),"empty home is visible without overflow or an image-less AI sheet");
+        for(String selector:new String[]{"#importBtn","#homeLibrary","[data-start-tool=portrait]","#homeAiBtn","[data-start-tool=collage]"})reachTarget(selector);
+        reachTarget("#importBtn");capture("home-actions");
+        click("#homeLibrary");until("document.querySelector('#projectLibraryDialog').open",10000);
+        require(true,"home library card opens the existing project library with real touch");
+        click("#projectLibraryClose");until("!document.querySelector('#projectLibraryDialog').open",10000);
+    }
+    private void verifyHomeAiEntry()throws Exception {
+        stage="home-ai-entry";click("#homeBack");
+        until("document.body.classList.contains('is-home')",10000);click("#homeAiBtn");
+        until("document.querySelector('#aiDialog').open&&!document.querySelector('#aiSend').disabled",10000);
+        require("true".equals(js("document.querySelector('#aiServiceDetails').open")),"AI service settings start expanded from the home entry");
+        assertSheetFits("#aiDialog","home-ai");capture("home-ai-opened");
+        click("#aiClose");until("!document.querySelector('#aiDialog').open",10000);
+        if("true".equals(js("document.body.classList.contains('is-home')")))click("#resumeBtn");
+        until("document.body.classList.contains('is-editing')",10000);settleLayout();
+        require("true".equals(js("document.querySelector('#applyBar').hidden&&document.querySelector('#previewCanvas').toDataURL()===window.__layoutPixels")),"home AI entry and dismissal preserve the neutral photo without adding a preview");
+    }
+    private void assertSheetFits(String selector,String label)throws Exception {
+        settleLayout();
+        JSONObject sheet=new JSONObject(js("(()=>{const e=document.querySelector("+JSONObject.quote(selector)+"),r=e.getBoundingClientRect(),controls=Array.from(e.querySelectorAll('button,input,select,textarea')).map(n=>{const b=n.getBoundingClientRect();return{id:n.id||n.tagName,x:b.left,right:b.right,w:b.width,h:b.height};}).filter(b=>b.w&&b.h);return{open:e.open,x:r.left,y:r.top,right:r.right,bottom:r.bottom,w:r.width,h:r.height,viewportWidth:innerWidth,viewportHeight:innerHeight,clientWidth:e.clientWidth,scrollWidth:e.scrollWidth,clientHeight:e.clientHeight,scrollHeight:e.scrollHeight,scrollTop:e.scrollTop,overflowY:getComputedStyle(e).overflowY,wideControls:controls.filter(b=>b.x<r.left-1||b.right>r.right+1)};})()"));
+        write("ai-e2e-sheet-"+label+".json",sheet.toString(2));
+        require(sheet.getBoolean("open")&&sheet.getDouble("x")>=-1&&sheet.getDouble("y")>=-1&&sheet.getDouble("right")<=sheet.getDouble("viewportWidth")+1&&sheet.getDouble("bottom")<=sheet.getDouble("viewportHeight")+1,label+": open sheet fits the real WebView viewport");
+        require(sheet.getDouble("scrollWidth")<=sheet.getDouble("clientWidth")+1&&sheet.getJSONArray("wideControls").length()==0,label+": sheet and visible controls have no horizontal overflow");
+        if(sheet.getDouble("scrollHeight")>sheet.getDouble("clientHeight")+1)require("auto".equals(sheet.getString("overflowY"))||"scroll".equals(sheet.getString("overflowY")),label+": long sheet permits vertical user scrolling");
+    }
+    private void swipeSheetToAction(String sheetSelector,String actionSelector,String label)throws Exception {
+        for(int swipe=0;swipe<=12;swipe++){
+            settleLayout();
+            JSONObject position=new JSONObject(js("(()=>{const s=document.querySelector("+JSONObject.quote(sheetSelector)+"),a=document.querySelector("+JSONObject.quote(actionSelector)+"),r=s.getBoundingClientRect(),t=a.getBoundingClientRect(),hit=document.elementFromPoint(t.left+t.width/2,t.top+t.height/2);return{visible:t.width>0&&t.height>0&&t.top>=Math.max(0,r.top)&&t.bottom<=Math.min(innerHeight,r.bottom)&&!!hit&&(hit===a||a.contains(hit)),x:r.right-14,top:Math.max(r.top,0)+60,bottom:Math.min(r.bottom,innerHeight)-60,viewportWidth:innerWidth,scrollTop:s.scrollTop};})()"));
+            if(position.getBoolean("visible")){
+                assertTouchTargets(actionSelector);assertSheetFits(sheetSelector,label);
+                require(true,label+": action reached after "+swipe+" real touch scroll gestures");return;
+            }
+            if(swipe==12)throw new AssertionError("Sheet action not reachable by touch scrolling: "+actionSelector+"; "+position);
+            double from=position.getDouble("bottom"),to=position.getDouble("top");
+            require(from-to>=80,label+": sheet has a usable vertical swipe area");
+            int[] offset=new int[2],width=new int[1];runOnMainSync(()->{web.getLocationOnScreen(offset);width[0]=web.getWidth();});
+            float scale=width[0]/(float)position.getDouble("viewportWidth"),x=offset[0]+(float)position.getDouble("x")*scale,start=offset[1]+(float)from*scale,end=offset[1]+(float)to*scale;
+            long down=SystemClock.uptimeMillis();pointer(down,MotionEvent.ACTION_DOWN,x,start);
+            for(int step=1;step<=12;step++){SystemClock.sleep(20);pointer(down,MotionEvent.ACTION_MOVE,x,start+(end-start)*step/12);}
+            pointer(down,MotionEvent.ACTION_UP,x,end);SystemClock.sleep(250);
+        }
+    }
+    private void verifyAiSheet(String mode)throws Exception {
+        require("true".equals(js("document.querySelector('#aiServiceDetails').open")),mode+": service details are initially open");
+        assertSheetFits("#aiDialog","ai-"+mode+"-top");
+        for(String selector:new String[]{"#aiClose","#aiServiceDetails > summary","#aiEndpoint","#aiModel","#aiKey","#aiMode","#aiPrompt","#aiConsentRow"})reachTarget(selector);
+        if("erase".equals(mode)){reachTarget("#aiBrush");reachTarget("#aiUndo");reachTarget("#aiClear");}
+        else for(String edge:new String[]{"left","right","top","bottom"})reachTarget("#aiPad-"+edge);
+        // Return to the top so the send reachability check must use real scroll
+        // gestures on a long sheet, rather than a previous scripted scroll.
+        js("document.querySelector('#aiDialog').scrollTop=0;true");settleLayout();
     }
     private void verifyEditorLayout()throws Exception {
         stage="editor-layout";
@@ -157,10 +218,17 @@ public final class AiFlowInstrumentation extends Instrumentation {
     }
     private void openAi(String mode,String path)throws Exception {
         until("document.querySelector('#busy').hidden&&!Android.isExportBusy()&&!MintAiUI.isBusy()",30000);
-        js("if(document.querySelector('#headerMenu')&&!document.querySelector('#headerMenu').open)document.querySelector('#headerMenu summary').click();true");click("#aiBtn");until("document.querySelector('#aiDialog').open&&!document.querySelector('#aiSend').disabled",20000);
+        if("true".equals(js("!document.querySelector('#headerMenu').open")))click("#headerMenu summary");click("#aiBtn");until("document.querySelector('#aiDialog').open&&!document.querySelector('#aiSend').disabled",20000);
         js("document.querySelector('#aiEndpoint').value='https://10.0.2.2:9443"+path+"';document.querySelector('#aiModel').value='mock-png-v1';document.querySelector('#aiKey').value='mint-e2e-not-secret';let m=document.querySelector('#aiMode');m.value='"+mode+"';m.dispatchEvent(new Event('change'));true");
+        if("/v1/images/edits".equals(path))verifyAiSheet(mode);
     }
-    private void send()throws Exception {requestStarted=SystemClock.uptimeMillis();js("document.querySelector('#aiConsent').checked=true;document.querySelector('#aiSend').click();true");}
+    private void send()throws Exception {
+        if(!"true".equals(js("document.querySelector('#aiConsent').checked")))click("#aiConsentRow");
+        require("true".equals(js("document.querySelector('#aiConsent').checked")),"upload consent is selected by real touch");
+        js("document.querySelector('#aiDialog').scrollTop=0;true");
+        swipeSheetToAction("#aiDialog","#aiSend","ai-"+stage+"-send");capture(stage+"-send-reachable");
+        requestStarted=SystemClock.uptimeMillis();click("#aiSend");
+    }
     private void paint()throws Exception {
         js("document.querySelector('#aiCanvas').scrollIntoView({block:'center'});true");SystemClock.sleep(300);
         JSONArray r=new JSONArray(js("(()=>{let r=document.querySelector('#aiCanvas').getBoundingClientRect();return[r.left,r.top,r.width,r.height,innerWidth,innerHeight]})()"));
@@ -182,15 +250,21 @@ public final class AiFlowInstrumentation extends Instrumentation {
     private void writePng(String name,String expression)throws Exception {String data=new JSONArray(js("["+expression+"]")).getString(0);if(!data.startsWith("data:image/png;base64,"))throw new AssertionError("PNG evidence missing");try(FileOutputStream out=getTargetContext().openFileOutput(name,0)){out.write(android.util.Base64.decode(data.substring(22),android.util.Base64.DEFAULT));}}
 
     private void accept()throws Exception {
-        js("window.__acceptedPng=document.querySelector('#aiResult').src;document.querySelector('#aiAccept').click();true");
+        js("window.__acceptedPng=document.querySelector('#aiResult').src;true");
+        reachTarget("#aiAccept");click("#aiAccept");
         for(int i=0;i<30;i++){if("true".equals(js("!!document.querySelector('#confirmDialog')?.open")))click("#confirmYes");if("true".equals(js("!document.querySelector('#aiDialog').open&&document.querySelector('#busy').hidden")))break;SystemClock.sleep(300);}
         until("!document.querySelector('#aiDialog').open&&document.querySelector('#busy').hidden",20000);
     }
     private void saveAndReopen(String mode,int w,int h)throws Exception {
-        stage=mode+"-save";long saveStart=SystemClock.uptimeMillis();js("window.__savedPreview=document.querySelector('#previewCanvas').toDataURL();true");click("#exportBtn");until("document.querySelector('#exportDialog').open",10000);click("[data-format='image/png']");click("#saveBtn");
+        stage=mode+"-save";long saveStart=SystemClock.uptimeMillis();js("window.__savedPreview=document.querySelector('#previewCanvas').toDataURL();true");click("#exportBtn");until("document.querySelector('#exportDialog').open",10000);
+        assertSheetFits("#exportDialog",mode+"-save-top");
+        for(String selector:new String[]{"[data-close=exportDialog]","[data-format='image/jpeg']","[data-format='image/png']","#exportResolution","#exportSize"})reachTarget(selector);
+        click("[data-format='image/jpeg']");reachTarget("#quality");click("[data-format='image/png']");
+        js("document.querySelector('#exportDialog').scrollTop=0;true");
+        swipeSheetToAction("#exportDialog","#saveBtn",mode+"-save-action");capture(mode+"-save-reachable");click("#saveBtn");
         waitPicker();chooseDownloads();capture(mode+"-save-picker");AccessibilityNodeInfo edit=findClass(getUiAutomation().getRootInActiveWindow(),"android.widget.EditText");require(edit!=null,"system filename input exists");Bundle text=new Bundle();text.putCharSequence(AccessibilityNodeInfo.ACTION_ARGUMENT_SET_TEXT_CHARSEQUENCE,"mint-e2e-"+mode+".png");require(edit.performAction(AccessibilityNodeInfo.ACTION_SET_TEXT,text),"system filename set");tapText("Save");
         until("!Android.isExportBusy()&&document.querySelector('#toast').textContent.includes('已保存')",30000);timings.put(mode+"SaveWithSystemPicker",SystemClock.uptimeMillis()-saveStart);require(true,"native PNG write completed");capture(mode+"-saved");
-        stage=mode+"-reopen";long reopenStart=SystemClock.uptimeMillis();js("window.__previousSourceRevision=document.querySelector('#imageInfo').dataset.sourceRevision;window.__fileChosen=false;document.querySelector('#fileInput').addEventListener('change',()=>{window.__fileChosen=true;},{once:true});true");js("if(document.querySelector('#headerMenu')&&!document.querySelector('#headerMenu').open)document.querySelector('#headerMenu summary').click();true");click("#openTop");waitPicker();chooseDownloads();tapText("mint-e2e-"+mode+".png");until("window.__fileChosen",20000);
+        stage=mode+"-reopen";long reopenStart=SystemClock.uptimeMillis();js("window.__previousSourceRevision=document.querySelector('#imageInfo').dataset.sourceRevision;window.__fileChosen=false;document.querySelector('#fileInput').addEventListener('change',()=>{window.__fileChosen=true;},{once:true});true");if("true".equals(js("!document.querySelector('#headerMenu').open")))click("#headerMenu summary");click("#openTop");waitPicker();chooseDownloads();tapText("mint-e2e-"+mode+".png");until("window.__fileChosen",20000);
         for(int i=0;i<40;i++){if("true".equals(js("!!document.querySelector('#confirmDialog')?.open")))click("#confirmYes");if("true".equals(js("document.querySelector('#imageInfo').textContent.includes('"+w+" × "+h+"')&&!Android.isExportBusy()")))break;SystemClock.sleep(300);}
         until("window.__fileChosen&&document.querySelector('#busy').hidden&&!Android.isExportBusy()&&document.querySelector('#imageInfo').dataset.sourceRevision!==window.__previousSourceRevision&&document.querySelector('#imageInfo').textContent.includes('"+w+" × "+h+"')&&document.querySelector('#previewCanvas').toDataURL()===window.__savedPreview",30000);timings.put(mode+"ReopenWithSystemPicker",SystemClock.uptimeMillis()-reopenStart);require(true,"saved "+mode+" PNG reopened with identical rendered pixels and dimensions");capture(mode+"-reopened");
     }
