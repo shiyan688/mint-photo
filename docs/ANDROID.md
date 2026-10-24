@@ -1,7 +1,9 @@
 # Android 构建与安装
 
-当前应用名为「薄荷修图」，开发分支显示版本 `0.3.0-dev`，Android `versionCode` 为 5（公开Release仍为0.2.0-preview）。
+当前应用名为「薄荷修图」，开发分支显示版本 `0.3.3-dev`，Android `versionCode` 为 8。安装包下载以仓库 README 和对应 Release 为准，0.2 为历史预览。
 包名保留为 `com.qingyan.editor.portrait`，Java 命名空间为 `com.qingyan.editor`。
+
+2026-10-25 最终应用源码 `1058180` 的两 ABI 调试包通过构建、lint、签名、16 KiB 对齐与 95 个资源逐字节核对，见[构建报告](quality/surfaces-build-20261025.json)。[本轮原生报告](quality/surfaces-android-20261025/report.json)来自 API35 / x86_64 模拟器和 HTTPS 模拟服务，包含实际 WebView 操作、系统文件保存和重开；它不代表 ARM 实体手机、真实 AI 生成效果或设备性能验收。界面与范围见[首页与弹窗记录](SURFACE-STYLE-QUALITY.md)。
 
 ## 工具链
 

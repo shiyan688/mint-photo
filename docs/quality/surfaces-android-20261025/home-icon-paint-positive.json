@@ -1,0 +1,70 @@
+{
+  "result": "PASS",
+  "screenshot": "docs\\quality\\surfaces-android-20261025\\ai-e2e-home-actions.png",
+  "screenshotSha256": "98faffdbd68c907a9ebef33466cac53398307e3f55dfe974c7e37fb33e59a4e2",
+  "probeSha256": "9177211773078e6231f6bf7cee3d72756c721ca0bff2889f0426adac5fc13fe7",
+  "method": "SVG center 75%, RGB sum below 390, minimum 8 dark pixels; current light/lime home surfaces",
+  "scope": "Paint presence and contrast only; not shape fidelity or all icons",
+  "entries": [
+    {
+      "selector": "#importBtn",
+      "region": [
+        78,
+        317,
+        103,
+        342
+      ],
+      "insideScreenshot": true,
+      "darkPixels": 87,
+      "passed": true
+    },
+    {
+      "selector": "#homeLibrary",
+      "region": [
+        329,
+        317,
+        353,
+        342
+      ],
+      "insideScreenshot": true,
+      "darkPixels": 202,
+      "passed": true
+    },
+    {
+      "selector": "[data-start-tool=portrait]",
+      "region": [
+        90,
+        442,
+        116,
+        467
+      ],
+      "insideScreenshot": true,
+      "darkPixels": 143,
+      "passed": true
+    },
+    {
+      "selector": "#homeAiBtn",
+      "region": [
+        257,
+        442,
+        283,
+        467
+      ],
+      "insideScreenshot": true,
+      "darkPixels": 188,
+      "passed": true
+    },
+    {
+      "selector": "[data-start-tool=collage]",
+      "region": [
+        424,
+        442,
+        450,
+        467
+      ],
+      "insideScreenshot": true,
+      "darkPixels": 190,
+      "passed": true
+    }
+  ]
+}

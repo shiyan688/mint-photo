@@ -11,8 +11,10 @@ node tests/run-ci.cjs
 sh tests/native/run.sh
 ```
 
-`run-ci.cjs` takes its inventory from `tests/run-pure.sh`, preserves its pure
-paint mode, and supplies Java for the cross-language project-backup checks.
+`run-ci.cjs` first verifies the generated initial HTML icons with
+`tools/prerender-icons.cjs --check`, then takes its test inventory from
+`tests/run-pure.sh`, preserves its pure paint mode, and supplies Java for the
+cross-language project-backup checks.
 One historical suite, `beauty-protection-independent.test.cjs`, is explicitly
 excluded: the original `quality/portrait-people-independent/2.rgba.gz` and
 `5.rgba.gz` photographs are absent from this source package. The fixture-dependent
@@ -38,15 +40,16 @@ signing key is created or published. CI debug certificates are ephemeral, so
 different CI runs may not update one another in place. Export important projects
 before uninstalling a previous preview.
 
-The package ID stays `com.qingyan.editor.portrait`; version code is 5
-and the visible development version is `0.3.0-dev`, with app label `薄荷修图`.
+The package ID stays `com.qingyan.editor.portrait`; version code is 8
+and the visible development version is `0.3.3-dev`, with app label `薄荷修图`.
 Matching the package ID alone does not make a differently signed older APK
 upgradable. Release builds remain unsigned until a release identity is configured.
 
-Passing this workflow demonstrates source tests, compilation, lint, and APK
-signing. It does not demonstrate real WebView behavior, Android file-provider
-recovery, touch/keyboard behavior, database durability, photographic quality,
-or phone performance. The older dated validation reports are historical evidence.
+Passing the source and APK jobs alone demonstrates source tests, compilation,
+lint, and APK signing. The separate emulator job below checks a bounded set of
+WebView and system-save interactions; neither layer establishes physical-device
+keyboard behavior, database durability, photographic quality, or phone
+performance. The older dated validation reports are historical evidence.
 
 ## Optional native Canvas checks
 
@@ -100,5 +103,13 @@ before extracting; executable permissions and package metadata are preserved.
 `tests/check-ai-mock-cancel.cjs` additionally verifies real TLS upload cancellation
 followed by a successful new multipart request before the Android build.
 
-Final successful mock run and independent saved-PNG verification:
-[2026-10-24 evidence](quality/android-ai-e2e-20261024/README.md).
+Latest successful mock run: [40120891206](https://github.com/shiyan688/mint-photo/actions/runs/40120891206),
+source `1058180c00b0e972ee5b5f46d04c4103aef6f6f4`, version `0.3.3-dev` / code 8.
+The [2026-10-25 report](quality/surfaces-android-20261025/report.json) records
+278 flow/layout checks, 53 emulator touches reaching the intended targets, and
+7 independent saved-PNG checks. These counts are not feature counts or real-AI
+acceptance. The [surface review](SURFACE-STYLE-QUALITY.md) separates this final
+source from the earlier 390 × 844 browser evidence.
+
+Historical [2026-10-24 evidence](quality/android-ai-e2e-20261024/README.md)
+remains available for its corresponding source version.

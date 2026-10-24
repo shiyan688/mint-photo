@@ -4,19 +4,19 @@
 
 薄荷是一款在设备上处理照片的修图工具，把日常调色、构图、人像精修和创意排版放进同一个工作区。无需登录，也没有广告；可以随时对比原图、撤销修改，并把作品保存在本地继续编辑。
 
-**当前提供 0.3.2 开发预览（APK 0.3.2-dev），不是正式版。** 这一版保留深色画布、底部四类工具和单参数长滑杆，细化保存/确认按钮、选中工具及按压与焦点状态。浏览器可体验日常修图与手动精修；自动人脸识别与人物分割依赖 Android 本地模型。
+**当前提供 0.3.3 开发预览（APK 0.3.3-dev / versionCode 8），不是正式版。** 首页以黑色和黄绿色双入口整理功能，AI 设置与保存弹窗统一为深色分区、细边框和清晰的选中状态；保留深色画布、底部四类工具和单参数长滑杆。浏览器可体验日常修图与手动精修；自动人脸识别与人物分割依赖 Android 本地模型。
 
-[下载 0.3.2 开发测试包](https://github.com/shiyan688/mint-photo/releases/tag/v0.3.2-dev.1) · [设计参考与界面验收](docs/UI-DESIGN-RESEARCH.md) · [按钮细化与验收](docs/BUTTON-POLISH.md) · [上一版 0.3.1](https://github.com/shiyan688/mint-photo/releases/tag/v0.3.1-dev.1)
+[下载 0.3.3 开发测试包](https://github.com/shiyan688/mint-photo/releases/tag/v0.3.3-dev.1) · [三处界面与验证范围](docs/SURFACE-STYLE-QUALITY.md) · [设计参考](docs/UI-DESIGN-RESEARCH.md) · [上一版 0.3.2](https://github.com/shiyan688/mint-photo/releases/tag/v0.3.2-dev.1)
 
-左为浏览器手机尺寸首页，右为 Android API35 模拟器的实际编辑画面，均为应用运行截图。
+首页、AI 设置与保存弹窗，均为 Android API35 模拟器实际运行截图。AI 链路使用 HTTPS 模拟服务，不代表真实 AI 出图效果。
 
-<p><img src="docs/assets/button-polish-home.png" width="260" alt="浏览器首页"><img src="docs/assets/button-polish-android-editor.png" width="260" alt="Android模拟器编辑器"></p>
+![三处界面实际运行截图](docs/assets/surfaces-overview.png)
 
 ## 后续功能开发
 
 [与醒图的56项差距台账](docs/XINGTU-GAP-MATRIX.md) · [本轮实际进展与验证](docs/FUNCTIONAL-PROGRESS.md)
 
-当前开发分支为0.3.2-dev：新增自动光线、浏览器批量调色，安卓/浏览器共用的自填API、涂抹消除与四边扩图链路，以及试验性的纹理修肤/边缘贴合。Android API35模拟器已通过自填测试配置→消除/扩图→系统保存→重新打开，以及错误/取消重试；设备保存PNG另有独立核对。**真实AI出图、实体手机性能与修图质量仍未验收，不能算AI效果已完成**。已发布0.2测试包不包含这些增量。
+当前开发分支为0.3.3-dev：包含自动光线、浏览器批量调色，安卓/浏览器共用的自填API、涂抹消除与四边扩图链路，以及试验性的纹理修肤/边缘贴合。Android API35模拟器已通过自填测试配置→消除/扩图→系统保存→重新打开，以及错误/取消重试；设备保存PNG另有独立核对。本轮界面更新后的[最终原生证据](docs/quality/surfaces-android-20261025/README.md)包含278条检查记录、53次触摸及7项独立PNG核对。**真实AI出图、实体手机性能与修图质量仍未验收，不能算AI效果已完成**。已发布0.2测试包不包含这些增量。
 
 [安卓AI与照片验收记录](docs/AI-ANDROID-QUALITY.md) · [性能、简化界面与4张真实照片回归](docs/PERFORMANCE-UI-QUALITY.md) · [新版安卓模拟闭环证据](docs/quality/android-ui-e2e-20261025/README.md)
 
@@ -44,10 +44,10 @@ python -m http.server 8080 --bind 127.0.0.1 --directory app/src/main/assets
 浏览器打开 [本地编辑器](http://127.0.0.1:8080)。Windows 也可以把命令中的 `python` 换成 `py`。
 
 1. 选择一张照片，或使用内置示例。
-2. 调整参数后点击「应用修改」，通过按住「对比原图」比较。
+2. 调整参数后点击「确认」，通过「按住对比」比较。
 3. 点击右上角「保存」导出图片；想以后继续修改，可在「更多→作品库」保存工程。
 
-照片处理在本地完成，启动本地服务后不需要互联网。建议一直使用同一地址和端口，方便找到该浏览器里的作品；更换浏览器或清除站点数据不会迁移作品，重要作品请额外导出工程备份。
+基础照片编辑在本地完成，启动本地服务后可离线使用。可选联网 AI 需要网络和兼容的图像编辑服务；浏览器端还需运行 [Node 转发服务](docs/FUNCTIONAL-PROGRESS.md#用户自填api启动)，Android 端使用原生请求。建议一直使用同一地址和端口，方便找到该浏览器里的作品；更换浏览器或清除站点数据不会迁移作品，重要作品请额外导出工程备份。
 
 ## 人像功能与 AI
 
