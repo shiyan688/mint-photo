@@ -1,0 +1,514 @@
+{
+  "date": "2026-10-25",
+  "source": "608c61afb94bfe834be79a44b578e4f19b85ebee",
+  "method": "CUA browser, NASA512 sample",
+  "layouts": [
+    {
+      "overflow": false,
+      "targets": [
+        {
+          "h": 40,
+          "id": "homeBack",
+          "inView": true,
+          "uncovered": true,
+          "w": 40
+        },
+        {
+          "h": 40,
+          "id": "undoBtn",
+          "inView": true,
+          "uncovered": true,
+          "w": 40
+        },
+        {
+          "h": 40,
+          "id": "redoBtn",
+          "inView": true,
+          "uncovered": true,
+          "w": 40
+        },
+        {
+          "h": 40,
+          "id": "more",
+          "inView": true,
+          "uncovered": true,
+          "w": 40
+        },
+        {
+          "h": 40,
+          "id": "exportBtn",
+          "inView": true,
+          "uncovered": true,
+          "w": 80.5999984741211
+        },
+        {
+          "h": 40,
+          "id": "compareBtn",
+          "inView": true,
+          "uncovered": true,
+          "w": 76
+        },
+        {
+          "h": 40,
+          "id": "viewToggle",
+          "inView": true,
+          "uncovered": true,
+          "w": 40
+        },
+        {
+          "h": 48.20000076293945,
+          "id": "color",
+          "inView": true,
+          "uncovered": true,
+          "w": 82.5
+        },
+        {
+          "h": 48.20000076293945,
+          "id": "portrait",
+          "inView": true,
+          "uncovered": true,
+          "w": 82.5
+        },
+        {
+          "h": 48.20000076293945,
+          "id": "compose",
+          "inView": true,
+          "uncovered": true,
+          "w": 82.5
+        },
+        {
+          "h": 48.20000076293945,
+          "id": "create",
+          "inView": true,
+          "uncovered": true,
+          "w": 82.5
+        },
+        {
+          "h": 40,
+          "id": "brightness",
+          "inView": true,
+          "uncovered": true,
+          "w": 320
+        },
+        {
+          "h": 40,
+          "id": "adjust-brightness-option",
+          "inView": true,
+          "uncovered": true,
+          "w": 62
+        },
+        {
+          "h": 40,
+          "id": "adjust-contrast-option",
+          "inView": true,
+          "uncovered": true,
+          "w": 62
+        },
+        {
+          "h": 40,
+          "id": "adjust-saturation-option",
+          "inView": true,
+          "uncovered": true,
+          "w": 62
+        },
+        {
+          "h": 40,
+          "id": "adjust-warmth-option",
+          "inView": true,
+          "uncovered": true,
+          "w": 62
+        }
+      ],
+      "viewport": [
+        360,
+        640
+      ]
+    },
+    {
+      "overflow": false,
+      "targets": [
+        {
+          "h": 40,
+          "id": "homeBack",
+          "inView": true,
+          "uncovered": true,
+          "w": 40
+        },
+        {
+          "h": 40,
+          "id": "undoBtn",
+          "inView": true,
+          "uncovered": true,
+          "w": 40
+        },
+        {
+          "h": 40,
+          "id": "redoBtn",
+          "inView": true,
+          "uncovered": true,
+          "w": 40
+        },
+        {
+          "h": 40,
+          "id": "more",
+          "inView": true,
+          "uncovered": true,
+          "w": 40
+        },
+        {
+          "h": 40,
+          "id": "exportBtn",
+          "inView": true,
+          "uncovered": true,
+          "w": 80.5999984741211
+        },
+        {
+          "h": 40,
+          "id": "compareBtn",
+          "inView": true,
+          "uncovered": true,
+          "w": 76
+        },
+        {
+          "h": 40,
+          "id": "viewToggle",
+          "inView": true,
+          "uncovered": true,
+          "w": 40
+        },
+        {
+          "h": 48.20000076293945,
+          "id": "color",
+          "inView": true,
+          "uncovered": true,
+          "w": 90.0999984741211
+        },
+        {
+          "h": 48.20000076293945,
+          "id": "portrait",
+          "inView": true,
+          "uncovered": true,
+          "w": 90.0999984741211
+        },
+        {
+          "h": 48.20000076293945,
+          "id": "compose",
+          "inView": true,
+          "uncovered": true,
+          "w": 90.0999984741211
+        },
+        {
+          "h": 48.20000076293945,
+          "id": "create",
+          "inView": true,
+          "uncovered": true,
+          "w": 90.0999984741211
+        },
+        {
+          "h": 40,
+          "id": "brightness",
+          "inView": true,
+          "uncovered": true,
+          "w": 350.3999938964844
+        },
+        {
+          "h": 40,
+          "id": "adjust-brightness-option",
+          "inView": true,
+          "uncovered": true,
+          "w": 62
+        },
+        {
+          "h": 40,
+          "id": "adjust-contrast-option",
+          "inView": true,
+          "uncovered": true,
+          "w": 62
+        },
+        {
+          "h": 40,
+          "id": "adjust-saturation-option",
+          "inView": true,
+          "uncovered": true,
+          "w": 62
+        },
+        {
+          "h": 40,
+          "id": "adjust-warmth-option",
+          "inView": true,
+          "uncovered": true,
+          "w": 62
+        }
+      ],
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "overflow": false,
+      "targets": [
+        {
+          "h": 44,
+          "id": "homeBack",
+          "inView": true,
+          "uncovered": true,
+          "w": 44
+        },
+        {
+          "h": 44,
+          "id": "undoBtn",
+          "inView": true,
+          "uncovered": true,
+          "w": 44
+        },
+        {
+          "h": 44,
+          "id": "redoBtn",
+          "inView": true,
+          "uncovered": true,
+          "w": 44
+        },
+        {
+          "h": 44,
+          "id": "more",
+          "inView": true,
+          "uncovered": true,
+          "w": 44
+        },
+        {
+          "h": 40,
+          "id": "exportBtn",
+          "inView": true,
+          "uncovered": true,
+          "w": 102.5999984741211
+        },
+        {
+          "h": 40,
+          "id": "compareBtn",
+          "inView": true,
+          "uncovered": true,
+          "w": 85
+        },
+        {
+          "h": 40,
+          "id": "viewToggle",
+          "inView": true,
+          "uncovered": true,
+          "w": 40
+        },
+        {
+          "h": 49.20000076293945,
+          "id": "color",
+          "inView": true,
+          "uncovered": true,
+          "w": 79.80000305175781
+        },
+        {
+          "h": 49.20000076293945,
+          "id": "portrait",
+          "inView": true,
+          "uncovered": true,
+          "w": 79.80000305175781
+        },
+        {
+          "h": 49.20000076293945,
+          "id": "compose",
+          "inView": true,
+          "uncovered": true,
+          "w": 79.80000305175781
+        },
+        {
+          "h": 49.20000076293945,
+          "id": "create",
+          "inView": true,
+          "uncovered": true,
+          "w": 79.80000305175781
+        },
+        {
+          "h": 40,
+          "id": "brightness",
+          "inView": true,
+          "uncovered": true,
+          "w": 288.8000183105469
+        },
+        {
+          "h": 44,
+          "id": "adjust-brightness-option",
+          "inView": true,
+          "uncovered": true,
+          "w": 62
+        },
+        {
+          "h": 44,
+          "id": "adjust-contrast-option",
+          "inView": true,
+          "uncovered": true,
+          "w": 62
+        },
+        {
+          "h": 44,
+          "id": "adjust-saturation-option",
+          "inView": true,
+          "uncovered": true,
+          "w": 62
+        },
+        {
+          "h": 44,
+          "id": "adjust-warmth-option",
+          "inView": true,
+          "uncovered": true,
+          "w": 62
+        }
+      ],
+      "viewport": [
+        915,
+        412
+      ]
+    },
+    {
+      "overflow": false,
+      "targets": [
+        {
+          "h": 44,
+          "id": "homeBack",
+          "inView": true,
+          "uncovered": true,
+          "w": 44
+        },
+        {
+          "h": 44,
+          "id": "undoBtn",
+          "inView": true,
+          "uncovered": true,
+          "w": 44
+        },
+        {
+          "h": 44,
+          "id": "redoBtn",
+          "inView": true,
+          "uncovered": true,
+          "w": 44
+        },
+        {
+          "h": 44,
+          "id": "more",
+          "inView": true,
+          "uncovered": true,
+          "w": 44
+        },
+        {
+          "h": 40,
+          "id": "exportBtn",
+          "inView": true,
+          "uncovered": true,
+          "w": 102.5999984741211
+        },
+        {
+          "h": 40,
+          "id": "compareBtn",
+          "inView": true,
+          "uncovered": true,
+          "w": 85
+        },
+        {
+          "h": 40,
+          "id": "viewToggle",
+          "inView": true,
+          "uncovered": true,
+          "w": 40
+        },
+        {
+          "h": 49.20000076293945,
+          "id": "color",
+          "inView": true,
+          "uncovered": true,
+          "w": 79.80000305175781
+        },
+        {
+          "h": 49.20000076293945,
+          "id": "portrait",
+          "inView": true,
+          "uncovered": true,
+          "w": 79.80000305175781
+        },
+        {
+          "h": 49.20000076293945,
+          "id": "compose",
+          "inView": true,
+          "uncovered": true,
+          "w": 79.80000305175781
+        },
+        {
+          "h": 49.20000076293945,
+          "id": "create",
+          "inView": true,
+          "uncovered": true,
+          "w": 79.80000305175781
+        },
+        {
+          "h": 40,
+          "id": "brightness",
+          "inView": true,
+          "uncovered": true,
+          "w": 299.20001220703125
+        },
+        {
+          "h": 44,
+          "id": "adjust-brightness-option",
+          "inView": true,
+          "uncovered": true,
+          "w": 62
+        },
+        {
+          "h": 44,
+          "id": "adjust-contrast-option",
+          "inView": true,
+          "uncovered": true,
+          "w": 62
+        },
+        {
+          "h": 44,
+          "id": "adjust-saturation-option",
+          "inView": true,
+          "uncovered": true,
+          "w": 62
+        },
+        {
+          "h": 44,
+          "id": "adjust-warmth-option",
+          "inView": true,
+          "uncovered": true,
+          "w": 62
+        }
+      ],
+      "viewport": [
+        1360,
+        1000
+      ]
+    }
+  ],
+  "applied": {
+    "info": "512 × 512 · 1 步 · 原图保留",
+    "undoDisabled": false
+  },
+  "undoRedoRepeated": true,
+  "exportOpened": true,
+  "activeToolKeyboardFocus": {
+    "selected": "true",
+    "shadow": "rgb(201, 237, 133) 0px 0px 0px 2px inset",
+    "visible": true
+  },
+  "physicalDevice": false,
+  "parameterKeyboardFocus": {
+    "pressed": "true",
+    "shadow": "rgb(201, 237, 133) 0px 0px 0px 2px inset",
+    "visible": true
+  },
+  "hoverMediaRules": [
+    {
+      "condition": "(hover: hover) and (pointer: fine)",
+      "rules": 10
+    }
+  ]
+}

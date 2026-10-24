@@ -53,3 +53,5 @@
 尚未覆盖：横向和纵向照片构图的显示与编辑、真实手机的键盘和安全区域、触摸手感、运行性能，以及真实 AI 模型效果。横向浏览器视口测试不能代替横向照片测试；本轮记录明确标注 `physicalDevice: false` 与 `realAiModel: false`。
 
 Android模拟器实录：[中性调节界面](assets/redesign-android-editor.png)、[参数保值界面](assets/redesign-android-parameter.png)。浏览器截图的像素尺寸可能因截图取整与CSS视口相差1像素，布局测量以原始JSON为准。
+
+0.3.2在上述布局上进一步细化按钮，最新[按钮设计与回归](BUTTON-POLISH.md)保留失败与修复后的证据。
