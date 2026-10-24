@@ -4,23 +4,21 @@
 
 薄荷是一款在设备上处理照片的修图工具，把日常调色、构图、人像精修和创意排版放进同一个工作区。无需登录，也没有广告；可以随时对比原图、撤销修改，并把作品保存在本地继续编辑。
 
-**当前提供0.3开发预览（APK版本0.3.0-dev），不是正式版。** 浏览器可体验日常修图和手动精修；自动人脸识别、人物分割由Android端的本地模型提供。新增AI与质量改进的验收状态见下方记录，0.2安装包保留作历史版本。
+**当前提供 0.3.1 开发预览（APK 0.3.1-dev），不是正式版。** 这一版按官方界面参考重新组织手机编辑器：深色画布、底部四类工具、单参数长滑杆。浏览器可体验日常修图与手动精修；自动人脸识别与人物分割依赖 Android 本地模型。
 
-[下载0.3开发测试包](https://github.com/shiyan688/mint-photo/releases/tag/v0.3.0-dev.1) · [验收记录](docs/PERFORMANCE-UI-QUALITY.md) · [历史0.2版本](https://github.com/shiyan688/mint-photo/releases/tag/v0.2.0-preview)
+[下载 0.3.1 开发测试包](https://github.com/shiyan688/mint-photo/releases/tag/v0.3.1-dev.1) · [设计参考与界面验收](docs/UI-DESIGN-RESEARCH.md) · [上一版 0.3](https://github.com/shiyan688/mint-photo/releases/tag/v0.3.0-dev.1)
 
-以下为0.3开发版的实际浏览器截图。首页收简为常用工具，编辑器按调色、人像、构图与创作分类；更多菜单收纳API、作品库和批量工具。
+左为浏览器手机尺寸首页，右为 Android API35 模拟器的实际编辑画面，均为应用运行截图。
 
-![0.3开发版首页](docs/assets/workbench-home.png)
-
-![0.3开发版编辑器](docs/assets/workbench-editor.png)
+<p><img src="docs/assets/redesign-home-390x844.png" width="260" alt="浏览器首页"><img src="docs/assets/redesign-android-editor.png" width="260" alt="Android模拟器编辑器"></p>
 
 ## 后续功能开发
 
 [与醒图的56项差距台账](docs/XINGTU-GAP-MATRIX.md) · [本轮实际进展与验证](docs/FUNCTIONAL-PROGRESS.md)
 
-当前开发分支为0.3.0-dev：新增自动光线、浏览器批量调色，安卓/浏览器共用的自填API、涂抹消除与四边扩图链路，以及试验性的纹理修肤/边缘贴合。Android API35模拟器已通过自填测试配置→消除/扩图→系统保存→重新打开，以及错误/取消重试；设备保存PNG另有独立核对。**真实AI出图、实体手机性能与修图质量仍未验收，不能算AI效果已完成**。已发布0.2测试包不包含这些增量。
+当前开发分支为0.3.1-dev：新增自动光线、浏览器批量调色，安卓/浏览器共用的自填API、涂抹消除与四边扩图链路，以及试验性的纹理修肤/边缘贴合。Android API35模拟器已通过自填测试配置→消除/扩图→系统保存→重新打开，以及错误/取消重试；设备保存PNG另有独立核对。**真实AI出图、实体手机性能与修图质量仍未验收，不能算AI效果已完成**。已发布0.2测试包不包含这些增量。
 
-[安卓AI与照片验收记录](docs/AI-ANDROID-QUALITY.md) · [性能、简化界面与4张真实照片回归](docs/PERFORMANCE-UI-QUALITY.md) · [安卓模拟闭环证据](docs/quality/android-ai-e2e-20261024/README.md)
+[安卓AI与照片验收记录](docs/AI-ANDROID-QUALITY.md) · [性能、简化界面与4张真实照片回归](docs/PERFORMANCE-UI-QUALITY.md) · [新版安卓模拟闭环证据](docs/quality/android-ui-e2e-20261025/README.md)
 
 ## 可以做什么
 
