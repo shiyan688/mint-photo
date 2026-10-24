@@ -34,6 +34,7 @@
     back:'m14 5-7 7 7 7', history:'M3 5v6h6M4 10a8 8 0 1 1 1 8m7-12v6l4 2',
     compare:'M12 3v18M8 5H3v14h5M16 5h5v14h-5', check:'m5 12 4 4L19 6',
     undo:'M9 5 4 10l5 5M4 10h9a6 6 0 0 1 6 6', redo:'m15 5 5 5-5 5m5-5h-9a6 6 0 0 0-6 6', more:'M5 12h.01M12 12h.01M19 12h.01', zoom:'M10.5 3a7.5 7.5 0 1 0 0 15 7.5 7.5 0 0 0 0-15ZM16 16l5 5M7 10.5h7m-3.5-3.5v7',
+    download:'M12 3v12m-4-4 4 4 4-4M5 15v5h14v-5',
     image:'M3 4h18v16H3V4Zm0 12 5-5 5 5 3-3 5 4M15 8h.01'
   };
   function icon(name) { return '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="'+(paths[name]||paths.image)+'"/></svg>'; }

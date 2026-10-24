@@ -43,3 +43,55 @@ dialog{color:#292c30;background:#fafbf8;border:0;border-radius:16px;padding:24px
 }
 
 @media(min-height:700px) and (max-width:760px){.is-editing[data-active-tool=portrait] .tool-panel{max-height:240px}}
+
+/* Button finish: tonal surfaces, fine edges and fixed-size touch feedback. */
+.header .export-button,.is-editing .header .export-button{
+ display:flex;align-items:center;justify-content:center;gap:6px;
+ border:1px solid #d9efbb;background:#c9ed85;
+ box-shadow:inset 0 1px 0 #ffffff80,0 2px 3px #00000012;
+ transition:background-color 120ms,border-color 120ms,box-shadow 120ms;
+}
+.header .export-button svg{width:15px;height:15px;stroke-width:1.8}
+.header .export-button:disabled{background:#c9ed85;border-color:#d9efbb;box-shadow:none}
+.header .export-button:enabled:active{background:#b9db7a;border-color:#bbd78f;box-shadow:inset 0 1px 2px #527c4029}
+.is-editing .header .back-button,.is-editing .header .icon-button,.is-editing .header-menu summary{
+ border:1px solid transparent;transition:background-color 120ms,border-color 120ms,color 120ms;
+}
+.is-editing .header .back-button:enabled:active,.is-editing .header .icon-button:enabled:active,.is-editing .header-menu summary:active{background:#ffffff0d;border-color:#ffffff12}
+.tool-tabs .tool>span{position:relative;isolation:isolate}
+.tool-tabs .tool>span::before{content:"";position:absolute;inset:-4px;border-radius:9px;z-index:-1;pointer-events:none;background:transparent;box-shadow:inset 0 0 0 1px transparent;transition:background-color 120ms,box-shadow 120ms}
+.tool-tabs .tool.active>span::before{background:#c9ed8512;box-shadow:inset 0 0 0 1px #c9ed8526,inset 0 1px 0 #e6fbc71a}
+.tool-tabs .tool:enabled:active>span::before{background:#ffffff12;box-shadow:inset 0 0 0 1px #ffffff14}
+.parameter-option{border-radius:9px;background:#ffffff03;border-color:#3b4047;box-shadow:inset 0 1px 0 #ffffff05;transition:background-color 120ms,border-color 120ms,box-shadow 120ms,color 120ms}
+.parameter-option[aria-pressed=true]{border-color:#829666;background:#c9ed8517;color:#d7f3b0;box-shadow:inset 0 1px 0 #d8f3b41a,inset 0 -1px 0 #00000018}
+.parameter-option:enabled:active{background:#ffffff12;border-color:#64705c}
+.apply-bar .button{border-radius:8px;transition:background-color 120ms,border-color 120ms}
+.apply-bar .button.primary{display:flex;align-items:center;justify-content:center;gap:5px;background:#c9ed8514;border:1px solid #c9ed852e;box-shadow:inset 0 1px 0 #e4f8c00d}
+.apply-bar .button.primary svg{width:14px;height:14px;stroke-width:2}
+.apply-bar .button.primary:enabled:active{background:#c9ed8526;border-color:#9ab775}
+.apply-bar .button.plain:enabled:active{background:#ffffff09}
+.is-editing .view-toggle:enabled:active,.is-editing .compare:enabled:active{background:#ffffff0c}
+.is-editing .tool-panel .small-button{box-shadow:inset 0 1px 0 #ffffff07;transition:background-color 120ms,border-color 120ms}
+.is-editing .tool-panel .small-button:enabled:active{background:#343c46;border-color:#65717e}
+.home-import-card .import-symbol{box-shadow:inset 0 1px 0 #ffffff78,inset 0 -1px 0 #77934e2e}
+.home-import-card:enabled:active .import-symbol{background:#bada7b;box-shadow:inset 0 1px 2px #527c4029}
+/* Keep hit boxes fixed while pressed, including the inherited base rule. */
+:is(.header,.tool-tabs,.category-tabs,.parameter-strip,.apply-bar,.view-controls,.photo-actions) button:active,.home-import-card:active{transform:none}
+.tool-tabs .tool:focus-visible,.parameter-option:focus-visible,.category-tabs .category-tab:focus-visible{outline:0;box-shadow:inset 0 0 0 2px #c9ed85}
+@media(hover:hover) and (pointer:fine){
+ .header .export-button:enabled:hover{background:#d6f29f;border-color:#e3f6c9;box-shadow:inset 0 1px 0 #ffffff99,0 2px 4px #00000016}
+ .is-editing .header .back-button:enabled:hover,.is-editing .header .icon-button:enabled:hover,.is-editing .header-menu summary:hover{background:#ffffff08;border-color:#ffffff0b}
+ .parameter-option:enabled:hover{border-color:#606b59;background:#ffffff08}
+ .parameter-option[aria-pressed=true]:enabled:hover{background:#c9ed8520;border-color:#9cb67a}
+ .tool-tabs .tool:enabled:hover>span::before{background:#ffffff09;box-shadow:inset 0 0 0 1px #ffffff0f}
+ .tool-tabs .tool.active:enabled:hover>span::before{background:#c9ed851c;box-shadow:inset 0 0 0 1px #c9ed8533}
+ .apply-bar .button.primary:enabled:hover{background:#c9ed8521;border-color:#c9ed8552}
+}
+@media(prefers-reduced-motion:reduce){
+ .header button,.header-menu summary,.parameter-option,.tool-tabs .tool>span::before,.apply-bar .button,.is-editing .tool-panel .small-button{transition:none!important;transform:none!important}
+}
+/* Nested icon labels inherit action colors instead of old header/status span rules. */
+.header .export-button>span,.apply-bar .button>span{color:inherit;font-size:inherit;font-weight:inherit;letter-spacing:inherit}
+.header .export-button:disabled:hover{background:#c9ed85;border-color:#d9efbb;box-shadow:none}
+.is-editing .parameter-slider input[type=range]:focus-visible,.is-editing .view-controls input[type=range]:focus-visible{outline:0}
+.is-editing .parameter-slider input[type=range]:focus-visible::-webkit-slider-thumb,.is-editing .view-controls input[type=range]:focus-visible::-webkit-slider-thumb{box-shadow:0 0 0 3px #1b1d20,0 0 0 5px #b8d99399}
