@@ -27,6 +27,8 @@ public final class AiFlowInstrumentation extends Instrumentation {
     private final JSONArray checks = new JSONArray();
     private String stage="launch";
     private final JSONObject timings=new JSONObject();
+    private final JSONArray clickTraces=new JSONArray();
+    private long visualRequestId;
     private long requestStarted;
     @Override public void onCreate(Bundle args) { super.onCreate(args); start(); }
     @Override public void onStart() {
@@ -65,6 +67,13 @@ public final class AiFlowInstrumentation extends Instrumentation {
     private void settleLayout()throws Exception {
         js("window.__layoutSettled=false;requestAnimationFrame(()=>requestAnimationFrame(()=>window.__layoutSettled=true));true");
         until("window.__layoutSettled",10000);
+        awaitVisualState();
+    }
+    private void awaitVisualState()throws Exception {
+        CountDownLatch drawn=new CountDownLatch(1);
+        long requestId=++visualRequestId;
+        runOnMainSync(()->web.postVisualStateCallback(requestId,new WebView.VisualStateCallback(){@Override public void onComplete(long id){drawn.countDown();}}));
+        if(!drawn.await(10,TimeUnit.SECONDS))throw new AssertionError("WebView visual state did not settle");
     }
     private void assertEditorFits(String label)throws Exception {
         settleLayout();
@@ -105,20 +114,37 @@ public final class AiFlowInstrumentation extends Instrumentation {
     private void verifyParameterRetention()throws Exception {
         stage="parameter-layout";
         until("!!document.querySelector('[data-adjust-param=brightness]')",10000);
-        click("[data-adjust-param=brightness]");settleLayout();
+        selectParameter("brightness");
         require("true".equals(js("Array.from(document.querySelectorAll('#toolPanel input[type=range]')).filter(e=>e.getBoundingClientRect().width>0&&e.getBoundingClientRect().height>0).length===1")),"adjustment panel displays one parameter slider at a time");
         js("document.querySelector('#brightness').value='17';document.querySelector('#brightness').dispatchEvent(new Event('input',{bubbles:true}));true");settleLayout();
         assertTouchTargets("#brightness,#applyBtn,#cancelBtn");
-        click("[data-adjust-param=contrast]");
+        selectParameter("contrast");
         js("document.querySelector('#contrast').value='-11';document.querySelector('#contrast').dispatchEvent(new Event('input',{bubbles:true}));true");settleLayout();
         js("window.__parameterPixels=document.querySelector('#previewCanvas').toDataURL();true");
-        click("[data-adjust-param=brightness]");settleLayout();
+        selectParameter("brightness");
         require("true".equals(js("document.querySelector('#brightness').value==='17'&&document.querySelector('#contrast').value==='-11'&&document.querySelector('#brightnessValue').textContent==='17'&&!document.querySelector('#confirmDialog').open&&document.querySelector('#previewCanvas').toDataURL()===window.__parameterPixels")),"switching parameters preserves both values and rendered preview without tool-switch confirmation");
         assertEditorFits("parameter-preview");capture("parameter-retained");
-        js("document.querySelector('#brightness').value='0';document.querySelector('#brightness').dispatchEvent(new Event('input',{bubbles:true}));true");
-        click("[data-adjust-param=contrast]");
-        js("document.querySelector('#contrast').value='0';document.querySelector('#contrast').dispatchEvent(new Event('input',{bubbles:true}));true");
-        click("[data-adjust-param=brightness]");settleLayout();
+        js("document.querySelector('#brightness').value='0';document.querySelector('#brightness').dispatchEvent(new Event('input',{bubbles:true}));true");settleLayout();
+        selectParameter("contrast");
+        js("document.querySelector('#contrast').value='0';document.querySelector('#contrast').dispatchEvent(new Event('input',{bubbles:true}));true");settleLayout();
+        selectParameter("brightness");
+        assertNeutralAdjustments("after-retention");
+    }
+    private void selectParameter(String parameter)throws Exception {
+        String selector="[data-adjust-param="+parameter+"]";
+        click(selector);
+        until("document.querySelector("+JSONObject.quote(selector)+").getAttribute('aria-pressed')==='true'&&document.querySelector('#"+parameter+"').getBoundingClientRect().height>0",10000);
+        settleLayout();
+    }
+    private void assertNeutralAdjustments(String label)throws Exception {
+        settleLayout();
+        JSONObject neutral=new JSONObject(js("(()=>{const keys=['brightness','contrast','saturation','warmth'];return{values:Object.fromEntries(keys.map(k=>[k,Number(document.querySelector('#'+k).value)])),applyBarHidden:document.querySelector('#applyBar').hidden,brightnessSelected:document.querySelector('[data-adjust-param=brightness]').getAttribute('aria-pressed')==='true',matchesImportedPixels:document.querySelector('#previewCanvas').toDataURL()===window.__layoutPixels};})()"));
+        write("ai-e2e-adjustments-neutral-"+label+".json",neutral.toString(2));
+        JSONObject values=neutral.getJSONObject("values");
+        for(String key:new String[]{"brightness","contrast","saturation","warmth"})require(values.getInt(key)==0,label+": "+key+" is explicitly neutral");
+        require(neutral.getBoolean("brightnessSelected"),label+": brightness is the selected visible parameter");
+        require(neutral.getBoolean("applyBarHidden"),label+": no unapplied adjustment remains");
+        require(neutral.getBoolean("matchesImportedPixels"),label+": neutral preview exactly equals the initially imported pixels");
     }
     private void measureAdjustments()throws Exception {
         click("[data-tool=adjust]");
@@ -126,6 +152,7 @@ public final class AiFlowInstrumentation extends Instrumentation {
         js("window.__adjustDone=false;window.__adjustSamples=[];(async()=>{let s=document.querySelector('#brightness');for(let i=0;i<12;i++){let t=performance.now();s.value=String(i%2?8:-8);s.dispatchEvent(new Event('input',{bubbles:true}));await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));window.__adjustSamples.push(performance.now()-t);}s.value='0';s.dispatchEvent(new Event('input',{bubbles:true}));await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));window.__adjustDone=true;})()");
         until("window.__adjustDone",30000);
         timings.put("brightness12InputToTwoAnimationFrames",new JSONArray(js("window.__adjustSamples")));
+        assertNeutralAdjustments("after-measurement");
         require(true,"actual Android brightness inputs rendered; returned to neutral before AI capture");
     }
     private void openAi(String mode,String path)throws Exception {
@@ -199,13 +226,60 @@ public final class AiFlowInstrumentation extends Instrumentation {
     private AccessibilityNodeInfo findClass(AccessibilityNodeInfo n,String cls){if(n==null)return null;if(n.isVisibleToUser()&&cls.contentEquals(n.getClassName()))return n;for(int i=0;i<n.getChildCount();i++){AccessibilityNodeInfo v=findClass(n.getChild(i),cls);if(v!=null)return v;}return null;}
     private String tree(AccessibilityNodeInfo n,int d){if(n==null||d>18)return "";String s=" ".repeat(d)+n.getClassName()+" "+n.getViewIdResourceName()+" "+n.getText()+"\n";for(int i=0;i<n.getChildCount();i++)s+=tree(n.getChild(i),d+1);return s;}
     private void require(boolean condition,String message){if(!condition)throw new AssertionError(message);checks.put(message);}
+    private JSONObject tapGeometry(String selector)throws Exception {
+        // Only structural identifiers and geometry are recorded: never text,
+        // input values, HTML, endpoint URLs, prompts or API credentials.
+        return new JSONObject(js("(()=>{const e=document.querySelector("+JSONObject.quote(selector)+");if(!e)return{ready:false,missing:true};const r=e.getBoundingClientRect(),x=r.left+r.width/2,y=r.top+r.height/2,hit=document.elementFromPoint(x,y),describe=n=>n?{tag:n.tagName,id:n.id||''}:null;return{x,y,left:r.left,top:r.top,width:r.width,height:r.height,viewportWidth:innerWidth,viewportHeight:innerHeight,scrollX,scrollY,ready:!!(r.width&&r.height&&!e.disabled&&getComputedStyle(e).visibility==='visible'&&x>=0&&y>=0&&x<innerWidth&&y<innerHeight&&hit&&(hit===e||e.contains(hit))),target:describe(e),hit:describe(hit)};})()"));
+    }
+    private boolean sameTapGeometry(JSONObject first,JSONObject second)throws Exception {
+        if(first==null||!first.optBoolean("ready")||!second.optBoolean("ready"))return false;
+        for(String key:new String[]{"x","y","left","top","width","height","viewportWidth","viewportHeight","scrollX","scrollY"}){
+            if(Math.abs(first.getDouble(key)-second.getDouble(key))>.25)return false;
+        }
+        return first.getJSONObject("hit").toString().equals(second.getJSONObject("hit").toString());
+    }
     private void click(String selector)throws Exception {
         String q=JSONObject.quote(selector);
-        js("document.querySelector("+q+").scrollIntoView({block:'center',inline:'center'});true");
-        JSONArray r=new JSONArray(js("(()=>{let e=document.querySelector("+q+"),r=e.getBoundingClientRect();if(!r.width||!r.height||e.disabled)throw Error('Control not tappable: '+"+q+");return[r.left+r.width/2,r.top+r.height/2,innerWidth]})()"));
-        int[] offset=new int[2],width=new int[1];runOnMainSync(()->{web.getLocationOnScreen(offset);width[0]=web.getWidth();});float scale=width[0]/(float)r.getDouble(2);
-        float x=offset[0]+(float)r.getDouble(0)*scale,y=offset[1]+(float)r.getDouble(1)*scale;
-        long down=SystemClock.uptimeMillis();pointer(down,MotionEvent.ACTION_DOWN,x,y);pointer(down,MotionEvent.ACTION_UP,x,y);waitForIdleSync();
+        JSONObject trace=new JSONObject();JSONArray samples=new JSONArray();
+        trace.put("selector",selector);trace.put("stage",stage);trace.put("samples",samples);trace.put("result","aborted-before-touch");clickTraces.put(trace);
+        try {
+            js("document.querySelector("+q+").scrollIntoView({block:'center',inline:'center',behavior:'instant'});true");
+            long deadline=SystemClock.uptimeMillis()+10000,stableSince=0;
+            JSONObject previous=null;int stableSamples=0;
+            while(SystemClock.uptimeMillis()<deadline){
+                settleLayout();
+                JSONObject current=tapGeometry(selector);
+                if(samples.length()<30)samples.put(current);
+                if(sameTapGeometry(previous,current))stableSamples++;else{stableSamples=0;stableSince=SystemClock.uptimeMillis();}
+                previous=current;
+                if(stableSamples<2||SystemClock.uptimeMillis()-stableSince<120)continue;
+                // Fence the compositor again, then remeasure immediately before
+                // arming the real pointer. A moved/covered target is never tapped.
+                awaitVisualState();
+                JSONObject finalGeometry=tapGeometry(selector);
+                if(!sameTapGeometry(current,finalGeometry)){previous=finalGeometry;stableSamples=0;stableSince=SystemClock.uptimeMillis();continue;}
+                js("(()=>{if(window.__mintTapCleanup)window.__mintTapCleanup();const intended=document.querySelector("+q+"),describe=n=>n?{tag:n.tagName,id:n.id||''}:null;window.__mintTapEvents=[];const observe=e=>{window.__mintTapEvents.push({type:e.type,target:describe(e.target),hit:describe(document.elementFromPoint(e.clientX,e.clientY)),x:e.clientX,y:e.clientY,intended:!!(e.target&&(e.target===intended||intended.contains(e.target)))});if(e.type==='pointerup')window.__mintTapCleanup();};window.__mintTapCleanup=()=>{document.removeEventListener('pointerdown',observe,true);document.removeEventListener('pointerup',observe,true);};document.addEventListener('pointerdown',observe,true);document.addEventListener('pointerup',observe,true);})()");
+                JSONObject armedGeometry=tapGeometry(selector);
+                if(!sameTapGeometry(finalGeometry,armedGeometry)){js("window.__mintTapCleanup();true");previous=armedGeometry;stableSamples=0;stableSince=SystemClock.uptimeMillis();continue;}
+                int[] offset=new int[2],width=new int[1];runOnMainSync(()->{web.getLocationOnScreen(offset);width[0]=web.getWidth();});
+                float scale=width[0]/(float)armedGeometry.getDouble("viewportWidth");
+                float x=offset[0]+(float)armedGeometry.getDouble("x")*scale,y=offset[1]+(float)armedGeometry.getDouble("y")*scale;
+                trace.put("finalGeometry",armedGeometry);trace.put("screenX",x);trace.put("screenY",y);trace.put("result","pointer-pending");
+                long down=SystemClock.uptimeMillis();pointer(down,MotionEvent.ACTION_DOWN,x,y);pointer(down,MotionEvent.ACTION_UP,x,y);waitForIdleSync();
+                // No RAF wait here: import/save may have opened DocumentsUI and
+                // paused the WebView. Read the captured pointer events directly.
+                until("window.__mintTapEvents&&window.__mintTapEvents.some(e=>e.type==='pointerup')",5000);
+                JSONArray events=new JSONArray(js("window.__mintTapEvents||[]"));trace.put("pointerEvents",events);
+                boolean correct=events.length()==2;
+                for(int i=0;i<events.length();i++)correct&=events.getJSONObject(i).getBoolean("intended");
+                trace.put("result",correct?"intended-target-touched":"wrong-pointer-target");
+                if(!correct)throw new AssertionError("Real pointer did not hit intended control: "+selector+"; "+events);
+                return;
+            }
+            throw new AssertionError("Control did not become stable and uncovered: "+selector+"; "+previous);
+        } finally {
+            write("ai-e2e-click-trace.json",clickTraces.toString(2));
+        }
     }
     private void until(String expression,long timeout)throws Exception {long end=SystemClock.uptimeMillis()+timeout;while(SystemClock.uptimeMillis()<end){if("true".equals(js("!!("+expression+")")))return;SystemClock.sleep(250);}throw new AssertionError("Timeout: "+expression+"; state="+js("JSON.stringify({toast:document.querySelector('#toast')?.textContent,busy:document.querySelector('#busy')?.hidden,nativeBusy:typeof Android!=='undefined'?Android.isExportBusy():null,ai:document.querySelector('#aiStatus')?.textContent})"));}
     private String js(String code)throws Exception {CountDownLatch latch=new CountDownLatch(1);AtomicReference<String> value=new AtomicReference<>();runOnMainSync(()->web.evaluateJavascript("try{"+code+"}catch(e){'__MINT_E2E_JS_ERROR__'+String(e)}",v->{value.set(v);latch.countDown();}));if(!latch.await(30,TimeUnit.SECONDS))throw new AssertionError("JS timeout");if(value.get()!=null&&value.get().contains("__MINT_E2E_JS_ERROR__"))throw new AssertionError(value.get());return value.get();}
