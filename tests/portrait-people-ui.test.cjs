@@ -188,12 +188,16 @@ function markupShape(markup){
 
 test('generated portrait markup puts basic controls outside closed advanced sections with valid nesting',()=>{
  const h=harness(),shape=markupShape(h.nodes.toolPanel.innerHTML);
- for(const id of ['detectPortrait','manualSkin','portraitStatus','portraitPeople','naturalPreset','beautyPreset','p-smooth','p-brighten','p-warmth','resetPortrait','resetAllPeople']){
+ for(const id of ['detectPortrait','manualSkin','portraitStatus','portraitPeople','p-smooth','p-brighten','p-warmth','resetPortrait','resetAllPeople']){
   assert(shape.ids.has(id),'retained '+id);assert(!shape.ids.get(id).parents.some(p=>p.tag==='details'),'immediately available '+id);
  }
- for(const [id,parent]of [['p-redness','portraitComplexionDetails'],['p-underEye','portraitComplexionDetails'],['p-lip','portraitMakeupDetails'],['p-blush','portraitMakeupDetails'],['paletteNatural','portraitMakeupDetails'],['palettePeach','portraitMakeupDetails'],['paletteRose','portraitMakeupDetails']])assert(shape.ids.get(id).parents.some(p=>p.attrs.id===parent),'correct drawer '+id);
- assert.equal(shape.details.length,4);for(const detail of shape.details){assert(!('open'in detail.attrs));assert.equal(detail.children[0]?.tag,'summary');assert(detail.parents.some(p=>(p.attrs.class||'').split(' ').includes('tool-help')));}
- const html=h.nodes.toolPanel.innerHTML;assert(html.indexOf('id="portraitPeople"')<html.indexOf('id="naturalPreset"'));assert(html.indexOf('id="p-warmth"')<html.indexOf('id="portraitMakeupDetails"'));
+ for(const [id,parent]of [['naturalPreset','portraitPresetDetails'],['beautyPreset','portraitPresetDetails'],['detailSkin','portraitPresetDetails'],['p-redness','portraitComplexionDetails'],['p-underEye','portraitComplexionDetails'],['p-lip','portraitMakeupDetails'],['p-blush','portraitMakeupDetails'],['paletteNatural','portraitMakeupDetails'],['palettePeach','portraitMakeupDetails'],['paletteRose','portraitMakeupDetails']])assert(shape.ids.get(id).parents.some(p=>p.attrs.id===parent),'correct drawer '+id);
+ assert.equal(shape.details.length,5);for(const detail of shape.details){assert(!('open'in detail.attrs));assert.equal(detail.children[0]?.tag,'summary');assert(detail.parents.some(p=>(p.attrs.class||'').split(' ').includes('tool-help')));}
+ const html=h.nodes.toolPanel.innerHTML,order=['detectPortrait','portraitStatus','portraitPeople','p-smooth','p-brighten','p-warmth','portraitPresetDetails','naturalPreset'];
+ for(let i=1;i<order.length;i++)assert(html.indexOf('id="'+order[i-1]+'"')<html.indexOf('id="'+order[i]+'"'),'primary layout order '+order[i-1]+' before '+order[i]);
+ assert(html.indexOf('class="portrait-heading"')>html.indexOf('id="portraitHelpDetails"'),'long introduction belongs to help');
+ assert.equal(shape.ids.get('portraitStatus').attrs.role,'status');assert.equal(shape.ids.get('portraitStatus').attrs['aria-live'],'polite');
+ assert.match(html,/<details id="portraitPresetDetails"><summary>快捷修肤<\/summary>/);
  const reshape=markupShape(harness({phase:'reshape'}).nodes.toolPanel.innerHTML);assert.equal(reshape.details.length,1);for(const id of ['p-slim','p-eyes','p-nose','p-jaw'])assert(!reshape.ids.get(id).parents.some(p=>p.tag==='details'));
 });
 
@@ -207,4 +211,51 @@ test('collapsed makeup retains active preset values, face switching and the same
  const h=harness();h.detect(h.batch(2));h.click('person-face-1');h.click('beautyPreset');const before=JSON.stringify(h.draft);
  h.nodes.portraitMakeupDetails.open=true;assert.equal(JSON.stringify(h.draft),before);assert.equal(h.nodes['p-lip'].value,'18');h.input('lip',24);h.nodes.portraitMakeupDetails.open=false;
  h.click('person-face-2');assert.equal(face(h,2).beauty.lip,0);h.click('person-face-1');assert.equal(h.nodes['p-lip'].value,'24');assert.equal(face(h,1).beauty.palette,'peach');
+});
+
+test('each portrait parameter group shows one original slider and switching is view state only',()=>{
+ const h=harness(),groups=[['smooth','brighten','warmth'],['redness','underEye'],['lip','blush']];
+ const shape=markupShape(h.nodes.toolPanel.innerHTML);
+ for(const group of groups)for(const [i,key]of group.entries()){
+  const row=shape.ids.get('portrait-'+key+'-row'),input=shape.ids.get('p-'+key),output=shape.ids.get('pv-'+key),button=shape.ids.get('portrait-'+key+'-option');
+  assert.equal('hidden'in row.attrs,i!==0);assert(input.parents.includes(row),'original input stays in its own row');assert(output.parents.includes(row));assert.equal(output.attrs.for,'p-'+key);
+  assert.equal(button.attrs['aria-controls'],row.attrs.id);assert.equal(button.attrs['aria-pressed'],String(i===0));assert.equal(button.attrs['data-portrait-param'],key);
+ }
+ const before=JSON.stringify(h.draft),renderCount=h.renders.length,original=h.nodes['p-smooth'];
+ h.click('portrait-warmth-option');h.click('portrait-underEye-option');h.click('portrait-blush-option');
+ assert.equal(JSON.stringify(h.draft),before);assert.equal(h.renders.length,renderCount);assert.equal(h.nodes['p-smooth'],original);
+ for(const group of groups)for(const key of group){const active=key===group.at(-1);assert.equal(h.nodes['portrait-'+key+'-row'].hidden,!active);assert.equal(h.nodes['portrait-'+key+'-option']['aria-pressed'],String(active));}
+ assert(h.nodes['p-warmth'].disabled,'choosing a parameter must not bypass face selection');
+});
+
+test('parameter choice survives person switching and every original value stays independently editable',()=>{
+ const h=harness();h.detect(h.batch(2));h.click('person-face-1');h.input('smooth',24);h.click('portrait-warmth-option');h.input('warmth',-31);
+ h.click('person-face-2');assert.equal(h.nodes['portrait-warmth-row'].hidden,false);assert.equal(h.nodes['p-warmth'].value,'0');h.input('warmth',18);
+ h.click('portrait-brighten-option');h.input('brighten',11);h.click('person-face-1');assert.equal(h.nodes['portrait-brighten-row'].hidden,false);assert.equal(h.nodes['p-brighten'].value,'0');
+ h.click('portrait-smooth-option');assert.equal(h.nodes['p-smooth'].value,'24');h.click('portrait-warmth-option');assert.equal(h.nodes['pv-warmth'].textContent,'-31');
+ assert.equal(face(h,1).beauty.smooth,24);assert.equal(face(h,2).beauty.warmth,18);assert.equal(face(h,2).beauty.brighten,11);
+ assert.deepEqual(Object.keys(h.draft).sort(),['batch','phase','type'],'view selection is not serialized into the operation');
+});
+
+test('folding quick skin preserves the draft; presets and resets still update hidden sliders',()=>{
+ const h=harness();h.detect(h.batch(1));h.click('portrait-brighten-option');h.click('portrait-blush-option');
+ const details=h.nodes.portraitPresetDetails,before=JSON.stringify(h.draft),renders=h.renders.length;
+ for(const open of [true,false,true]){details.open=open;details.ontoggle?.();assert.equal(JSON.stringify(h.draft),before);assert.equal(h.renders.length,renders,'opening presets does not recompute pixels');}
+ h.click('beautyPreset');const applied=JSON.stringify(h.draft),afterPresetRenders=h.renders.length;details.open=false;details.ontoggle?.();
+ assert.equal(JSON.stringify(h.draft),applied);assert.equal(h.renders.length,afterPresetRenders);
+ assert.equal(h.nodes['portrait-brighten-row'].hidden,false);assert.equal(h.nodes['portrait-smooth-row'].hidden,true);assert.equal(h.nodes['p-smooth'].value,'18');assert.equal(h.nodes['pv-smooth'].textContent,'18');
+ assert.equal(h.nodes['portrait-blush-row'].hidden,false);assert.equal(h.nodes['p-lip'].value,'18');assert.equal(h.nodes['pv-lip'].textContent,'18');
+ assert.equal(face(h).beauty.smooth,18);assert.equal(face(h).beauty.underEye,12);assert.equal(face(h).beauty.lip,18);assert.equal(face(h).beauty.blush,12);
+ h.A.assess=()=>({original:{allowed:false,error:'原尺寸内存超限'},working:{allowed:false,error:'工作尺寸内存超限'}});
+ assert.equal(h.ui.canApply(h.draft),false);assert.match(h.nodes.portraitStatus.textContent,/暂不能应用/);assert.equal(h.nodes.portraitStatus.hidden,false);
+ assert(!markupShape(h.nodes.toolPanel.innerHTML).ids.get('portraitStatus').parents.some(p=>p.tag==='details'),'blocking status remains outside every closed drawer');
+ assert.equal(JSON.stringify(h.draft),applied);assert.equal(details.open,false);
+ h.click('resetPortrait');for(const key of ['smooth','brighten','warmth','redness','underEye','lip','blush']){assert.equal(h.nodes['p-'+key].value,'0');assert.equal(h.nodes['pv-'+key].textContent,'0');}
+ assert.equal(h.nodes['portrait-brighten-row'].hidden,false);assert.equal(h.nodes['portrait-blush-row'].hidden,false);assert.equal(h.ui.changed(h.draft),false);
+});
+
+test('reshape parameter focus preserves signed values and released handlers cannot alter a replacement panel',()=>{
+ const h=harness({phase:'reshape'});h.detect(h.batch(1));h.input('slim',17);const before=JSON.stringify(h.draft),renders=h.renders.length;
+ h.click('portrait-nose-option');assert.equal(JSON.stringify(h.draft),before);assert.equal(h.renders.length,renders);h.input('nose',-21);h.click('portrait-eyes-option');h.input('eyes',12);h.click('portrait-nose-option');assert.equal(h.nodes['p-nose'].value,'-21');assert.equal(face(h).reshape.slim,17);
+ const oldChoose=h.nodes['portrait-jaw-option'].onclick;h.ui.setup(h.A,'reshape');oldChoose();assert.equal(h.nodes['portrait-slim-row'].hidden,false);assert.equal(h.nodes['portrait-jaw-row'].hidden,true);assert.equal(h.ui.changed(h.draft),false);
 });

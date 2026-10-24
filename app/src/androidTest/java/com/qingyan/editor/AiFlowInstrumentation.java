@@ -40,7 +40,7 @@ public final class AiFlowInstrumentation extends Instrumentation {
             AtomicReference<Boolean> blocked=new AtomicReference<>();runOnMainSync(()->blocked.set(web.getSettings().getBlockNetworkLoads()));require(blocked.get(),"WebView network stays blocked");
             require("true".equals(js("Android.samplePng('../index.html')===''&&Android.samplePng('missing')===''")),"sample bridge rejects filenames and unknown IDs");
             click("#importBtn");waitPicker();chooseDownloads();tapText("mint-e2e-source.png");until("document.querySelector('#imageInfo').textContent.includes('512 × 512')&&document.querySelector('#busy').hidden&&!Android.isExportBusy()",30000);
-            capture("photo-imported");measureAdjustments();capture("adjustments-neutral");js("window.__beforeAi=document.querySelector('#previewCanvas').toDataURL();true");
+            capture("photo-imported");verifyEditorLayout();measureAdjustments();capture("adjustments-neutral");js("window.__beforeAi=document.querySelector('#previewCanvas').toDataURL();true");
             js("(()=>{const t=MintAiTransport;window.MintAiTransport={receive:t.receive,send:(data,signal)=>{window.__sentImage=data.image;window.__sentMask=data.mask;return t.send(data,signal);}};})()");
             writePng("ai-e2e-before-erase.png","window.__beforeAi");
             stage="erase";openAi("erase","/v1/images/edits");paint();capture("erase-selected");send();
@@ -62,8 +62,67 @@ public final class AiFlowInstrumentation extends Instrumentation {
             finish(1,result);
         }
     }
+    private void settleLayout()throws Exception {
+        js("window.__layoutSettled=false;requestAnimationFrame(()=>requestAnimationFrame(()=>window.__layoutSettled=true));true");
+        until("window.__layoutSettled",10000);
+    }
+    private void assertEditorFits(String label)throws Exception {
+        settleLayout();
+        JSONObject layout=new JSONObject(js("(()=>{const rect=s=>{const r=document.querySelector(s).getBoundingClientRect();return{x:r.left,y:r.top,right:r.right,bottom:r.bottom,w:r.width,h:r.height};};return{viewport:{w:innerWidth,h:innerHeight},scrollWidth:document.documentElement.scrollWidth,stage:rect('#stage'),photo:rect('#previewCanvas'),panel:rect('#toolPanel'),category:rect('.category-tabs'),tools:rect('.tool-tabs')};})()"));
+        write("ai-e2e-layout-"+label+".json",layout.toString(2));
+        JSONObject viewport=layout.getJSONObject("viewport"),stageRect=layout.getJSONObject("stage"),photo=layout.getJSONObject("photo"),panel=layout.getJSONObject("panel"),category=layout.getJSONObject("category"),tools=layout.getJSONObject("tools");
+        double width=viewport.getDouble("w"),height=viewport.getDouble("h");
+        require(layout.getDouble("scrollWidth")<=width+1,label+": no horizontal page overflow");
+        for(String key:new String[]{"stage","panel","category","tools"}){
+            JSONObject r=layout.getJSONObject(key);
+            require(r.getDouble("w")>0&&r.getDouble("h")>=39.5&&r.getDouble("x")>=-1&&r.getDouble("right")<=width+1&&r.getDouble("y")>=-1&&r.getDouble("bottom")<=height+1,label+": "+key+" is visible inside the real WebView viewport; "+r);
+        }
+        require(photo.getDouble("w")>=128&&photo.getDouble("h")>=128,label+": fitted photo remains useful, at least 128 CSS px per side");
+        require(photo.getDouble("x")>=stageRect.getDouble("x")-1&&photo.getDouble("right")<=stageRect.getDouble("right")+1&&photo.getDouble("y")>=stageRect.getDouble("y")-1&&photo.getDouble("bottom")<=stageRect.getDouble("bottom")+1,label+": fitted photo is not clipped by the stage");
+        require(category.getDouble("y")>=panel.getDouble("bottom")-1&&category.getDouble("y")>=tools.getDouble("bottom")-1,label+": categories stay below tools and parameters");
+    }
+    private void assertTouchTargets(String selectors)throws Exception {
+        JSONArray targets=new JSONArray(js("Array.from(document.querySelectorAll("+JSONObject.quote(selectors)+"),e=>{const r=e.getBoundingClientRect();const hit=document.elementFromPoint(r.left+r.width/2,r.top+r.height/2);return{id:e.id||e.dataset.category||e.dataset.adjustParam||e.tagName,w:r.width,h:r.height,x:r.left,y:r.top,right:r.right,bottom:r.bottom,inViewport:r.left>=-1&&r.top>=-1&&r.right<=innerWidth+1&&r.bottom<=innerHeight+1,uncovered:!!hit&&(hit===e||e.contains(hit))};})"));
+        require(targets.length()>0,"touch targets exist: "+selectors);
+        for(int i=0;i<targets.length();i++){
+            JSONObject t=targets.getJSONObject(i);
+            require(t.getDouble("w")>=39.5&&t.getDouble("h")>=39.5&&t.getBoolean("inViewport")&&t.getBoolean("uncovered"),"40 CSS px reachable touch target: "+t);
+        }
+    }
+    private void verifyEditorLayout()throws Exception {
+        stage="editor-layout";
+        assertEditorFits("collapsed");
+        assertTouchTargets("#homeBack,#headerMenu summary,#exportBtn,#undoBtn,#redoBtn,#compareBtn,#viewToggle,[data-category]");
+        require("true".equals(js("document.querySelector('#viewToggle').getAttribute('aria-expanded')==='false'&&document.querySelector('.view-controls').getBoundingClientRect().height===0")),"zoom controls start collapsed with accessible state");
+        js("window.__layoutPixels=document.querySelector('#previewCanvas').toDataURL();true");
+        click("#viewToggle");settleLayout();
+        require("true".equals(js("document.querySelector('#viewToggle').getAttribute('aria-expanded')==='true'&&document.querySelector('.view-controls').getBoundingClientRect().height>0")),"real touch expands zoom controls");
+        assertTouchTargets("#viewFit,#viewPan,#viewZoom");
+        click("#viewToggle");assertEditorFits("recollapsed");
+        require("true".equals(js("document.querySelector('#viewToggle').getAttribute('aria-expanded')==='false'&&document.querySelector('.view-controls').getBoundingClientRect().height===0&&document.querySelector('#previewCanvas').toDataURL()===window.__layoutPixels")),"zoom controls close without changing photo pixels");
+        capture("editor-layout");
+    }
+    private void verifyParameterRetention()throws Exception {
+        stage="parameter-layout";
+        until("!!document.querySelector('[data-adjust-param=brightness]')",10000);
+        click("[data-adjust-param=brightness]");settleLayout();
+        require("true".equals(js("Array.from(document.querySelectorAll('#toolPanel input[type=range]')).filter(e=>e.getBoundingClientRect().width>0&&e.getBoundingClientRect().height>0).length===1")),"adjustment panel displays one parameter slider at a time");
+        js("document.querySelector('#brightness').value='17';document.querySelector('#brightness').dispatchEvent(new Event('input',{bubbles:true}));true");settleLayout();
+        assertTouchTargets("#brightness,#applyBtn,#cancelBtn");
+        click("[data-adjust-param=contrast]");
+        js("document.querySelector('#contrast').value='-11';document.querySelector('#contrast').dispatchEvent(new Event('input',{bubbles:true}));true");settleLayout();
+        js("window.__parameterPixels=document.querySelector('#previewCanvas').toDataURL();true");
+        click("[data-adjust-param=brightness]");settleLayout();
+        require("true".equals(js("document.querySelector('#brightness').value==='17'&&document.querySelector('#contrast').value==='-11'&&document.querySelector('#brightnessValue').textContent==='17'&&!document.querySelector('#confirmDialog').open&&document.querySelector('#previewCanvas').toDataURL()===window.__parameterPixels")),"switching parameters preserves both values and rendered preview without tool-switch confirmation");
+        assertEditorFits("parameter-preview");capture("parameter-retained");
+        js("document.querySelector('#brightness').value='0';document.querySelector('#brightness').dispatchEvent(new Event('input',{bubbles:true}));true");
+        click("[data-adjust-param=contrast]");
+        js("document.querySelector('#contrast').value='0';document.querySelector('#contrast').dispatchEvent(new Event('input',{bubbles:true}));true");
+        click("[data-adjust-param=brightness]");settleLayout();
+    }
     private void measureAdjustments()throws Exception {
         click("[data-tool=adjust]");
+        verifyParameterRetention();
         js("window.__adjustDone=false;window.__adjustSamples=[];(async()=>{let s=document.querySelector('#brightness');for(let i=0;i<12;i++){let t=performance.now();s.value=String(i%2?8:-8);s.dispatchEvent(new Event('input',{bubbles:true}));await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));window.__adjustSamples.push(performance.now()-t);}s.value='0';s.dispatchEvent(new Event('input',{bubbles:true}));await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));window.__adjustDone=true;})()");
         until("window.__adjustDone",30000);
         timings.put("brightness12InputToTwoAnimationFrames",new JSONArray(js("window.__adjustSamples")));
