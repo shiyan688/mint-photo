@@ -5,6 +5,7 @@ import android.app.Instrumentation;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.view.MotionEvent;
@@ -107,10 +108,63 @@ public final class AiFlowInstrumentation extends Instrumentation {
         stage="home-surface";
         require("true".equals(js("document.body.classList.contains('is-home')&&document.documentElement.scrollWidth<=innerWidth+1&&!document.querySelector('#aiDialog').open")),"empty home is visible without overflow or an image-less AI sheet");
         for(String selector:new String[]{"#importBtn","#homeLibrary","[data-start-tool=portrait]","#homeAiBtn","[data-start-tool=collage]"})reachTarget(selector);
-        reachTarget("#importBtn");capture("home-actions");
+        reachTarget("#importBtn");
+        // DOM/style evidence only. Positive geometry does not prove that WebView
+        // actually painted an icon; inspect the following PNG independently.
+        JSONObject icons=new JSONObject(js("(()=>{"
+                +"const rect=n=>{const r=n.getBoundingClientRect();return{x:r.x,y:r.y,width:r.width,height:r.height};};"
+                +"const inspect=n=>{if(!n)return null;const s=getComputedStyle(n);let bbox;try{const b=n.getBBox();bbox={x:b.x,y:b.y,width:b.width,height:b.height};}catch(e){bbox={error:e.name};}return{mounted:n.isConnected,namespaceURI:n.namespaceURI,rect:rect(n),bbox,stroke:s.stroke,color:s.color,fill:s.fill,opacity:s.opacity,strokeOpacity:s.strokeOpacity,visibility:s.visibility,display:s.display};};"
+                +"const entries=['#importBtn','#homeLibrary','[data-start-tool=portrait]','#homeAiBtn','[data-start-tool=collage]'].map(selector=>{const entry=document.querySelector(selector),svg=entry&&entry.querySelector('[data-icon] svg'),paths=svg?Array.from(svg.querySelectorAll('path')):[];return{selector,mounted:!!(entry&&entry.isConnected),iconName:svg&&svg.closest('[data-icon]').dataset.icon,svg:inspect(svg),pathCount:paths.length,paths:paths.map(inspect)};});"
+                +"return{evidence:'DOM geometry and computed styles only; actual painted visibility requires PNG inspection',innerWidth,innerHeight,devicePixelRatio,scrollX,scrollY,entries};})()"));
+        int[] screenOffset=new int[2],webSize=new int[2];
+        runOnMainSync(()->{web.getLocationOnScreen(screenOffset);webSize[0]=web.getWidth();webSize[1]=web.getHeight();});
+        JSONObject nativeViewport=new JSONObject();nativeViewport.put("screenX",screenOffset[0]);nativeViewport.put("screenY",screenOffset[1]);nativeViewport.put("width",webSize[0]);nativeViewport.put("height",webSize[1]);nativeViewport.put("widthPerCssPixel",webSize[0]/icons.getDouble("innerWidth"));icons.put("webView",nativeViewport);
+        write("ai-e2e-home-icons.json",icons.toString(2));
+        JSONArray entries=icons.getJSONArray("entries");
+        for(int i=0;i<entries.length();i++){
+            JSONObject entry=entries.getJSONObject(i);String name=entry.getString("selector");
+            require(entry.getBoolean("mounted")&&!entry.isNull("svg")&&entry.getInt("pathCount")>0,name+": SVG and path are mounted (not a painted-visibility assertion)");
+            JSONObject svg=entry.getJSONObject("svg"),bounds=svg.getJSONObject("rect");
+            require(svg.getBoolean("mounted")&&bounds.getDouble("width")>0&&bounds.getDouble("height")>0,name+": SVG has nonzero layout dimensions");
+            JSONArray paths=entry.getJSONArray("paths");
+            for(int j=0;j<paths.length();j++){
+                JSONObject path=paths.getJSONObject(j),pathBounds=path.getJSONObject("rect");
+                require(path.getBoolean("mounted")&&pathBounds.getDouble("width")>0&&pathBounds.getDouble("height")>0,name+": path "+j+" has nonzero geometry");
+            }
+        }
+        capture("home-actions");
+        verifyHomeIconPixels(icons);
         click("#homeLibrary");until("document.querySelector('#projectLibraryDialog').open",10000);
         require(true,"home library card opens the existing project library with real touch");
         click("#projectLibraryClose");until("!document.querySelector('#projectLibraryDialog').open",10000);
+    }
+    private void verifyHomeIconPixels(JSONObject icons)throws Exception {
+        String png="ai-e2e-home-actions.png";Bitmap screenshot;
+        // Read the exact evidence image above; do not capture a later frame.
+        try(java.io.InputStream input=getTargetContext().openFileInput(png)){screenshot=BitmapFactory.decodeStream(input);}
+        if(screenshot==null)throw new AssertionError("Cannot decode the captured home PNG");
+        JSONObject report=new JSONObject();JSONArray samples=new JSONArray();
+        report.put("sourcePng",png);report.put("width",screenshot.getWidth());report.put("height",screenshot.getHeight());
+        report.put("centerFraction",.75);report.put("darkPixelRule","(red + green + blue) / 3 < 130");report.put("minimumDarkPixels",8);report.put("entries",samples);
+        JSONObject webViewport=icons.getJSONObject("webView");double scale=webViewport.getDouble("widthPerCssPixel"),offsetX=webViewport.getDouble("screenX"),offsetY=webViewport.getDouble("screenY");
+        try {
+            JSONArray entries=icons.getJSONArray("entries");
+            for(int i=0;i<entries.length();i++){
+                JSONObject entry=entries.getJSONObject(i),rect=entry.getJSONObject("svg").getJSONObject("rect");
+                int left=(int)Math.floor(offsetX+(rect.getDouble("x")+rect.getDouble("width")*.125)*scale),top=(int)Math.floor(offsetY+(rect.getDouble("y")+rect.getDouble("height")*.125)*scale);
+                int right=(int)Math.ceil(offsetX+(rect.getDouble("x")+rect.getDouble("width")*.875)*scale),bottom=(int)Math.ceil(offsetY+(rect.getDouble("y")+rect.getDouble("height")*.875)*scale);
+                boolean within=left>=0&&top>=0&&right<=screenshot.getWidth()&&bottom<=screenshot.getHeight();
+                int x=Math.max(0,left),y=Math.max(0,top),w=Math.max(0,Math.min(right,screenshot.getWidth())-x),h=Math.max(0,Math.min(bottom,screenshot.getHeight())-y),dark=0;
+                if(w>0&&h>0){int[] pixels=new int[w*h];screenshot.getPixels(pixels,0,w,x,y,w,h);for(int pixel:pixels){int red=(pixel>>16)&255,green=(pixel>>8)&255,blue=pixel&255;if(red+green+blue<390)dark++;}}
+                JSONObject sample=new JSONObject(),region=new JSONObject();region.put("left",left);region.put("top",top);region.put("right",right);region.put("bottom",bottom);
+                sample.put("selector",entry.getString("selector"));sample.put("svgCssRect",rect);sample.put("mappedCenterRegion",region);sample.put("fullyInsideScreenshot",within);sample.put("sampledPixels",w*h);sample.put("darkPixels",dark);samples.put(sample);
+            }
+        } finally {screenshot.recycle();write("ai-e2e-home-icon-pixels.json",report.toString(2));}
+        // Keep every count and the original PNG even when the first icon fails.
+        for(int i=0;i<samples.length();i++){
+            JSONObject sample=samples.getJSONObject(i);
+            require(sample.getBoolean("fullyInsideScreenshot")&&sample.getInt("sampledPixels")>0&&sample.getInt("darkPixels")>=8,sample.getString("selector")+": actual home PNG contains at least 8 dark pixels in the icon's central 75%; observed "+sample.getInt("darkPixels"));
+        }
     }
     private void verifyHomeAiEntry()throws Exception {
         stage="home-ai-entry";click("#homeBack");

@@ -9,6 +9,9 @@ const { spawnSync } = require('node:child_process');
 const root = path.resolve(__dirname, '..');
 process.chdir(root);
 
+const inlineIcons = spawnSync(process.execPath, ['tools/prerender-icons.cjs', '--check'], { stdio: 'inherit' });
+if (inlineIcons.status !== 0) process.exit(inlineIcons.status || 1);
+
 const java = spawnSync('javac', ['-version'], { encoding: 'utf8' });
 if (java.error || java.status !== 0) {
   console.error('CI requires a full JDK 17+ on PATH: the backup parity tests compile and execute Java.');

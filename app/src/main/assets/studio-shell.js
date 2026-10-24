@@ -91,7 +91,7 @@
     host=adapter;
     const toolRail=document.querySelector('.tool-tabs');
     if(toolRail)groups.forEach(group=>group.tools.forEach(tool=>{const button=document.querySelector('.tool[data-tool="'+tool+'"]');if(button)toolRail.appendChild(button);}));
-    document.querySelectorAll('[data-icon]').forEach(el=>{el.innerHTML=icon(el.dataset.icon);});
+    document.querySelectorAll('[data-icon]').forEach(el=>{if(!el.querySelector('svg'))el.innerHTML=icon(el.dataset.icon);});
     document.querySelectorAll('.tool[data-tool]').forEach(el=>{const span=el.querySelector('span');if(span)span.innerHTML=icon(el.dataset.tool);});
     document.querySelectorAll('[data-category]').forEach(el=>el.addEventListener('click',()=>{const group=groups.find(g=>g.id===el.dataset.category);if(group)host.setTool(remembered[group.id]||group.first);}));
     document.querySelectorAll('[data-start-tool]').forEach(el=>el.addEventListener('click',()=>{cancelPendingAi();const tool=el.dataset.startTool;if(loaded){home=false;renderState();host.setTool(tool);}else{pendingTool=tool;host.requestImport();}}));
