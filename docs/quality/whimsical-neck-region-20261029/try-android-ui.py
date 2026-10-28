@@ -79,78 +79,105 @@ def uri_for(filename):
  raise RuntimeError('MediaStore did not expose source image')
 def image_paths(): return set(sh('ls','-1','/sdcard/Pictures/WhimsicalArt',check=False).splitlines())
 
+def capture_log(stage):
+ (OUT/(stage+'-logcat.txt')).write_bytes(adb('logcat','-d','-v','threadtime','-t','10000',check=False).stdout)
+
 results={};stage='install'
 try:
  adb('wait-for-device');adb('install','-r',str(apk))
  for name in ('sherman','wilson'):
-  stage=name+'-input'; source=FIX/(name+'.png'); local=Image.open(source).convert('RGB')
-  adb('shell','am','force-stop',PKG);adb('shell','pm','clear',PKG)
-  before=image_paths();remote=f'/sdcard/Pictures/mint-qa-{name}.png'
-  adb('push',str(source),remote)
-  scan=adb('shell','am','broadcast','-a','android.intent.action.MEDIA_SCANNER_SCAN_FILE','-d','file://'+remote,check=False)
-  (OUT/(name+'-scan.txt')).write_text(f'returncode={scan.returncode}\n'+scan.stdout.decode('utf-8','replace')+'\n'+scan.stderr.decode('utf-8','replace'),encoding='utf-8')
-  if scan.returncode!=0: raise RuntimeError('Media scan request failed')
-  uri=uri_for('mint-qa-'+name+'.png')
-  # Normal launch through the app's real gallery. Explicitly select the exact
-  # accessibility filename; no inferred grid coordinate or assumed URI grant.
-  start=time.monotonic();adb('shell','am','start','-n',PKG+'/.MainActivity','-a','android.intent.action.MAIN','-c','android.intent.category.LAUNCHER')
-  stage=name+'-onboarding'
-  first=wait_for(stage,lambda t:node(t,text='Get Started') or node(t,text='Grant Permission') or node(t,desc='mint-qa-'+name+'.png'),90)
-  if first[0].get('text')=='Get Started':tap(first)
-  stage=name+'-gallery'
-  for i in range(15):
-   tree=snapshot(f'{stage}-{i:02d}')
-   thumbnail=node(tree,desc='mint-qa-'+name+'.png')
-   if thumbnail:tap(thumbnail);break
-   permission=next((node(tree,text=x) for x in ('Grant Permission','Allow all','Allow access to all photos','Allow') if node(tree,text=x)),None)
-   if permission:tap(permission)
-   time.sleep(1)
-  else:raise RuntimeError('Exact image thumbnail not found in application gallery')
-  stage=name+'-editor';wait_for(stage,lambda t:node(t,desc='Save'),90);sample(name+'-loaded')
-  # Beauty is at the end of a horizontal toolbar. Search visible semantics and scroll.
-  stage=name+'-beauty'
-  for i in range(18):
-   tree=snapshot(f'{stage}-{i:02d}');item=node(tree,text='Beauty')
-   if item:tap(item);break
-   # Swipe only on the visible bottom toolbar, located from a known tool chip.
-   chip=next((node(tree,text=x) for x in ('Crop','Transform','Brightness','Contrast','Filters','Denoise') if node(tree,text=x)),None)
-   if not chip:raise RuntimeError('No known toolbar chip; refusing blind coordinate input')
-   x0,y0,x1,y1=chip[1];width=int(re.search(r'(\d+)x(\d+)',sh('wm','size')).group(1));y=(y0+y1)//2
-   sh('input','swipe',int(width*.82),y,int(width*.18),y,400)
-  else:raise RuntimeError('Beauty entry not found')
-  stage=name+'-smooth';tap(wait_for(stage,lambda t:node(t,text='Smooth'),60))
-  seek=wait_for(name+'-slider',lambda t:node(t,klass='android.widget.SeekBar'),60)
-  sh('dumpsys','gfxinfo',PKG,'reset',check=False)
-  action=time.monotonic();tap(seek,.65)
-  time.sleep(8);tree=snapshot(name+'-slider-result');sample(name+'-after-slider')
-  # Preserve text for independent confirmation; sliders do not share calibrated units.
-  visible=[x.get('text','') for x in tree.iter('node') if x.get('text')]
-  (OUT/(name+'-visible.txt')).write_text('\n'.join(visible),encoding='utf-8')
-  values=[int(v[:-1]) for v in visible if re.fullmatch(r'\d{1,3}%',v)]
-  if 'Skin Smoothing' not in visible or not any(60<=v<=70 for v in values):
-   raise RuntimeError('Cannot verify Skin Smoothing slider near 65%; see screenshot/XML')
-  (OUT/(name+'-gfxinfo.txt')).write_text(sh('dumpsys','gfxinfo',PKG,'framestats',check=False),encoding='utf-8')
-  stage=name+'-save';tap(node(tree,desc='Save'))
-  tree=wait_for(name+'-dialog',lambda t: t if node(t,text='Save Photo') else None,30)
-  tap(node(tree,text='PNG')); tree=snapshot(name+'-dialog-png');tap(node(tree,text='Save'))
-  end=time.monotonic()+90;new=set()
-  while time.monotonic()<end:
-   new={p for p in image_paths()-before if p.lower().endswith('.png')}
-   if len(new)==1:break
-   time.sleep(1)
-  if len(new)!=1:raise RuntimeError('Could not uniquely identify saved PNG')
-  target=next(iter(new));data=adb('exec-out','cat','/sdcard/Pictures/WhimsicalArt/'+target).stdout
-  saved=OUT/(name+'-saved.png');saved.write_bytes(data)
-  output=Image.open(saved).convert('RGB')
-  if output.size!=local.size:raise RuntimeError('Saved dimensions differ')
-  changed=sum(a!=b for a,b in zip(output.tobytes(),local.tobytes()))
-  if changed==0:raise RuntimeError('Saved RGB unchanged; cannot claim applied effect')
-  sample(name+'-saved');results[name]={'outputSha256':hashlib.sha256(data).hexdigest(),'dimensions':list(output.size),'rgbChangedBytes':changed,'visiblePercentCandidates':values,'elapsedOpenToOutputSeconds':time.monotonic()-start,'elapsedSliderToOutputSeconds':time.monotonic()-action,'elapsedScope':'wall time includes UI automation, screenshots, 8-second wait and export; not isolated inference latency','savedFile':str(saved)}
- (OUT/'result.json').write_text(json.dumps({'result':'PASS_NEEDS_VISUAL_REVIEW','cases':results},indent=2),encoding='utf-8')
+  try:
+   stage=name+'-input'; source=FIX/(name+'.png'); local=Image.open(source).convert('RGB')
+   adb('shell','am','force-stop',PKG);adb('shell','pm','clear',PKG)
+   before=image_paths();remote=f'/sdcard/Pictures/mint-qa-{name}.png'
+   adb('push',str(source),remote)
+   scan=adb('shell','am','broadcast','-a','android.intent.action.MEDIA_SCANNER_SCAN_FILE','-d','file://'+remote,check=False)
+   (OUT/(name+'-scan.txt')).write_text(f'returncode={scan.returncode}\n'+scan.stdout.decode('utf-8','replace')+'\n'+scan.stderr.decode('utf-8','replace'),encoding='utf-8')
+   if scan.returncode!=0: raise RuntimeError('Media scan request failed')
+   uri=uri_for('mint-qa-'+name+'.png')
+   # Normal launch through the app's real gallery. Explicitly select the exact
+   # accessibility filename; no inferred grid coordinate or assumed URI grant.
+   start=time.monotonic();adb('shell','am','start','-n',PKG+'/.MainActivity','-a','android.intent.action.MAIN','-c','android.intent.category.LAUNCHER')
+   stage=name+'-onboarding'
+   first=wait_for(stage,lambda t:node(t,text='Get Started') or node(t,text='Grant Permission') or node(t,desc='mint-qa-'+name+'.png'),90)
+   if first[0].get('text')=='Get Started':tap(first)
+   stage=name+'-gallery'
+   for i in range(15):
+    tree=snapshot(f'{stage}-{i:02d}')
+    thumbnail=node(tree,desc='mint-qa-'+name+'.png')
+    if thumbnail:tap(thumbnail);break
+    permission=next((node(tree,text=x) for x in ('Grant Permission','Allow all','Allow access to all photos','Allow') if node(tree,text=x)),None)
+    if permission:tap(permission)
+    time.sleep(1)
+   else:raise RuntimeError('Exact image thumbnail not found in application gallery')
+   stage=name+'-editor';wait_for(stage,lambda t:node(t,desc='Save'),90);sample(name+'-loaded');capture_log(name+'-loaded')
+   # Beauty is at the end of a horizontal toolbar. Search visible semantics and scroll.
+   stage=name+'-beauty'
+   for i in range(18):
+    tree=snapshot(f'{stage}-{i:02d}');item=node(tree,text='Beauty')
+    if item:tap(item);break
+    # Swipe only on the visible bottom toolbar, located from a known tool chip.
+    chip=next((node(tree,text=x) for x in ('Crop','Transform','Brightness','Contrast','Filters','Denoise') if node(tree,text=x)),None)
+    if not chip:raise RuntimeError('No known toolbar chip; refusing blind coordinate input')
+    x0,y0,x1,y1=chip[1];width=int(re.search(r'(\d+)x(\d+)',sh('wm','size')).group(1));y=(y0+y1)//2
+    sh('input','swipe',int(width*.82),y,int(width*.18),y,400)
+   else:raise RuntimeError('Beauty entry not found')
+   stage=name+'-smooth';tap(wait_for(stage,lambda t:node(t,text='Smooth'),60))
+   seek=wait_for(name+'-slider',lambda t:node(t,klass='android.widget.SeekBar'),60)
+   sh('dumpsys','gfxinfo',PKG,'reset',check=False)
+   action=time.monotonic();tap(seek,.65)
+   time.sleep(8);tree=snapshot(name+'-slider-result');sample(name+'-after-slider');capture_log(name+'-after-slider')
+   # Preserve text for independent confirmation; sliders do not share calibrated units.
+   visible=[x.get('text','') for x in tree.iter('node') if x.get('text')]
+   (OUT/(name+'-visible.txt')).write_text('\n'.join(visible),encoding='utf-8')
+   values=[int(v[:-1]) for v in visible if re.fullmatch(r'\d{1,3}%',v)]
+   if 'Skin Smoothing' not in visible or not any(60<=v<=70 for v in values):
+    raise RuntimeError('Cannot verify Skin Smoothing slider near 65%; see screenshot/XML')
+   (OUT/(name+'-gfxinfo.txt')).write_text(sh('dumpsys','gfxinfo',PKG,'framestats',check=False),encoding='utf-8')
+   # A visible layer establishes the parameter was committed, not that the
+   # asynchronous ML/preview has completed. There is no verified completion UI.
+   stage=name+'-layer';tap(node(tree,desc='Layers'))
+   layers=wait_for(stage,lambda t:t if node(t,text='Beauty · Smoothing') else None,60)
+   tap(node(layers,desc='Back'))
+   tree=wait_for(name+'-layer-close',lambda t:t if node(t,desc='Save') and not node(t,text='Merge Layers') else None,30)
+   stage=name+'-save';tap(node(tree,desc='Save'))
+   tree=wait_for(name+'-dialog',lambda t: t if node(t,text='Save Photo') else None,30)
+   tap(node(tree,text='PNG')); tree=snapshot(name+'-dialog-png');tap(node(tree,text='Save'))
+   # Snackbar is transient and may vanish before uiautomator returns. Record
+   # it when visible; the saved PNG itself is the required evidence.
+   try:
+    confirmation=snapshot(name+'-save-confirmation')
+    saw_save_notice=bool(node(confirmation,text='Photo saved'))
+   except Exception:
+    saw_save_notice=False
+   end=time.monotonic()+90;new=set()
+   while time.monotonic()<end:
+    new={p for p in image_paths()-before if p.lower().endswith('.png')}
+    if len(new)==1:break
+    time.sleep(1)
+   if len(new)!=1:raise RuntimeError('Could not uniquely identify saved PNG')
+   target=next(iter(new));data=adb('exec-out','cat','/sdcard/Pictures/WhimsicalArt/'+target).stdout
+   saved=OUT/(name+'-saved.png');saved.write_bytes(data)
+   output=Image.open(saved).convert('RGB')
+   if output.size!=local.size:raise RuntimeError('Saved dimensions differ')
+   changed=sum(a!=b for a,b in zip(output.tobytes(),local.tobytes()))
+   sample(name+'-saved');capture_log(name+'-saved');results[name]={'outputSha256':hashlib.sha256(data).hexdigest(),'dimensions':list(output.size),'rgbChangedBytes':changed,'visiblePercentCandidates':values,'saveNoticeObserved':saw_save_notice,'elapsedOpenToOutputSeconds':time.monotonic()-start,'elapsedSliderToOutputSeconds':time.monotonic()-action,'elapsedScope':'wall time includes UI automation, screenshots, 8-second wait and export; not isolated inference latency','savedFile':str(saved)}
+   if changed==0:raise RuntimeError('Saved RGB unchanged; cannot claim applied effect')
+   results[name]['result']='PASS_NEEDS_VISUAL_REVIEW'
+  except Exception as e:
+   try:snapshot('failure-'+stage)
+   except Exception:pass
+   try:capture_log('failure-'+stage)
+   except Exception:pass
+   results.setdefault(name,{})['result']='FAIL'
+   results[name]['stage']=stage;results[name]['error']=str(e)
+ (OUT/'result.json').write_text(json.dumps({'result':'FAIL' if any(v.get('result')=='FAIL' for v in results.values()) else 'PASS_NEEDS_VISUAL_REVIEW','cases':results},indent=2),encoding='utf-8')
+ if any(v.get('result')=='FAIL' for v in results.values()):raise RuntimeError('One or more independent photo cases failed; see result.json')
 except Exception as e:
- try:snapshot('failure-'+stage)
- except Exception:pass
- try:(OUT/('failure-'+stage+'-logcat.txt')).write_bytes(adb('logcat','-d','-v','threadtime','-t','3000',check=False).stdout)
- except Exception:pass
- (OUT/'result.json').write_text(json.dumps({'result':'FAIL','stage':stage,'error':str(e),'completed':results},indent=2),encoding='utf-8')
+ if not results:
+  try:snapshot('failure-'+stage)
+  except Exception:pass
+  try:capture_log('failure-'+stage)
+  except Exception:pass
+  (OUT/'result.json').write_text(json.dumps({'result':'FAIL','stage':stage,'error':str(e),'cases':results},indent=2),encoding='utf-8')
  raise
