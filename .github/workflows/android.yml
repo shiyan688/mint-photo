@@ -137,6 +137,11 @@ jobs:
           MINT_E2E_MODE=large bash tests/run-ai-e2e.sh
           bash gradlew --no-daemon -PaiE2eTest -PportraitLargeTest :app:assembleDebugAndroidTest
           MINT_E2E_MODE=portrait bash tests/run-ai-e2e.sh
+          # Research-only model goes exclusively in the disposable androidTest APK.
+          # Neither that APK nor the model is part of a published artifact.
+          node tests/prepare-interactive-android.cjs
+          bash gradlew --no-daemon -PaiE2eTest -PinteractiveObjectTest :app:assembleDebugAndroidTest
+          bash tests/run-interactive-android.sh
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:
@@ -145,5 +150,6 @@ jobs:
             .work/ai-e2e-evidence/
             .work/ai-e2e-large-evidence/
             .work/portrait-large-evidence/
+            .work/interactive-android-evidence/
           retention-days: 14
           if-no-files-found: warn

@@ -14,7 +14,9 @@ android {
         // Keep the application ID and increase the Android upgrade sequence.
         versionCode 9
         versionName '0.3.4-dev'
-        testInstrumentationRunner project.hasProperty('portraitLargeTest')
+        testInstrumentationRunner project.hasProperty('interactiveObjectTest')
+                ? 'com.qingyan.editor.InteractiveObjectInstrumentation'
+                : project.hasProperty('portraitLargeTest')
                 ? 'com.qingyan.editor.PortraitLargeInstrumentation'
                 : project.hasProperty('aiE2eTest')
                 ? 'com.qingyan.editor.AiFlowInstrumentation'
@@ -75,6 +77,13 @@ android {
     // A separate disposable test app trusts an ephemeral local mock-service CA.
     // Neither the CA nor its manifest is included in normal debug/release APKs.
     sourceSets {
+        androidTest {
+            // External research model is used only by a disposable test APK.
+            // Normal debug/release APKs must never contain this asset.
+            if (project.hasProperty('interactiveObjectTest')) {
+                assets.srcDirs += [rootProject.file('.work/interactive-test-assets')]
+            }
+        }
         debug {
             if (project.hasProperty('aiE2eTest')) {
                 manifest.srcFile 'src/aiE2e/AndroidManifest.xml'
