@@ -37,6 +37,8 @@ public final class InteractiveObjectInstrumentation extends Instrumentation {
 
     @Override public void onStart() {
         Bundle result = new Bundle();
+        java.io.File modelFile = null;
+        int resultCode = 1;
         try {
             require(getTargetContext().getPackageName().endsWith(".e2e"), "disposable app ID");
             report.put("androidApi", android.os.Build.VERSION.SDK_INT).put("abi", android.os.Build.SUPPORTED_ABIS[0])
@@ -47,12 +49,15 @@ public final class InteractiveObjectInstrumentation extends Instrumentation {
             stage = "model-read";
             byte[] model = asset("interactive-research.task", 30525312);
             require(model.length == 30525312 && sha(model).equals(MODEL_SHA), "pinned model bytes and SHA");
-            ByteBuffer direct = ByteBuffer.allocateDirect(model.length).order(ByteOrder.nativeOrder());
-            direct.put(model).rewind(); model = null;
+            // Unique private disposable file: the test APK asset is not part of the
+            // application package, and is never exported or retained after this test.
+            modelFile = java.io.File.createTempFile("interactive-research-", ".task", getTargetContext().getCacheDir());
+            try (OutputStream output = new java.io.FileOutputStream(modelFile)) { output.write(model); }
+            model = null;
             stage = "model-create"; long start = SystemClock.elapsedRealtime();
             try (InteractiveSegmenter segmenter = InteractiveSegmenter.createFromOptions(getTargetContext(),
                     InteractiveSegmenterOptions.builder().setBaseOptions(BaseOptions.builder()
-                            .setDelegate(Delegate.CPU).setModelAssetBuffer(direct).build()).build())) {
+                            .setDelegate(Delegate.CPU).setModelAssetPath(modelFile.getAbsolutePath()).build()).build())) {
                 report.put("createMs", SystemClock.elapsedRealtime() - start).put("memoryAfterCreateKiB", memory());
                 runImage(segmenter, "melvin", "interactive-melvin.jpg", 720, 900, .285f, .68f,
                         "34471604e6f19bdbc31e8a556caa9d20bab29c417a7817a1c352740458dcf0eb");
@@ -62,14 +67,22 @@ public final class InteractiveObjectInstrumentation extends Instrumentation {
             report.put("memoryAfterCloseKiB", memory()).put("result", "PASS").put("stage", stage);
             write("interactive-result.json", report.toString(2));
             result.putString("result", "PASS Android interactive object model research; 2 masks; no quality or device acceptance claim");
-            finish(0, result);
+            resultCode = 0;
         } catch (Throwable error) {
             try { report.put("result", "FAIL").put("stage", stage).put("error", error.toString());
                 write("interactive-result.json", report.toString(2)); } catch (Exception ignored) { }
             result.putString("result", "FAIL Android interactive object model research at " + stage + ": " + error);
             result.putString("stack", android.util.Log.getStackTraceString(error));
-            finish(1, result);
+        } finally {
+            if (modelFile != null && modelFile.exists() && !modelFile.delete()) {
+                android.util.Log.w("InteractiveResearch", "Unable to remove the disposable test model from private cache.");
+                resultCode = 1;
+                result.putString("result", "FAIL Android interactive object model research: unable to remove temporary model");
+                try { report.put("result", "FAIL").put("stage", "model-cleanup");
+                    write("interactive-result.json", report.toString(2)); } catch (Exception ignored) { }
+            }
         }
+        finish(resultCode, result);
     }
 
     private void runImage(InteractiveSegmenter segmenter, String name, String file, int width, int height,
