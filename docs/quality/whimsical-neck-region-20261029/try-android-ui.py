@@ -46,11 +46,23 @@ def wait_for(prefix, predicate, timeout=60):
 def sample(stage):
  output=sh('dumpsys','meminfo',PKG,check=False)
  (OUT/(stage+'-meminfo.txt')).write_text(output,encoding='utf-8')
+def parse_media_uri(output, filename):
+ for line in output.splitlines():
+  name=re.search(r'(?:^|,\s*)_display_name=([^,]+)',line)
+  match=re.search(r'(?:^|\s|,)_id=(\d+)',line)
+  if name and name.group(1).strip()==filename and match:
+   return 'content://media/external/images/media/'+match.group(1)
+ return None
 def uri_for(filename):
+ # Query without a SQL WHERE clause: adb shell may strip quotes from its
+ # arguments, silently changing a string literal into an invalid SQL name.
+ # Keep stdout/stderr and return code as evidence if scanning or query fails.
  for _ in range(45):
-  out=sh('content','query','--uri','content://media/external/images/media','--projection','_id:_display_name','--where',f"_display_name='{filename}'",check=False)
-  match=re.search(r'_id=(\d+)',out)
-  if match:return 'content://media/external/images/media/'+match.group(1)
+  res=adb('shell','content','query','--uri','content://media/external/images/media','--projection','_id:_display_name',check=False)
+  out=res.stdout.decode('utf-8','replace');err=res.stderr.decode('utf-8','replace')
+  (OUT/(filename+'-media-query-last.txt')).write_text(f'returncode={res.returncode}\nSTDOUT:\n{out}\nSTDERR:\n{err}',encoding='utf-8')
+  result=parse_media_uri(out,filename)
+  if result:return result
   time.sleep(1)
  raise RuntimeError('MediaStore did not expose source image')
 def image_paths(): return set(sh('ls','-1','/sdcard/Pictures/WhimsicalArt',check=False).splitlines())
@@ -63,7 +75,9 @@ try:
   adb('shell','am','force-stop',PKG);adb('shell','pm','clear',PKG)
   before=image_paths();remote=f'/sdcard/Pictures/mint-qa-{name}.png'
   adb('push',str(source),remote)
-  adb('shell','am','broadcast','-a','android.intent.action.MEDIA_SCANNER_SCAN_FILE','-d','file://'+remote)
+  scan=adb('shell','am','broadcast','-a','android.intent.action.MEDIA_SCANNER_SCAN_FILE','-d','file://'+remote,check=False)
+  (OUT/(name+'-scan.txt')).write_text(f'returncode={scan.returncode}\n'+scan.stdout.decode('utf-8','replace')+'\n'+scan.stderr.decode('utf-8','replace'),encoding='utf-8')
+  if scan.returncode!=0: raise RuntimeError('Media scan request failed')
   uri=uri_for('mint-qa-'+name+'.png')
   start=time.monotonic();adb('shell','am','start','-n',PKG+'/.MainActivity','-a','android.intent.action.SEND','-t','image/png','--eu','android.intent.extra.STREAM',uri,'--grant-read-uri-permission')
   stage=name+'-editor';wait_for(stage,lambda t:node(t,desc='Save'),90);sample(name+'-loaded')
