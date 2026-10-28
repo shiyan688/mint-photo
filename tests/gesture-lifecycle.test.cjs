@@ -79,7 +79,7 @@ function harness({ native = false, manual = true } = {}) {
     }
   };
   const env = { viewport: null, historyUI: null, projectConfirmation: null, projectLibraryController: null, projectLibraryUI: null,
-    document, console, Uint8Array, Uint8ClampedArray, ArrayBuffer, Set,
+    document, console, crypto: require('node:crypto').webcrypto, Uint8Array, Uint8ClampedArray, ArrayBuffer, Set,
     btoa: value => Buffer.from(value, 'binary').toString('base64'), atob: value => Buffer.from(value, 'base64').toString('binary'),
     setTimeout(fn, delay) { const id = ++timerId; timers.set(id, { fn, delay }); return id; }, clearTimeout: id => timers.delete(id),
     source: fakeCanvas(), committed: fakeCanvas(), sourceBlob: photo('initial.png', 400, 600), sourceAsset: null, projectRevision: 0, draft: null, ops: [], redo: [], hasSaved: true,

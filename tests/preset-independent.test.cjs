@@ -42,7 +42,7 @@ async function integrated(){
  env.document.getElementById=id=>panelNodes.get(id)||oldLookup(id);
  env.document.createElement=tag=>decorate(oldCreate(tag));
  Object.defineProperty(h.$('toolPanel'),'innerHTML',{configurable:true,set(html){panelNodes.clear();for(const m of html.matchAll(/<([a-z]+)\b([^>]*id="([^"]+)"[^>]*)>/g)){const e=decorate(oldCreate(m[1]));e.id=m[3];e.value=m[2].match(/value="([^"]*)"/)?.[1]||'';e.checked=/\bchecked\b/.test(m[2]);panelNodes.set(e.id,e);}}});
- env.ArrayBuffer=ArrayBuffer;env.TextDecoder=TextDecoder;env.Float32Array=Float32Array;env.Float64Array=Float64Array;
+ env.crypto=crypto.webcrypto;env.ArrayBuffer=ArrayBuffer;env.TextDecoder=TextDecoder;env.Float32Array=Float32Array;env.Float64Array=Float64Array;
  env.localStorage={getItem:k=>map.get(k)??null,setItem:(k,v)=>map.set(k,v)};
  const OldReader=env.FileReader;
  env.FileReader=class extends OldReader{readAsArrayBuffer(blob){this.blob=blob;readers.push(this);}};
