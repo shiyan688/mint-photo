@@ -16,11 +16,21 @@ if hashlib.sha256(apk.read_bytes()).hexdigest()!='a840bbd7fc4063092693d7a36eefa3
 def adb(*args,check=True): return subprocess.run(ADB+list(args),check=check,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
 def sh(*args,check=True): return adb('shell',*map(str,args),check=check).stdout.decode('utf-8','replace')
 def snapshot(stage):
- adb('shell','uiautomator','dump','/sdcard/window-mint-qa.xml')
- xml=adb('exec-out','cat','/sdcard/window-mint-qa.xml').stdout
- (OUT/(stage+'.xml')).write_bytes(xml)
- (OUT/(stage+'.png')).write_bytes(adb('exec-out','screencap','-p').stdout)
- return ET.fromstring(xml)
+ for attempt in range(5):
+  adb('shell','rm','-f','/sdcard/window-mint-qa.xml',check=False)
+  dump=adb('shell','uiautomator','dump','/sdcard/window-mint-qa.xml',check=False)
+  cat=adb('exec-out','cat','/sdcard/window-mint-qa.xml',check=False)
+  xml=cat.stdout
+  try:
+   tree=ET.fromstring(xml)
+   if tree.tag!='hierarchy':raise ValueError('Unexpected hierarchy root')
+  except (ET.ParseError,ValueError):
+   (OUT/(stage+f'-dump-{attempt}.txt')).write_bytes(dump.stdout+b'\n'+dump.stderr+b'\n'+cat.stdout+b'\n'+cat.stderr)
+   time.sleep(1);continue
+  (OUT/(stage+'.xml')).write_bytes(xml)
+  (OUT/(stage+'.png')).write_bytes(adb('exec-out','screencap','-p').stdout)
+  return tree
+ raise RuntimeError('UI hierarchy was unavailable; diagnostic dumps retained')
 def node(root, text=None, desc=None, klass=None):
  for x in root.iter('node'):
   if text is not None and x.get('text')!=text:continue
@@ -36,9 +46,11 @@ def wait_for(prefix, predicate, timeout=60):
  end=time.monotonic()+timeout;idx=0
  while time.monotonic()<end:
   tree=snapshot(f'{prefix}-{idx:02d}');idx+=1
+  if any('Unable to open the image' in x.get('text','') for x in tree.iter('node')):
+   raise RuntimeError('WhimsicalArt displayed an image-open error')
   result=predicate(tree)
   if result is not None:return result
-  for text in ('Allow','While using the app','Allow access to all photos'):
+  for text in ('Allow','While using the app','Allow access to all photos','Allow all'):
    permission=node(tree,text=text)
    if permission:tap(permission);break
   time.sleep(.5)
@@ -79,7 +91,21 @@ try:
   (OUT/(name+'-scan.txt')).write_text(f'returncode={scan.returncode}\n'+scan.stdout.decode('utf-8','replace')+'\n'+scan.stderr.decode('utf-8','replace'),encoding='utf-8')
   if scan.returncode!=0: raise RuntimeError('Media scan request failed')
   uri=uri_for('mint-qa-'+name+'.png')
-  start=time.monotonic();adb('shell','am','start','-n',PKG+'/.MainActivity','-a','android.intent.action.SEND','-t','image/png','--eu','android.intent.extra.STREAM',uri,'--grant-read-uri-permission')
+  # Normal launch through the app's real gallery. Explicitly select the exact
+  # accessibility filename; no inferred grid coordinate or assumed URI grant.
+  start=time.monotonic();adb('shell','am','start','-n',PKG+'/.MainActivity','-a','android.intent.action.MAIN','-c','android.intent.category.LAUNCHER')
+  stage=name+'-onboarding'
+  first=wait_for(stage,lambda t:node(t,text='Get Started') or node(t,text='Grant Permission') or node(t,desc='mint-qa-'+name+'.png'),90)
+  if first[0].get('text')=='Get Started':tap(first)
+  stage=name+'-gallery'
+  for i in range(15):
+   tree=snapshot(f'{stage}-{i:02d}')
+   thumbnail=node(tree,desc='mint-qa-'+name+'.png')
+   if thumbnail:tap(thumbnail);break
+   permission=next((node(tree,text=x) for x in ('Grant Permission','Allow all','Allow access to all photos','Allow') if node(tree,text=x)),None)
+   if permission:tap(permission)
+   time.sleep(1)
+  else:raise RuntimeError('Exact image thumbnail not found in application gallery')
   stage=name+'-editor';wait_for(stage,lambda t:node(t,desc='Save'),90);sample(name+'-loaded')
   # Beauty is at the end of a horizontal toolbar. Search visible semantics and scroll.
   stage=name+'-beauty'
@@ -123,6 +149,8 @@ try:
  (OUT/'result.json').write_text(json.dumps({'result':'PASS_NEEDS_VISUAL_REVIEW','cases':results},indent=2),encoding='utf-8')
 except Exception as e:
  try:snapshot('failure-'+stage)
+ except Exception:pass
+ try:(OUT/('failure-'+stage+'-logcat.txt')).write_bytes(adb('logcat','-d','-v','threadtime','-t','3000',check=False).stdout)
  except Exception:pass
  (OUT/'result.json').write_text(json.dumps({'result':'FAIL','stage':stage,'error':str(e),'completed':results},indent=2),encoding='utf-8')
  raise
