@@ -97,10 +97,25 @@ public final class InteractiveObjectInstrumentation extends Instrumentation {
     }
 
     private void runImages(InteractiveSegmenter segmenter, InteractiveSegmenterLegacy old) throws Exception {
-        runImage(segmenter, old, "melvin", "interactive-melvin.jpg", 720, 900, .285f, .68f,
-                "34471604e6f19bdbc31e8a556caa9d20bab29c417a7817a1c352740458dcf0eb");
-        runImage(segmenter, old, "collins", "astronaut.png", 512, 512, .74f, .82f,
-                "88431cd9653ccd539741b555fb0a46b61558b301d4110412b5bc28b5e3ea6cb5");
+        String firstFailure = null, firstStage = null;
+        try {
+            runImage(segmenter, old, "melvin", "interactive-melvin.jpg", 720, 900, .285f, .68f,
+                    "34471604e6f19bdbc31e8a556caa9d20bab29c417a7817a1c352740458dcf0eb");
+        } catch (AssertionError error) {
+            firstFailure = error.toString(); firstStage = stage;
+            if (images.length() == 0) images.put(new JSONObject().put("name", "melvin"));
+            images.getJSONObject(images.length() - 1).put("result", "FAIL").put("error", firstFailure);
+        }
+        int previousCount = images.length();
+        try {
+            runImage(segmenter, old, "collins", "astronaut.png", 512, 512, .74f, .82f,
+                    "88431cd9653ccd539741b555fb0a46b61558b301d4110412b5bc28b5e3ea6cb5");
+        } catch (AssertionError error) {
+            if (images.length() == previousCount) images.put(new JSONObject().put("name", "collins"));
+            images.getJSONObject(images.length() - 1).put("result", "FAIL").put("error", error.toString());
+            if (firstFailure == null) { firstFailure = error.toString(); firstStage = stage; }
+        }
+        if (firstFailure != null) { stage = firstStage; throw new AssertionError(firstFailure); }
     }
 
     private void runImage(InteractiveSegmenter segmenter, InteractiveSegmenterLegacy old, String name, String file, int width, int height,
@@ -193,10 +208,57 @@ public final class InteractiveObjectInstrumentation extends Instrumentation {
                 try (OutputStream out = getTargetContext().openFileOutput("interactive-" + name + "-mask.png", 0)) {
                     require(imageMask.compress(Bitmap.CompressFormat.PNG, 100, out), "mask PNG encoded");
                 } finally { imageMask.recycle(); }
+                if (old != null && "melvin".equals(name)) {
+                    JSONArray grid = new JSONArray();
+                    row.put("pointGrid", grid);
+                    diagnosticLegacyPoints(old, image, name, width, height, grid);
+                    stage = name + "-segment";
+                }
                 require(bad == 0 && high > 0 && low > 0 && clicked > .5f, name + " plausible confidence and selected point");
                 row.put("result", "PASS");
             } finally { mask.close(); if (legacyResult != null && legacyResult.categoryMask().isPresent()) legacyResult.categoryMask().get().close(); }
         } finally { image.close(); bitmap.recycle(); }
+    }
+
+    /** Diagnostic only: compare distinct ROI inputs, retaining each real output. */
+    private void diagnosticLegacyPoints(InteractiveSegmenterLegacy old, MPImage image, String name, int width, int height, JSONArray results) throws Exception {
+        final float[][] points = {{.285f,.68f},{0f,0f},{.1f,.2f},{.68f,.285f},{.5f,.5f}};
+        for (int number = 0; number < points.length; number++) {
+            float px = points[number][0], py = points[number][1];
+            stage = name + "-point-grid-" + number;
+            long started = SystemClock.elapsedRealtime();
+            ImageSegmenterResult response = old.segment(image, InteractiveSegmenterLegacy.RegionOfInterest.create(NormalizedKeypoint.create(px, py)));
+            long elapsed = SystemClock.elapsedRealtime() - started;
+            List<MPImage> masks = response.confidenceMasks().orElse(Collections.emptyList());
+            try {
+                require(masks.size() == 1, "point grid requires one foreground confidence mask");
+                MPImage mask = masks.get(0);
+                int w = mask.getWidth(), h = mask.getHeight();
+                require(w == width && h == height, "point grid mask dimensions");
+                ByteBuffer buffer = ByteBufferExtractor.extract(mask).order(ByteOrder.nativeOrder());
+                require(buffer.remaining() == w * h * Float.BYTES, "point grid float confidence buffer");
+                int[] gray = new int[w * h]; int invalid = 0, high = 0; float selected = 0;
+                int pointIndex = Math.min(h - 1, (int)(py * h)) * w + Math.min(w - 1, (int)(px * w));
+                for (int i = 0; i < gray.length; i++) {
+                    float value = buffer.getFloat(i * Float.BYTES);
+                    if (!Float.isFinite(value) || value < 0 || value > 1) { invalid++; value = 0; }
+                    if (value > .5f) high++;
+                    if (i == pointIndex) selected = value;
+                    int pixel = Math.round(value * 255); gray[i] = 0xff000000 | pixel << 16 | pixel << 8 | pixel;
+                }
+                Bitmap png = Bitmap.createBitmap(gray, w, h, Bitmap.Config.ARGB_8888);
+                try (OutputStream out = getTargetContext().openFileOutput("interactive-" + name + "-point-" + number + ".png", 0)) {
+                    require(png.compress(Bitmap.CompressFormat.PNG, 100, out), "point grid PNG encoded");
+                } finally { png.recycle(); }
+                results.put(new JSONObject().put("point", new JSONArray().put(px).put(py)).put("segmentMs", elapsed)
+                        .put("selectedConfidence", selected).put("aboveHalfPixels", high).put("invalidPixels", invalid)
+                        .put("diagnosticPngClipped", invalid != 0));
+                require(invalid == 0, "point grid returned invalid confidence values");
+            } finally {
+                for (MPImage mask : masks) mask.close();
+                if (response.categoryMask().isPresent()) response.categoryMask().get().close();
+            }
+        }
     }
 
     private byte[] asset(String name, int limit) throws Exception {

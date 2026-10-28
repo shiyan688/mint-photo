@@ -168,3 +168,12 @@ jobs:
             .work/interactive-legacy-android-evidence/
           retention-days: 14
           if-no-files-found: warn
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: android-interactive-research-${{ github.run_number }}
+          path: |
+            .work/interactive-android-evidence/
+            .work/interactive-legacy-android-evidence/
+          retention-days: 14
+          if-no-files-found: warn
