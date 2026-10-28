@@ -1,0 +1,361 @@
+{
+  "date": "2026-10-28T05:11:01.392Z",
+  "node": "v25.7.0",
+  "platform": "win32",
+  "arch": "x64",
+  "baselineOnly": false,
+  "repeats": 5,
+  "scope": "Pinned public-photo host inference, resized stress inputs; wall time of pure algorithm only, excluding decode/resize/mask rasterization/hash/PNG. Not physical Android, fresh inference, image-quality improvement or additional real image detail.",
+  "baselineSha256": {
+    "portrait-detail-engine.js": "1559fa74818ece4d99c78b565720072a8284f1eda865949ac62191cf00ceb620",
+    "edge-refine.js": "ba467e0f7391dec1cb1b1f88086e15cba5da201a61b01ae5cfac2b9865a417fa"
+  },
+  "currentSha256": {
+    "portrait-detail-engine.js": "4d392822405f2466d067e32d5c915c0c325cae0c204a7d4cd2e96be7ec0305df",
+    "edge-refine.js": "490bf77545b3cc1beba5f1bb20f4347251ed798ad177ff128b62c035e3a28959"
+  },
+  "cases": [
+    {
+      "id": "melvin-original",
+      "algorithm": "detail-v2",
+      "dimensions": [
+        720,
+        900
+      ],
+      "pixels": 648000,
+      "upscaled": false,
+      "faceCount": 1,
+      "sourceSize": [
+        2400,
+        3000
+      ],
+      "decodedSourceSize": [
+        2400,
+        3000
+      ],
+      "inferenceRuntime": "MediaPipe 0.10.21 Windows CPU; not Android parity",
+      "newInference": false,
+      "inputFile": "generated/inference/melvin-original.png",
+      "inferenceSha256": "ad836ca22ee6c47e4b5f42b0b559105949a18d05fd2b3e951b83ed5180d9c909",
+      "inputEncodedSha256": "c08b6ce400ba5fe6d05f196804c2b893b722bdf31d5868561cef67d8d4a0696a",
+      "outputSha256": "6056aeb4e9fc1d7a2a2681b7f8ff542d36ffd0b55e54acf085c3c0983c7b2923",
+      "outputBytesExact": true,
+      "sourceUnchanged": true,
+      "maskUnchanged": true,
+      "settings": {
+        "smooth": 65,
+        "brighten": 0,
+        "warmth": 0
+      },
+      "baseline": {
+        "samplesMs": [
+          128.55309999999997,
+          81.29309999999998,
+          95.2844,
+          87.13259999999991,
+          95.7654
+        ],
+        "medianMs": 95.2844,
+        "minMs": 81.29309999999998,
+        "maxMs": 128.55309999999997
+      },
+      "current": {
+        "samplesMs": [
+          78.1128,
+          113.43949999999995,
+          78.8211,
+          76.4061999999999,
+          79.81169999999997
+        ],
+        "medianMs": 78.8211,
+        "minMs": 76.4061999999999,
+        "maxMs": 113.43949999999995
+      },
+      "speedup": 1.2088691987297817
+    },
+    {
+      "id": "melvin-original",
+      "algorithm": "guided-alpha",
+      "dimensions": [
+        720,
+        900
+      ],
+      "pixels": 648000,
+      "upscaled": false,
+      "faceCount": 1,
+      "sourceSize": [
+        2400,
+        3000
+      ],
+      "decodedSourceSize": [
+        2400,
+        3000
+      ],
+      "inferenceRuntime": "MediaPipe 0.10.21 Windows CPU; not Android parity",
+      "newInference": false,
+      "inputFile": "generated/inference/melvin-original.png",
+      "inferenceSha256": "ad836ca22ee6c47e4b5f42b0b559105949a18d05fd2b3e951b83ed5180d9c909",
+      "inputEncodedSha256": "c08b6ce400ba5fe6d05f196804c2b893b722bdf31d5868561cef67d8d4a0696a",
+      "outputSha256": "500d960cf04162fa3f312fd1a2cf433b46affbd4be6648c7700f2005e1d965dd",
+      "outputBytesExact": true,
+      "sourceUnchanged": true,
+      "maskUnchanged": true,
+      "settings": null,
+      "baseline": {
+        "samplesMs": [
+          33.143100000000004,
+          33.560599999999795,
+          33.63760000000002,
+          35.69049999999993,
+          40.40239999999994
+        ],
+        "medianMs": 33.63760000000002,
+        "minMs": 33.143100000000004,
+        "maxMs": 40.40239999999994
+      },
+      "current": {
+        "samplesMs": [
+          33.18049999999994,
+          33.88909999999987,
+          33.829699999999775,
+          32.881000000000085,
+          36.817999999999984
+        ],
+        "medianMs": 33.829699999999775,
+        "minMs": 32.881000000000085,
+        "maxMs": 36.817999999999984
+      },
+      "speedup": 0.994321557684527
+    },
+    {
+      "id": "melvin-original",
+      "algorithm": "detail-v2",
+      "dimensions": [
+        2048,
+        2560
+      ],
+      "pixels": 5242880,
+      "upscaled": false,
+      "faceCount": 1,
+      "sourceSize": [
+        2400,
+        3000
+      ],
+      "decodedSourceSize": [
+        2400,
+        3000
+      ],
+      "inferenceRuntime": "MediaPipe 0.10.21 Windows CPU; not Android parity",
+      "newInference": false,
+      "inputFile": "generated/inference/melvin-original.png",
+      "inferenceSha256": "ad836ca22ee6c47e4b5f42b0b559105949a18d05fd2b3e951b83ed5180d9c909",
+      "inputEncodedSha256": "c08b6ce400ba5fe6d05f196804c2b893b722bdf31d5868561cef67d8d4a0696a",
+      "outputSha256": "68276212eb155991af3d266ab08eae5daab67c4abe89e3ca0dbdd365e48aeb83",
+      "outputBytesExact": true,
+      "sourceUnchanged": true,
+      "maskUnchanged": true,
+      "settings": {
+        "smooth": 65,
+        "brighten": 0,
+        "warmth": 0
+      },
+      "baseline": {
+        "samplesMs": [
+          276.4321,
+          273.00430000000006,
+          241.6174000000001,
+          262.64730000000054,
+          259.08309999999983
+        ],
+        "medianMs": 262.64730000000054,
+        "minMs": 241.6174000000001,
+        "maxMs": 276.4321
+      },
+      "current": {
+        "samplesMs": [
+          133.5093999999999,
+          137.5560999999998,
+          170.7134000000001,
+          120.45720000000028,
+          121.4367000000002
+        ],
+        "medianMs": 133.5093999999999,
+        "minMs": 120.45720000000028,
+        "maxMs": 170.7134000000001
+      },
+      "speedup": 1.9672569871484757
+    },
+    {
+      "id": "melvin-original",
+      "algorithm": "guided-alpha",
+      "dimensions": [
+        2048,
+        2560
+      ],
+      "pixels": 5242880,
+      "upscaled": false,
+      "faceCount": 1,
+      "sourceSize": [
+        2400,
+        3000
+      ],
+      "decodedSourceSize": [
+        2400,
+        3000
+      ],
+      "inferenceRuntime": "MediaPipe 0.10.21 Windows CPU; not Android parity",
+      "newInference": false,
+      "inputFile": "generated/inference/melvin-original.png",
+      "inferenceSha256": "ad836ca22ee6c47e4b5f42b0b559105949a18d05fd2b3e951b83ed5180d9c909",
+      "inputEncodedSha256": "c08b6ce400ba5fe6d05f196804c2b893b722bdf31d5868561cef67d8d4a0696a",
+      "outputSha256": "10cc38b8d635069669ad2b171843e520d5c287b57751f7da20888db6f9518fc3",
+      "outputBytesExact": true,
+      "sourceUnchanged": true,
+      "maskUnchanged": true,
+      "settings": null,
+      "baseline": {
+        "samplesMs": [
+          56.145299999999224,
+          55.92780000000039,
+          56.96720000000005,
+          58.67399999999998,
+          54.829099999999926
+        ],
+        "medianMs": 56.145299999999224,
+        "minMs": 54.829099999999926,
+        "maxMs": 58.67399999999998
+      },
+      "current": {
+        "samplesMs": [
+          50.00370000000021,
+          51.77520000000004,
+          52.78819999999996,
+          51.54079999999976,
+          50.64649999999983
+        ],
+        "medianMs": 51.54079999999976,
+        "minMs": 50.00370000000021,
+        "maxMs": 52.78819999999996
+      },
+      "speedup": 1.0893369912768036
+    },
+    {
+      "id": "melvin-original",
+      "algorithm": "detail-v2",
+      "dimensions": [
+        2400,
+        3000
+      ],
+      "pixels": 7200000,
+      "upscaled": false,
+      "faceCount": 1,
+      "sourceSize": [
+        2400,
+        3000
+      ],
+      "decodedSourceSize": [
+        2400,
+        3000
+      ],
+      "inferenceRuntime": "MediaPipe 0.10.21 Windows CPU; not Android parity",
+      "newInference": false,
+      "inputFile": "generated/inference/melvin-original.png",
+      "inferenceSha256": "ad836ca22ee6c47e4b5f42b0b559105949a18d05fd2b3e951b83ed5180d9c909",
+      "inputEncodedSha256": "c08b6ce400ba5fe6d05f196804c2b893b722bdf31d5868561cef67d8d4a0696a",
+      "outputSha256": "54a516ddc30414889409529a0fa8d0c427290af7eaa215f5777bffc0331f4184",
+      "outputBytesExact": true,
+      "sourceUnchanged": true,
+      "maskUnchanged": true,
+      "settings": {
+        "smooth": 65,
+        "brighten": 0,
+        "warmth": 0
+      },
+      "baseline": {
+        "samplesMs": [
+          322.8238999999994,
+          274.48059999999987,
+          271.35189999999966,
+          269.96640000000025,
+          273.32430000000113
+        ],
+        "medianMs": 273.32430000000113,
+        "minMs": 269.96640000000025,
+        "maxMs": 322.8238999999994
+      },
+      "current": {
+        "samplesMs": [
+          121.41139999999996,
+          117.22900000000027,
+          118.40669999999955,
+          114.15350000000035,
+          119.5028000000002
+        ],
+        "medianMs": 118.40669999999955,
+        "minMs": 114.15350000000035,
+        "maxMs": 121.41139999999996
+      },
+      "speedup": 2.308351638885318
+    },
+    {
+      "id": "melvin-original",
+      "algorithm": "guided-alpha",
+      "dimensions": [
+        2400,
+        3000
+      ],
+      "pixels": 7200000,
+      "upscaled": false,
+      "faceCount": 1,
+      "sourceSize": [
+        2400,
+        3000
+      ],
+      "decodedSourceSize": [
+        2400,
+        3000
+      ],
+      "inferenceRuntime": "MediaPipe 0.10.21 Windows CPU; not Android parity",
+      "newInference": false,
+      "inputFile": "generated/inference/melvin-original.png",
+      "inferenceSha256": "ad836ca22ee6c47e4b5f42b0b559105949a18d05fd2b3e951b83ed5180d9c909",
+      "inputEncodedSha256": "c08b6ce400ba5fe6d05f196804c2b893b722bdf31d5868561cef67d8d4a0696a",
+      "outputSha256": "1a0487bb680e6e0b310e7030f702ee8ae6669b141c3479e923594d32408b25f1",
+      "outputBytesExact": true,
+      "sourceUnchanged": true,
+      "maskUnchanged": true,
+      "settings": null,
+      "baseline": {
+        "samplesMs": [
+          69.61459999999897,
+          67.85289999999986,
+          70.19889999999941,
+          68.4926000000014,
+          67.56310000000121
+        ],
+        "medianMs": 68.4926000000014,
+        "minMs": 67.56310000000121,
+        "maxMs": 70.19889999999941
+      },
+      "current": {
+        "samplesMs": [
+          62.28240000000005,
+          63.41979999999967,
+          61.86239999999998,
+          63.51429999999891,
+          60.9270000000015
+        ],
+        "medianMs": 62.28240000000005,
+        "minMs": 60.9270000000015,
+        "maxMs": 63.51429999999891
+      },
+      "speedup": 1.0997103515600128
+    }
+  ],
+  "publication": {
+    "originalReportSha256": "163a34fc13d4bad96a78053afc781513fbd338851080062cec5c133ca18dde3c",
+    "localInputPathReplaced": true,
+    "metricsUnchanged": true,
+    "fullInputNotBundled": true
+  }
+}

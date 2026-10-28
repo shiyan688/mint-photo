@@ -1,0 +1,34 @@
+[
+  {
+    "fixture": "astronaut.png",
+    "method": "Artificial sRGB underexposure x0.55 with known reference; not a real underexposed RAW or aesthetic benchmark",
+    "rmseBefore": 63.187910874134886,
+    "rmseAfter": 36.43841600439043,
+    "recipe": {
+      "version": 1,
+      "shadows": 13,
+      "highlights": 0,
+      "whiteBalance": {
+        "r": 1.8,
+        "g": 1.8,
+        "b": 1.8
+      }
+    }
+  },
+  {
+    "fixture": "mint-portrait.png",
+    "method": "Artificial sRGB underexposure x0.55 with known reference; not a real underexposed RAW or aesthetic benchmark",
+    "rmseBefore": 65.1732980923934,
+    "rmseAfter": 37.93839276945959,
+    "recipe": {
+      "version": 1,
+      "shadows": 11,
+      "highlights": 0,
+      "whiteBalance": {
+        "r": 1.8,
+        "g": 1.8,
+        "b": 1.8
+      }
+    }
+  }
+]

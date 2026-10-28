@@ -1,0 +1,511 @@
+{
+  "date": "2026-10-25",
+  "source": "622d3ff1daf9625d7f3784e1c44a0a77a6e11709",
+  "method": "CUA browser at actual CSS viewports, NASA 512x512 public sample",
+  "layouts": [
+    {
+      "categories": {
+        "bottom": 640,
+        "h": 49,
+        "right": 360,
+        "w": 360,
+        "x": 0,
+        "y": 591
+      },
+      "overflow": false,
+      "panel": {
+        "bottom": 516,
+        "h": 164.60000610351562,
+        "right": 360,
+        "w": 360,
+        "x": 0,
+        "y": 351.3999938964844
+      },
+      "photo": {
+        "bottom": 296,
+        "h": 230,
+        "right": 295,
+        "w": 230,
+        "x": 65,
+        "y": 66
+      },
+      "stage": {
+        "bottom": 310.3999938964844,
+        "h": 258.3999938964844,
+        "right": 360,
+        "w": 360,
+        "x": 0,
+        "y": 52
+      },
+      "targets": [
+        {
+          "h": 40,
+          "id": "homeBack",
+          "inView": true,
+          "uncovered": true,
+          "w": 40
+        },
+        {
+          "h": 40,
+          "id": "undoBtn",
+          "inView": true,
+          "uncovered": true,
+          "w": 40
+        },
+        {
+          "h": 40,
+          "id": "redoBtn",
+          "inView": true,
+          "uncovered": true,
+          "w": 40
+        },
+        {
+          "h": 40,
+          "id": "exportBtn",
+          "inView": true,
+          "uncovered": true,
+          "w": 62
+        },
+        {
+          "h": 40,
+          "id": "compareBtn",
+          "inView": true,
+          "uncovered": true,
+          "w": 76
+        },
+        {
+          "h": 40,
+          "id": "viewToggle",
+          "inView": true,
+          "uncovered": true,
+          "w": 40
+        },
+        {
+          "h": 48.20000076293945,
+          "id": "color",
+          "inView": true,
+          "uncovered": true,
+          "w": 82.5
+        },
+        {
+          "h": 48.20000076293945,
+          "id": "portrait",
+          "inView": true,
+          "uncovered": true,
+          "w": 82.5
+        },
+        {
+          "h": 48.20000076293945,
+          "id": "compose",
+          "inView": true,
+          "uncovered": true,
+          "w": 82.5
+        },
+        {
+          "h": 48.20000076293945,
+          "id": "create",
+          "inView": true,
+          "uncovered": true,
+          "w": 82.5
+        },
+        {
+          "h": 40,
+          "id": "brightness",
+          "inView": true,
+          "uncovered": true,
+          "w": 320
+        }
+      ],
+      "viewport": {
+        "height": 640,
+        "width": 360
+      }
+    },
+    {
+      "categories": {
+        "bottom": 844,
+        "h": 49,
+        "right": 390.3999938964844,
+        "w": 390.3999938964844,
+        "x": 0,
+        "y": 795
+      },
+      "overflow": false,
+      "panel": {
+        "bottom": 720.0000305175781,
+        "h": 164.60000610351562,
+        "right": 390.3999938964844,
+        "w": 390.3999938964844,
+        "x": 0,
+        "y": 555.4000244140625
+      },
+      "photo": {
+        "bottom": 462,
+        "h": 358,
+        "right": 374,
+        "w": 358,
+        "x": 16,
+        "y": 104
+      },
+      "stage": {
+        "bottom": 514.3999938964844,
+        "h": 462.3999938964844,
+        "right": 390.3999938964844,
+        "w": 390.3999938964844,
+        "x": 0,
+        "y": 52
+      },
+      "targets": [
+        {
+          "h": 40,
+          "id": "homeBack",
+          "inView": true,
+          "uncovered": true,
+          "w": 40
+        },
+        {
+          "h": 40,
+          "id": "undoBtn",
+          "inView": true,
+          "uncovered": true,
+          "w": 40
+        },
+        {
+          "h": 40,
+          "id": "redoBtn",
+          "inView": true,
+          "uncovered": true,
+          "w": 40
+        },
+        {
+          "h": 40,
+          "id": "exportBtn",
+          "inView": true,
+          "uncovered": true,
+          "w": 62
+        },
+        {
+          "h": 40,
+          "id": "compareBtn",
+          "inView": true,
+          "uncovered": true,
+          "w": 76
+        },
+        {
+          "h": 40,
+          "id": "viewToggle",
+          "inView": true,
+          "uncovered": true,
+          "w": 40
+        },
+        {
+          "h": 48.20000076293945,
+          "id": "color",
+          "inView": true,
+          "uncovered": true,
+          "w": 90.0999984741211
+        },
+        {
+          "h": 48.20000076293945,
+          "id": "portrait",
+          "inView": true,
+          "uncovered": true,
+          "w": 90.0999984741211
+        },
+        {
+          "h": 48.20000076293945,
+          "id": "compose",
+          "inView": true,
+          "uncovered": true,
+          "w": 90.0999984741211
+        },
+        {
+          "h": 48.20000076293945,
+          "id": "create",
+          "inView": true,
+          "uncovered": true,
+          "w": 90.0999984741211
+        },
+        {
+          "h": 40,
+          "id": "brightness",
+          "inView": true,
+          "uncovered": true,
+          "w": 350.3999938964844
+        }
+      ],
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    {
+      "categories": {
+        "bottom": 412,
+        "h": 50,
+        "right": 915.2000122070312,
+        "w": 339.20001220703125,
+        "x": 576,
+        "y": 362
+      },
+      "overflow": false,
+      "panel": {
+        "bottom": 280.00000762939453,
+        "h": 176.8000030517578,
+        "right": 915.2000122070312,
+        "w": 339.20001220703125,
+        "x": 576,
+        "y": 103.20000457763672
+      },
+      "photo": {
+        "bottom": 350,
+        "h": 280,
+        "right": 427.5,
+        "w": 280,
+        "x": 147.5,
+        "y": 70
+      },
+      "stage": {
+        "bottom": 364,
+        "h": 308,
+        "right": 575.2000122070312,
+        "w": 575.2000122070312,
+        "x": 0,
+        "y": 56
+      },
+      "targets": [
+        {
+          "h": 44,
+          "id": "homeBack",
+          "inView": true,
+          "uncovered": true,
+          "w": 44
+        },
+        {
+          "h": 44,
+          "id": "undoBtn",
+          "inView": true,
+          "uncovered": true,
+          "w": 44
+        },
+        {
+          "h": 44,
+          "id": "redoBtn",
+          "inView": true,
+          "uncovered": true,
+          "w": 44
+        },
+        {
+          "h": 40,
+          "id": "exportBtn",
+          "inView": true,
+          "uncovered": true,
+          "w": 72
+        },
+        {
+          "h": 40,
+          "id": "compareBtn",
+          "inView": true,
+          "uncovered": true,
+          "w": 85
+        },
+        {
+          "h": 40,
+          "id": "viewToggle",
+          "inView": true,
+          "uncovered": true,
+          "w": 40
+        },
+        {
+          "h": 49.20000076293945,
+          "id": "color",
+          "inView": true,
+          "uncovered": true,
+          "w": 79.80000305175781
+        },
+        {
+          "h": 49.20000076293945,
+          "id": "portrait",
+          "inView": true,
+          "uncovered": true,
+          "w": 79.80000305175781
+        },
+        {
+          "h": 49.20000076293945,
+          "id": "compose",
+          "inView": true,
+          "uncovered": true,
+          "w": 79.80000305175781
+        },
+        {
+          "h": 49.20000076293945,
+          "id": "create",
+          "inView": true,
+          "uncovered": true,
+          "w": 79.80000305175781
+        },
+        {
+          "h": 40,
+          "id": "brightness",
+          "inView": true,
+          "uncovered": true,
+          "w": 288.8000183105469
+        }
+      ],
+      "viewport": {
+        "height": 412,
+        "width": 915
+      }
+    },
+    {
+      "categories": {
+        "bottom": 1000,
+        "h": 50,
+        "right": 1360,
+        "w": 339.20001220703125,
+        "x": 1020.7999877929688,
+        "y": 950
+      },
+      "overflow": false,
+      "panel": {
+        "bottom": 867.9999923706055,
+        "h": 764.7999877929688,
+        "right": 1360,
+        "w": 339.20001220703125,
+        "x": 1020.7999877929688,
+        "y": 103.20000457763672
+      },
+      "photo": {
+        "bottom": 938,
+        "h": 868,
+        "right": 944,
+        "w": 868,
+        "x": 76,
+        "y": 70
+      },
+      "stage": {
+        "bottom": 952,
+        "h": 896,
+        "right": 1020,
+        "w": 1020,
+        "x": 0,
+        "y": 56
+      },
+      "targets": [
+        {
+          "h": 44,
+          "id": "homeBack",
+          "inView": true,
+          "uncovered": true,
+          "w": 44
+        },
+        {
+          "h": 44,
+          "id": "undoBtn",
+          "inView": true,
+          "uncovered": true,
+          "w": 44
+        },
+        {
+          "h": 44,
+          "id": "redoBtn",
+          "inView": true,
+          "uncovered": true,
+          "w": 44
+        },
+        {
+          "h": 40,
+          "id": "exportBtn",
+          "inView": true,
+          "uncovered": true,
+          "w": 72
+        },
+        {
+          "h": 40,
+          "id": "compareBtn",
+          "inView": true,
+          "uncovered": true,
+          "w": 85
+        },
+        {
+          "h": 40,
+          "id": "viewToggle",
+          "inView": true,
+          "uncovered": true,
+          "w": 40
+        },
+        {
+          "h": 49.20000076293945,
+          "id": "color",
+          "inView": true,
+          "uncovered": true,
+          "w": 79.80000305175781
+        },
+        {
+          "h": 49.20000076293945,
+          "id": "portrait",
+          "inView": true,
+          "uncovered": true,
+          "w": 79.80000305175781
+        },
+        {
+          "h": 49.20000076293945,
+          "id": "compose",
+          "inView": true,
+          "uncovered": true,
+          "w": 79.80000305175781
+        },
+        {
+          "h": 49.20000076293945,
+          "id": "create",
+          "inView": true,
+          "uncovered": true,
+          "w": 79.80000305175781
+        },
+        {
+          "h": 40,
+          "id": "brightness",
+          "inView": true,
+          "uncovered": true,
+          "w": 299.20001220703125
+        }
+      ],
+      "viewport": {
+        "height": 1000,
+        "width": 1360
+      }
+    }
+  ],
+  "parameterRetention": {
+    "brightness": "1",
+    "confirm": false,
+    "contrast": "1",
+    "oneVisible": 1
+  },
+  "viewOpen": {
+    "controls": [
+      {
+        "h": 40,
+        "id": "viewFit",
+        "w": 46
+      },
+      {
+        "h": 40,
+        "id": "viewPan",
+        "w": 68
+      },
+      {
+        "h": 40,
+        "id": "viewZoom",
+        "w": 146.40000915527344
+      }
+    ],
+    "expanded": "true"
+  },
+  "viewClosed": {
+    "expanded": "false",
+    "height": 0
+  },
+  "physicalDevice": false,
+  "realAiModel": false
+}

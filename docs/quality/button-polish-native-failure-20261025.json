@@ -1,0 +1,11 @@
+{
+  "result": "FAIL",
+  "sourceCommit": "608c61afb94bfe834be79a44b578e4f19b85ebee",
+  "runUrl": "https://github.com/shiyan688/mint-photo/actions/runs/40113426829",
+  "stage": "erase setup",
+  "observed": "adjustments-neutral screenshot shows contrast -87 and contrast still selected; AI correctly refuses uncommitted preview",
+  "diagnosis": "test reset hides apply bar while next touch coordinates are sampled; checking stable layout and explicit neutral state before further acceptance",
+  "notCountedAsComplete": true,
+  "physicalDevice": false,
+  "realAiModel": false
+}

@@ -1,0 +1,102 @@
+{
+  "result": "PASS",
+  "stage": "background-reopen",
+  "checks": [
+    "disposable app ID enforced",
+    "real WebView present",
+    "WebView network remains blocked during local portrait work",
+    "7.2 MP source retains original dimensions with a 720x900 display preview",
+    "real bundled face model returned complete landmark data through the production callback",
+    "person 1 explicitly selected before changing skin parameters",
+    "texture skin experimental option selected through its actual checkbox",
+    "texture skin strength 65 changes actual preview pixels, without claiming perceptual quality",
+    "available original resolution stays selected",
+    "PNG export keeps the chosen processing dimensions without an additional resize",
+    "system PNG filename field exists",
+    "system PNG filename set",
+    "skin PNG completed the native SAF write",
+    "saved PNG is independently readable: null",
+    "actual skin PNG header and decoded image match selected output dimensions",
+    "actual skin PNG retains the original photograph's opaque alpha",
+    "skin saved PNG reopened as a new source at the explicitly chosen dimensions",
+    "real person model returned a 205x256 confidence mask matching the 4:5 photograph; this is not a hair-detail accuracy assertion",
+    "experimental edge-aware refinement selected through the actual checkbox",
+    "transparent composition selected with diagnostic mask overlay turned off by the product",
+    "transparent preview contains both retained and removed pixels",
+    "available original resolution stays selected",
+    "PNG export keeps the chosen processing dimensions without an additional resize",
+    "system PNG filename field exists",
+    "system PNG filename set",
+    "background PNG completed the native SAF write",
+    "saved PNG is independently readable: null",
+    "actual background PNG header and decoded image match selected output dimensions",
+    "actual background PNG retains both transparent and opaque regions after save\/reopen",
+    "background saved PNG reopened as a new source at the explicitly chosen dimensions"
+  ],
+  "timingsMsIncludingAutomationAndPolling": {
+    "originalImportIncludingPicker": 3515,
+    "faceDetectionIncludingTouchAndPolling": 1386,
+    "skin65PreviewIncludingPolling": 950,
+    "skinApplyIncludingTouchAndPolling": 1137,
+    "skinSaveIncludingSystemPicker": 7732,
+    "skinReopenIncludingSystemPicker": 5820,
+    "personSegmentationIncludingTouchAndPolling": 1205,
+    "backgroundApplyIncludingTouchAndPolling": 1076,
+    "backgroundSaveIncludingSystemPicker": 6704,
+    "backgroundReopenIncludingSystemPicker": 5079
+  },
+  "saves": [
+    {
+      "details": "最终导出 2400 × 3000 像素 · 从保留原图重放 · 处理结果 2400 × 3000，不缩放 · 不加水印",
+      "originalDisabled": false,
+      "selected": "original",
+      "explicitWorkingChoice": false,
+      "name": "skin",
+      "expectedWidth": 2400,
+      "expectedHeight": 3000,
+      "finalDetails": "最终导出 2400 × 3000 像素 · 从保留原图重放 · 处理结果 2400 × 3000，不缩放 · 不加水印"
+    },
+    {
+      "details": "最终导出 2400 × 3000 像素 · 从保留原图重放 · 处理结果 2400 × 3000，不缩放 · 不加水印",
+      "originalDisabled": false,
+      "selected": "original",
+      "explicitWorkingChoice": false,
+      "name": "background",
+      "expectedWidth": 2400,
+      "expectedHeight": 3000,
+      "finalDetails": "最终导出 2400 × 3000 像素 · 从保留原图重放 · 处理结果 2400 × 3000，不缩放 · 不加水印"
+    }
+  ],
+  "androidApi": 35,
+  "abi": "x86_64",
+  "originalWidth": 2400,
+  "originalHeight": 3000,
+  "originalSha256": "34471604e6f19bdbc31e8a556caa9d20bab29c417a7817a1c352740458dcf0eb",
+  "realBundledPortraitModels": true,
+  "remoteGenerativeAiTested": false,
+  "physicalDevice": false,
+  "systemDocumentPicker": true,
+  "skinOption": "detail-v2 experimental, smooth 65",
+  "cutoutOption": "edge-aware v2 experimental, transparent",
+  "limits": "One pinned NASA photograph on an emulator. Pixel changes and alpha occupancy validate workflow, not skin naturalness, hair accuracy, identity preservation, FPS, peak memory, or physical-device speed. Exact range values are dispatched to the production input handler; other major actions use real touch\/system accessibility.",
+  "nativeCallbacks": [
+    {
+      "faceCount": 1,
+      "id": "portrait-1",
+      "landmarkCount": 478,
+      "maskHeight": 0,
+      "maskWidth": 0,
+      "modelSha256": "64184e229b263107bc2b804c6625db1341ff2bb731874b0bcc2fe6544e0bc9ff",
+      "ok": true
+    },
+    {
+      "faceCount": null,
+      "id": "portrait-2",
+      "landmarkCount": 0,
+      "maskHeight": 256,
+      "maskWidth": 205,
+      "modelSha256": null,
+      "ok": true
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "scenario": "30 repeated frames with identical mono filter and 900x675 preview after warm-up; not slider-changing or first-frame latency",
+  "before": {
+    "runtime": "Windows Node25 / native Skia Canvas harness; NOT Android performance",
+    "frames": 30,
+    "medianMs": 267.83089999999993,
+    "p95Ms": 275.4533000000001,
+    "temporaryCanvasCount": 30,
+    "temporaryPixelCapacity": 18225000,
+    "temporaryLargeCanvasCount": 30,
+    "renderedPixelSha256": "cde78d93b1939e09dccfe3f17f0f8fbd0c1c9d1e2ec36cc26b733ad6fa94bf19",
+    "committedUnchanged": "be993cdbc0eedbdd77af94f06ddaed62a882dcf8ee18bea45b79c48ada057694",
+    "sourceUnchanged": "3df6154fc22c9794e353b92e1b8679f6680c8789876800ada7320eabc9d1c796",
+    "editorSha256": "a924d0dc175a926be087eba89c6cd694b11ddbce327860b5786fedc07cbfdc81"
+  },
+  "after": {
+    "runtime": "Windows Node25 / native Skia Canvas harness; NOT Android performance",
+    "frames": 30,
+    "medianMs": 0.08259999999972933,
+    "p95Ms": 0.16279999999915162,
+    "temporaryCanvasCount": 0,
+    "temporaryPixelCapacity": 0,
+    "temporaryLargeCanvasCount": 0,
+    "renderedPixelSha256": "cde78d93b1939e09dccfe3f17f0f8fbd0c1c9d1e2ec36cc26b733ad6fa94bf19",
+    "committedUnchanged": "be993cdbc0eedbdd77af94f06ddaed62a882dcf8ee18bea45b79c48ada057694",
+    "sourceUnchanged": "3df6154fc22c9794e353b92e1b8679f6680c8789876800ada7320eabc9d1c796",
+    "editorSha256": "27bccf3803a9e93f25c1ded8bbbccce2dc423e79f328a294d858af994d05c1ad"
+  },
+  "pixelHashesIdentical": true,
+  "capacityIsLogicalCanvasPixelsNotMeasuredRSS": true,
+  "physicalAndroid": false
+}

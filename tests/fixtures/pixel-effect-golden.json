@@ -1,0 +1,110 @@
+{
+  "sourceCommit": "7b0094b3182af6b54b68310c12bd871aab0ba18b",
+  "description": "Complete legacy pixelEffect numeric output for deterministic 256x256 RGBA field; before redundant clamps removed",
+  "cases": [
+    {
+      "op": {
+        "type": "filter",
+        "id": "original"
+      },
+      "sha256": "8355369c8d3e6ab7d32200cea5978d6d892cba253909bf95941f9f73c1dbda41"
+    },
+    {
+      "op": {
+        "type": "filter",
+        "id": "mint"
+      },
+      "sha256": "0cac93ac12c6d3cf92aabf45cd7a85e362abd6d6718151394f3ef623e219e3b9"
+    },
+    {
+      "op": {
+        "type": "filter",
+        "id": "warm"
+      },
+      "sha256": "c8e0c0e3b04f6528128943b2eca17ace1d1e5fb588cf8449ee18c41a1432ed98"
+    },
+    {
+      "op": {
+        "type": "filter",
+        "id": "film"
+      },
+      "sha256": "ccd5ef83902ceaa6e14d13f1083f45e0f50c4ac15953cde36b7bd05a5e126029"
+    },
+    {
+      "op": {
+        "type": "filter",
+        "id": "clear"
+      },
+      "sha256": "d3e31c1af2ba1a01879d118a89698b77d0e9ce5108539e202baf5eda8ed3ac2f"
+    },
+    {
+      "op": {
+        "type": "filter",
+        "id": "mono"
+      },
+      "sha256": "e437ec8809a5a7168e09bd92d8351affa17b73160e9596bf3a75f0bd671c61a2"
+    },
+    {
+      "op": {
+        "type": "filter",
+        "id": "cool"
+      },
+      "sha256": "7e2d7d594dc04a0efe78225a9bf883076633c14257236c181bf9787a64226304"
+    },
+    {
+      "op": {
+        "type": "filter",
+        "id": "fade"
+      },
+      "sha256": "bcd108f4408f97ec9d95067c669e314910ca77c746476fa7721e72e6efcb6c27"
+    },
+    {
+      "op": {
+        "type": "adjust",
+        "values": {
+          "brightness": 0,
+          "contrast": 0,
+          "saturation": 0,
+          "warmth": 0
+        }
+      },
+      "sha256": "8355369c8d3e6ab7d32200cea5978d6d892cba253909bf95941f9f73c1dbda41"
+    },
+    {
+      "op": {
+        "type": "adjust",
+        "values": {
+          "brightness": 100,
+          "contrast": -100,
+          "saturation": 100,
+          "warmth": -100
+        }
+      },
+      "sha256": "f0488b15ce2f76104445b2213b7d4b888340961a44b0013a7a2a7e89b092a6bf"
+    },
+    {
+      "op": {
+        "type": "adjust",
+        "values": {
+          "brightness": -37,
+          "contrast": 42,
+          "saturation": -29,
+          "warmth": 54
+        }
+      },
+      "sha256": "147f1f5a4370abb8fece888080eb6076f7f11e6bdecf66acc8f3cac0fb45dd6e"
+    },
+    {
+      "op": {
+        "type": "adjust",
+        "values": {
+          "brightness": 7,
+          "contrast": -18,
+          "saturation": 23,
+          "warmth": -42
+        }
+      },
+      "sha256": "093c6cf262ace7655e50695e875a59694590668813ef960de1be0b5a7b857d3a"
+    }
+  ]
+}

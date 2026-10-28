@@ -1,0 +1,78 @@
+{
+  "result": "PASS",
+  "sourceCommit": "a14ab5b7f896070ed757507371e4e65d610550a4",
+  "runUrl": "https://github.com/shiyan688/mint-photo/actions/runs/40637600164",
+  "scope": "Independent bytes/PNG/alpha/resolution checks for one Android emulator workflow using bundled local models. Not skin naturalness, hair accuracy, remote AI quality, physical-device performance, FPS, or peak memory acceptance.",
+  "source": {
+    "sha256": "34471604e6f19bdbc31e8a556caa9d20bab29c417a7817a1c352740458dcf0eb",
+    "width": 2400,
+    "height": 3000,
+    "bytes": 1545361
+  },
+  "savedPngs": [
+    {
+      "name": "skin",
+      "file": "saved-portrait-skin.png",
+      "width": 2400,
+      "height": 3000,
+      "bytes": 10621637,
+      "sha256": "ccd10650b39173e581888692b1e31951808e82acb5d2fc903c8bb0ff21ab785d",
+      "lowAlphaPixels": 0,
+      "highAlphaPixels": 7200000,
+      "partialAlphaPixels": 0,
+      "sourceChanged": true,
+      "changedPixels": 89084,
+      "comparedPixels": 7200000,
+      "sameDimensions": true,
+      "comparisonResize": null,
+      "sourceRevisionChanged": {
+        "reported": true,
+        "basis": "skin saved PNG reopened as a new source at the explicitly chosen dimensions",
+        "independentlyRecomputed": false
+      }
+    },
+    {
+      "name": "background",
+      "file": "saved-portrait-background.png",
+      "width": 2400,
+      "height": 3000,
+      "bytes": 7582168,
+      "sha256": "5a48b527c705fc0edc8d4b319b1965fa01c637ab9fa678c391382bd2cc7c9f1d",
+      "lowAlphaPixels": 3401121,
+      "highAlphaPixels": 2750689,
+      "partialAlphaPixels": 1261898,
+      "sourceChanged": true,
+      "changedPixels": 4571351,
+      "comparedPixels": 7200000,
+      "sameDimensions": true,
+      "comparisonResize": null,
+      "opaqueRgbCheckedPixels": 2628649,
+      "opaqueRgbMismatchPixels": 0,
+      "sourceRevisionChanged": {
+        "reported": true,
+        "basis": "background saved PNG reopened as a new source at the explicitly chosen dimensions",
+        "independentlyRecomputed": false
+      }
+    }
+  ],
+  "instrumentationCheckCount": 30,
+  "verifiedPointerActions": 26,
+  "timingsMsIncludingAutomationAndPolling": {
+    "originalImportIncludingPicker": 3515,
+    "faceDetectionIncludingTouchAndPolling": 1386,
+    "skin65PreviewIncludingPolling": 950,
+    "skinApplyIncludingTouchAndPolling": 1137,
+    "skinSaveIncludingSystemPicker": 7732,
+    "skinReopenIncludingSystemPicker": 5820,
+    "personSegmentationIncludingTouchAndPolling": 1205,
+    "backgroundApplyIncludingTouchAndPolling": 1076,
+    "backgroundSaveIncludingSystemPicker": 6704,
+    "backgroundReopenIncludingSystemPicker": 5079
+  },
+  "limits": [
+    "Source revision changes are asserted by the instrumentation; old/new revision values are not present in this evidence format.",
+    "Skin pixel differences against the original may include JPEG decoder/color differences. A working-size comparison also includes different resampling. Neither difference count measures enhancement quality.",
+    "The alpha histogram confirms a transparent result, not whether its segmentation follows hair or the intended subject.",
+    "Matching SHA proves the pulled PNG equals the File read back by Android, not that every UI behavior can be independently reconstructed from PNGs."
+  ]
+}

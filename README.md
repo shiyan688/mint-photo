@@ -4,13 +4,21 @@
 
 薄荷是一款在设备上处理照片的修图工具，把日常调色、构图、人像精修和创意排版放进同一个工作区。无需登录，也没有广告；可以随时对比原图、撤销修改，并把作品保存在本地继续编辑。
 
-**当前提供 0.2.0 预览版：源码与可安装的 Android Debug 测试包。** 浏览器可体验日常修图和手动精修；自动人脸识别、人物分割由 Android 端的本地模型提供。当前版本的手机体验仍待实机验证。
+**当前提供 0.3.4 开发预览（APK 0.3.4-dev / versionCode 9），不是正式版。** 本轮保持界面，减少大图修肤和 AI 合成的重复计算，修复取消／重开时的状态干扰及扩图超限恢复。浏览器可体验日常修图与手动精修；自动人脸识别与人物分割依赖 Android 本地模型。
 
-[下载安卓测试版](https://github.com/shiyan688/mint-photo/releases/tag/v0.2.0-preview) · [查看发布说明](docs/RELEASE-NOTES-0.2.md)
+[下载 0.3.4 开发测试包](https://github.com/shiyan688/mint-photo/releases/tag/v0.3.4-dev.1) · [大图与真实人像验证](docs/LARGE-PHOTO-QUALITY.md) · [三处界面与验证范围](docs/SURFACE-STYLE-QUALITY.md) · [上一版 0.3.3](https://github.com/shiyan688/mint-photo/releases/tag/v0.3.3-dev.1)
 
-![薄荷修图首页](docs/assets/desktop-home.png)
+下图为 0.3.3 的首页、AI 设置与保存弹窗实录，本轮保留这些界面。AI 链路使用 HTTPS 模拟服务，不代表真实 AI 出图效果。
 
-![编辑器实际界面](docs/assets/desktop-editor.png)
+![三处界面实际运行截图](docs/assets/surfaces-overview.png)
+
+## 后续功能开发
+
+[与醒图的56项差距台账](docs/XINGTU-GAP-MATRIX.md) · [本轮实际进展与验证](docs/FUNCTIONAL-PROGRESS.md)
+
+当前开发分支为0.3.4-dev：包含自动光线、浏览器批量调色、自填API、涂抹消除与四边扩图链路，以及试验性的纹理修肤/边缘贴合。新增真实2400×3000照片的Android API35流程：本地模型修肤、透明抠图均原尺寸保存并重开；AI模拟消除／扩图、错误／取消、超限恢复及实际保存PNG独立核对通过，见[本轮原生证据](docs/quality/20261028-large-photo/android/README.md)。**本轮性能优化前后成片像素一致，质量没有因此提高；真实AI效果、实体手机性能、颈部修肤和复杂抠图仍未验收或未解决**。已发布0.2测试包不包含这些增量。
+
+[安卓AI与照片验收记录](docs/AI-ANDROID-QUALITY.md) · [性能、简化界面与4张真实照片回归](docs/PERFORMANCE-UI-QUALITY.md) · [新版安卓模拟闭环证据](docs/quality/android-ui-e2e-20261025/README.md)
 
 ## 可以做什么
 
@@ -36,10 +44,10 @@ python -m http.server 8080 --bind 127.0.0.1 --directory app/src/main/assets
 浏览器打开 [本地编辑器](http://127.0.0.1:8080)。Windows 也可以把命令中的 `python` 换成 `py`。
 
 1. 选择一张照片，或使用内置示例。
-2. 调整参数后点击「应用修改」，通过按住「对比原图」比较。
-3. 点击「导出」保存图片；想以后继续修改，可在「作品库」保存工程。
+2. 调整参数后点击「确认」，通过「按住对比」比较。
+3. 点击右上角「保存」导出图片；想以后继续修改，可在「更多→作品库」保存工程。
 
-照片处理在本地完成，启动本地服务后不需要互联网。建议一直使用同一地址和端口，方便找到该浏览器里的作品；更换浏览器或清除站点数据不会迁移作品，重要作品请额外导出工程备份。
+基础照片编辑在本地完成，启动本地服务后可离线使用。可选联网 AI 需要网络和兼容的图像编辑服务；浏览器端还需运行 [Node 转发服务](docs/FUNCTIONAL-PROGRESS.md#用户自填api启动)，Android 端使用原生请求。建议一直使用同一地址和端口，方便找到该浏览器里的作品；更换浏览器或清除站点数据不会迁移作品，重要作品请额外导出工程备份。
 
 ## 人像功能与 AI
 

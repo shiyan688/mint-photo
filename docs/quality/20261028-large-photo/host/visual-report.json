@@ -1,0 +1,164 @@
+{
+  "source": {
+    "originalEncodedSha256": "34471604e6f19bdbc31e8a556caa9d20bab29c417a7817a1c352740458dcf0eb",
+    "inferencePngSha256": "c08b6ce400ba5fe6d05f196804c2b893b722bdf31d5868561cef67d8d4a0696a",
+    "rgbaSha256": "48601210e01894a86367676f20c304dc527265e8fe243d1daeb3951f713941ba",
+    "dimensions": [
+      2400,
+      3000
+    ],
+    "originalSize": [
+      2400,
+      3000
+    ]
+  },
+  "inference": {
+    "sha256": "ad836ca22ee6c47e4b5f42b0b559105949a18d05fd2b3e951b83ed5180d9c909",
+    "runtime": "MediaPipe 0.10.21 Windows CPU; not Android parity",
+    "newInference": true,
+    "faceCount": 1,
+    "faceModelSha256": "64184e229b263107bc2b804c6625db1341ff2bb731874b0bcc2fe6544e0bc9ff",
+    "segmentationModelSha256": "191ac9529ae506ee0beefa6b2c945a172dab9d07d1e802a290a4e4038226658b",
+    "maskSize": [
+      205,
+      256
+    ]
+  },
+  "settings": {
+    "smooth": 65,
+    "brighten": 0,
+    "warmth": 0
+  },
+  "skinBeforeAfterByteExact": true,
+  "guidedBeforeAfterFloat32Exact": true,
+  "cutoutBeforeAfterByteExact": true,
+  "sourceUnchanged": true,
+  "alphaMismatch": 0,
+  "crops": {
+    "face": {
+      "x": 978,
+      "y": 291,
+      "width": 513,
+      "height": 760
+    },
+    "hair": {
+      "x": 945,
+      "y": 158,
+      "width": 579,
+      "height": 319
+    }
+  },
+  "neckProbe": {
+    "rect": {
+      "x": 1151,
+      "y": 839,
+      "width": 166,
+      "height": 138
+    },
+    "pixels": 22908,
+    "changedPixels": 0,
+    "maxChannelDelta": 0
+  },
+  "faceProbe": {
+    "pixels": 389880,
+    "changedPixels": 89781,
+    "maxChannelDelta": 8
+  },
+  "outputs": {
+    "original": {
+      "rgbaSha256": "48601210e01894a86367676f20c304dc527265e8fe243d1daeb3951f713941ba",
+      "pngSha256": "5c857304f9ffe5576f572c43ba9e2a5fbe3658d6a1adbb7e1b9b043438a59abc",
+      "dimensions": [
+        2400,
+        3000
+      ]
+    },
+    "skin-classic-65": {
+      "rgbaSha256": "4809eab43fd2505938597ba9adb9b4bd835e17e9f6b045c502bd36097c095005",
+      "pngSha256": "8e2ea4f5afc4a1699058e02bf13702efc316a63454fa192f91ef9e7eb2a33aae",
+      "dimensions": [
+        2400,
+        3000
+      ]
+    },
+    "skin-detail-before": {
+      "rgbaSha256": "54a516ddc30414889409529a0fa8d0c427290af7eaa215f5777bffc0331f4184",
+      "pngSha256": "0b369f1b990c95b1b177c70621720e9a97cd551a5307f6a410616b73d56dbd8a",
+      "dimensions": [
+        2400,
+        3000
+      ]
+    },
+    "skin-detail-after": {
+      "rgbaSha256": "54a516ddc30414889409529a0fa8d0c427290af7eaa215f5777bffc0331f4184",
+      "pngSha256": "0b369f1b990c95b1b177c70621720e9a97cd551a5307f6a410616b73d56dbd8a",
+      "dimensions": [
+        2400,
+        3000
+      ]
+    },
+    "cutout-coarse": {
+      "rgbaSha256": "d529ec23081541011517f153e66564216eb0e21520a2301132e48b86648ff1e8",
+      "pngSha256": "cc448f46766e056ffce8a46643335b038f892fbdbaa967af1d97e6c72aa5111b",
+      "dimensions": [
+        2400,
+        3000
+      ]
+    },
+    "cutout-guided-before": {
+      "rgbaSha256": "fde8bfa8b14754a0576fbf9a8adf34e6e8a4269904ed855b637a7d5e6a8fbfc3",
+      "pngSha256": "efcb6fecb98bcceb02b5a0670f14ad0429a6b8e4c0f218c822a613d76585b333",
+      "dimensions": [
+        2400,
+        3000
+      ]
+    },
+    "cutout-guided-after": {
+      "rgbaSha256": "fde8bfa8b14754a0576fbf9a8adf34e6e8a4269904ed855b637a7d5e6a8fbfc3",
+      "pngSha256": "efcb6fecb98bcceb02b5a0670f14ad0429a6b8e4c0f218c822a613d76585b333",
+      "dimensions": [
+        2400,
+        3000
+      ]
+    }
+  },
+  "cropFiles": {
+    "face-100pct-original.png": "a0cc06a496e9f435a6a3af8b7f2e035bc1fa7e02e6a12f3db53eba6523ff420f",
+    "face-100pct-skin-classic-65.png": "59e0b7841f7d76376ce2a449d4c37eb6e33cda0f8b8ae6b2bcdec951fb63e52a",
+    "face-100pct-skin-detail-before.png": "ffc939bfe61e262cd7f599b1cda87b99ac32c5d151515e95fe3b2f9627538e8d",
+    "face-100pct-skin-detail-after.png": "ffc939bfe61e262cd7f599b1cda87b99ac32c5d151515e95fe3b2f9627538e8d",
+    "hair-100pct-original.png": "ac83d11493a0217890baa7511e3263646052421d0f49e8525c3289801d94232d",
+    "hair-100pct-cutout-coarse.png": "6eafe0123e99543db6bcdef04f265c2ed1a427329ac49fff822c2def344d11d0",
+    "hair-100pct-cutout-guided-before.png": "79fd2166df2e2c58031992f4c2950b4cabe5d000d4421bc030fc7bc8246240eb",
+    "hair-100pct-cutout-guided-after.png": "79fd2166df2e2c58031992f4c2950b4cabe5d000d4421bc030fc7bc8246240eb"
+  },
+  "scope": "Performance-only optimization. Baseline detail-v2 and optimized detail-v2 are pixel identical; no quality improvement claimed. 100% crops preserve source pixels. No alpha ground truth, skin-quality score, physical Android or provider test.",
+  "coreSha256": {
+    "portrait-detail-engine.js": "4d392822405f2466d067e32d5c915c0c325cae0c204a7d4cd2e96be7ec0305df",
+    "edge-refine.js": "490bf77545b3cc1beba5f1bb20f4347251ed798ad177ff128b62c035e3a28959",
+    "portrait-engine.js": "5cde7dcd60aab1d68e1ec5fb026c6396c2f395c1597dd03113c34674ba57d524",
+    "mask-refine.js": "1f87ce10085e42cf8e67309ac49dd6f608d40ecb32258ab8a76ed67b6bc4baa2"
+  },
+  "baselineCoreSha256": {
+    "portrait-detail-engine.js": "1559fa74818ece4d99c78b565720072a8284f1eda865949ac62191cf00ceb620",
+    "edge-refine.js": "ba467e0f7391dec1cb1b1f88086e15cba5da201a61b01ae5cfac2b9865a417fa"
+  },
+  "toolSha256": "ce2efd6e87b44245fc8ec0ba0720e72d50fcc88a5353e8fab31697bc22b83723",
+  "publication": {
+    "includedPngs": [
+      "face-100pct-comparison.png",
+      "hair-100pct-comparison.png",
+      "face-100pct-original.png",
+      "face-100pct-skin-classic-65.png",
+      "face-100pct-skin-detail-before.png",
+      "face-100pct-skin-detail-after.png",
+      "hair-100pct-original.png",
+      "hair-100pct-cutout-coarse.png",
+      "hair-100pct-cutout-guided-before.png",
+      "hair-100pct-cutout-guided-after.png"
+    ],
+    "fullResolutionImagesNotBundled": true,
+    "fullResolutionHashesRetained": true,
+    "scope": "Selected 100% crops only; full original and all full-size rendered outputs can be regenerated from the source and pinned inference."
+  }
+}

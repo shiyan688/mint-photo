@@ -1,0 +1,27 @@
+{
+  "sourceCommit": "8db751c",
+  "runUrl": "https://github.com/shiyan688/mint-photo/actions/runs/40022347318",
+  "fullWorkflowResult": "FAIL",
+  "failedStage": "erase-reopen",
+  "mockService": true,
+  "realAiModel": false,
+  "physicalDevice": false,
+  "savedDimensions": [
+    512,
+    512
+  ],
+  "savedVsCompositedPreview": {
+    "differentPixels": 2843,
+    "maxChannelDelta": 2
+  },
+  "savedProtectedVsActualRequest": {
+    "differentPixels": 2927,
+    "maxChannelDelta": 4
+  },
+  "sha256": {
+    "ai-e2e-erase-preview.png": "db7bcbff3fdd19f72a90489efaeba31c02449b5d4f9cc06b220158b5dfdc8ba3",
+    "saved-erase.png": "71367b2b7db162e15634ccbed320833abda785860799c48c1af7d7ff8593d4c1",
+    "request-1-erase-image.png": "9fe9dcdbaa641a3868ec1037a92a5be4b1617d362484148566f620daae6d4b64",
+    "request-1-erase-mask.png": "64334dd540aa762bf61ca2866d3b5c14c2d0c8c51f62cdc5444610b4d0a6fa67"
+  }
+}

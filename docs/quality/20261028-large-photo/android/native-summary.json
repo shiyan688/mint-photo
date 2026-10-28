@@ -1,0 +1,146 @@
+{
+  "sourceCommit": "a14ab5b7f896070ed757507371e4e65d610550a4",
+  "runUrl": "https://github.com/shiyan688/mint-photo/actions/runs/40637600164",
+  "artifactZipSha256": "9d370732bea8272ed4110fe12c5544acc130822fae90eb75c847d56e5f9a1dff",
+  "runs": {
+    "small": {
+      "result": "PASS",
+      "checks": 278,
+      "realPointerClicks": 53,
+      "allPointerDownUpHitIntendedTarget": true,
+      "savedPngs": {
+        "saved-erase.png": {
+          "width": 512,
+          "height": 512,
+          "bytes": 535809
+        },
+        "saved-outpaint.png": {
+          "width": 716,
+          "height": 716,
+          "bytes": 563209
+        }
+      },
+      "timingsMsIncludingAutomationAndSystemPicker": {
+        "brightness12InputToTwoAnimationFrames": [
+          29.39999999999418,
+          53.39999999999418,
+          110.30000000000291,
+          39.40000000000873,
+          70.29999999998836,
+          128.8000000000029,
+          107.40000000000873,
+          109.39999999999418,
+          67.10000000000582,
+          38.89999999999418,
+          42.10000000000582,
+          70.30000000000291
+        ],
+        "eraseRequestToPreview": 2879,
+        "eraseSaveWithSystemPicker": 11075,
+        "eraseReopenWithSystemPicker": 4763,
+        "outpaintRequestToPreview": 1716,
+        "outpaintSaveWithSystemPicker": 8860,
+        "outpaintReopenWithSystemPicker": 3996
+      },
+      "memorySnapshotAvailable": false,
+      "memorySnapshotText": "No process found for: com.qingyan.editor.portrait.e2e",
+      "brightnessFrames": {
+        "samples": 12,
+        "medianMs": 68.69999999999709,
+        "p95Ms": 118.6250000000029,
+        "maxMs": 128.8000000000029,
+        "scope": "Emulator display preview and automation, not FPS or physical-device timing"
+      }
+    },
+    "large": {
+      "result": "PASS",
+      "checks": 266,
+      "realPointerClicks": 56,
+      "allPointerDownUpHitIntendedTarget": true,
+      "savedPngs": {
+        "saved-erase.png": {
+          "width": 2048,
+          "height": 2560,
+          "bytes": 7810186
+        },
+        "saved-original.png": {
+          "width": 2400,
+          "height": 3000,
+          "bytes": 10597754
+        },
+        "saved-outpaint.png": {
+          "width": 2458,
+          "height": 3072,
+          "bytes": 8071708
+        }
+      },
+      "timingsMsIncludingAutomationAndSystemPicker": {
+        "largeJpegImportWithSystemPicker": 3860,
+        "brightness12InputToTwoAnimationFrames": [
+          29,
+          43,
+          52.70000000001164,
+          36.19999999998254,
+          31.5,
+          64.80000000001746,
+          93.19999999998254,
+          99.89999999999418,
+          48.89999999999418,
+          61.20000000001164,
+          38.79999999998836,
+          91.70000000001164
+        ],
+        "originalSaveWithSystemPicker": 10433,
+        "originalReopenWithSystemPicker": 4678,
+        "largeEraseRequestToPreview": 5250,
+        "eraseSaveWithSystemPicker": 9387,
+        "eraseReopenWithSystemPicker": 4258,
+        "largeOutpaintRequestToPreview": 5512,
+        "outpaintSaveWithSystemPicker": 10517,
+        "outpaintReopenWithSystemPicker": 4115
+      },
+      "memorySnapshotAvailable": false,
+      "memorySnapshotText": "No process found for: com.qingyan.editor.portrait.e2e",
+      "brightnessFrames": {
+        "samples": 12,
+        "medianMs": 50.80000000000291,
+        "p95Ms": 96.21499999998777,
+        "maxMs": 99.89999999999418,
+        "scope": "Emulator display preview and automation, not FPS or physical-device timing"
+      }
+    },
+    "portrait": {
+      "result": "PASS",
+      "checks": 30,
+      "realPointerClicks": 26,
+      "allPointerDownUpHitIntendedTarget": true,
+      "savedPngs": {
+        "saved-portrait-background.png": {
+          "width": 2400,
+          "height": 3000,
+          "bytes": 7582168
+        },
+        "saved-portrait-skin.png": {
+          "width": 2400,
+          "height": 3000,
+          "bytes": 10621637
+        }
+      },
+      "timingsMsIncludingAutomationAndSystemPicker": {
+        "originalImportIncludingPicker": 3515,
+        "faceDetectionIncludingTouchAndPolling": 1386,
+        "skin65PreviewIncludingPolling": 950,
+        "skinApplyIncludingTouchAndPolling": 1137,
+        "skinSaveIncludingSystemPicker": 7732,
+        "skinReopenIncludingSystemPicker": 5820,
+        "personSegmentationIncludingTouchAndPolling": 1205,
+        "backgroundApplyIncludingTouchAndPolling": 1076,
+        "backgroundSaveIncludingSystemPicker": 6704,
+        "backgroundReopenIncludingSystemPicker": 5079
+      },
+      "memorySnapshotAvailable": false,
+      "memorySnapshotText": "No process found for: com.qingyan.editor.portrait.e2e"
+    }
+  },
+  "scope": "Android35 x86_64 emulator, actual WebView/SAF, synthetic remote AI service, real bundled face/person models. No physical device, perceptual quality, FPS or valid memory measurements."
+}

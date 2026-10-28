@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-28",
+  "applicationAndInstrumentationCommit": "a14ab5b7f896070ed757507371e4e65d610550a4",
+  "ciRun": "https://github.com/shiyan688/mint-photo/actions/runs/40637600164",
+  "ciJobs": {
+    "Pure logic and JVM boundaries": "success",
+    "Installable debug preview": "success",
+    "Android HTTPS mock and real document save": "success"
+  },
+  "localPublicRegression": {
+    "command": "node tests/run-ci.cjs",
+    "tests": 1724,
+    "passed": 1724,
+    "failed": 0,
+    "skipped": 0,
+    "excludedBeforeInvocation": "Archived beauty-protection-independent audit: original photo RGBA fixtures are not distributed. The entry point explicitly reports this exclusion."
+  },
+  "localAndroidBuild": {
+    "tasks": [":app:assembleDebug", ":app:lintDebug"],
+    "portraitAbiSplits": true,
+    "result": "BUILD SUCCESSFUL",
+    "sourceAssetsMatchedPerApk": 95,
+    "signatureVerified": true,
+    "zipAlignment16KiBVerified": true,
+    "buildReport": "build.json"
+  },
+  "androidEvidence": "android/README.md",
+  "hostPerformanceAndPhotoEvidence": "host/README.md",
+  "scope": "Verified development preview. No remote generative model, physical Android phone, peak memory or photographic-quality acceptance. Pixel-identical performance changes do not imply an image-quality improvement."
+}

@@ -4,7 +4,7 @@
  const TYPES=new Set(['background-refine','portrait-people','beauty','heal','warp','reshape','background','idphoto','manual']);
  const TOOLS=new Set(['portrait','reshape','retouch','background','idphoto']);
  const $=id=>document.getElementById(id),clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
- let A,job=null,serial=0,faceCache=null,maskCache=null,brushMode='keep',maskView=false,retouchMode='heal',maskUndo=[];
+ let A,job=null,serial=0,pageNonce=null,faceCache=null,maskCache=null,brushMode='keep',maskView=false,retouchMode='heal',maskUndo=[];
  const clone=x=>JSON.parse(JSON.stringify(x));
  const encode=data=>{let s='';for(let i=0;i<data.length;i+=8192)s+=String.fromCharCode.apply(null,data.subarray(i,i+8192));return btoa(s);};
  const decode=s=>{const raw=atob(s),out=new Uint8Array(raw.length);for(let i=0;i<raw.length;i++)out[i]=raw.charCodeAt(i);return out;};
@@ -14,11 +14,15 @@
  function cancelJob(){const picked=!!(window.PortraitPeopleUI&&window.PortraitPeopleUI.cancelSelection());if(job){clearTimeout(job.timer);job=null;A.busy(false);if(window.BackgroundRefineUI)window.BackgroundRefineUI.detectionEnded();return true;}return picked;}
  function release(){cancelJob();if(window.BackgroundRefineUI)window.BackgroundRefineUI.release();if(window.PortraitPeopleUI)window.PortraitPeopleUI.release();maskUndo=[];maskView=false;const ref=A&&A.getCanvas?A.getCanvas():null;if(faceCache&&(faceCache.ref!==ref||faceCache.revision!==revision()))faceCache=null;if(maskCache&&maskCache.ref!==ref)maskCache=null;if(window.ManualRetouchUI&&window.ManualRetouchUI.release)window.ManualRetouchUI.release();}
  function nativeReady(){return window.Android&&typeof window.Android.analyzePortrait==='function';}
+ function nextRequestId(){
+  if(pageNonce===null){if(!window.crypto||typeof window.crypto.getRandomValues!=='function')throw Error('本机安全随机数不可用');const bytes=new Uint8Array(16);window.crypto.getRandomValues(bytes);pageNonce=Array.from(bytes,v=>v.toString(16).padStart(2,'0')).join('');}
+  if(serial>=Number.MAX_SAFE_INTEGER)throw Error('人像识别请求次数已达上限');return 'portrait-'+pageNonce+'-'+(++serial);
+ }
  function detectRaw(kind,after,force=false){
   if(job)return false;const ref=A.getCanvas(),draft=A.getDraft(),rev=revision();
   const cache=kind==='face'?faceCache:maskCache;if(!force&&cache&&cache.ref===ref&&cache.revision===rev){after(clone(cache.value));return true;}
   if(!nativeReady()){status('自动识别在安卓人像版中可用；此预览可使用手动工具。');A.toast('离线模型桥接不可用；请使用手动工具');return;}
-  const id='portrait-'+(++serial);A.busy(true,kind==='face'?'离线识别人脸，最多5人…':'离线分离人像…');
+  let id;try{id=nextRequestId();}catch(e){status('自动识别暂不可用，请使用手动工具。');A.toast('无法安全启动自动识别，请使用手动工具');return false;}A.busy(true,kind==='face'?'离线识别人脸，最多5人…':'离线分离人像…');
   const timer=setTimeout(()=>{if(job&&job.id===id){job=null;A.busy(false);if(window.BackgroundRefineUI)window.BackgroundRefineUI.detectionEnded();status('识别超时，可重试或手动处理。');A.toast('识别超时，已退出等待');}},45000);
   job={id,ref,draft,revision:rev,kind,after,timer};
   try{window.Android.analyzePortrait(ref.toDataURL('image/jpeg',.92),id,kind);return true;}catch(e){cancelJob();status('识别暂不可用，请使用手动工具。');A.toast('离线模型启动失败');}
@@ -32,18 +36,27 @@
   }catch(e){status(e.message);A.toast(e.message);}
  };
  const slider=(key,label,value,min=0,max=100)=>`<div class="slider-row"><label for="p-${key}">${label}</label><input id="p-${key}" type="range" min="${min}" max="${max}" value="${value}"><output id="pv-${key}">${value}</output></div>`;
+ const skinParameters=[['smooth','磨皮'],['brighten','提亮'],['warmth','冷暖',-40,40]],faceParameters=[['redness','匀红'],['underEye','淡化眼下']],makeupParameters=[['lip','唇色'],['blush','气色']];
+ const parameterGroup=(controls,label)=>`<div class="parameter-control"><div class="parameter-sliders">${controls.map(([key,name,min=0,max=100],i)=>`<div class="slider-row parameter-slider" id="legacy-${key}-row"${i?' hidden':''}><label for="p-${key}">${name}</label><input id="p-${key}" type="range" min="${min}" max="${max}" value="0"><output class="parameter-readout" id="pv-${key}" for="p-${key}">0</output></div>`).join('')}</div><div class="parameter-strip" role="group" aria-label="${label}">${controls.map(([key,name],i)=>`<button type="button" class="parameter-option${i?'':' active'}" id="legacy-${key}-option" data-portrait-param="${key}" aria-controls="legacy-${key}-row" aria-pressed="${i?'false':'true'}">${name}</button>`).join('')}</div></div>`;
+ function bindParameters(d,groups){
+  for(const group of groups)for(const [key]of group)$('legacy-'+key+'-option').onclick=()=>{
+   if(A.getDraft()!==d)return;
+   for(const [other]of group){const active=key===other,button=$('legacy-'+other+'-option');$('legacy-'+other+'-row').hidden=!active;button.classList.toggle('active',active);button.setAttribute('aria-pressed',String(active));}
+  };
+ }
  function bindSlider(key,fn){$('p-'+key).oninput=e=>{$('pv-'+key).textContent=e.target.value;fn(+e.target.value);A.render();};}
  function heading(title,sub){return `<div class="portrait-heading"><strong>${title}</strong><span>离线 · 不上传</span></div><p class="portrait-copy">${sub}</p>`;}
  const detectButton=(name='识别人脸')=>`<button class="small-button accent" id="detectPortrait">◎ ${name}</button>`;
  function setup(tool){
-  release();if(tool==='background'){if(!window.BackgroundRefineUI)throw Error('精细修边界面未加载');window.BackgroundRefineUI.setup({...A,detectPerson:(after,force)=>detectRaw('person',after,force),cancelDetection:cancelJob});return;}if(tool==='portrait'||tool==='reshape'){if(!window.PortraitPeopleUI)throw Error('逐人人像界面未加载');const manualSkin=()=>{const current=A.getDraft(),run=()=>{if(A.getDraft()!==current)return;setupLegacy('portrait');$('manualSkin').onclick();for(const key of ['detectPortrait','naturalPreset','beautyPreset'])$(key).hidden=true;};if(window.PortraitPeopleUI.changed(current))A.confirm('改用手动圈定？','本次尚未应用的逐人参数和保护笔划会清空；已应用的历史不变。',run);else run();};window.PortraitPeopleUI.setup({...A,detectFaces:(after,force)=>detectRaw('face',after,force),cancelDetection:cancelJob,manualSkin},tool==='portrait'?'beauty':'reshape');return;}setupLegacy(tool);
+  release();if(tool==='background'){if(!window.BackgroundRefineUI)throw Error('精细修边界面未加载');window.BackgroundRefineUI.setup({...A,detectPerson:(after,force)=>detectRaw('person',after,force),cancelDetection:cancelJob});return;}if(tool==='portrait'||tool==='reshape'){if(!window.PortraitPeopleUI)throw Error('逐人人像界面未加载');const manualSkin=()=>{const current=A.getDraft(),run=()=>{if(A.getDraft()!==current)return;setupLegacy('portrait');$('manualSkin').onclick();for(const key of ['detectPortrait','naturalPreset','beautyPreset','legacyPresetDetails'])$(key).hidden=true;};if(window.PortraitPeopleUI.changed(current))A.confirm('改用手动圈定？','本次尚未应用的逐人参数和保护笔划会清空；已应用的历史不变。',run);else run();};window.PortraitPeopleUI.setup({...A,detectFaces:(after,force)=>detectRaw('face',after,force),cancelDetection:cancelJob,manualSkin},tool==='portrait'?'beauty':'reshape');return;}setupLegacy(tool);
  }
  function setupLegacy(tool){
   release();const panel=$('toolPanel');
   if(tool==='portrait'){
    const zero=()=>({smooth:0,brighten:0,warmth:0,underEye:0,redness:0,lip:0,blush:0});
    const d={type:'beauty',values:zero(),palette:'natural',landmarks:null,region:null};A.setDraft(d);
-   panel.innerHTML=heading('自然人像 · 自选风格','所有调整从零开始。不改变身份或按族裔套模板，轻调肤感、眼下和妆色。')+`<div class="portrait-actions">${detectButton()}<button class="small-button" id="manualSkin">手动圈定</button><button class="small-button" id="resetPortrait">归零</button></div><div class="portrait-status" id="portraitStatus">先识别人脸 · 本地关键点辅助，不是学习型自动美颜</div><div class="portrait-presets"><button class="portrait-preset" id="naturalPreset"><strong>自然通透</strong><span>保留肤色，不改五官</span></button><button class="portrait-preset" id="beautyPreset"><strong>柔和妆感</strong><span>低强度暖桃唇颊</span></button></div><div class="portrait-section-label">肤感与光色</div><div class="sliders portrait-sliders">${slider('smooth','磨皮',0)}${slider('brighten','提亮',0)}${slider('warmth','冷暖',0,-40,40)}${slider('redness','匀红',0)}${slider('underEye','淡化眼下',0)}</div><div class="portrait-section-label">唇颊轻妆 · 需要人脸定位</div><div class="portrait-actions palette-actions"><button class="small-button active" id="paletteNatural">自然</button><button class="small-button" id="palettePeach">暖桃</button><button class="small-button" id="paletteRose">柔玫瑰</button></div><div class="sliders portrait-sliders">${slider('lip','唇色',0)}${slider('blush','气色',0)}</div><div id="skinRadiusRow" hidden>${slider('radius','范围',20,5,45)}</div><p class="portrait-copy subtle">局部祛痘在「精修」。眼下、匀红与妆色是可控局部算法，不承诺消除眼袋或替代专业精修。</p>`;
+   panel.innerHTML=`<div class="portrait-actions">${detectButton()}<button class="small-button" id="manualSkin">手动圈定</button><button class="small-button" id="resetPortrait">归零</button></div><div class="portrait-status" id="portraitStatus" role="status" aria-live="polite">先识别人脸 · 本地关键点辅助，不是学习型自动美颜</div>${parameterGroup(skinParameters,'修肤参数')}<div id="skinRadiusRow" hidden>${slider('radius','圈定范围',20,5,45)}</div><div class="tool-help"><details id="legacyPresetDetails"><summary>快捷修肤</summary><div class="portrait-presets"><button class="portrait-preset" id="naturalPreset"><strong>自然通透</strong><span>保留肤色，不改五官</span></button><button class="portrait-preset" id="beautyPreset"><strong>柔和妆感</strong><span>低强度暖桃唇颊</span></button></div></details><details id="legacyComplexionDetails"><summary>匀肤与妆色 · 需要人脸定位</summary>${parameterGroup(faceParameters,'匀肤参数')}<div class="portrait-actions palette-actions"><button class="small-button active" id="paletteNatural">自然</button><button class="small-button" id="palettePeach">暖桃</button><button class="small-button" id="paletteRose">柔玫瑰</button></div>${parameterGroup(makeupParameters,'妆色参数')}</details><details id="legacyPortraitHelpDetails"><summary>使用说明</summary>${heading('自然人像 · 自选风格','所有调整从零开始。不改变身份或按族裔套模板，轻调肤感、眼下和妆色。')}<p class="portrait-copy subtle">局部祛痘在「精修」。眼下、匀红与妆色是可控局部算法，不承诺消除眼袋或替代专业精修。</p></details></div>`;
+   bindParameters(d,[skinParameters,faceParameters,makeupParameters]);
    const faceOnly=['underEye','redness','lip','blush'];
    const paletteIds={natural:'paletteNatural',peach:'palettePeach',rose:'paletteRose'};
    function sync(){for(const key of Object.keys(d.values)){$('p-'+key).value=d.values[key];$('pv-'+key).textContent=d.values[key];}for(const key of faceOnly)$('p-'+key).disabled=!d.landmarks;for(const [name,id]of Object.entries(paletteIds)){$(id).disabled=!d.landmarks;$(id).classList.toggle('active',d.palette===name);}}

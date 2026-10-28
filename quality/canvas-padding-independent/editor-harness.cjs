@@ -24,7 +24,7 @@ function makeHarness(nativeFactory=null){
  for(const id of ['previewCanvas','overlayCanvas'])decorate(h.$(id));
  Object.defineProperty(h.$('toolPanel'),'innerHTML',{configurable:true,set(html){this.markup=html;panelNodes.clear();for(const m of html.matchAll(/<([a-z]+)\b([^>]*id="([^"]+)"[^>]*)>/g)){const e=decorate(oldCreate(m[1]));e.id=m[3];e.value=m[2].match(/value="([^"]*)"/)?.[1]||'';e.checked=/\bchecked\b/.test(m[2]);panelNodes.set(e.id,e);}},get(){return this.markup||'';}});
  env.document.__events={};env.document.addEventListener=(n,f)=>(env.document.__events[n]??=new Set()).add(f);env.document.removeEventListener=(n,f)=>env.document.__events[n]?.delete(f);
- Object.assign(env,{ArrayBuffer,Float32Array,Float64Array,btoa:v=>Buffer.from(v,'binary').toString('base64'),atob:v=>Buffer.from(v,'base64').toString('binary')});
+ Object.assign(env,{crypto:require('node:crypto').webcrypto,ArrayBuffer,Float32Array,Float64Array,btoa:v=>Buffer.from(v,'binary').toString('base64'),atob:v=>Buffer.from(v,'base64').toString('binary')});
  // All shipped production modules load before editor.js in the same VM.
  h.$('stage').clientWidth=600;h.$('stage').clientHeight=800;
  const node=id=>env.document.getElementById(id);

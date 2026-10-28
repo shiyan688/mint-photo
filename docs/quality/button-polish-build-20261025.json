@@ -1,0 +1,45 @@
+{
+  "version": "0.3.2-dev",
+  "versionCode": 7,
+  "source": "608c61afb94bfe834be79a44b578e4f19b85ebee",
+  "normalApksHaveNoE2eCA": true,
+  "signatureAndZipAlignmentVerified": true,
+  "apks": [
+    {
+      "apk": "app-arm64-v8a-debug.apk",
+      "bytes": 21024026,
+      "sha256": "049ed4fc42272f1325d5fc7a9361c0b6ddb86f6c3ef577e541dc6c2a8815b64f",
+      "source_assets_matched": 94,
+      "asset_manifest_sha256": "d7c4b4040e2546ef21a0d282d3c378d1044bcfb03ddcfb1939d8b0e858c293ef",
+      "native_libraries": [
+        {
+          "file": "lib/arm64-v8a/libmediapipe_tasks_jni.so",
+          "load_alignments": [
+            16384,
+            16384,
+            16384
+          ]
+        }
+      ]
+    },
+    {
+      "apk": "app-armeabi-v7a-debug.apk",
+      "bytes": 17728808,
+      "sha256": "8e950da66066d4bfdf72e6fea97a81df170ded2cac7b28d02dd346f7a17eae4e",
+      "source_assets_matched": 94,
+      "asset_manifest_sha256": "d7c4b4040e2546ef21a0d282d3c378d1044bcfb03ddcfb1939d8b0e858c293ef",
+      "native_libraries": [
+        {
+          "file": "lib/armeabi-v7a/libmediapipe_tasks_jni.so",
+          "load_alignments": [
+            16384,
+            16384,
+            16384
+          ]
+        }
+      ]
+    }
+  ],
+  "upgradeCertificateMatches031": true,
+  "certificateSha256": "9568938180e730ff427953661b885677603b682d408d0cfdd4b68aa4e8ee0f8e"
+}

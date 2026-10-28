@@ -1,0 +1,2 @@
+INSTRUMENTATION_RESULT: result=PASS Android AI mock workflow, 278 checks; real HTTPS/SAF, no real AI model
+INSTRUMENTATION_CODE: 0

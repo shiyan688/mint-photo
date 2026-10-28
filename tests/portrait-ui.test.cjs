@@ -79,7 +79,7 @@ function harness({ native = false, manual = true } = {}) {
       throw Error(`Unsupported test selector ${selector}`);
     }
   };
-  const env = { viewport: null, historyUI: null, projectConfirmation: null, projectLibraryController: null, projectLibraryUI: null,
+  const env = { crypto: require('node:crypto').webcrypto, viewport: null, historyUI: null, projectConfirmation: null, projectLibraryController: null, projectLibraryUI: null,
     document, console, Uint8Array, Uint8ClampedArray, ArrayBuffer, Blob, Set,
     btoa: value => Buffer.from(value, 'binary').toString('base64'), atob: value => Buffer.from(value, 'base64').toString('binary'),
     setTimeout(fn, delay) { const id = ++timerId; timers.set(id, { fn, delay }); return id; }, clearTimeout: id => timers.delete(id),
@@ -139,6 +139,29 @@ async function test(name, fn) { try { await fn(); checks.push(name); console.log
   await test('browser without native model bridge does not invent automatic detection', () => { const h = harness(); h.setup('portrait'); h.click('detectPortrait'); assert.equal(h.env.draft.batch.faces.length, 0); assert.equal(h.env.isDraftChanged(), false); assert.match(h.$('portraitStatus').textContent, /安卓|手动/); assert.equal(h.requests.length, 0); });
   await test('beauty sliders without a selected face or manual region do not commit', () => { const h = harness(); h.setup('portrait'); h.slider('smooth', 35); assert.equal(h.env.applyDraft(), false); assert.equal(h.env.ops.length, 0); });
   await test('manual beauty commits only on Apply and deep-copies operation values', () => { const h = harness(); h.setup('portrait'); h.click('manualSkin'); h.slider('smooth', 35); const old = h.env.draft; assert.equal(h.env.ops.length, 0); h.click('applyBtn'); assert.equal(h.env.ops.length, 1); assert.equal(h.env.ops[0].type, 'beauty'); assert.equal(h.env.ops[0].values.smooth, 35); old.values.smooth = 99; assert.equal(h.env.ops[0].values.smooth, 35); assert.equal(h.env.isDraftChanged(), false); });
+  await test('manual skin parameter selection preserves original inputs, circle and values without rendering',()=>{
+   const h=harness();h.setup('portrait');h.click('manualSkin');const original=h.$('p-smooth'),before=plain(h.env.draft),renders=h.renders.length;
+   assert.equal(h.$('legacy-smooth-row').hidden,false);assert.equal(h.$('legacy-brighten-row').hidden,true);assert.equal(h.$('legacy-warmth-row').hidden,true);
+   h.click('legacy-warmth-option');assert.equal(h.$('legacy-warmth-row').hidden,false);assert.equal(h.$('legacy-smooth-row').hidden,true);assert.equal(h.$('legacy-warmth-option')['aria-pressed'],'true');
+   assert.equal(h.renders.length,renders);assert.deepEqual(plain(h.env.draft),before);assert.equal(h.$('p-smooth'),original);
+   h.slider('warmth',-24);h.click('legacy-smooth-option');h.slider('smooth',29);h.click('legacy-warmth-option');assert.equal(h.$('p-warmth').value,'-24');assert.equal(h.$('pv-smooth').textContent,'29');assert.deepEqual(plain(h.env.draft.region),before.region);
+   for(const key of ['underEye','redness','lip','blush'])assert(h.$('p-'+key).disabled);h.click('resetPortrait');for(const key of ['smooth','brighten','warmth'])assert.equal(+h.$('p-'+key).value,0);assert.equal(h.$('legacy-warmth-row').hidden,false);
+   const retained=h.$('legacy-brighten-option').onclick;h.setup('portrait');retained();assert.equal(h.env.draft.type,'portrait-people');assert.equal(h.$('portrait-smooth-row').hidden,false);
+  });
+  await test('manual skin puts editable parameters before optional presets and keeps its live warning visible',()=>{
+   const h=harness();h.setup('portrait');h.click('manualSkin');const markup=h.$('toolPanel').innerHTML,stack=[],ids=new Map(),voids=new Set(['input','br','hr','img']);
+   // Check real generated nesting; the state harness deliberately flattens DOM nodes.
+   for(const match of markup.matchAll(/<(\/?)([a-z][a-z0-9]*)\b([^>]*)>/gi)){
+    const tag=match[2];if(match[1]){assert.equal(stack.at(-1).tag,tag);stack.pop();continue;}
+    const attrs={};for(const attr of match[3].matchAll(/([a-zA-Z][\w:-]*)(?:="([^"]*)")?/g))attrs[attr[1]]=attr[2]??'';
+    const node={tag,attrs,parents:stack.slice()};if(attrs.id){assert(!ids.has(attrs.id));ids.set(attrs.id,node);}if(!voids.has(tag))stack.push(node);
+   }
+   assert.equal(stack.length,0);for(const key of ['manualSkin','resetPortrait','portraitStatus','p-smooth','p-brighten','p-warmth'])assert(!ids.get(key).parents.some(p=>p.tag==='details'),key+' immediately available');
+   const order=['manualSkin','portraitStatus','p-smooth','p-warmth','skinRadiusRow','legacyPresetDetails','legacyPortraitHelpDetails'].map(id=>markup.indexOf('id="'+id+'"'));assert(order.every((position,i)=>position>=0&&(i===0||position>order[i-1])));
+   for(const key of ['naturalPreset','beautyPreset'])assert(ids.get(key).parents.some(p=>p.attrs.id==='legacyPresetDetails'));
+   assert(h.$('legacyPresetDetails').hidden,'manual mode does not show an empty preset drawer');assert(!('open'in ids.get('legacyPortraitHelpDetails').attrs));
+   assert.equal(ids.get('portraitStatus').attrs.role,'status');assert.equal(ids.get('portraitStatus').attrs['aria-live'],'polite');assert.match(h.$('portraitStatus').textContent,/手动圆形修肤.*眼下与妆色已停用/);
+  });
   await test('production Undo/Redo restores exact committed portrait operations', () => { const h = harness(); h.setup('portrait'); h.click('manualSkin'); h.slider('brighten', 12); h.click('applyBtn'); const saved = plain(h.env.ops); h.click('undoBtn'); assert.equal(h.env.ops.length, 0); assert.deepEqual(plain(h.env.redo), saved); h.click('redoBtn'); assert.deepEqual(plain(h.env.ops), saved); assert.equal(h.env.redo.length, 0); });
   await test('new committed portrait operation clears redo history', () => { const h = harness(); h.setup('portrait'); h.click('manualSkin'); h.slider('smooth', 20); h.click('applyBtn'); h.click('undoBtn'); h.setup('retouch'); manualSample(h); h.stroke([{ x: .5, y: .5 }]); h.click('applyBtn'); assert.equal(h.env.ops[0].type, 'manual'); assert.equal(h.env.redo.length, 0); });
   await test('Cancel and native Back discard drafts without changing committed history', () => { const h = harness(); h.setup('retouch'); manualSample(h); h.stroke([{ x: .3, y: .4 }]); h.click('applyBtn'); const saved = plain(h.env.ops); manualSample(h); h.stroke([{ x: .6, y: .7 }]); h.click('cancelBtn'); assert.deepEqual(plain(h.env.ops), saved); assert.equal(h.env.isDraftChanged(), false); manualSample(h); h.stroke([{ x: .2, y: .3 }]); assert.equal(h.env.window.requestClose(), true); assert.deepEqual(plain(h.env.ops), saved); assert.equal(h.env.isDraftChanged(), false); });

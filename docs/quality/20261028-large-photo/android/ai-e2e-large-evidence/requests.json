@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "mode": "erase",
+    "width": 2048,
+    "height": 2560,
+    "path": "/v1/images/edits",
+    "mask": true,
+    "keyRecorded": false
+  },
+  {
+    "id": 2,
+    "mode": "erase",
+    "width": 2048,
+    "height": 2560,
+    "path": "/wrong-ratio",
+    "mask": true,
+    "keyRecorded": false
+  },
+  {
+    "id": 3,
+    "mode": "outpaint",
+    "width": 2458,
+    "height": 3072,
+    "path": "/v1/images/edits",
+    "mask": true,
+    "keyRecorded": false
+  }
+]

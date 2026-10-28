@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "mode": "erase",
+    "width": 512,
+    "height": 512,
+    "path": "/v1/images/edits",
+    "mask": true,
+    "keyRecorded": false
+  },
+  {
+    "id": 2,
+    "mode": "erase",
+    "width": 512,
+    "height": 512,
+    "path": "/wrong-ratio",
+    "mask": true,
+    "keyRecorded": false
+  },
+  {
+    "id": 3,
+    "mode": "erase",
+    "width": 512,
+    "height": 512,
+    "path": "/slow",
+    "mask": true,
+    "keyRecorded": false
+  },
+  {
+    "id": 4,
+    "mode": "outpaint",
+    "width": 716,
+    "height": 716,
+    "path": "/v1/images/edits",
+    "mask": true,
+    "keyRecorded": false
+  }
+]

@@ -1,0 +1,100 @@
+{
+  "sourcePng": "ai-e2e-home-actions.png",
+  "width": 540,
+  "height": 1200,
+  "centerFraction": 0.75,
+  "darkPixelRule": "(red + green + blue) \/ 3 < 130",
+  "minimumDarkPixels": 8,
+  "entries": [
+    {
+      "selector": "#importBtn",
+      "svgCssRect": {
+        "height": 24,
+        "width": 24,
+        "x": 56.96428680419922,
+        "y": 215.1904754638672
+      },
+      "mappedCenterRegion": {
+        "left": 78,
+        "top": 317,
+        "right": 103,
+        "bottom": 342
+      },
+      "fullyInsideScreenshot": true,
+      "sampledPixels": 625,
+      "darkPixels": 87
+    },
+    {
+      "selector": "#homeLibrary",
+      "svgCssRect": {
+        "height": 24,
+        "width": 24,
+        "x": 248.0595245361328,
+        "y": 215.1904754638672
+      },
+      "mappedCenterRegion": {
+        "left": 329,
+        "top": 317,
+        "right": 353,
+        "bottom": 342
+      },
+      "fullyInsideScreenshot": true,
+      "sampledPixels": 600,
+      "darkPixels": 202
+    },
+    {
+      "selector": "[data-start-tool=portrait]",
+      "svgCssRect": {
+        "height": 25,
+        "width": 25,
+        "x": 66.19047546386719,
+        "y": 309.952392578125
+      },
+      "mappedCenterRegion": {
+        "left": 90,
+        "top": 442,
+        "right": 116,
+        "bottom": 467
+      },
+      "fullyInsideScreenshot": true,
+      "sampledPixels": 650,
+      "darkPixels": 143
+    },
+    {
+      "selector": "#homeAiBtn",
+      "svgCssRect": {
+        "height": 25,
+        "width": 25,
+        "x": 193.58334350585938,
+        "y": 309.952392578125
+      },
+      "mappedCenterRegion": {
+        "left": 257,
+        "top": 442,
+        "right": 283,
+        "bottom": 467
+      },
+      "fullyInsideScreenshot": true,
+      "sampledPixels": 650,
+      "darkPixels": 188
+    },
+    {
+      "selector": "[data-start-tool=collage]",
+      "svgCssRect": {
+        "height": 25,
+        "width": 25,
+        "x": 320.9761962890625,
+        "y": 309.952392578125
+      },
+      "mappedCenterRegion": {
+        "left": 424,
+        "top": 442,
+        "right": 450,
+        "bottom": 467
+      },
+      "fullyInsideScreenshot": true,
+      "sampledPixels": 650,
+      "darkPixels": 190
+    }
+  ]
+}

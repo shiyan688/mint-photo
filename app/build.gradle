@@ -12,9 +12,19 @@ android {
         minSdk 26
         targetSdk 35
         // Keep the application ID and increase the Android upgrade sequence.
-        versionCode 4
-        versionName '0.2.0-preview'
-        testInstrumentationRunner project.hasProperty('portraitBridgeTest')
+        versionCode 9
+        versionName '0.3.4-dev'
+        testInstrumentationRunner project.hasProperty('interactiveObjectTest')
+                ? 'com.qingyan.editor.InteractiveObjectInstrumentation'
+                : project.hasProperty('mobileSamBench')
+                ? 'com.qingyan.editor.MobileSamBenchInstrumentation'
+                : project.hasProperty('portraitPageIsolationTest')
+                ? 'com.qingyan.editor.PortraitPageIsolationInstrumentation'
+                : project.hasProperty('portraitLargeTest')
+                ? 'com.qingyan.editor.PortraitLargeInstrumentation'
+                : project.hasProperty('aiE2eTest')
+                ? 'com.qingyan.editor.AiFlowInstrumentation'
+                : project.hasProperty('portraitBridgeTest')
                 ? 'com.qingyan.editor.PortraitBridgeSmokeInstrumentation'
                 : 'com.qingyan.editor.PortraitSmokeInstrumentation'
     }
@@ -32,6 +42,11 @@ android {
 
     buildTypes {
         debug {
+            if (project.hasProperty('aiE2eTest')) {
+                applicationIdSuffix '.e2e'
+                versionNameSuffix '-e2e'
+            }
+
             // Standard local/CI debug signing produces an installable preview APK.
             // This is never a production signing identity.
             signingConfig signingConfigs.debug
@@ -63,6 +78,28 @@ android {
         buildConfig true
     }
 
+    // A separate disposable test app trusts an ephemeral local mock-service CA.
+    // Neither the CA nor its manifest is included in normal debug/release APKs.
+    sourceSets {
+        androidTest {
+            // External research model is used only by a disposable test APK.
+            // Normal debug/release APKs must never contain this asset.
+            if (project.hasProperty('interactiveObjectTest')) {
+                assets.srcDirs += [rootProject.file('.work/interactive-test-assets')]
+            }
+            if (project.hasProperty('mobileSamBench')) {
+                assets.srcDirs += [rootProject.file('.work/mobile-sam-bench-assets')]
+                java.srcDirs += [rootProject.file('tests/android-mobile-sam')]
+            }
+        }
+        debug {
+            if (project.hasProperty('aiE2eTest')) {
+                manifest.srcFile 'src/aiE2e/AndroidManifest.xml'
+                res.srcDirs += ['src/aiE2e/res', rootProject.file('.work/ai-e2e-res')]
+            }
+        }
+    }
+
     lint {
         abortOnError true
         checkReleaseBuilds true
@@ -72,4 +109,8 @@ android {
 dependencies {
     // Pinned official MediaPipe runtime; models are bundled for entirely offline inference.
     implementation 'com.google.mediapipe:tasks-vision:1.0.0'
+    // Research-only runtime, excluded from the ordinary application APK.
+    if (project.hasProperty('mobileSamBench')) {
+        androidTestImplementation 'com.microsoft.onnxruntime:onnxruntime-android:1.31.0'
+    }
 }
