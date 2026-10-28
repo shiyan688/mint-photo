@@ -16,6 +16,8 @@ android {
         versionName '0.3.4-dev'
         testInstrumentationRunner project.hasProperty('interactiveObjectTest')
                 ? 'com.qingyan.editor.InteractiveObjectInstrumentation'
+                : project.hasProperty('mobileSamBench')
+                ? 'com.qingyan.editor.MobileSamBenchInstrumentation'
                 : project.hasProperty('portraitPageIsolationTest')
                 ? 'com.qingyan.editor.PortraitPageIsolationInstrumentation'
                 : project.hasProperty('portraitLargeTest')
@@ -85,6 +87,10 @@ android {
             if (project.hasProperty('interactiveObjectTest')) {
                 assets.srcDirs += [rootProject.file('.work/interactive-test-assets')]
             }
+            if (project.hasProperty('mobileSamBench')) {
+                assets.srcDirs += [rootProject.file('.work/mobile-sam-bench-assets')]
+                java.srcDirs += [rootProject.file('tests/android-mobile-sam')]
+            }
         }
         debug {
             if (project.hasProperty('aiE2eTest')) {
@@ -103,4 +109,8 @@ android {
 dependencies {
     // Pinned official MediaPipe runtime; models are bundled for entirely offline inference.
     implementation 'com.google.mediapipe:tasks-vision:1.0.0'
+    // Research-only runtime, excluded from the ordinary application APK.
+    if (project.hasProperty('mobileSamBench')) {
+        androidTestImplementation 'com.microsoft.onnxruntime:onnxruntime-android:1.31.0'
+    }
 }
