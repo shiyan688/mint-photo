@@ -16,6 +16,8 @@ import com.google.mediapipe.tasks.core.Delegate;
 import com.google.mediapipe.tasks.vision.interactivesegmenter.InteractiveSegmenter;
 import com.google.mediapipe.tasks.vision.interactivesegmenter.InteractiveSegmenterOptions;
 import com.google.mediapipe.tasks.vision.interactivesegmenter.Stroke;
+import com.google.mediapipe.tasks.vision.interactivesegmenterlegacy.InteractiveSegmenterLegacy;
+import com.google.mediapipe.tasks.vision.imagesegmenter.ImageSegmenterResult;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -26,14 +28,17 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.security.MessageDigest;
 import java.util.Collections;
+import java.util.List;
 
 /** Isolated Android model-compatibility experiment, not a shipped feature or quality benchmark. */
 public final class InteractiveObjectInstrumentation extends Instrumentation {
     private static final String MODEL_SHA = "38431bc66b883404e8397f74c3579404315b9b52b04a46c6346fe906a7309b03";
+    private static final String LEGACY_SHA = "e24338a717c1b7ad8d159666677ef400babb7f33b8ad60c4d96db4ecf694cd25";
+    private boolean legacy;
     private String stage = "launch";
     private final JSONObject report = new JSONObject();
     private final JSONArray images = new JSONArray();
-    @Override public void onCreate(Bundle args) { super.onCreate(args); start(); }
+    @Override public void onCreate(Bundle args) { legacy = args != null && "legacy".equals(args.getString("objectModel")); super.onCreate(args); start(); }
 
     @Override public void onStart() {
         Bundle result = new Bundle();
@@ -43,26 +48,32 @@ public final class InteractiveObjectInstrumentation extends Instrumentation {
             require(getTargetContext().getPackageName().endsWith(".e2e"), "disposable app ID");
             report.put("androidApi", android.os.Build.VERSION.SDK_INT).put("abi", android.os.Build.SUPPORTED_ABIS[0])
                 .put("scope", "Disposable Android emulator instrumentation and pinned research model. No product UI, physical phone, peak memory, segmentation ground truth, or model distribution claim.")
-                .put("modelSha256", MODEL_SHA).put("testOnlyModel", true).put("results", images)
+                .put("modelSha256", legacy ? LEGACY_SHA : MODEL_SHA).put("modelVariant", legacy ? "legacy" : "v2").put("testOnlyModel", true).put("results", images)
                 .put("memoryScope", "Debug.getMemoryInfo total PSS of the instrumentation target process at a few moments, KiB; not peak memory or whole-device memory.");
             report.put("memoryBeforeKiB", memory());
             stage = "model-read";
-            byte[] model = asset("interactive-research.task", 30525312);
-            require(model.length == 30525312 && sha(model).equals(MODEL_SHA), "pinned model bytes and SHA");
+            int modelSize = legacy ? 6227884 : 30525312;
+            byte[] model = asset(legacy ? "interactive-legacy.tflite" : "interactive-research.task", modelSize);
+            require(model.length == modelSize && sha(model).equals(legacy ? LEGACY_SHA : MODEL_SHA), "pinned model bytes and SHA");
             // Unique private disposable file: the test APK asset is not part of the
             // application package, and is never exported or retained after this test.
             modelFile = java.io.File.createTempFile("interactive-research-", ".task", getTargetContext().getCacheDir());
             try (OutputStream output = new java.io.FileOutputStream(modelFile)) { output.write(model); }
             model = null;
             stage = "model-create"; long start = SystemClock.elapsedRealtime();
-            try (InteractiveSegmenter segmenter = InteractiveSegmenter.createFromOptions(getTargetContext(),
+            if (legacy) {
+                try (InteractiveSegmenterLegacy segmenter = InteractiveSegmenterLegacy.createFromOptions(getTargetContext(),
+                        InteractiveSegmenterLegacy.InteractiveSegmenterLegacyOptions.builder().setBaseOptions(BaseOptions.builder()
+                                .setDelegate(Delegate.CPU).setModelAssetPath(modelFile.getAbsolutePath()).build())
+                                .setOutputConfidenceMasks(true).setOutputCategoryMask(false).build())) {
+                    report.put("createMs", SystemClock.elapsedRealtime() - start).put("memoryAfterCreateKiB", memory());
+                    runImages(null, segmenter);
+                }
+            } else try (InteractiveSegmenter segmenter = InteractiveSegmenter.createFromOptions(getTargetContext(),
                     InteractiveSegmenterOptions.builder().setBaseOptions(BaseOptions.builder()
                             .setDelegate(Delegate.CPU).setModelAssetPath(modelFile.getAbsolutePath()).build()).build())) {
                 report.put("createMs", SystemClock.elapsedRealtime() - start).put("memoryAfterCreateKiB", memory());
-                runImage(segmenter, "melvin", "interactive-melvin.jpg", 720, 900, .285f, .68f,
-                        "34471604e6f19bdbc31e8a556caa9d20bab29c417a7817a1c352740458dcf0eb");
-                runImage(segmenter, "collins", "astronaut.png", 512, 512, .74f, .82f,
-                        "88431cd9653ccd539741b555fb0a46b61558b301d4110412b5bc28b5e3ea6cb5");
+                runImages(segmenter, null);
             }
             report.put("memoryAfterCloseKiB", memory()).put("result", "PASS").put("stage", stage);
             write("interactive-result.json", report.toString(2));
@@ -85,7 +96,14 @@ public final class InteractiveObjectInstrumentation extends Instrumentation {
         finish(resultCode, result);
     }
 
-    private void runImage(InteractiveSegmenter segmenter, String name, String file, int width, int height,
+    private void runImages(InteractiveSegmenter segmenter, InteractiveSegmenterLegacy old) throws Exception {
+        runImage(segmenter, old, "melvin", "interactive-melvin.jpg", 720, 900, .285f, .68f,
+                "34471604e6f19bdbc31e8a556caa9d20bab29c417a7817a1c352740458dcf0eb");
+        runImage(segmenter, old, "collins", "astronaut.png", 512, 512, .74f, .82f,
+                "88431cd9653ccd539741b555fb0a46b61558b301d4110412b5bc28b5e3ea6cb5");
+    }
+
+    private void runImage(InteractiveSegmenter segmenter, InteractiveSegmenterLegacy old, String name, String file, int width, int height,
                           float px, float py, String expectedSha) throws Exception {
         stage = name + "-decode";
         byte[] encoded = asset(file, 2 * 1024 * 1024);
@@ -100,12 +118,31 @@ public final class InteractiveObjectInstrumentation extends Instrumentation {
                 .put("memoryBeforeSetImageKiB", memory());
         images.put(row);
         try {
-            stage = name + "-set-image"; long start = SystemClock.elapsedRealtime(); segmenter.setImage(image);
-            row.put("setImageMs", SystemClock.elapsedRealtime() - start).put("memoryAfterSetImageKiB", memory());
-            Stroke stroke = Stroke.builder().setBrushMode(Stroke.BrushMode.POSITIVE)
-                    .setPoints(Collections.singletonList(NormalizedKeypoint.create(px, py))).setCompleted(true).build();
+            stage = name + "-set-image"; long start = SystemClock.elapsedRealtime();
+            if (segmenter != null) segmenter.setImage(image);
+            row.put("setImageMs", segmenter != null ? SystemClock.elapsedRealtime() - start : JSONObject.NULL)
+                    .put("memoryAfterSetImageKiB", memory()).put("legacySegmentIncludesImage", old != null);
             stage = name + "-segment"; start = SystemClock.elapsedRealtime();
-            MPImage mask = segmenter.segment(Collections.singletonList(stroke));
+            ImageSegmenterResult legacyResult = null;
+            MPImage mask;
+            if (old != null) {
+                legacyResult = old.segment(image, InteractiveSegmenterLegacy.RegionOfInterest.create(NormalizedKeypoint.create(px, py)));
+                if (!legacyResult.confidenceMasks().isPresent()) {
+                    if (legacyResult.categoryMask().isPresent()) legacyResult.categoryMask().get().close();
+                    throw new AssertionError("legacy confidence masks absent");
+                }
+                List<MPImage> masks = legacyResult.confidenceMasks().get();
+                if (masks.size() != 1) {
+                    for (MPImage value : masks) value.close();
+                    if (legacyResult.categoryMask().isPresent()) legacyResult.categoryMask().get().close();
+                    throw new AssertionError("legacy output must have exactly one foreground confidence mask, received " + masks.size());
+                }
+                mask = masks.get(0);
+            } else {
+                Stroke stroke = Stroke.builder().setBrushMode(Stroke.BrushMode.POSITIVE)
+                        .setPoints(Collections.singletonList(NormalizedKeypoint.create(px, py))).setCompleted(true).build();
+                mask = segmenter.segment(Collections.singletonList(stroke));
+            }
             long segmentMs = SystemClock.elapsedRealtime() - start;
             try {
                 int w = mask.getWidth(), h = mask.getHeight();
@@ -128,7 +165,7 @@ public final class InteractiveObjectInstrumentation extends Instrumentation {
                 row.put("segmentMs", segmentMs).put("maskWidth", w).put("maskHeight", h)
                     .put("aboveHalfPixels", high).put("belowTenthPixels", low).put("clickedConfidence", clicked)
                     .put("memoryAfterSegmentKiB", memory()).put("result", "PASS");
-            } finally { mask.close(); }
+            } finally { mask.close(); if (legacyResult != null && legacyResult.categoryMask().isPresent()) legacyResult.categoryMask().get().close(); }
         } finally { image.close(); bitmap.recycle(); }
     }
 

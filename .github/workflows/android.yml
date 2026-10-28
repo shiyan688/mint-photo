@@ -139,6 +139,7 @@ jobs:
           failed=0
           if node tests/prepare-interactive-android.cjs && bash gradlew --no-daemon -PaiE2eTest -PinteractiveObjectTest :app:assembleDebugAndroidTest; then
             bash tests/run-interactive-android.sh || failed=1
+            MINT_INTERACTIVE_MODEL=legacy bash tests/run-interactive-android.sh || failed=1
           else
             failed=1
           fi
@@ -164,5 +165,6 @@ jobs:
             .work/ai-e2e-large-evidence/
             .work/portrait-large-evidence/
             .work/interactive-android-evidence/
+            .work/interactive-legacy-android-evidence/
           retention-days: 14
           if-no-files-found: warn
