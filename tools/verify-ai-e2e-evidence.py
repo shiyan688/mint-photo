@@ -24,6 +24,7 @@ def main():
     assert result["mockService"] and not result["realAiModel"] and not result["physicalDevice"]
     assert result["systemDocumentPicker"] and result["savedFilesReopened"]
     requests = json.loads((root / "requests.json").read_text(encoding="utf-8"))
+    large = result.get("largePhoto", False)
     checks = []
 
     def rgba(name):
@@ -35,25 +36,33 @@ def main():
         checks.append(message)
 
     saved = {}
-    for mode, edge in (("erase", 512), ("outpaint", 716)):
+    dimensions = (("erase", 2048, 2560), ("outpaint", 2458, 3072)) if large else (("erase", 512, 512), ("outpaint", 716, 716))
+    if large:
+        source = json.loads((root / "source.json").read_text(encoding="utf-8"))
+        assert source["sha256"] == source["downloadedSha256"] == result["originalSha256"] == "34471604e6f19bdbc31e8a556caa9d20bab29c417a7817a1c352740458dcf0eb"
+        assert rgba("saved-original.png").shape == (3000, 2400, 4)
+        checks.append("original 7.2 MP JPEG exported and reopened as a 2400x3000 PNG through Android SAF")
+    for mode, width, height in dimensions:
         request = next(r for r in requests if r["mode"] == mode and r["path"] == "/v1/images/edits")
         prefix = f"request-{request['id']}-{mode}"
         image = rgba(prefix + "-image.png")
         mask = rgba(prefix + "-mask.png")
         output = rgba(f"saved-{mode}.png")
         generated = rgba(f"mock-{request['id']}-{mode}.png")
-        assert output.shape == image.shape == mask.shape == generated.shape == (edge, edge, 4)
+        assert output.shape == image.shape == mask.shape == generated.shape == (height, width, 4)
         protected = mask[:, :, 3] == 255
         selected = mask[:, :, 3] == 0
         assert protected.any() and selected.any() and np.all(protected | selected)
         equal(output[protected], image[protected], f"saved {mode}: every protected pixel equals the actual sent image")
         assert np.any(output[selected] != image[selected]), f"saved {mode}: no selected pixel changed"
-        checks.append(f"saved {mode}: selected pixels changed, output dimensions {edge}x{edge}")
+        checks.append(f"saved {mode}: selected pixels changed, output dimensions {width}x{height}")
         if mode == "outpaint":
-            equal(image[102:614, 102:614], saved["erase"], "outpaint request contains the previously saved erase image, pixel exact")
-            equal(output[102:614, 102:614], saved["erase"], "saved outpaint original center equals saved erase image, pixel exact")
+            x, y = (205, 256) if large else (102, 102)
+            prior_h, prior_w = saved["erase"].shape[:2]
+            equal(image[y:y+prior_h, x:x+prior_w], saved["erase"], "outpaint request contains the previously saved erase image, pixel exact")
+            equal(output[y:y+prior_h, x:x+prior_w], saved["erase"], "saved outpaint original center equals saved erase image, pixel exact")
             equal(output[selected], generated[selected], "saved outpaint border equals the synthetic provider output, pixel exact")
-            assert int(selected.sum()) == 716 * 716 - 512 * 512
+            assert int(selected.sum()) == width * height - prior_w * prior_h
         saved[mode] = output
     files = sorted(root.glob("*.png"))
     report = {
@@ -70,7 +79,7 @@ def main():
         report["emulatorBrightnessFrameTiming"] = {
             "samples": len(samples), "medianMs": float(np.median(samples)),
             "p95Ms": float(np.percentile(samples, 95)), "maxMs": max(samples),
-            "boundary": "12 alternating brightness inputs, 512x512 public photo, two animation frames; emulator with automation, NOT device FPS or large-image performance",
+            "boundary": ("12 alternating brightness inputs, 7.2 MP original with 720x900 display preview; " if large else "12 alternating brightness inputs, 512x512 public photo; ") + "two animation frames on an emulator with automation, NOT physical-device FPS or full-resolution processing timing",
         }
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

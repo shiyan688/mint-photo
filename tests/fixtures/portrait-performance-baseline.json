@@ -1,0 +1,28 @@
+{
+  "note": "Captured before performance-only changes. These are byte-identity regression oracles, not aesthetic truth.",
+  "modules": {
+    "portrait-detail-engine.js": "1559fa74818ece4d99c78b565720072a8284f1eda865949ac62191cf00ceb620",
+    "edge-refine.js": "ba467e0f7391dec1cb1b1f88086e15cba5da201a61b01ae5cfac2b9865a417fa"
+  },
+  "beauty": {
+    "transparent-mixed-face": "65cfe3d6d455c5aa290aadda86b57b72daeaa3ba078a8c9a3ab8405fb0097079",
+    "all-controls-overlap": "3b2ec1fec2c5ee0f50f32ab54f422285c5fdfd4380149342b0b65da6b6b64b50",
+    "lip-only": "6a817545b71ad638afb4e058964cf75739a9aa529b3f4cc5ff4944870f65b22f",
+    "face-at-boundary": "f753bc8aab2c53acf3506bcfab9ea002a866b4bc1ee16b379ff28d8b8131fdb7",
+    "manual-top-left": "6b7f110cab0e17304f7d3c7ece9f84b3dc0a9105bfa32df2b1d0580fc2e03b74",
+    "manual-bottom-right": "f8b9558ea07ecd4c84911e7b581b412ec07c444acff7a23bb32e2d6796e01552",
+    "one-column-work": "c127de213e32894d1a1add9f1bd6cb06b49d55e220ab287026c313a20bc4bf16",
+    "one-row-work": "2edd73a5441881bf96646b37c2c83375ddd9032c78a77ae93cb226289450ad17",
+    "single-pixel": "6813951e6897b80b7952fdd4deb8c8636dcab3d6b85748ec91ca64b5193b5bd3",
+    "no-face": "b511e40dbb2513754fc79207da0e11389efd7b5939b10e0546dd0298f7079310",
+    "neutral": "c4e2286ecaa34a891a10501f8c1b89e0a30ef5aa4189e157be0df37d59a33c01"
+  },
+  "guided": {
+    "mixed-alpha": "02c4142e07bb38073fdc452c98ec16f5c3eb36d3a83e4708ccfe3ccf95b5b36b",
+    "downsample-horizontal": "b3e856f696a8512dd732a1cedb51e8ba5e53a85d05f8ce5ed699d649ea6865c0",
+    "downsample-vertical": "dc2f244697bf97f8148d0cd0262dc999c55e98bcc600abb6647d878320216c56",
+    "one-row": "08301428044d6b1e65a960d7b08257c7ec281bbfd2ee6a39d9bff75bcbc9bb1e",
+    "one-column": "a958765090184fef4537b3aca9539593056b954b6211e034cf5365d4b240693f",
+    "single": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+  }
+}

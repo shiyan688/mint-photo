@@ -358,5 +358,5 @@ if(window.MintBatchUI)window.MintBatchUI.init({isBusy:()=>historyState().busy,to
  const flat=canvas(c.width,c.height),ctx=flat.getContext('2d');ctx.fillStyle='#fff';ctx.fillRect(0,0,flat.width,flat.height);ctx.drawImage(c,0,0);c.width=1;c.height=1;c=flat;const blob=await canvasBlob(c,'image/jpeg',.94);if(blob.type!=='image/jpeg')throw Error('本机没有生成JPG');return{name:(file.name||'照片').replace(/\.[^.]+$/,'')+'.jpg',bytes:new Uint8Array(await blob.arrayBuffer())};
  }finally{if(c){c.width=1;c.height=1;}}
 }});
-if(window.MintAiUI)window.MintAiUI.init({isBusy:()=>historyState().busy,revision:()=>projectRevision,open:loadPhoto,capture:async()=>{if(!source)throw Error('请先选择照片');if(isDraftChanged())throw Error('请先应用或取消当前预览');let c=null;try{c=renderPipeline(MAX_SIDE,ops,source);const blob=await canvasBlob(c,'image/png');if(blob.size>12*1024*1024)throw Error('发送图片超过12MiB，请先缩小图片');return await blobDataUrl(blob);}finally{if(c){c.width=1;c.height=1;}}}});
+if(window.MintAiUI)window.MintAiUI.init({isBusy:()=>historyState().busy,revision:()=>projectRevision,open:loadPhoto,captureCanvas:async()=>{if(!source)throw Error('请先选择照片');if(isDraftChanged())throw Error('请先应用或取消当前预览');return renderPipeline(MAX_SIDE,ops,source);}});
 })();

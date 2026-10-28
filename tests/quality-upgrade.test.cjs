@@ -3,3 +3,21 @@ function fixture(){const width=120,height=80,data=new Uint8ClampedArray(width*he
 test('guided alpha improves alignment to a known high-contrast edge without changing certain pixels',()=>{const {image,mask}=fixture(),before=mask.data.slice(),out=E.refine(image,mask);let oldError=0,newError=0;for(let y=0;y<80;y++)for(let x=0;x<120;x++){const i=y*120+x,t=x<60?0:1;oldError+=Math.abs(mask.data[i]-t);newError+=Math.abs(out.data[i]-t);if(mask.data[i]<=.02||mask.data[i]>=.98)assert.equal(out.data[i],mask.data[i]);assert(out.data[i]>=0&&out.data[i]<=1);}assert(newError<oldError,'known step-edge reconstruction improves over the blurred mask');assert.deepEqual(mask.data,before);assert.throws(()=>E.refine(image,mask,{shouldCancel:()=>true}),{name:'AbortError'});assert.throws(()=>E.refine({...image,width:5000},mask));});
 test('new skin algorithm is explicitly versioned, serialized and legacy engine selection stays unchanged',()=>{const batch=D.decode(JSON.parse(JSON.stringify(f)),{sourceRevision:'quality-test',batchId:'quality-test',width:900,height:500});batch.faces[0].beauty.smooth=65;const legacy={type:'portrait-people',version:2,phase:'beauty',batch,protection:null},op={...legacy,version:3,smoothing:'detail-v2'},data=new Uint8ClampedArray(180*100*4);for(let y=0;y<100;y++)for(let x=0;x<180;x++)data.set([160+x%21,110+y%21,90+(x+y)%21,255],(y*180+x)*4);const image={width:180,height:100,data},a=O.apply(image,legacy),b=O.apply(image,op);assert.notDeepEqual(a.data,b.data);assert.deepEqual(O.apply(image,legacy).data,a.data);for(let i=3;i<data.length;i+=4)assert.equal(b.data[i],data[i]);assert.equal(O.validate(op).smoothing,'detail-v2');assert.throws(()=>O.validate({...op,smoothing:'future'}));assert.throws(()=>O.validate({...op,version:2}));const source={width:180,height:100,mime:'image/png',name:'synthetic.png',origin:'original',blob:new Blob(['x'])};assert.equal(P.makeProject(source,[op]).ops[0].version,3);assert(O.plan(180,100,op).resources.cumulativeTypedArrayBytes>O.plan(180,100,legacy).resources.cumulativeTypedArrayBytes);});
 test('guided background explicit version prevents old recipes silently changing',()=>{const legacy={type:'background-refine',recipe:M.defaults('test',{width:1,height:1,data:'/w=='}),mode:'transparent',color:'#abcdef',blur:0,ready:true};assert(!Object.hasOwn(B.validate(legacy),'edgeAware'));assert.equal(B.validate({...legacy,version:2,edgeAware:true}).version,2);assert.throws(()=>B.validate({...legacy,edgeAware:true}));assert(B.plan(120,80,{...legacy,version:2,edgeAware:true}).maxWorkingBytes>B.plan(120,80,legacy).maxWorkingBytes);});
+
+const detail=require('../app/src/main/assets/portrait-detail-engine.js'),crypto=require('node:crypto');
+const performanceCases=require('./fixtures/portrait-performance-cases.cjs'),baseline=require('./fixtures/portrait-performance-baseline.json');
+const dataHash=a=>crypto.createHash('sha256').update(Buffer.from(a.buffer,a.byteOffset,a.byteLength)).digest('hex');
+for(const spec of performanceCases.beautySpecs)test('detail-v2 exact frozen pixels: '+spec.name,()=>{
+ const im=performanceCases.image(spec.width,spec.height),before=im.data.slice(),out=detail.beauty(im,spec.settings,spec.faces);
+ assert.equal(dataHash(out.data),baseline.beauty[spec.name]);assert.deepEqual(im.data,before);
+ for(let i=3;i<before.length;i+=4){assert.equal(out.data[i],before[i]);if(!before[i])assert.deepEqual(out.data.subarray(i-3,i+1),before.subarray(i-3,i+1));}
+});
+for(const spec of performanceCases.edgeSpecs)test('guided interpolation exact frozen Float32 bytes: '+spec.name,()=>{
+ const {image,mask}=performanceCases.edgeInput(spec),pixels=image.data.slice(),alpha=mask.data.slice(),out=E.refine(image,mask);
+ assert.equal(dataHash(out.data),baseline.guided[spec.name]);assert.deepEqual(image.data,pixels);assert.deepEqual(mask.data,alpha);
+ for(let i=0;i<alpha.length;i++)if(alpha[i]<=.02||alpha[i]>=.98)assert.equal(out.data[i],alpha[i]);
+});
+test('guided coordinates keep late cancellation and invalid confidence rejection',()=>{
+ const {image,mask}=fixture();let checks=0;assert.throws(()=>E.refine(image,mask,{shouldCancel:()=>++checks===84}),{name:'AbortError'});assert.equal(checks,84);
+ mask.data[mask.data.length-1]=NaN;assert.throws(()=>E.refine(image,mask),/蒙版无效/);
+});

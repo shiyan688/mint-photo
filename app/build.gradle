@@ -12,9 +12,11 @@ android {
         minSdk 26
         targetSdk 35
         // Keep the application ID and increase the Android upgrade sequence.
-        versionCode 8
-        versionName '0.3.3-dev'
-        testInstrumentationRunner project.hasProperty('aiE2eTest')
+        versionCode 9
+        versionName '0.3.4-dev'
+        testInstrumentationRunner project.hasProperty('portraitLargeTest')
+                ? 'com.qingyan.editor.PortraitLargeInstrumentation'
+                : project.hasProperty('aiE2eTest')
                 ? 'com.qingyan.editor.AiFlowInstrumentation'
                 : project.hasProperty('portraitBridgeTest')
                 ? 'com.qingyan.editor.PortraitBridgeSmokeInstrumentation'

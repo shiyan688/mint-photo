@@ -9,6 +9,7 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.view.MotionEvent;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityNodeInfo;
@@ -31,7 +32,8 @@ public final class AiFlowInstrumentation extends Instrumentation {
     private final JSONArray clickTraces=new JSONArray();
     private long visualRequestId;
     private long requestStarted;
-    @Override public void onCreate(Bundle args) { super.onCreate(args); start(); }
+    private boolean largePhoto;
+    @Override public void onCreate(Bundle args) { largePhoto=args!=null&&"true".equals(args.getString("largePhoto"));super.onCreate(args); start(); }
     @Override public void onStart() {
         Bundle result=new Bundle();
         try {
@@ -42,6 +44,7 @@ public final class AiFlowInstrumentation extends Instrumentation {
             until("document.readyState==='complete'&&document.querySelector('#portraitDemoBtn')&&typeof document.querySelector('#portraitDemoBtn').onclick==='function'&&typeof Android.editImage==='function'&&!Android.isExportBusy()",90000);
             AtomicReference<Boolean> blocked=new AtomicReference<>();runOnMainSync(()->blocked.set(web.getSettings().getBlockNetworkLoads()));require(blocked.get(),"WebView network stays blocked");
             require("true".equals(js("Android.samplePng('../index.html')===''&&Android.samplePng('missing')===''")),"sample bridge rejects filenames and unknown IDs");
+            if(largePhoto){runLargePhotoFlow();return;}
             verifyHomeActions();
             click("#importBtn");waitPicker();chooseDownloads();tapText("mint-e2e-source.png");until("document.querySelector('#imageInfo').textContent.includes('512 × 512')&&document.querySelector('#busy').hidden&&!Android.isExportBusy()",30000);
             capture("photo-imported");verifyEditorLayout();measureAdjustments();capture("adjustments-neutral");verifyHomeAiEntry();js("window.__beforeAi=document.querySelector('#previewCanvas').toDataURL();true");
@@ -65,6 +68,38 @@ public final class AiFlowInstrumentation extends Instrumentation {
             try {JSONObject partial=new JSONObject();partial.put("result","FAIL");partial.put("stage",stage);partial.put("checks",checks);partial.put("timingsMsIncludingAutomationPolling",timings);write("ai-e2e-partial.json",partial.toString(2));write("ai-e2e-failure.txt",result.toString()+"\n"+tree(getUiAutomation().getRootInActiveWindow(),0)+"\nDOM: "+js("document.body.innerText.slice(-9000)"));capture("FAIL-"+stage);}catch(Exception ignored){}
             finish(1,result);
         }
+    }
+    private void runLargePhotoFlow()throws Exception {
+        stage="large-import";long started=SystemClock.uptimeMillis();
+        click("#importBtn");waitPicker();chooseDownloads();tapText("mint-e2e-large-source.jpg");
+        until("document.querySelector('#imageInfo').textContent.includes('2400 × 3000')&&document.querySelector('#busy').hidden",120000);
+        timings.put("largeJpegImportWithSystemPicker",SystemClock.uptimeMillis()-started);
+        require("true".equals(js("document.querySelector('#previewCanvas').width===720&&document.querySelector('#previewCanvas').height===900")),"7.2 MP original dimensions retained; portrait preview is bounded to 720x900");
+        capture("large-imported");verifyEditorLayout();measureAdjustments();saveAndReopen("original",2400,3000);
+        stage="large-file-limit";js("window.__limitRevision=document.querySelector('#imageInfo').dataset.sourceRevision;window.__limitPixels=document.querySelector('#previewCanvas').toDataURL();true");
+        click("#headerMenu summary");click("#openTop");waitPicker();chooseDownloads();tapText("mint-e2e-large-over40mib.jpg");
+        until("document.querySelector('#toast').textContent.includes('40')&&document.querySelector('#busy').hidden",30000);
+        require("true".equals(js("document.querySelector('#imageInfo').dataset.sourceRevision===window.__limitRevision&&document.querySelector('#previewCanvas').toDataURL()===window.__limitPixels")),"synthetic 40 MiB + 1 byte JPEG rejected without replacing original or rendered photo");capture("large-import-limit");
+        stage="large-save-cancel";click("#exportBtn");until("document.querySelector('#exportDialog').open",10000);click("#saveBtn");waitPicker();sendKeyDownUpSync(KeyEvent.KEYCODE_BACK);SystemClock.sleep(500);if("true".equals(js("Android.isExportBusy()")))sendKeyDownUpSync(KeyEvent.KEYCODE_BACK);
+        until("!Android.isExportBusy()&&document.querySelector('#busy').hidden",20000);
+        require("true".equals(js("document.querySelector('#imageInfo').dataset.sourceRevision===window.__limitRevision&&document.querySelector('#previewCanvas').toDataURL()===window.__limitPixels")),"cancelled native save keeps the large photo and permits another save");
+        js("window.__aiSendCount=0;const t=MintAiTransport;window.MintAiTransport={receive:t.receive,send:(data,signal)=>{window.__aiSendCount++;window.__sentImage=data.image;window.__sentMask=data.mask;return t.send(data,signal);}};true");
+        stage="erase";openAi("erase","/v1/images/edits");paint();send();until("!document.querySelector('#aiAccept').hidden",120000);checkPixels(false);capture("large-erase-result");accept();saveAndReopen("erase",2048,2560);
+        stage="http-error";openAi("erase","/unauthorized");paint();send();until("document.querySelector('#aiStatus').textContent.includes('401')",60000);
+        require("true".equals(js("document.querySelector('#aiAccept').hidden&&!MintAiUI.isBusy()&&document.querySelector('#aiKey').value===''")),"large-image 401 leaves no result or retained credential");click("#aiClose");
+        stage="ratio-error";openAi("erase","/wrong-ratio");paint();send();until("document.querySelector('#aiStatus').textContent.includes('宽高比')",90000);
+        require("true".equals(js("document.querySelector('#aiAccept').hidden&&!MintAiUI.isBusy()")),"large-image wrong ratio rejected without replacing project");click("#aiClose");
+        stage="cancel";openAi("erase","/slow");paint();send();until("MintAiUI.isBusy()",10000);click("#aiClose");until("!MintAiUI.isBusy()&&!document.querySelector('#aiDialog').open",30000);
+        require("true".equals(js("document.querySelector('#aiKey').value===''&&document.querySelector('#aiAccept').hidden")),"large-image cancellation clears credential and stale result");
+        stage="outpaint";openAi("outpaint","/v1/images/edits");
+        until("document.querySelector('#aiSend').disabled&&document.querySelector('#aiStatus').textContent.includes('800万')",10000);
+        require("true".equals(js("document.querySelector('#aiAccept').hidden&&!MintAiUI.isBusy()")),"default 20 percent outpaint exceeds 8 MP and cannot send");capture("large-outpaint-limit");
+        js("for(const edge of ['left','right','top','bottom']){const e=document.querySelector('#aiPad-'+edge);e.value='10';e.dispatchEvent(new Event('input',{bubbles:true}));}true");
+        until("!document.querySelector('#aiSend').disabled&&document.querySelector('#aiStatus').textContent.includes('2458 × 3072')",10000);
+        require(true,"10 percent outpaint restores send availability within 7,550,976 pixels");send();until("!document.querySelector('#aiAccept').hidden",120000);checkPixels(true);capture("large-outpaint-result");accept();saveAndReopen("outpaint",2458,3072);
+        JSONObject report=new JSONObject();report.put("result","PASS");report.put("largePhoto",true);report.put("androidApi",android.os.Build.VERSION.SDK_INT);report.put("abi",android.os.Build.SUPPORTED_ABIS[0]);report.put("checks",checks);report.put("timingsMsIncludingAutomationPolling",timings);
+        report.put("originalWidth",2400);report.put("originalHeight",3000);report.put("originalSha256","34471604e6f19bdbc31e8a556caa9d20bab29c417a7817a1c352740458dcf0eb");report.put("outpaintOffsetX",205);report.put("outpaintOffsetY",256);report.put("mockService",true);report.put("realAiModel",false);report.put("physicalDevice",false);report.put("systemDocumentPicker",true);report.put("savedFilesReopened",true);report.put("limits","Real original 7.2 MP; oversized byte fixture is padded synthetic data. 80 MP decode cap and physical-device memory/FPS were not tested.");
+        write("ai-e2e-result.json",report.toString(2));Bundle result=new Bundle();result.putString("result","PASS Android AI mock workflow LARGE original 2400x3000, "+checks.length()+" checks; no real AI model or physical device");finish(0,result);
     }
     private void settleLayout()throws Exception {
         js("window.__layoutSettled=false;requestAnimationFrame(()=>requestAnimationFrame(()=>window.__layoutSettled=true));true");
@@ -295,11 +330,21 @@ public final class AiFlowInstrumentation extends Instrumentation {
     }
     private void pointer(long down,int action,float x,float y){MotionEvent e=MotionEvent.obtain(down,SystemClock.uptimeMillis(),action,x,y,0);e.setSource(android.view.InputDevice.SOURCE_TOUCHSCREEN);sendPointerSync(e);e.recycle();}
     private void checkPixels(boolean expanded)throws Exception {
+        if(largePhoto){checkLargePixels(expanded);return;}
         timings.put(expanded?"outpaintRequestToPreview":"eraseRequestToPreview",SystemClock.uptimeMillis()-requestStarted);
         String script="(async()=>{const load=async src=>{let i=new Image();i.src=src;await i.decode();let c=document.createElement('canvas');c.width=i.naturalWidth;c.height=i.naturalHeight;c.getContext('2d',{willReadFrequently:true}).drawImage(i,0,0);return c;};let a=await load(window.__sentImage),m=await load(window.__sentMask),c=await load(document.querySelector('#aiResult').src),v=await load(window.__beforeAi),p=a.getContext('2d').getImageData(0,0,a.width,a.height).data,mask=m.getContext('2d').getImageData(0,0,m.width,m.height).data,d=c.getContext('2d').getImageData(0,0,c.width,c.height).data,before=v.getContext('2d').getImageData(0,0,v.width,v.height).data;let same=true,n=0,protectedPixels=0,mismatchPixels=0,previewChangedPixels=0,previewMaxDelta=0;for(let i=0;i<p.length;i+=4){let diff=false;for(let k=0;k<4;k++)if(d[i+k]!==p[i+k])diff=true;if(mask[i+3]===255){protectedPixels++;if(diff){same=false;mismatchPixels++;}}else if(diff)n++;}for(let y=0;y<v.height;y++)for(let x=0;x<v.width;x++){let i=(y*v.width+x)*4,j=((y+"+(expanded?102:0)+")*a.width+x+"+(expanded?102:0)+")*4,diff=false;for(let k=0;k<4;k++){let delta=Math.abs(p[j+k]-before[i+k]);if(delta)diff=true;previewMaxDelta=Math.max(previewMaxDelta,delta);}if(diff)previewChangedPixels++;}window.__pixelCheck={same,changed:n,w:c.width,h:c.height,protectedPixels,mismatchPixels,previewChangedPixels,previewMaxDelta};window.__resultPng=c.toDataURL();})()";
         js(script);until("!!window.__pixelCheck",10000);JSONObject p=new JSONObject(js("window.__pixelCheck"));
         write("ai-e2e-"+(expanded?"outpaint":"erase")+"-pixels.json",p.toString(2));writePng("ai-e2e-"+(expanded?"outpaint":"erase")+"-preview.png","window.__resultPng");
         require(p.getBoolean("same"),"every protected "+(expanded?"outpaint":"erase")+" pixel equals the actual sent PNG; "+p.toString());require(p.getInt("changed")>0,"mock output changes selected pixels");require(p.getInt("w")== (expanded?716:512),"result dimensions correct");js("delete window.__pixelCheck;true");
+    }
+    private void checkLargePixels(boolean expanded)throws Exception {
+        timings.put(expanded?"largeOutpaintRequestToPreview":"largeEraseRequestToPreview",SystemClock.uptimeMillis()-requestStarted);
+        js("delete window.__largePixelCheck;delete window.__largePixelError;(async()=>{const load=async src=>{const i=new Image();i.src=src;await i.decode();const c=document.createElement('canvas');c.width=i.naturalWidth;c.height=i.naturalHeight;const ctx=c.getContext('2d',{willReadFrequently:true});ctx.drawImage(i,0,0);const result={w:c.width,h:c.height,data:ctx.getImageData(0,0,c.width,c.height).data};c.width=c.height=1;return result;};const a=await load(window.__sentImage),m=await load(window.__sentMask),o=await load(document.querySelector('#aiResult').src);if(a.w!==m.w||a.h!==m.h||a.w!==o.w||a.h!==o.h)throw Error('Request/mask/result geometry mismatch');let protectedPixels=0,mismatchPixels=0,changed=0;for(let i=0;i<a.data.length;i+=4){let diff=false;for(let k=0;k<4;k++)if(a.data[i+k]!==o.data[i+k])diff=true;if(m.data[i+3]===255){protectedPixels++;if(diff)mismatchPixels++;}else if(diff)changed++;}window.__largePixelCheck={w:o.w,h:o.h,protectedPixels,mismatchPixels,changed,previewComparison:'900-edge display preview is not compared directly to full working pixels'};})().catch(e=>window.__largePixelError=String(e));true");
+        until("!!window.__largePixelCheck||!!window.__largePixelError",120000);
+        if(!"true".equals(js("!window.__largePixelError")))throw new AssertionError(js("window.__largePixelError"));
+        JSONObject pixels=new JSONObject(js("window.__largePixelCheck"));write("ai-e2e-"+(expanded?"outpaint":"erase")+"-pixels.json",pixels.toString(2));
+        require(pixels.getInt("w")== (expanded?2458:2048)&&pixels.getInt("h")== (expanded?3072:2560),"large AI request and result use the expected bounded working dimensions");
+        require(pixels.getInt("protectedPixels")>0&&pixels.getInt("mismatchPixels")==0,"all protected large-image pixels equal the actual transmitted PNG");require(pixels.getInt("changed")>0,"synthetic service changes selected large-image pixels");
     }
     private void writePng(String name,String expression)throws Exception {String data=new JSONArray(js("["+expression+"]")).getString(0);if(!data.startsWith("data:image/png;base64,"))throw new AssertionError("PNG evidence missing");try(FileOutputStream out=getTargetContext().openFileOutput(name,0)){out.write(android.util.Base64.decode(data.substring(22),android.util.Base64.DEFAULT));}}
 
@@ -307,7 +352,7 @@ public final class AiFlowInstrumentation extends Instrumentation {
         js("window.__acceptedPng=document.querySelector('#aiResult').src;true");
         reachTarget("#aiAccept");click("#aiAccept");
         for(int i=0;i<30;i++){if("true".equals(js("!!document.querySelector('#confirmDialog')?.open")))click("#confirmYes");if("true".equals(js("!document.querySelector('#aiDialog').open&&document.querySelector('#busy').hidden")))break;SystemClock.sleep(300);}
-        until("!document.querySelector('#aiDialog').open&&document.querySelector('#busy').hidden",20000);
+        until("!document.querySelector('#aiDialog').open&&document.querySelector('#busy').hidden",largePhoto?120000:20000);
     }
     private void saveAndReopen(String mode,int w,int h)throws Exception {
         stage=mode+"-save";long saveStart=SystemClock.uptimeMillis();js("window.__savedPreview=document.querySelector('#previewCanvas').toDataURL();true");click("#exportBtn");until("document.querySelector('#exportDialog').open",10000);
@@ -317,12 +362,12 @@ public final class AiFlowInstrumentation extends Instrumentation {
         js("document.querySelector('#exportDialog').scrollTop=0;true");
         swipeSheetToAction("#exportDialog","#saveBtn",mode+"-save-action");capture(mode+"-save-reachable");click("#saveBtn");
         waitPicker();chooseDownloads();capture(mode+"-save-picker");AccessibilityNodeInfo edit=findClass(getUiAutomation().getRootInActiveWindow(),"android.widget.EditText");require(edit!=null,"system filename input exists");Bundle text=new Bundle();text.putCharSequence(AccessibilityNodeInfo.ACTION_ARGUMENT_SET_TEXT_CHARSEQUENCE,"mint-e2e-"+mode+".png");require(edit.performAction(AccessibilityNodeInfo.ACTION_SET_TEXT,text),"system filename set");tapText("Save");
-        until("!Android.isExportBusy()&&document.querySelector('#toast').textContent.includes('已保存')",30000);timings.put(mode+"SaveWithSystemPicker",SystemClock.uptimeMillis()-saveStart);require(true,"native PNG write completed");capture(mode+"-saved");
+        until("!Android.isExportBusy()&&document.querySelector('#toast').textContent.includes('已保存')",largePhoto?120000:30000);timings.put(mode+"SaveWithSystemPicker",SystemClock.uptimeMillis()-saveStart);require(true,"native PNG write completed");capture(mode+"-saved");
         stage=mode+"-reopen";long reopenStart=SystemClock.uptimeMillis();js("window.__previousSourceRevision=document.querySelector('#imageInfo').dataset.sourceRevision;window.__fileChosen=false;document.querySelector('#fileInput').addEventListener('change',()=>{window.__fileChosen=true;},{once:true});true");if("true".equals(js("!document.querySelector('#headerMenu').open")))click("#headerMenu summary");click("#openTop");waitPicker();chooseDownloads();tapText("mint-e2e-"+mode+".png");until("window.__fileChosen",20000);
         for(int i=0;i<40;i++){if("true".equals(js("!!document.querySelector('#confirmDialog')?.open")))click("#confirmYes");if("true".equals(js("document.querySelector('#imageInfo').textContent.includes('"+w+" × "+h+"')&&!Android.isExportBusy()")))break;SystemClock.sleep(300);}
-        until("window.__fileChosen&&document.querySelector('#busy').hidden&&!Android.isExportBusy()&&document.querySelector('#imageInfo').dataset.sourceRevision!==window.__previousSourceRevision&&document.querySelector('#imageInfo').textContent.includes('"+w+" × "+h+"')&&document.querySelector('#previewCanvas').toDataURL()===window.__savedPreview",30000);timings.put(mode+"ReopenWithSystemPicker",SystemClock.uptimeMillis()-reopenStart);require(true,"saved "+mode+" PNG reopened with identical rendered pixels and dimensions");capture(mode+"-reopened");
+        until("window.__fileChosen&&document.querySelector('#busy').hidden&&!Android.isExportBusy()&&document.querySelector('#imageInfo').dataset.sourceRevision!==window.__previousSourceRevision&&document.querySelector('#imageInfo').textContent.includes('"+w+" × "+h+"')&&document.querySelector('#previewCanvas').toDataURL()===window.__savedPreview",largePhoto?120000:30000);timings.put(mode+"ReopenWithSystemPicker",SystemClock.uptimeMillis()-reopenStart);require(true,"saved "+mode+" PNG reopened with identical rendered pixels and dimensions");capture(mode+"-reopened");
     }
-    private void waitPicker()throws Exception {long end=SystemClock.uptimeMillis()+20000;while(SystemClock.uptimeMillis()<end){AccessibilityNodeInfo n=getUiAutomation().getRootInActiveWindow();if(n!=null&&String.valueOf(n.getPackageName()).contains("documentsui"))return;SystemClock.sleep(300);}throw new AssertionError("system DocumentsUI not visible; state="+js("JSON.stringify({toast:document.querySelector('#toast')?.textContent,busy:document.querySelector('#busy')?.hidden,nativeBusy:Android.isExportBusy()})"));}
+    private void waitPicker()throws Exception {long end=SystemClock.uptimeMillis()+(largePhoto?120000:20000);while(SystemClock.uptimeMillis()<end){AccessibilityNodeInfo n=getUiAutomation().getRootInActiveWindow();if(n!=null&&String.valueOf(n.getPackageName()).contains("documentsui"))return;SystemClock.sleep(300);}throw new AssertionError("system DocumentsUI not visible; state="+js("JSON.stringify({toast:document.querySelector('#toast')?.textContent,busy:document.querySelector('#busy')?.hidden,nativeBusy:Android.isExportBusy()})"));}
     private void chooseDownloads()throws Exception {
         AccessibilityNodeInfo root=getUiAutomation().getRootInActiveWindow();
         AccessibilityNodeInfo roots=findId(root,"com.google.android.documentsui:id/roots_list");

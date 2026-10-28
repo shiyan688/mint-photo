@@ -317,6 +317,19 @@
     let scale=1;for(const v of [nr,ng,nb]){if(v>linearTable[254])scale=Math.min(scale,Math.max(0,(linearTable[254]-Y)/(v-Y)));if(v<0)scale=Math.min(scale,Y/(Y-v));}
     return [Y+(nr-Y)*scale,Y+(ng-Y)*scale,Y+(nb-Y)*scale];
   }
+  // Bilinear interpolation can only reach one work pixel beyond nonzero support.
+  // Keep that conservative border when projecting to the full-resolution image.
+  function beautyBounds(mask,lips,width,height,outputWidth,outputHeight) {
+    let left=width,top=height,right=-1,bottom=-1;
+    for(let y=0;y<height;y++)for(let x=0;x<width;x++){
+      const i=y*width+x;
+      if(mask[i]>0||(lips&&lips[i]>0)){left=Math.min(left,x);right=Math.max(right,x);top=Math.min(top,y);bottom=Math.max(bottom,y);}
+    }
+    if(right<0)return null;
+    const sx=(width-1)/Math.max(1,outputWidth-1),sy=(height-1)/Math.max(1,outputHeight-1);
+    return {left:sx?Math.max(0,Math.floor((left-1)/sx)):0,right:sx?Math.min(outputWidth-1,Math.ceil((right+1)/sx)):outputWidth-1,
+      top:sy?Math.max(0,Math.floor((top-1)/sy)):0,bottom:sy?Math.min(outputHeight-1,Math.ceil((bottom+1)/sy)):outputHeight-1};
+  }
   function beauty(image,settings,landmarks) {
     validate(image); settings=settings||{};
     const smooth=number(settings.smooth,0,0,100)/100, brighten=number(settings.brighten,0,0,100)/100, warmth=number(settings.warmth,0,-100,100)/100;
@@ -337,6 +350,8 @@
     }
     else mask=skinMask(work,null,settings.region);
     const colorMasks=faces.length&&(underEye||redness||lip||blush)?faceColorMasks(work,faces,mask,{underEye,redness,lip,blush}):null;
+    const bounds=beautyBounds(mask,colorMasks&&lip?colorMasks.lips:null,size.width,size.height,image.width,image.height);
+    if(!bounds)return out;
     const detailV2=true;let blurred=null,fine=null;
     if(smooth) {
       // Excluded eye, lip and hair colors must not enter the skin low-pass.
@@ -345,14 +360,16 @@
       const radius=Math.max(1,Math.min(8,Math.round(faceWidth*0.014)));blurred=weightedBlur(samples,detailV2?radius+1:radius);if(detailV2)fine=weightedBlur(samples,Math.max(1,Math.round(radius/3)));
     }
     const sx=(size.width-1)/Math.max(1,image.width-1),sy=(size.height-1)/Math.max(1,image.height-1),pixel=new Float64Array(4),finePixel=new Float64Array(4);
-    for(let y=0;y<image.height;y++) for(let x=0;x<image.width;x++) {
+    for(let y=bounds.top;y<=bounds.bottom;y++) for(let x=bounds.left;x<=bounds.right;x++) {
       const i=(y*image.width+x)*4; if(!image.data[i+3]) continue;
       const red=image.data[i],green=image.data[i+1],blue=image.data[i+2];
       let m=sampleScalar(mask,size.width,size.height,x*sx,y*sy);
+      const lipMask=colorMasks&&lip?sampleScalar(colorMasks.lips,size.width,size.height,x*sx,y*sy):0;
+      if(m<=0.00001&&lipMask<=0.00001) continue;
       // Full-resolution confidence prevents a 1024px mask from bleeding across
       // a strand of hair / other high-contrast non-skin detail during export.
-      if(faces.length)m=Math.min(m,skinConfidence(red,green,blue));
-      const lipMask=colorMasks&&lip?sampleScalar(colorMasks.lips,size.width,size.height,x*sx,y*sy):0;
+      const confidence=faces.length?skinConfidence(red,green,blue):1;
+      if(faces.length)m=Math.min(m,confidence);
       if(m<=0.00001&&lipMask<=0.00001) continue;
       let edge=0;
       if(smooth) {
@@ -379,12 +396,12 @@
         if(maximum>linearTable[254]){const chroma=Math.max(0,(linearTable[254]-oldY))/Math.max(0.00001,maximum-oldY);r=oldY+(r-oldY)*chroma;g=oldY+(g-oldY)*chroma;b=oldY+(b-oldY)*chroma;}
       }
       if(colorMasks) {
-        if(underEye){const weight=sampleScalar(colorMasks.under,size.width,size.height,x*sx,y*sy)*Math.min(1,skinConfidence(red,green,blue));
+        if(underEye){const weight=sampleScalar(colorMasks.under,size.width,size.height,x*sx,y*sy)*Math.min(1,confidence);
           const gain=Math.min(1+.22*underEye*weight*(1-smoothstep(.35,.85,Math.max(r,g,b))),Math.max(1,linearTable[254]/Math.max(1e-9,r,g,b)));r*=gain;g*=gain;b*=gain;}
-        if(redness){const weight=sampleScalar(colorMasks.redTarget,size.width,size.height,x*sx,y*sy)*redness*.28*Math.min(1,skinConfidence(red,green,blue));
+        if(redness){const weight=sampleScalar(colorMasks.redTarget,size.width,size.height,x*sx,y*sy)*redness*.28*Math.min(1,confidence);
           // Correct excess local red toward the same-luminance neutral only a little.
           const Y=.2126*r+.7152*g+.0722*b;r+= (Y-r)*weight;g+=(Y-g)*weight;b+=(Y-b)*weight;}
-        if(blush){const spatial=sampleScalar(colorMasks.cheek,size.width,size.height,x*sx,y*sy)*Math.min(1,skinConfidence(red,green,blue)),weight=spatial*blush;[r,g,b]=tintChroma(r,g,b,palette.blush,weight*.22,weight*.014);}
+        if(blush){const spatial=sampleScalar(colorMasks.cheek,size.width,size.height,x*sx,y*sy)*Math.min(1,confidence),weight=spatial*blush;[r,g,b]=tintChroma(r,g,b,palette.blush,weight*.22,weight*.014);}
         if(lip&&lipMask){const Y=.2126*r+.7152*g+.0722*b;
           const protect=smoothstep(.006,.035,Y)*(1-smoothstep(.65,.92,Y))*smoothstep(1,12,red-green);
           [r,g,b]=tintChroma(r,g,b,palette.lip,lip*lipMask*.42*protect);}

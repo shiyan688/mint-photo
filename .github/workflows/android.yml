@@ -78,7 +78,7 @@ jobs:
           printf '%s\n' 'Debug preview only. CI uses an ephemeral debug certificate; a later build may require a clean install. Export projects before uninstalling. This is not a production release or device acceptance result.' > PREVIEW.txt
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
-          name: mint-photo-0.3.0-dev-${{ github.run_number }}
+          name: mint-photo-dev-${{ github.run_number }}
           path: |
             app/build/outputs/apk/debug/*.apk
             app/build/outputs/apk/debug/SHA256SUMS.txt
@@ -98,7 +98,7 @@ jobs:
     if: github.event_name != 'pull_request'
     needs: tests
     runs-on: ubuntu-24.04
-    timeout-minutes: 25
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955
         with:
@@ -125,7 +125,7 @@ jobs:
           node tests/check-ai-mock-cancel.cjs
           bash gradlew --no-daemon -PaiE2eTest :app:assembleDebug :app:assembleDebugAndroidTest
       - name: Boot disposable Android and exercise the complete workflow
-        timeout-minutes: 12
+        timeout-minutes: 20
         run: |
           test -e /dev/kvm
           sudo chown "$(id -u):$(id -g)" /dev/kvm
@@ -134,10 +134,16 @@ jobs:
           echo no | avdmanager create avd --force --name mint_ai_e2e --package 'system-images;android-35;google_apis;x86_64' --device pixel_6
           "$ANDROID_HOME/emulator/emulator" -avd mint_ai_e2e -port 5554 -no-window -no-audio -no-boot-anim -no-snapshot -gpu swiftshader -memory 2048 -camera-back none -camera-front none > .work/ai-e2e-evidence/emulator.txt 2>&1 &
           bash tests/run-ai-e2e.sh
+          MINT_E2E_MODE=large bash tests/run-ai-e2e.sh
+          bash gradlew --no-daemon -PaiE2eTest -PportraitLargeTest :app:assembleDebugAndroidTest
+          MINT_E2E_MODE=portrait bash tests/run-ai-e2e.sh
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:
           name: android-ai-mock-e2e-${{ github.run_number }}
-          path: .work/ai-e2e-evidence/
+          path: |
+            .work/ai-e2e-evidence/
+            .work/ai-e2e-large-evidence/
+            .work/portrait-large-evidence/
           retention-days: 14
           if-no-files-found: warn
