@@ -1,0 +1,47 @@
+{
+  "version": "0.3.4-dev",
+  "versionCode": 9,
+  "source": "a14ab5b7f896070ed757507371e4e65d610550a4",
+  "normalApksHaveNoE2eCA": true,
+  "signatureAndZipAlignmentVerified": true,
+  "portraitEngineSha256": "5cde7dcd60aab1d68e1ec5fb026c6396c2f395c1597dd03113c34674ba57d524",
+  "apks": [
+    {
+      "apk": "app-arm64-v8a-debug.apk",
+      "bytes": 21023652,
+      "sha256": "a0969ec96c9a7b5aee9e0aa7f8d7ca5cc214dbe68f679caffbd383f72811a3c8",
+      "source_assets_matched": 95,
+      "asset_manifest_sha256": "f984b7d15dd8f24227e0e72d492747e9350002ff547697e4594262ef250d64db",
+      "native_libraries": [
+        {
+          "file": "lib/arm64-v8a/libmediapipe_tasks_jni.so",
+          "load_alignments": [
+            16384,
+            16384,
+            16384
+          ]
+        }
+      ],
+      "releaseFile": "mint-photo-0.3.4-dev-arm64-v8a-debug.apk"
+    },
+    {
+      "apk": "app-armeabi-v7a-debug.apk",
+      "bytes": 17728434,
+      "sha256": "89612f84cc09b0e27da55ed5ffd84445ebd4f7d0526d32bedf06eada089c0908",
+      "source_assets_matched": 95,
+      "asset_manifest_sha256": "f984b7d15dd8f24227e0e72d492747e9350002ff547697e4594262ef250d64db",
+      "native_libraries": [
+        {
+          "file": "lib/armeabi-v7a/libmediapipe_tasks_jni.so",
+          "load_alignments": [
+            16384,
+            16384,
+            16384
+          ]
+        }
+      ],
+      "releaseFile": "mint-photo-0.3.4-dev-armeabi-v7a-debug.apk"
+    }
+  ],
+  "scope": "Local ARM debug packaging checks only; runtime evidence recorded separately. Test CA and test runner are excluded."
+}

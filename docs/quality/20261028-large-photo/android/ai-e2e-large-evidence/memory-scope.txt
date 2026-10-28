@@ -1,0 +1,1 @@
+Single app-process snapshot after the run on a disposable emulator; not peak memory, renderer-total memory, physical-device performance, or FPS.

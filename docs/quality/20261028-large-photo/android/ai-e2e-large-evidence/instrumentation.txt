@@ -1,0 +1,2 @@
+INSTRUMENTATION_RESULT: result=PASS Android AI mock workflow LARGE original 2400x3000, 266 checks; no real AI model or physical device
+INSTRUMENTATION_CODE: 0

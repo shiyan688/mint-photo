@@ -1,0 +1,25 @@
+{
+  "id": "nasa-jsc2007e036047-original",
+  "subject": "Leland Melvin",
+  "assetApi": "https://images-api.nasa.gov/asset/jsc2007e036047",
+  "url": "https://images-assets.nasa.gov/image/jsc2007e036047/jsc2007e036047~orig.jpg",
+  "sha256": "34471604e6f19bdbc31e8a556caa9d20bab29c417a7817a1c352740458dcf0eb",
+  "bytes": 1545361,
+  "width": 2400,
+  "height": 3000,
+  "pixels": 7200000,
+  "credit": "NASA. Original downloaded photo, not upscaled. Informational software QA only; no endorsement, model training or marketing use.",
+  "workingImage": {
+    "width": 2048,
+    "height": 2560
+  },
+  "outpaint10Percent": {
+    "width": 2458,
+    "height": 3072,
+    "offsetX": 205,
+    "offsetY": 256
+  },
+  "oversizeFixture": "The same JPEG with trailing zero padding to 40 MiB + 1 byte. Synthetic file-size boundary fixture, not another real photo.",
+  "downloadedSha256": "34471604e6f19bdbc31e8a556caa9d20bab29c417a7817a1c352740458dcf0eb",
+  "oversizeBytes": 41943041
+}

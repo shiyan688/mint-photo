@@ -7,3 +7,4 @@ gradlew text eol=lf
 *.tflite binary
 *.jar binary
 app/src/main/assets/** -text
+docs/quality/20261028-large-photo/** -text

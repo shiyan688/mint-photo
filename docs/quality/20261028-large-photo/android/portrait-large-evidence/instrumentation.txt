@@ -1,0 +1,2 @@
+INSTRUMENTATION_RESULT: result=PASS Android portrait large workflow, 30 checks; real local models and SAF PNGs, no perceptual quality or physical-device performance claim
+INSTRUMENTATION_CODE: 0

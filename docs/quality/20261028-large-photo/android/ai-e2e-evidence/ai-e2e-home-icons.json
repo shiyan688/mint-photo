@@ -1,0 +1,287 @@
+{
+  "devicePixelRatio": 1.3125,
+  "entries": [
+    {
+      "iconName": "plus",
+      "mounted": true,
+      "pathCount": 1,
+      "paths": [
+        {
+          "bbox": {
+            "height": 16,
+            "width": 16,
+            "x": 4,
+            "y": 4
+          },
+          "color": "rgb(34, 48, 24)",
+          "display": "inline",
+          "fill": "none",
+          "mounted": true,
+          "namespaceURI": "http:\/\/www.w3.org\/2000\/svg",
+          "opacity": "1",
+          "rect": {
+            "height": 16,
+            "width": 16,
+            "x": 60.96428680419922,
+            "y": 219.1904754638672
+          },
+          "stroke": "rgb(34, 48, 24)",
+          "strokeOpacity": "1",
+          "visibility": "visible"
+        }
+      ],
+      "selector": "#importBtn",
+      "svg": {
+        "bbox": {
+          "height": 16,
+          "width": 16,
+          "x": 4,
+          "y": 4
+        },
+        "color": "rgb(34, 48, 24)",
+        "display": "block",
+        "fill": "none",
+        "mounted": true,
+        "namespaceURI": "http:\/\/www.w3.org\/2000\/svg",
+        "opacity": "1",
+        "rect": {
+          "height": 24,
+          "width": 24,
+          "x": 56.96428680419922,
+          "y": 215.1904754638672
+        },
+        "stroke": "rgb(34, 48, 24)",
+        "strokeOpacity": "1",
+        "visibility": "visible"
+      }
+    },
+    {
+      "iconName": "folder",
+      "mounted": true,
+      "pathCount": 1,
+      "paths": [
+        {
+          "bbox": {
+            "height": 16,
+            "width": 18,
+            "x": 3,
+            "y": 4
+          },
+          "color": "rgb(27, 37, 18)",
+          "display": "inline",
+          "fill": "none",
+          "mounted": true,
+          "namespaceURI": "http:\/\/www.w3.org\/2000\/svg",
+          "opacity": "1",
+          "rect": {
+            "height": 16,
+            "width": 18,
+            "x": 251.0595245361328,
+            "y": 219.1904754638672
+          },
+          "stroke": "rgb(27, 37, 18)",
+          "strokeOpacity": "1",
+          "visibility": "visible"
+        }
+      ],
+      "selector": "#homeLibrary",
+      "svg": {
+        "bbox": {
+          "height": 16,
+          "width": 18,
+          "x": 3,
+          "y": 4
+        },
+        "color": "rgb(27, 37, 18)",
+        "display": "block",
+        "fill": "none",
+        "mounted": true,
+        "namespaceURI": "http:\/\/www.w3.org\/2000\/svg",
+        "opacity": "1",
+        "rect": {
+          "height": 24,
+          "width": 24,
+          "x": 248.0595245361328,
+          "y": 215.1904754638672
+        },
+        "stroke": "rgb(27, 37, 18)",
+        "strokeOpacity": "1",
+        "visibility": "visible"
+      }
+    },
+    {
+      "iconName": "portrait",
+      "mounted": true,
+      "pathCount": 1,
+      "paths": [
+        {
+          "bbox": {
+            "height": 18,
+            "width": 14,
+            "x": 5,
+            "y": 3
+          },
+          "color": "rgb(46, 60, 32)",
+          "display": "inline",
+          "fill": "none",
+          "mounted": true,
+          "namespaceURI": "http:\/\/www.w3.org\/2000\/svg",
+          "opacity": "1",
+          "rect": {
+            "height": 18.75,
+            "width": 14.583333969116211,
+            "x": 71.39881134033203,
+            "y": 313.077392578125
+          },
+          "stroke": "rgb(46, 60, 32)",
+          "strokeOpacity": "1",
+          "visibility": "visible"
+        }
+      ],
+      "selector": "[data-start-tool=portrait]",
+      "svg": {
+        "bbox": {
+          "height": 18,
+          "width": 14,
+          "x": 5,
+          "y": 3
+        },
+        "color": "rgb(46, 60, 32)",
+        "display": "block",
+        "fill": "none",
+        "mounted": true,
+        "namespaceURI": "http:\/\/www.w3.org\/2000\/svg",
+        "opacity": "1",
+        "rect": {
+          "height": 25,
+          "width": 25,
+          "x": 66.19047546386719,
+          "y": 309.952392578125
+        },
+        "stroke": "rgb(46, 60, 32)",
+        "strokeOpacity": "1",
+        "visibility": "visible"
+      }
+    },
+    {
+      "iconName": "ai",
+      "mounted": true,
+      "pathCount": 1,
+      "paths": [
+        {
+          "bbox": {
+            "height": 17,
+            "width": 16,
+            "x": 4,
+            "y": 3
+          },
+          "color": "rgb(46, 60, 32)",
+          "display": "inline",
+          "fill": "none",
+          "mounted": true,
+          "namespaceURI": "http:\/\/www.w3.org\/2000\/svg",
+          "opacity": "1",
+          "rect": {
+            "height": 17.70833396911621,
+            "width": 16.66666603088379,
+            "x": 197.75,
+            "y": 313.077392578125
+          },
+          "stroke": "rgb(46, 60, 32)",
+          "strokeOpacity": "1",
+          "visibility": "visible"
+        }
+      ],
+      "selector": "#homeAiBtn",
+      "svg": {
+        "bbox": {
+          "height": 17,
+          "width": 16,
+          "x": 4,
+          "y": 3
+        },
+        "color": "rgb(46, 60, 32)",
+        "display": "block",
+        "fill": "none",
+        "mounted": true,
+        "namespaceURI": "http:\/\/www.w3.org\/2000\/svg",
+        "opacity": "1",
+        "rect": {
+          "height": 25,
+          "width": 25,
+          "x": 193.58334350585938,
+          "y": 309.952392578125
+        },
+        "stroke": "rgb(46, 60, 32)",
+        "strokeOpacity": "1",
+        "visibility": "visible"
+      }
+    },
+    {
+      "iconName": "collage",
+      "mounted": true,
+      "pathCount": 1,
+      "paths": [
+        {
+          "bbox": {
+            "height": 18,
+            "width": 18,
+            "x": 3,
+            "y": 3
+          },
+          "color": "rgb(46, 60, 32)",
+          "display": "inline",
+          "fill": "none",
+          "mounted": true,
+          "namespaceURI": "http:\/\/www.w3.org\/2000\/svg",
+          "opacity": "1",
+          "rect": {
+            "height": 18.75,
+            "width": 18.75,
+            "x": 324.1011962890625,
+            "y": 313.077392578125
+          },
+          "stroke": "rgb(46, 60, 32)",
+          "strokeOpacity": "1",
+          "visibility": "visible"
+        }
+      ],
+      "selector": "[data-start-tool=collage]",
+      "svg": {
+        "bbox": {
+          "height": 18,
+          "width": 18,
+          "x": 3,
+          "y": 3
+        },
+        "color": "rgb(46, 60, 32)",
+        "display": "block",
+        "fill": "none",
+        "mounted": true,
+        "namespaceURI": "http:\/\/www.w3.org\/2000\/svg",
+        "opacity": "1",
+        "rect": {
+          "height": 25,
+          "width": 25,
+          "x": 320.9761962890625,
+          "y": 309.952392578125
+        },
+        "stroke": "rgb(46, 60, 32)",
+        "strokeOpacity": "1",
+        "visibility": "visible"
+      }
+    }
+  ],
+  "evidence": "DOM geometry and computed styles only; actual painted visibility requires PNG inspection",
+  "innerHeight": 866,
+  "innerWidth": 412,
+  "scrollX": 0,
+  "scrollY": 0,
+  "webView": {
+    "screenX": 0,
+    "screenY": 32,
+    "width": 540,
+    "height": 1136,
+    "widthPerCssPixel": 1.3106796116504855
+  }
+}

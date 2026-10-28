@@ -1,0 +1,3200 @@
+[
+  {
+    "selector": "#importBtn",
+    "stage": "import",
+    "samples": [
+      {
+        "height": 112,
+        "hit": {
+          "id": "",
+          "tag": "STRONG"
+        },
+        "left": 20,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "importBtn",
+          "tag": "BUTTON"
+        },
+        "top": 171.1904754638672,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 181.09524536132812,
+        "x": 110.54762268066406,
+        "y": 227.1904754638672
+      },
+      {
+        "height": 112,
+        "hit": {
+          "id": "",
+          "tag": "STRONG"
+        },
+        "left": 20,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "importBtn",
+          "tag": "BUTTON"
+        },
+        "top": 171.1904754638672,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 181.09524536132812,
+        "x": 110.54762268066406,
+        "y": 227.1904754638672
+      },
+      {
+        "height": 112,
+        "hit": {
+          "id": "",
+          "tag": "STRONG"
+        },
+        "left": 20,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "importBtn",
+          "tag": "BUTTON"
+        },
+        "top": 171.1904754638672,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 181.09524536132812,
+        "x": 110.54762268066406,
+        "y": 227.1904754638672
+      }
+    ],
+    "result": "intended-target-touched",
+    "finalGeometry": {
+      "height": 112,
+      "hit": {
+        "id": "",
+        "tag": "STRONG"
+      },
+      "left": 20,
+      "ready": true,
+      "scrollX": 0,
+      "scrollY": 0,
+      "target": {
+        "id": "importBtn",
+        "tag": "BUTTON"
+      },
+      "top": 171.1904754638672,
+      "viewportHeight": 843,
+      "viewportWidth": 412,
+      "width": 181.09524536132812,
+      "x": 110.54762268066406,
+      "y": 227.1904754638672
+    },
+    "screenX": 144.8925018310547,
+    "screenY": 361.77392578125,
+    "pointerEvents": [
+      {
+        "hit": {
+          "id": "",
+          "tag": "STRONG"
+        },
+        "intended": true,
+        "target": {
+          "id": "",
+          "tag": "STRONG"
+        },
+        "type": "pointerdown",
+        "x": 110.39434814453125,
+        "y": 226.87574768066406
+      },
+      {
+        "hit": {
+          "id": "",
+          "tag": "STRONG"
+        },
+        "intended": true,
+        "target": {
+          "id": "",
+          "tag": "STRONG"
+        },
+        "type": "pointerup",
+        "x": 110.39434814453125,
+        "y": 226.87574768066406
+      }
+    ]
+  },
+  {
+    "selector": "[data-category=portrait]",
+    "stage": "skin-detect",
+    "samples": [
+      {
+        "height": 48.238094329833984,
+        "hit": {
+          "id": "",
+          "tag": "BUTTON"
+        },
+        "left": 110.54762268066406,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "",
+          "tag": "BUTTON"
+        },
+        "top": 794.4285888671875,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 95.54762268066406,
+        "x": 158.3214340209961,
+        "y": 818.5476360321045
+      },
+      {
+        "height": 48.238094329833984,
+        "hit": {
+          "id": "",
+          "tag": "BUTTON"
+        },
+        "left": 110.54762268066406,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "",
+          "tag": "BUTTON"
+        },
+        "top": 794.4285888671875,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 95.54762268066406,
+        "x": 158.3214340209961,
+        "y": 818.5476360321045
+      },
+      {
+        "height": 48.238094329833984,
+        "hit": {
+          "id": "",
+          "tag": "BUTTON"
+        },
+        "left": 110.54762268066406,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "",
+          "tag": "BUTTON"
+        },
+        "top": 794.4285888671875,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 95.54762268066406,
+        "x": 158.3214340209961,
+        "y": 818.5476360321045
+      }
+    ],
+    "result": "intended-target-touched",
+    "finalGeometry": {
+      "height": 48.238094329833984,
+      "hit": {
+        "id": "",
+        "tag": "BUTTON"
+      },
+      "left": 110.54762268066406,
+      "ready": true,
+      "scrollX": 0,
+      "scrollY": 0,
+      "target": {
+        "id": "",
+        "tag": "BUTTON"
+      },
+      "top": 794.4285888671875,
+      "viewportHeight": 843,
+      "viewportWidth": 412,
+      "width": 95.54762268066406,
+      "x": 158.3214340209961,
+      "y": 818.5476360321045
+    },
+    "screenX": 207.50868225097656,
+    "screenY": 1136.8536376953125,
+    "pointerEvents": [
+      {
+        "hit": {
+          "id": "",
+          "tag": "BUTTON"
+        },
+        "intended": true,
+        "target": {
+          "id": "",
+          "tag": "BUTTON"
+        },
+        "type": "pointerdown",
+        "x": 158.10194396972656,
+        "y": 817.4122314453125
+      },
+      {
+        "hit": {
+          "id": "",
+          "tag": "BUTTON"
+        },
+        "intended": true,
+        "target": {
+          "id": "",
+          "tag": "BUTTON"
+        },
+        "type": "pointerup",
+        "x": 158.10194396972656,
+        "y": 817.4122314453125
+      }
+    ]
+  },
+  {
+    "selector": "[data-tool=portrait]",
+    "stage": "skin-detect",
+    "samples": [
+      {
+        "height": 62.23809814453125,
+        "hit": {
+          "id": "",
+          "tag": "SPAN"
+        },
+        "left": 9,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "",
+          "tag": "BUTTON"
+        },
+        "top": 726.4285888671875,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 68,
+        "x": 43,
+        "y": 757.5476379394531
+      },
+      {
+        "height": 62.23809814453125,
+        "hit": {
+          "id": "",
+          "tag": "SPAN"
+        },
+        "left": 9,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "",
+          "tag": "BUTTON"
+        },
+        "top": 726.4285888671875,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 68,
+        "x": 43,
+        "y": 757.5476379394531
+      },
+      {
+        "height": 62.23809814453125,
+        "hit": {
+          "id": "",
+          "tag": "SPAN"
+        },
+        "left": 9,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "",
+          "tag": "BUTTON"
+        },
+        "top": 726.4285888671875,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 68,
+        "x": 43,
+        "y": 757.5476379394531
+      }
+    ],
+    "result": "intended-target-touched",
+    "finalGeometry": {
+      "height": 62.23809814453125,
+      "hit": {
+        "id": "",
+        "tag": "SPAN"
+      },
+      "left": 9,
+      "ready": true,
+      "scrollX": 0,
+      "scrollY": 0,
+      "target": {
+        "id": "",
+        "tag": "BUTTON"
+      },
+      "top": 726.4285888671875,
+      "viewportHeight": 843,
+      "viewportWidth": 412,
+      "width": 68,
+      "x": 43,
+      "y": 757.5476379394531
+    },
+    "screenX": 56.359222412109375,
+    "screenY": 1056.902099609375,
+    "pointerEvents": [
+      {
+        "hit": {
+          "id": "",
+          "tag": "SPAN"
+        },
+        "intended": true,
+        "target": {
+          "id": "",
+          "tag": "SPAN"
+        },
+        "type": "pointerdown",
+        "x": 42.94047546386719,
+        "y": 756.4970092773438
+      },
+      {
+        "hit": {
+          "id": "",
+          "tag": "SPAN"
+        },
+        "intended": true,
+        "target": {
+          "id": "",
+          "tag": "SPAN"
+        },
+        "type": "pointerup",
+        "x": 42.94047546386719,
+        "y": 756.4970092773438
+      }
+    ]
+  },
+  {
+    "selector": "#detectPortrait",
+    "stage": "skin-detect",
+    "samples": [
+      {
+        "height": 40,
+        "hit": {
+          "id": "detectPortrait",
+          "tag": "BUTTON"
+        },
+        "left": 20,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "detectPortrait",
+          "tag": "BUTTON"
+        },
+        "top": 495.66668701171875,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 81.41667175292969,
+        "x": 60.708335876464844,
+        "y": 515.6666870117188
+      },
+      {
+        "height": 40,
+        "hit": {
+          "id": "detectPortrait",
+          "tag": "BUTTON"
+        },
+        "left": 20,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "detectPortrait",
+          "tag": "BUTTON"
+        },
+        "top": 495.66668701171875,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 81.41667175292969,
+        "x": 60.708335876464844,
+        "y": 515.6666870117188
+      },
+      {
+        "height": 40,
+        "hit": {
+          "id": "detectPortrait",
+          "tag": "BUTTON"
+        },
+        "left": 20,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "detectPortrait",
+          "tag": "BUTTON"
+        },
+        "top": 495.66668701171875,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 81.41667175292969,
+        "x": 60.708335876464844,
+        "y": 515.6666870117188
+      }
+    ],
+    "result": "intended-target-touched",
+    "finalGeometry": {
+      "height": 40,
+      "hit": {
+        "id": "detectPortrait",
+        "tag": "BUTTON"
+      },
+      "left": 20,
+      "ready": true,
+      "scrollX": 0,
+      "scrollY": 0,
+      "target": {
+        "id": "detectPortrait",
+        "tag": "BUTTON"
+      },
+      "top": 495.66668701171875,
+      "viewportHeight": 843,
+      "viewportWidth": 412,
+      "width": 81.41667175292969,
+      "x": 60.708335876464844,
+      "y": 515.6666870117188
+    },
+    "screenX": 79.56917572021484,
+    "screenY": 739.873779296875,
+    "pointerEvents": [
+      {
+        "hit": {
+          "id": "detectPortrait",
+          "tag": "BUTTON"
+        },
+        "intended": true,
+        "target": {
+          "id": "detectPortrait",
+          "tag": "BUTTON"
+        },
+        "type": "pointerdown",
+        "x": 60.6242561340332,
+        "y": 514.95166015625
+      },
+      {
+        "hit": {
+          "id": "detectPortrait",
+          "tag": "BUTTON"
+        },
+        "intended": true,
+        "target": {
+          "id": "detectPortrait",
+          "tag": "BUTTON"
+        },
+        "type": "pointerup",
+        "x": 60.6242561340332,
+        "y": 514.95166015625
+      }
+    ]
+  },
+  {
+    "selector": "#person-face-1",
+    "stage": "skin-detect",
+    "samples": [
+      {
+        "height": 40,
+        "hit": {
+          "id": "person-face-1",
+          "tag": "BUTTON"
+        },
+        "left": 20,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "person-face-1",
+          "tag": "BUTTON"
+        },
+        "top": 578.3333740234375,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 57.19047546386719,
+        "x": 48.595237731933594,
+        "y": 598.3333740234375
+      },
+      {
+        "height": 40,
+        "hit": {
+          "id": "person-face-1",
+          "tag": "BUTTON"
+        },
+        "left": 20,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "person-face-1",
+          "tag": "BUTTON"
+        },
+        "top": 578.3333740234375,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 57.19047546386719,
+        "x": 48.595237731933594,
+        "y": 598.3333740234375
+      },
+      {
+        "height": 40,
+        "hit": {
+          "id": "person-face-1",
+          "tag": "BUTTON"
+        },
+        "left": 20,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "person-face-1",
+          "tag": "BUTTON"
+        },
+        "top": 578.3333740234375,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 57.19047546386719,
+        "x": 48.595237731933594,
+        "y": 598.3333740234375
+      }
+    ],
+    "result": "intended-target-touched",
+    "finalGeometry": {
+      "height": 40,
+      "hit": {
+        "id": "person-face-1",
+        "tag": "BUTTON"
+      },
+      "left": 20,
+      "ready": true,
+      "scrollX": 0,
+      "scrollY": 0,
+      "target": {
+        "id": "person-face-1",
+        "tag": "BUTTON"
+      },
+      "top": 578.3333740234375,
+      "viewportHeight": 843,
+      "viewportWidth": 412,
+      "width": 57.19047546386719,
+      "x": 48.595237731933594,
+      "y": 598.3333740234375
+    },
+    "screenX": 63.69278335571289,
+    "screenY": 848.2233276367188,
+    "pointerEvents": [
+      {
+        "hit": {
+          "id": "person-face-1",
+          "tag": "BUTTON"
+        },
+        "intended": true,
+        "target": {
+          "id": "person-face-1",
+          "tag": "BUTTON"
+        },
+        "type": "pointerdown",
+        "x": 48.527530670166016,
+        "y": 597.5037231445312
+      },
+      {
+        "hit": {
+          "id": "person-face-1",
+          "tag": "BUTTON"
+        },
+        "intended": true,
+        "target": {
+          "id": "person-face-1",
+          "tag": "BUTTON"
+        },
+        "type": "pointerup",
+        "x": 48.527530670166016,
+        "y": 597.5037231445312
+      }
+    ]
+  },
+  {
+    "selector": "#portraitPresetDetails summary",
+    "stage": "skin-detect",
+    "samples": [
+      {
+        "height": 28,
+        "hit": {
+          "id": "",
+          "tag": "SUMMARY"
+        },
+        "left": 20,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "",
+          "tag": "SUMMARY"
+        },
+        "top": 584.6904907226562,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 372.19049072265625,
+        "x": 206.09524536132812,
+        "y": 598.6904907226562
+      },
+      {
+        "height": 28,
+        "hit": {
+          "id": "",
+          "tag": "SUMMARY"
+        },
+        "left": 20,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "",
+          "tag": "SUMMARY"
+        },
+        "top": 584.6904907226562,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 372.19049072265625,
+        "x": 206.09524536132812,
+        "y": 598.6904907226562
+      },
+      {
+        "height": 28,
+        "hit": {
+          "id": "",
+          "tag": "SUMMARY"
+        },
+        "left": 20,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "",
+          "tag": "SUMMARY"
+        },
+        "top": 584.6904907226562,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 372.19049072265625,
+        "x": 206.09524536132812,
+        "y": 598.6904907226562
+      }
+    ],
+    "result": "intended-target-touched",
+    "finalGeometry": {
+      "height": 28,
+      "hit": {
+        "id": "",
+        "tag": "SUMMARY"
+      },
+      "left": 20,
+      "ready": true,
+      "scrollX": 0,
+      "scrollY": 0,
+      "target": {
+        "id": "",
+        "tag": "SUMMARY"
+      },
+      "top": 584.6904907226562,
+      "viewportHeight": 843,
+      "viewportWidth": 412,
+      "width": 372.19049072265625,
+      "x": 206.09524536132812,
+      "y": 598.6904907226562
+    },
+    "screenX": 270.12481689453125,
+    "screenY": 848.69140625,
+    "pointerEvents": [
+      {
+        "hit": {
+          "id": "",
+          "tag": "SUMMARY"
+        },
+        "intended": true,
+        "target": {
+          "id": "",
+          "tag": "SUMMARY"
+        },
+        "type": "pointerdown",
+        "x": 205.8095245361328,
+        "y": 597.860107421875
+      },
+      {
+        "hit": {
+          "id": "",
+          "tag": "SUMMARY"
+        },
+        "intended": true,
+        "target": {
+          "id": "",
+          "tag": "SUMMARY"
+        },
+        "type": "pointerup",
+        "x": 205.8095245361328,
+        "y": 597.860107421875
+      }
+    ]
+  },
+  {
+    "selector": "#detailSkin",
+    "stage": "skin-detect",
+    "samples": [
+      {
+        "height": 16,
+        "hit": {
+          "id": "detailSkin",
+          "tag": "INPUT"
+        },
+        "left": 24,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "detailSkin",
+          "tag": "INPUT"
+        },
+        "top": 590.9404907226562,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 171.8095245361328,
+        "x": 109.9047622680664,
+        "y": 598.9404907226562
+      },
+      {
+        "height": 16,
+        "hit": {
+          "id": "detailSkin",
+          "tag": "INPUT"
+        },
+        "left": 24,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "detailSkin",
+          "tag": "INPUT"
+        },
+        "top": 590.9404907226562,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 171.8095245361328,
+        "x": 109.9047622680664,
+        "y": 598.9404907226562
+      },
+      {
+        "height": 16,
+        "hit": {
+          "id": "detailSkin",
+          "tag": "INPUT"
+        },
+        "left": 24,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "detailSkin",
+          "tag": "INPUT"
+        },
+        "top": 590.9404907226562,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 171.8095245361328,
+        "x": 109.9047622680664,
+        "y": 598.9404907226562
+      }
+    ],
+    "result": "intended-target-touched",
+    "finalGeometry": {
+      "height": 16,
+      "hit": {
+        "id": "detailSkin",
+        "tag": "INPUT"
+      },
+      "left": 24,
+      "ready": true,
+      "scrollX": 0,
+      "scrollY": 0,
+      "target": {
+        "id": "detailSkin",
+        "tag": "INPUT"
+      },
+      "top": 590.9404907226562,
+      "viewportHeight": 843,
+      "viewportWidth": 412,
+      "width": 171.8095245361328,
+      "x": 109.9047622680664,
+      "y": 598.9404907226562
+    },
+    "screenX": 144.0499267578125,
+    "screenY": 849.01904296875,
+    "pointerEvents": [
+      {
+        "hit": {
+          "id": "detailSkin",
+          "tag": "INPUT"
+        },
+        "intended": true,
+        "target": {
+          "id": "detailSkin",
+          "tag": "INPUT"
+        },
+        "type": "pointerdown",
+        "x": 109.75223541259766,
+        "y": 598.110107421875
+      },
+      {
+        "hit": {
+          "id": "detailSkin",
+          "tag": "INPUT"
+        },
+        "intended": true,
+        "target": {
+          "id": "detailSkin",
+          "tag": "INPUT"
+        },
+        "type": "pointerup",
+        "x": 109.75223541259766,
+        "y": 598.110107421875
+      }
+    ]
+  },
+  {
+    "selector": "#applyBtn",
+    "stage": "skin-apply",
+    "samples": [
+      {
+        "height": 40,
+        "hit": {
+          "id": "",
+          "tag": "SPAN"
+        },
+        "left": 313.6785888671875,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "applyBtn",
+          "tag": "BUTTON"
+        },
+        "top": 676.6666870117188,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 86.51190948486328,
+        "x": 356.93454360961914,
+        "y": 696.6666870117188
+      },
+      {
+        "height": 40,
+        "hit": {
+          "id": "",
+          "tag": "SPAN"
+        },
+        "left": 313.6785888671875,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "applyBtn",
+          "tag": "BUTTON"
+        },
+        "top": 676.6666870117188,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 86.51190948486328,
+        "x": 356.93454360961914,
+        "y": 696.6666870117188
+      },
+      {
+        "height": 40,
+        "hit": {
+          "id": "",
+          "tag": "SPAN"
+        },
+        "left": 313.6785888671875,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "applyBtn",
+          "tag": "BUTTON"
+        },
+        "top": 676.6666870117188,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 86.51190948486328,
+        "x": 356.93454360961914,
+        "y": 696.6666870117188
+      }
+    ],
+    "result": "intended-target-touched",
+    "finalGeometry": {
+      "height": 40,
+      "hit": {
+        "id": "",
+        "tag": "SPAN"
+      },
+      "left": 313.6785888671875,
+      "ready": true,
+      "scrollX": 0,
+      "scrollY": 0,
+      "target": {
+        "id": "applyBtn",
+        "tag": "BUTTON"
+      },
+      "top": 676.6666870117188,
+      "viewportHeight": 843,
+      "viewportWidth": 412,
+      "width": 86.51190948486328,
+      "x": 356.93454360961914,
+      "y": 696.6666870117188
+    },
+    "screenX": 467.8268127441406,
+    "screenY": 977.1068115234375,
+    "pointerEvents": [
+      {
+        "hit": {
+          "id": "",
+          "tag": "SPAN"
+        },
+        "intended": true,
+        "target": {
+          "id": "",
+          "tag": "SPAN"
+        },
+        "type": "pointerdown",
+        "x": 356.4397277832031,
+        "y": 695.7001342773438
+      },
+      {
+        "hit": {
+          "id": "",
+          "tag": "SPAN"
+        },
+        "intended": true,
+        "target": {
+          "id": "",
+          "tag": "SPAN"
+        },
+        "type": "pointerup",
+        "x": 356.4397277832031,
+        "y": 695.7001342773438
+      }
+    ]
+  },
+  {
+    "selector": "#exportBtn",
+    "stage": "skin-save",
+    "samples": [
+      {
+        "height": 40,
+        "hit": {
+          "id": "",
+          "tag": "SPAN"
+        },
+        "left": 319.66668701171875,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "exportBtn",
+          "tag": "BUTTON"
+        },
+        "top": 6,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 80.52381134033203,
+        "x": 359.92859268188477,
+        "y": 26
+      },
+      {
+        "height": 40,
+        "hit": {
+          "id": "",
+          "tag": "SPAN"
+        },
+        "left": 319.66668701171875,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "exportBtn",
+          "tag": "BUTTON"
+        },
+        "top": 6,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 80.52381134033203,
+        "x": 359.92859268188477,
+        "y": 26
+      },
+      {
+        "height": 40,
+        "hit": {
+          "id": "",
+          "tag": "SPAN"
+        },
+        "left": 319.66668701171875,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "exportBtn",
+          "tag": "BUTTON"
+        },
+        "top": 6,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 80.52381134033203,
+        "x": 359.92859268188477,
+        "y": 26
+      }
+    ],
+    "result": "intended-target-touched",
+    "finalGeometry": {
+      "height": 40,
+      "hit": {
+        "id": "",
+        "tag": "SPAN"
+      },
+      "left": 319.66668701171875,
+      "ready": true,
+      "scrollX": 0,
+      "scrollY": 0,
+      "target": {
+        "id": "exportBtn",
+        "tag": "BUTTON"
+      },
+      "top": 6,
+      "viewportHeight": 843,
+      "viewportWidth": 412,
+      "width": 80.52381134033203,
+      "x": 359.92859268188477,
+      "y": 26
+    },
+    "screenX": 471.75103759765625,
+    "screenY": 98.07766723632812,
+    "pointerEvents": [
+      {
+        "hit": {
+          "id": "",
+          "tag": "SPAN"
+        },
+        "intended": true,
+        "target": {
+          "id": "",
+          "tag": "SPAN"
+        },
+        "type": "pointerdown",
+        "x": 359.4293212890625,
+        "y": 25.96428680419922
+      },
+      {
+        "hit": {
+          "id": "",
+          "tag": "SPAN"
+        },
+        "intended": true,
+        "target": {
+          "id": "",
+          "tag": "SPAN"
+        },
+        "type": "pointerup",
+        "x": 359.4293212890625,
+        "y": 25.96428680419922
+      }
+    ]
+  },
+  {
+    "selector": "[data-format='image\/png']",
+    "stage": "skin-save",
+    "samples": [
+      {
+        "height": 90,
+        "hit": {
+          "id": "",
+          "tag": "SPAN"
+        },
+        "left": 211.09524536132812,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "",
+          "tag": "BUTTON"
+        },
+        "top": 223.52381896972656,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 168.33334350585938,
+        "x": 295.2619171142578,
+        "y": 268.52381896972656
+      },
+      {
+        "height": 90,
+        "hit": {
+          "id": "",
+          "tag": "SPAN"
+        },
+        "left": 211.09524536132812,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "",
+          "tag": "BUTTON"
+        },
+        "top": 223.52381896972656,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 168.33334350585938,
+        "x": 295.2619171142578,
+        "y": 268.52381896972656
+      },
+      {
+        "height": 90,
+        "hit": {
+          "id": "",
+          "tag": "SPAN"
+        },
+        "left": 211.09524536132812,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "",
+          "tag": "BUTTON"
+        },
+        "top": 223.52381896972656,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 168.33334350585938,
+        "x": 295.2619171142578,
+        "y": 268.52381896972656
+      }
+    ],
+    "result": "intended-target-touched",
+    "finalGeometry": {
+      "height": 90,
+      "hit": {
+        "id": "",
+        "tag": "SPAN"
+      },
+      "left": 211.09524536132812,
+      "ready": true,
+      "scrollX": 0,
+      "scrollY": 0,
+      "target": {
+        "id": "",
+        "tag": "BUTTON"
+      },
+      "top": 223.52381896972656,
+      "viewportHeight": 843,
+      "viewportWidth": 412,
+      "width": 168.33334350585938,
+      "x": 295.2619171142578,
+      "y": 268.52381896972656
+    },
+    "screenX": 386.9937438964844,
+    "screenY": 415.94866943359375,
+    "pointerEvents": [
+      {
+        "hit": {
+          "id": "",
+          "tag": "SPAN"
+        },
+        "intended": true,
+        "target": {
+          "id": "",
+          "tag": "SPAN"
+        },
+        "type": "pointerdown",
+        "x": 294.85272216796875,
+        "y": 268.1510314941406
+      },
+      {
+        "hit": {
+          "id": "",
+          "tag": "SPAN"
+        },
+        "intended": true,
+        "target": {
+          "id": "",
+          "tag": "SPAN"
+        },
+        "type": "pointerup",
+        "x": 294.85272216796875,
+        "y": 268.1510314941406
+      }
+    ]
+  },
+  {
+    "selector": "#saveBtn",
+    "stage": "skin-save",
+    "samples": [
+      {
+        "height": 46,
+        "hit": {
+          "id": "saveBtn",
+          "tag": "BUTTON"
+        },
+        "left": 18,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "saveBtn",
+          "tag": "BUTTON"
+        },
+        "top": 751.0833740234375,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 376.19049072265625,
+        "x": 206.09524536132812,
+        "y": 774.0833740234375
+      },
+      {
+        "height": 46,
+        "hit": {
+          "id": "saveBtn",
+          "tag": "BUTTON"
+        },
+        "left": 18,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "saveBtn",
+          "tag": "BUTTON"
+        },
+        "top": 751.0833740234375,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 376.19049072265625,
+        "x": 206.09524536132812,
+        "y": 774.0833740234375
+      },
+      {
+        "height": 46,
+        "hit": {
+          "id": "saveBtn",
+          "tag": "BUTTON"
+        },
+        "left": 18,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "saveBtn",
+          "tag": "BUTTON"
+        },
+        "top": 751.0833740234375,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 376.19049072265625,
+        "x": 206.09524536132812,
+        "y": 774.0833740234375
+      }
+    ],
+    "result": "intended-target-touched",
+    "finalGeometry": {
+      "height": 46,
+      "hit": {
+        "id": "saveBtn",
+        "tag": "BUTTON"
+      },
+      "left": 18,
+      "ready": true,
+      "scrollX": 0,
+      "scrollY": 0,
+      "target": {
+        "id": "saveBtn",
+        "tag": "BUTTON"
+      },
+      "top": 751.0833740234375,
+      "viewportHeight": 843,
+      "viewportWidth": 412,
+      "width": 376.19049072265625,
+      "x": 206.09524536132812,
+      "y": 774.0833740234375
+    },
+    "screenX": 270.12481689453125,
+    "screenY": 1078.5751953125,
+    "pointerEvents": [
+      {
+        "hit": {
+          "id": "saveBtn",
+          "tag": "BUTTON"
+        },
+        "intended": true,
+        "target": {
+          "id": "saveBtn",
+          "tag": "BUTTON"
+        },
+        "type": "pointerdown",
+        "x": 205.8095245361328,
+        "y": 773.0097045898438
+      },
+      {
+        "hit": {
+          "id": "saveBtn",
+          "tag": "BUTTON"
+        },
+        "intended": true,
+        "target": {
+          "id": "saveBtn",
+          "tag": "BUTTON"
+        },
+        "type": "pointerup",
+        "x": 205.8095245361328,
+        "y": 773.0097045898438
+      }
+    ]
+  },
+  {
+    "selector": "#headerMenu summary",
+    "stage": "skin-reopen",
+    "samples": [
+      {
+        "height": 40,
+        "hit": {
+          "id": "",
+          "tag": "path"
+        },
+        "left": 276.66668701171875,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "",
+          "tag": "SUMMARY"
+        },
+        "top": 6,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 40,
+        "x": 296.66668701171875,
+        "y": 26
+      },
+      {
+        "height": 40,
+        "hit": {
+          "id": "",
+          "tag": "path"
+        },
+        "left": 276.66668701171875,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "",
+          "tag": "SUMMARY"
+        },
+        "top": 6,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 40,
+        "x": 296.66668701171875,
+        "y": 26
+      },
+      {
+        "height": 40,
+        "hit": {
+          "id": "",
+          "tag": "path"
+        },
+        "left": 276.66668701171875,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "",
+          "tag": "SUMMARY"
+        },
+        "top": 6,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 40,
+        "x": 296.66668701171875,
+        "y": 26
+      }
+    ],
+    "result": "intended-target-touched",
+    "finalGeometry": {
+      "height": 40,
+      "hit": {
+        "id": "",
+        "tag": "path"
+      },
+      "left": 276.66668701171875,
+      "ready": true,
+      "scrollX": 0,
+      "scrollY": 0,
+      "target": {
+        "id": "",
+        "tag": "SUMMARY"
+      },
+      "top": 6,
+      "viewportHeight": 843,
+      "viewportWidth": 412,
+      "width": 40,
+      "x": 296.66668701171875,
+      "y": 26
+    },
+    "screenX": 388.8349609375,
+    "screenY": 98.07766723632812,
+    "pointerEvents": [
+      {
+        "hit": {
+          "id": "",
+          "tag": "svg"
+        },
+        "intended": true,
+        "target": {
+          "id": "",
+          "tag": "svg"
+        },
+        "type": "pointerdown",
+        "x": 296.2552185058594,
+        "y": 25.96428680419922
+      },
+      {
+        "hit": {
+          "id": "",
+          "tag": "svg"
+        },
+        "intended": true,
+        "target": {
+          "id": "",
+          "tag": "svg"
+        },
+        "type": "pointerup",
+        "x": 296.2552185058594,
+        "y": 25.96428680419922
+      }
+    ]
+  },
+  {
+    "selector": "#openTop",
+    "stage": "skin-reopen",
+    "samples": [
+      {
+        "height": 44,
+        "hit": {
+          "id": "openTop",
+          "tag": "BUTTON"
+        },
+        "left": 147.42857360839844,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "openTop",
+          "tag": "BUTTON"
+        },
+        "top": 60.761905670166016,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 162.4761962890625,
+        "x": 228.6666717529297,
+        "y": 82.76190567016602
+      },
+      {
+        "height": 44,
+        "hit": {
+          "id": "openTop",
+          "tag": "BUTTON"
+        },
+        "left": 147.42857360839844,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "openTop",
+          "tag": "BUTTON"
+        },
+        "top": 60.761905670166016,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 162.4761962890625,
+        "x": 228.6666717529297,
+        "y": 82.76190567016602
+      },
+      {
+        "height": 44,
+        "hit": {
+          "id": "openTop",
+          "tag": "BUTTON"
+        },
+        "left": 147.42857360839844,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "openTop",
+          "tag": "BUTTON"
+        },
+        "top": 60.761905670166016,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 162.4761962890625,
+        "x": 228.6666717529297,
+        "y": 82.76190567016602
+      }
+    ],
+    "result": "intended-target-touched",
+    "finalGeometry": {
+      "height": 44,
+      "hit": {
+        "id": "openTop",
+        "tag": "BUTTON"
+      },
+      "left": 147.42857360839844,
+      "ready": true,
+      "scrollX": 0,
+      "scrollY": 0,
+      "target": {
+        "id": "openTop",
+        "tag": "BUTTON"
+      },
+      "top": 60.761905670166016,
+      "viewportHeight": 843,
+      "viewportWidth": 412,
+      "width": 162.4761962890625,
+      "x": 228.6666717529297,
+      "y": 82.76190567016602
+    },
+    "screenX": 299.708740234375,
+    "screenY": 172.47433471679688,
+    "pointerEvents": [
+      {
+        "hit": {
+          "id": "openTop",
+          "tag": "BUTTON"
+        },
+        "intended": true,
+        "target": {
+          "id": "openTop",
+          "tag": "BUTTON"
+        },
+        "type": "pointerdown",
+        "x": 228.34970092773438,
+        "y": 82.64732360839844
+      },
+      {
+        "hit": {
+          "id": "openTop",
+          "tag": "BUTTON"
+        },
+        "intended": true,
+        "target": {
+          "id": "openTop",
+          "tag": "BUTTON"
+        },
+        "type": "pointerup",
+        "x": 228.34970092773438,
+        "y": 82.64732360839844
+      }
+    ]
+  },
+  {
+    "selector": "#confirmYes",
+    "stage": "skin-reopen",
+    "samples": [
+      {
+        "height": 42,
+        "hit": {
+          "id": "confirmYes",
+          "tag": "BUTTON"
+        },
+        "left": 317.202392578125,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "confirmYes",
+          "tag": "BUTTON"
+        },
+        "top": 452.6785888671875,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 61.98809814453125,
+        "x": 348.1964416503906,
+        "y": 473.6785888671875
+      },
+      {
+        "height": 42,
+        "hit": {
+          "id": "confirmYes",
+          "tag": "BUTTON"
+        },
+        "left": 317.202392578125,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "confirmYes",
+          "tag": "BUTTON"
+        },
+        "top": 452.6785888671875,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 61.98809814453125,
+        "x": 348.1964416503906,
+        "y": 473.6785888671875
+      },
+      {
+        "height": 42,
+        "hit": {
+          "id": "confirmYes",
+          "tag": "BUTTON"
+        },
+        "left": 317.202392578125,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "confirmYes",
+          "tag": "BUTTON"
+        },
+        "top": 452.6785888671875,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 61.98809814453125,
+        "x": 348.1964416503906,
+        "y": 473.6785888671875
+      }
+    ],
+    "result": "intended-target-touched",
+    "finalGeometry": {
+      "height": 42,
+      "hit": {
+        "id": "confirmYes",
+        "tag": "BUTTON"
+      },
+      "left": 317.202392578125,
+      "ready": true,
+      "scrollX": 0,
+      "scrollY": 0,
+      "target": {
+        "id": "confirmYes",
+        "tag": "BUTTON"
+      },
+      "top": 452.6785888671875,
+      "viewportHeight": 843,
+      "viewportWidth": 412,
+      "width": 61.98809814453125,
+      "x": 348.1964416503906,
+      "y": 473.6785888671875
+    },
+    "screenX": 456.37396240234375,
+    "screenY": 684.8408203125,
+    "pointerEvents": [
+      {
+        "hit": {
+          "id": "confirmYes",
+          "tag": "BUTTON"
+        },
+        "intended": true,
+        "target": {
+          "id": "confirmYes",
+          "tag": "BUTTON"
+        },
+        "type": "pointerdown",
+        "x": 347.71356201171875,
+        "y": 473.0215759277344
+      },
+      {
+        "hit": {
+          "id": "confirmYes",
+          "tag": "BUTTON"
+        },
+        "intended": true,
+        "target": {
+          "id": "confirmYes",
+          "tag": "BUTTON"
+        },
+        "type": "pointerup",
+        "x": 347.71356201171875,
+        "y": 473.0215759277344
+      }
+    ]
+  },
+  {
+    "selector": "[data-category=portrait]",
+    "stage": "background-detect",
+    "samples": [
+      {
+        "height": 48.238094329833984,
+        "hit": {
+          "id": "",
+          "tag": "BUTTON"
+        },
+        "left": 110.54762268066406,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "",
+          "tag": "BUTTON"
+        },
+        "top": 794.4285888671875,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 95.54762268066406,
+        "x": 158.3214340209961,
+        "y": 818.5476360321045
+      },
+      {
+        "height": 48.238094329833984,
+        "hit": {
+          "id": "",
+          "tag": "BUTTON"
+        },
+        "left": 110.54762268066406,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "",
+          "tag": "BUTTON"
+        },
+        "top": 794.4285888671875,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 95.54762268066406,
+        "x": 158.3214340209961,
+        "y": 818.5476360321045
+      },
+      {
+        "height": 48.238094329833984,
+        "hit": {
+          "id": "",
+          "tag": "BUTTON"
+        },
+        "left": 110.54762268066406,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "",
+          "tag": "BUTTON"
+        },
+        "top": 794.4285888671875,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 95.54762268066406,
+        "x": 158.3214340209961,
+        "y": 818.5476360321045
+      }
+    ],
+    "result": "intended-target-touched",
+    "finalGeometry": {
+      "height": 48.238094329833984,
+      "hit": {
+        "id": "",
+        "tag": "BUTTON"
+      },
+      "left": 110.54762268066406,
+      "ready": true,
+      "scrollX": 0,
+      "scrollY": 0,
+      "target": {
+        "id": "",
+        "tag": "BUTTON"
+      },
+      "top": 794.4285888671875,
+      "viewportHeight": 843,
+      "viewportWidth": 412,
+      "width": 95.54762268066406,
+      "x": 158.3214340209961,
+      "y": 818.5476360321045
+    },
+    "screenX": 207.50868225097656,
+    "screenY": 1136.8536376953125,
+    "pointerEvents": [
+      {
+        "hit": {
+          "id": "",
+          "tag": "BUTTON"
+        },
+        "intended": true,
+        "target": {
+          "id": "",
+          "tag": "BUTTON"
+        },
+        "type": "pointerdown",
+        "x": 158.10194396972656,
+        "y": 817.4122314453125
+      },
+      {
+        "hit": {
+          "id": "",
+          "tag": "BUTTON"
+        },
+        "intended": true,
+        "target": {
+          "id": "",
+          "tag": "BUTTON"
+        },
+        "type": "pointerup",
+        "x": 158.10194396972656,
+        "y": 817.4122314453125
+      }
+    ]
+  },
+  {
+    "selector": "[data-tool=background]",
+    "stage": "background-detect",
+    "samples": [
+      {
+        "height": 62.23809814453125,
+        "hit": {
+          "id": "",
+          "tag": "SPAN"
+        },
+        "left": 213,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "",
+          "tag": "BUTTON"
+        },
+        "top": 726.4285888671875,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 68,
+        "x": 247,
+        "y": 757.5476379394531
+      },
+      {
+        "height": 62.23809814453125,
+        "hit": {
+          "id": "",
+          "tag": "SPAN"
+        },
+        "left": 213,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "",
+          "tag": "BUTTON"
+        },
+        "top": 726.4285888671875,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 68,
+        "x": 247,
+        "y": 757.5476379394531
+      },
+      {
+        "height": 62.23809814453125,
+        "hit": {
+          "id": "",
+          "tag": "SPAN"
+        },
+        "left": 213,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "",
+          "tag": "BUTTON"
+        },
+        "top": 726.4285888671875,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 68,
+        "x": 247,
+        "y": 757.5476379394531
+      }
+    ],
+    "result": "intended-target-touched",
+    "finalGeometry": {
+      "height": 62.23809814453125,
+      "hit": {
+        "id": "",
+        "tag": "SPAN"
+      },
+      "left": 213,
+      "ready": true,
+      "scrollX": 0,
+      "scrollY": 0,
+      "target": {
+        "id": "",
+        "tag": "BUTTON"
+      },
+      "top": 726.4285888671875,
+      "viewportHeight": 843,
+      "viewportWidth": 412,
+      "width": 68,
+      "x": 247,
+      "y": 757.5476379394531
+    },
+    "screenX": 323.73785400390625,
+    "screenY": 1056.902099609375,
+    "pointerEvents": [
+      {
+        "hit": {
+          "id": "",
+          "tag": "SPAN"
+        },
+        "intended": true,
+        "target": {
+          "id": "",
+          "tag": "SPAN"
+        },
+        "type": "pointerdown",
+        "x": 246.65774536132812,
+        "y": 756.4970092773438
+      },
+      {
+        "hit": {
+          "id": "",
+          "tag": "SPAN"
+        },
+        "intended": true,
+        "target": {
+          "id": "",
+          "tag": "SPAN"
+        },
+        "type": "pointerup",
+        "x": 246.65774536132812,
+        "y": 756.4970092773438
+      }
+    ]
+  },
+  {
+    "selector": "#detectPortrait",
+    "stage": "background-detect",
+    "samples": [
+      {
+        "height": 40,
+        "hit": {
+          "id": "detectPortrait",
+          "tag": "BUTTON"
+        },
+        "left": 20,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "detectPortrait",
+          "tag": "BUTTON"
+        },
+        "top": 596.2380981445312,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 78.95238494873047,
+        "x": 59.476192474365234,
+        "y": 616.2380981445312
+      },
+      {
+        "height": 40,
+        "hit": {
+          "id": "detectPortrait",
+          "tag": "BUTTON"
+        },
+        "left": 20,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "detectPortrait",
+          "tag": "BUTTON"
+        },
+        "top": 596.2380981445312,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 78.95238494873047,
+        "x": 59.476192474365234,
+        "y": 616.2380981445312
+      },
+      {
+        "height": 40,
+        "hit": {
+          "id": "detectPortrait",
+          "tag": "BUTTON"
+        },
+        "left": 20,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "detectPortrait",
+          "tag": "BUTTON"
+        },
+        "top": 596.2380981445312,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 78.95238494873047,
+        "x": 59.476192474365234,
+        "y": 616.2380981445312
+      }
+    ],
+    "result": "intended-target-touched",
+    "finalGeometry": {
+      "height": 40,
+      "hit": {
+        "id": "detectPortrait",
+        "tag": "BUTTON"
+      },
+      "left": 20,
+      "ready": true,
+      "scrollX": 0,
+      "scrollY": 0,
+      "target": {
+        "id": "detectPortrait",
+        "tag": "BUTTON"
+      },
+      "top": 596.2380981445312,
+      "viewportHeight": 843,
+      "viewportWidth": 412,
+      "width": 78.95238494873047,
+      "x": 59.476192474365234,
+      "y": 616.2380981445312
+    },
+    "screenX": 77.95423126220703,
+    "screenY": 871.690673828125,
+    "pointerEvents": [
+      {
+        "hit": {
+          "id": "detectPortrait",
+          "tag": "BUTTON"
+        },
+        "intended": true,
+        "target": {
+          "id": "detectPortrait",
+          "tag": "BUTTON"
+        },
+        "type": "pointerdown",
+        "x": 59.39360046386719,
+        "y": 615.3831787109375
+      },
+      {
+        "hit": {
+          "id": "detectPortrait",
+          "tag": "BUTTON"
+        },
+        "intended": true,
+        "target": {
+          "id": "detectPortrait",
+          "tag": "BUTTON"
+        },
+        "type": "pointerup",
+        "x": 59.39360046386719,
+        "y": 615.3831787109375
+      }
+    ]
+  },
+  {
+    "selector": "#edgeAware",
+    "stage": "background-detect",
+    "samples": [
+      {
+        "height": 16,
+        "hit": {
+          "id": "edgeAware",
+          "tag": "INPUT"
+        },
+        "left": 24,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "edgeAware",
+          "tag": "INPUT"
+        },
+        "top": 563.4285888671875,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 119.10714721679688,
+        "x": 83.55357360839844,
+        "y": 571.4285888671875
+      },
+      {
+        "height": 16,
+        "hit": {
+          "id": "edgeAware",
+          "tag": "INPUT"
+        },
+        "left": 24,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "edgeAware",
+          "tag": "INPUT"
+        },
+        "top": 563.4285888671875,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 119.10714721679688,
+        "x": 83.55357360839844,
+        "y": 571.4285888671875
+      },
+      {
+        "height": 16,
+        "hit": {
+          "id": "edgeAware",
+          "tag": "INPUT"
+        },
+        "left": 24,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "edgeAware",
+          "tag": "INPUT"
+        },
+        "top": 563.4285888671875,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 119.10714721679688,
+        "x": 83.55357360839844,
+        "y": 571.4285888671875
+      }
+    ],
+    "result": "intended-target-touched",
+    "finalGeometry": {
+      "height": 16,
+      "hit": {
+        "id": "edgeAware",
+        "tag": "INPUT"
+      },
+      "left": 24,
+      "ready": true,
+      "scrollX": 0,
+      "scrollY": 0,
+      "target": {
+        "id": "edgeAware",
+        "tag": "INPUT"
+      },
+      "top": 563.4285888671875,
+      "viewportHeight": 843,
+      "viewportWidth": 412,
+      "width": 119.10714721679688,
+      "x": 83.55357360839844,
+      "y": 571.4285888671875
+    },
+    "screenX": 109.511962890625,
+    "screenY": 812.9597778320312,
+    "pointerEvents": [
+      {
+        "hit": {
+          "id": "edgeAware",
+          "tag": "INPUT"
+        },
+        "intended": true,
+        "target": {
+          "id": "edgeAware",
+          "tag": "INPUT"
+        },
+        "type": "pointerdown",
+        "x": 83.4375,
+        "y": 570.6361694335938
+      },
+      {
+        "hit": {
+          "id": "edgeAware",
+          "tag": "INPUT"
+        },
+        "intended": true,
+        "target": {
+          "id": "edgeAware",
+          "tag": "INPUT"
+        },
+        "type": "pointerup",
+        "x": 83.4375,
+        "y": 570.6361694335938
+      }
+    ]
+  },
+  {
+    "selector": "#bgMode-transparent",
+    "stage": "background-detect",
+    "samples": [
+      {
+        "height": 40,
+        "hit": {
+          "id": "bgMode-transparent",
+          "tag": "BUTTON"
+        },
+        "left": 207.59524536132812,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "bgMode-transparent",
+          "tag": "BUTTON"
+        },
+        "top": 551.5,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 88.79762268066406,
+        "x": 251.99405670166016,
+        "y": 571.5
+      },
+      {
+        "height": 40,
+        "hit": {
+          "id": "bgMode-transparent",
+          "tag": "BUTTON"
+        },
+        "left": 207.59524536132812,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "bgMode-transparent",
+          "tag": "BUTTON"
+        },
+        "top": 551.5,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 88.79762268066406,
+        "x": 251.99405670166016,
+        "y": 571.5
+      },
+      {
+        "height": 40,
+        "hit": {
+          "id": "bgMode-transparent",
+          "tag": "BUTTON"
+        },
+        "left": 207.59524536132812,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "bgMode-transparent",
+          "tag": "BUTTON"
+        },
+        "top": 551.5,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 88.79762268066406,
+        "x": 251.99405670166016,
+        "y": 571.5
+      }
+    ],
+    "result": "intended-target-touched",
+    "finalGeometry": {
+      "height": 40,
+      "hit": {
+        "id": "bgMode-transparent",
+        "tag": "BUTTON"
+      },
+      "left": 207.59524536132812,
+      "ready": true,
+      "scrollX": 0,
+      "scrollY": 0,
+      "target": {
+        "id": "bgMode-transparent",
+        "tag": "BUTTON"
+      },
+      "top": 551.5,
+      "viewportHeight": 843,
+      "viewportWidth": 412,
+      "width": 88.79762268066406,
+      "x": 251.99405670166016,
+      "y": 571.5
+    },
+    "screenX": 330.283447265625,
+    "screenY": 813.0533447265625,
+    "pointerEvents": [
+      {
+        "hit": {
+          "id": "bgMode-transparent",
+          "tag": "BUTTON"
+        },
+        "intended": true,
+        "target": {
+          "id": "bgMode-transparent",
+          "tag": "BUTTON"
+        },
+        "type": "pointerdown",
+        "x": 251.64434814453125,
+        "y": 570.7075805664062
+      },
+      {
+        "hit": {
+          "id": "bgMode-transparent",
+          "tag": "BUTTON"
+        },
+        "intended": true,
+        "target": {
+          "id": "bgMode-transparent",
+          "tag": "BUTTON"
+        },
+        "type": "pointerup",
+        "x": 251.64434814453125,
+        "y": 570.7075805664062
+      }
+    ]
+  },
+  {
+    "selector": "#applyBtn",
+    "stage": "background-apply",
+    "samples": [
+      {
+        "height": 40,
+        "hit": {
+          "id": "",
+          "tag": "SPAN"
+        },
+        "left": 313.66668701171875,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "applyBtn",
+          "tag": "BUTTON"
+        },
+        "top": 676.6666870117188,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 86.51190948486328,
+        "x": 356.9226417541504,
+        "y": 696.6666870117188
+      },
+      {
+        "height": 40,
+        "hit": {
+          "id": "",
+          "tag": "SPAN"
+        },
+        "left": 313.66668701171875,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "applyBtn",
+          "tag": "BUTTON"
+        },
+        "top": 676.6666870117188,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 86.51190948486328,
+        "x": 356.9226417541504,
+        "y": 696.6666870117188
+      },
+      {
+        "height": 40,
+        "hit": {
+          "id": "",
+          "tag": "SPAN"
+        },
+        "left": 313.66668701171875,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "applyBtn",
+          "tag": "BUTTON"
+        },
+        "top": 676.6666870117188,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 86.51190948486328,
+        "x": 356.9226417541504,
+        "y": 696.6666870117188
+      }
+    ],
+    "result": "intended-target-touched",
+    "finalGeometry": {
+      "height": 40,
+      "hit": {
+        "id": "",
+        "tag": "SPAN"
+      },
+      "left": 313.66668701171875,
+      "ready": true,
+      "scrollX": 0,
+      "scrollY": 0,
+      "target": {
+        "id": "applyBtn",
+        "tag": "BUTTON"
+      },
+      "top": 676.6666870117188,
+      "viewportHeight": 843,
+      "viewportWidth": 412,
+      "width": 86.51190948486328,
+      "x": 356.9226417541504,
+      "y": 696.6666870117188
+    },
+    "screenX": 467.81121826171875,
+    "screenY": 977.1068115234375,
+    "pointerEvents": [
+      {
+        "hit": {
+          "id": "",
+          "tag": "SPAN"
+        },
+        "intended": true,
+        "target": {
+          "id": "",
+          "tag": "SPAN"
+        },
+        "type": "pointerdown",
+        "x": 356.4278259277344,
+        "y": 695.7001342773438
+      },
+      {
+        "hit": {
+          "id": "",
+          "tag": "SPAN"
+        },
+        "intended": true,
+        "target": {
+          "id": "",
+          "tag": "SPAN"
+        },
+        "type": "pointerup",
+        "x": 356.4278259277344,
+        "y": 695.7001342773438
+      }
+    ]
+  },
+  {
+    "selector": "#exportBtn",
+    "stage": "background-save",
+    "samples": [
+      {
+        "height": 40,
+        "hit": {
+          "id": "",
+          "tag": "SPAN"
+        },
+        "left": 319.66668701171875,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "exportBtn",
+          "tag": "BUTTON"
+        },
+        "top": 6,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 80.52381134033203,
+        "x": 359.92859268188477,
+        "y": 26
+      },
+      {
+        "height": 40,
+        "hit": {
+          "id": "",
+          "tag": "SPAN"
+        },
+        "left": 319.66668701171875,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "exportBtn",
+          "tag": "BUTTON"
+        },
+        "top": 6,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 80.52381134033203,
+        "x": 359.92859268188477,
+        "y": 26
+      },
+      {
+        "height": 40,
+        "hit": {
+          "id": "",
+          "tag": "SPAN"
+        },
+        "left": 319.66668701171875,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "exportBtn",
+          "tag": "BUTTON"
+        },
+        "top": 6,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 80.52381134033203,
+        "x": 359.92859268188477,
+        "y": 26
+      }
+    ],
+    "result": "intended-target-touched",
+    "finalGeometry": {
+      "height": 40,
+      "hit": {
+        "id": "",
+        "tag": "SPAN"
+      },
+      "left": 319.66668701171875,
+      "ready": true,
+      "scrollX": 0,
+      "scrollY": 0,
+      "target": {
+        "id": "exportBtn",
+        "tag": "BUTTON"
+      },
+      "top": 6,
+      "viewportHeight": 843,
+      "viewportWidth": 412,
+      "width": 80.52381134033203,
+      "x": 359.92859268188477,
+      "y": 26
+    },
+    "screenX": 471.75103759765625,
+    "screenY": 98.07766723632812,
+    "pointerEvents": [
+      {
+        "hit": {
+          "id": "",
+          "tag": "SPAN"
+        },
+        "intended": true,
+        "target": {
+          "id": "",
+          "tag": "SPAN"
+        },
+        "type": "pointerdown",
+        "x": 359.4293212890625,
+        "y": 25.96428680419922
+      },
+      {
+        "hit": {
+          "id": "",
+          "tag": "SPAN"
+        },
+        "intended": true,
+        "target": {
+          "id": "",
+          "tag": "SPAN"
+        },
+        "type": "pointerup",
+        "x": 359.4293212890625,
+        "y": 25.96428680419922
+      }
+    ]
+  },
+  {
+    "selector": "[data-format='image\/png']",
+    "stage": "background-save",
+    "samples": [
+      {
+        "height": 90,
+        "hit": {
+          "id": "",
+          "tag": "SPAN"
+        },
+        "left": 211.09524536132812,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "",
+          "tag": "BUTTON"
+        },
+        "top": 223.52381896972656,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 168.33334350585938,
+        "x": 295.2619171142578,
+        "y": 268.52381896972656
+      },
+      {
+        "height": 90,
+        "hit": {
+          "id": "",
+          "tag": "SPAN"
+        },
+        "left": 211.09524536132812,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "",
+          "tag": "BUTTON"
+        },
+        "top": 223.52381896972656,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 168.33334350585938,
+        "x": 295.2619171142578,
+        "y": 268.52381896972656
+      },
+      {
+        "height": 90,
+        "hit": {
+          "id": "",
+          "tag": "SPAN"
+        },
+        "left": 211.09524536132812,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "",
+          "tag": "BUTTON"
+        },
+        "top": 223.52381896972656,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 168.33334350585938,
+        "x": 295.2619171142578,
+        "y": 268.52381896972656
+      }
+    ],
+    "result": "intended-target-touched",
+    "finalGeometry": {
+      "height": 90,
+      "hit": {
+        "id": "",
+        "tag": "SPAN"
+      },
+      "left": 211.09524536132812,
+      "ready": true,
+      "scrollX": 0,
+      "scrollY": 0,
+      "target": {
+        "id": "",
+        "tag": "BUTTON"
+      },
+      "top": 223.52381896972656,
+      "viewportHeight": 843,
+      "viewportWidth": 412,
+      "width": 168.33334350585938,
+      "x": 295.2619171142578,
+      "y": 268.52381896972656
+    },
+    "screenX": 386.9937438964844,
+    "screenY": 415.94866943359375,
+    "pointerEvents": [
+      {
+        "hit": {
+          "id": "",
+          "tag": "SPAN"
+        },
+        "intended": true,
+        "target": {
+          "id": "",
+          "tag": "SPAN"
+        },
+        "type": "pointerdown",
+        "x": 294.85272216796875,
+        "y": 268.1510314941406
+      },
+      {
+        "hit": {
+          "id": "",
+          "tag": "SPAN"
+        },
+        "intended": true,
+        "target": {
+          "id": "",
+          "tag": "SPAN"
+        },
+        "type": "pointerup",
+        "x": 294.85272216796875,
+        "y": 268.1510314941406
+      }
+    ]
+  },
+  {
+    "selector": "#saveBtn",
+    "stage": "background-save",
+    "samples": [
+      {
+        "height": 46,
+        "hit": {
+          "id": "saveBtn",
+          "tag": "BUTTON"
+        },
+        "left": 18,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "saveBtn",
+          "tag": "BUTTON"
+        },
+        "top": 751.0833740234375,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 376.19049072265625,
+        "x": 206.09524536132812,
+        "y": 774.0833740234375
+      },
+      {
+        "height": 46,
+        "hit": {
+          "id": "saveBtn",
+          "tag": "BUTTON"
+        },
+        "left": 18,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "saveBtn",
+          "tag": "BUTTON"
+        },
+        "top": 751.0833740234375,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 376.19049072265625,
+        "x": 206.09524536132812,
+        "y": 774.0833740234375
+      },
+      {
+        "height": 46,
+        "hit": {
+          "id": "saveBtn",
+          "tag": "BUTTON"
+        },
+        "left": 18,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "saveBtn",
+          "tag": "BUTTON"
+        },
+        "top": 751.0833740234375,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 376.19049072265625,
+        "x": 206.09524536132812,
+        "y": 774.0833740234375
+      }
+    ],
+    "result": "intended-target-touched",
+    "finalGeometry": {
+      "height": 46,
+      "hit": {
+        "id": "saveBtn",
+        "tag": "BUTTON"
+      },
+      "left": 18,
+      "ready": true,
+      "scrollX": 0,
+      "scrollY": 0,
+      "target": {
+        "id": "saveBtn",
+        "tag": "BUTTON"
+      },
+      "top": 751.0833740234375,
+      "viewportHeight": 843,
+      "viewportWidth": 412,
+      "width": 376.19049072265625,
+      "x": 206.09524536132812,
+      "y": 774.0833740234375
+    },
+    "screenX": 270.12481689453125,
+    "screenY": 1078.5751953125,
+    "pointerEvents": [
+      {
+        "hit": {
+          "id": "saveBtn",
+          "tag": "BUTTON"
+        },
+        "intended": true,
+        "target": {
+          "id": "saveBtn",
+          "tag": "BUTTON"
+        },
+        "type": "pointerdown",
+        "x": 205.8095245361328,
+        "y": 773.0097045898438
+      },
+      {
+        "hit": {
+          "id": "saveBtn",
+          "tag": "BUTTON"
+        },
+        "intended": true,
+        "target": {
+          "id": "saveBtn",
+          "tag": "BUTTON"
+        },
+        "type": "pointerup",
+        "x": 205.8095245361328,
+        "y": 773.0097045898438
+      }
+    ]
+  },
+  {
+    "selector": "#headerMenu summary",
+    "stage": "background-reopen",
+    "samples": [
+      {
+        "height": 40,
+        "hit": {
+          "id": "",
+          "tag": "path"
+        },
+        "left": 276.66668701171875,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "",
+          "tag": "SUMMARY"
+        },
+        "top": 6,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 40,
+        "x": 296.66668701171875,
+        "y": 26
+      },
+      {
+        "height": 40,
+        "hit": {
+          "id": "",
+          "tag": "path"
+        },
+        "left": 276.66668701171875,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "",
+          "tag": "SUMMARY"
+        },
+        "top": 6,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 40,
+        "x": 296.66668701171875,
+        "y": 26
+      },
+      {
+        "height": 40,
+        "hit": {
+          "id": "",
+          "tag": "path"
+        },
+        "left": 276.66668701171875,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "",
+          "tag": "SUMMARY"
+        },
+        "top": 6,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 40,
+        "x": 296.66668701171875,
+        "y": 26
+      }
+    ],
+    "result": "intended-target-touched",
+    "finalGeometry": {
+      "height": 40,
+      "hit": {
+        "id": "",
+        "tag": "path"
+      },
+      "left": 276.66668701171875,
+      "ready": true,
+      "scrollX": 0,
+      "scrollY": 0,
+      "target": {
+        "id": "",
+        "tag": "SUMMARY"
+      },
+      "top": 6,
+      "viewportHeight": 843,
+      "viewportWidth": 412,
+      "width": 40,
+      "x": 296.66668701171875,
+      "y": 26
+    },
+    "screenX": 388.8349609375,
+    "screenY": 98.07766723632812,
+    "pointerEvents": [
+      {
+        "hit": {
+          "id": "",
+          "tag": "svg"
+        },
+        "intended": true,
+        "target": {
+          "id": "",
+          "tag": "svg"
+        },
+        "type": "pointerdown",
+        "x": 296.2552185058594,
+        "y": 25.96428680419922
+      },
+      {
+        "hit": {
+          "id": "",
+          "tag": "svg"
+        },
+        "intended": true,
+        "target": {
+          "id": "",
+          "tag": "svg"
+        },
+        "type": "pointerup",
+        "x": 296.2552185058594,
+        "y": 25.96428680419922
+      }
+    ]
+  },
+  {
+    "selector": "#openTop",
+    "stage": "background-reopen",
+    "samples": [
+      {
+        "height": 44,
+        "hit": {
+          "id": "openTop",
+          "tag": "BUTTON"
+        },
+        "left": 147.42857360839844,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "openTop",
+          "tag": "BUTTON"
+        },
+        "top": 60.761905670166016,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 162.4761962890625,
+        "x": 228.6666717529297,
+        "y": 82.76190567016602
+      },
+      {
+        "height": 44,
+        "hit": {
+          "id": "openTop",
+          "tag": "BUTTON"
+        },
+        "left": 147.42857360839844,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "openTop",
+          "tag": "BUTTON"
+        },
+        "top": 60.761905670166016,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 162.4761962890625,
+        "x": 228.6666717529297,
+        "y": 82.76190567016602
+      },
+      {
+        "height": 44,
+        "hit": {
+          "id": "openTop",
+          "tag": "BUTTON"
+        },
+        "left": 147.42857360839844,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "openTop",
+          "tag": "BUTTON"
+        },
+        "top": 60.761905670166016,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 162.4761962890625,
+        "x": 228.6666717529297,
+        "y": 82.76190567016602
+      }
+    ],
+    "result": "intended-target-touched",
+    "finalGeometry": {
+      "height": 44,
+      "hit": {
+        "id": "openTop",
+        "tag": "BUTTON"
+      },
+      "left": 147.42857360839844,
+      "ready": true,
+      "scrollX": 0,
+      "scrollY": 0,
+      "target": {
+        "id": "openTop",
+        "tag": "BUTTON"
+      },
+      "top": 60.761905670166016,
+      "viewportHeight": 843,
+      "viewportWidth": 412,
+      "width": 162.4761962890625,
+      "x": 228.6666717529297,
+      "y": 82.76190567016602
+    },
+    "screenX": 299.708740234375,
+    "screenY": 172.47433471679688,
+    "pointerEvents": [
+      {
+        "hit": {
+          "id": "openTop",
+          "tag": "BUTTON"
+        },
+        "intended": true,
+        "target": {
+          "id": "openTop",
+          "tag": "BUTTON"
+        },
+        "type": "pointerdown",
+        "x": 228.34970092773438,
+        "y": 82.64732360839844
+      },
+      {
+        "hit": {
+          "id": "openTop",
+          "tag": "BUTTON"
+        },
+        "intended": true,
+        "target": {
+          "id": "openTop",
+          "tag": "BUTTON"
+        },
+        "type": "pointerup",
+        "x": 228.34970092773438,
+        "y": 82.64732360839844
+      }
+    ]
+  },
+  {
+    "selector": "#confirmYes",
+    "stage": "background-reopen",
+    "samples": [
+      {
+        "height": 42,
+        "hit": {
+          "id": "confirmYes",
+          "tag": "BUTTON"
+        },
+        "left": 317.202392578125,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "confirmYes",
+          "tag": "BUTTON"
+        },
+        "top": 452.6785888671875,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 61.98809814453125,
+        "x": 348.1964416503906,
+        "y": 473.6785888671875
+      },
+      {
+        "height": 42,
+        "hit": {
+          "id": "confirmYes",
+          "tag": "BUTTON"
+        },
+        "left": 317.202392578125,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "confirmYes",
+          "tag": "BUTTON"
+        },
+        "top": 452.6785888671875,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 61.98809814453125,
+        "x": 348.1964416503906,
+        "y": 473.6785888671875
+      },
+      {
+        "height": 42,
+        "hit": {
+          "id": "confirmYes",
+          "tag": "BUTTON"
+        },
+        "left": 317.202392578125,
+        "ready": true,
+        "scrollX": 0,
+        "scrollY": 0,
+        "target": {
+          "id": "confirmYes",
+          "tag": "BUTTON"
+        },
+        "top": 452.6785888671875,
+        "viewportHeight": 843,
+        "viewportWidth": 412,
+        "width": 61.98809814453125,
+        "x": 348.1964416503906,
+        "y": 473.6785888671875
+      }
+    ],
+    "result": "intended-target-touched",
+    "finalGeometry": {
+      "height": 42,
+      "hit": {
+        "id": "confirmYes",
+        "tag": "BUTTON"
+      },
+      "left": 317.202392578125,
+      "ready": true,
+      "scrollX": 0,
+      "scrollY": 0,
+      "target": {
+        "id": "confirmYes",
+        "tag": "BUTTON"
+      },
+      "top": 452.6785888671875,
+      "viewportHeight": 843,
+      "viewportWidth": 412,
+      "width": 61.98809814453125,
+      "x": 348.1964416503906,
+      "y": 473.6785888671875
+    },
+    "screenX": 456.37396240234375,
+    "screenY": 684.8408203125,
+    "pointerEvents": [
+      {
+        "hit": {
+          "id": "confirmYes",
+          "tag": "BUTTON"
+        },
+        "intended": true,
+        "target": {
+          "id": "confirmYes",
+          "tag": "BUTTON"
+        },
+        "type": "pointerdown",
+        "x": 347.71356201171875,
+        "y": 473.0215759277344
+      },
+      {
+        "hit": {
+          "id": "confirmYes",
+          "tag": "BUTTON"
+        },
+        "intended": true,
+        "target": {
+          "id": "confirmYes",
+          "tag": "BUTTON"
+        },
+        "type": "pointerup",
+        "x": 347.71356201171875,
+        "y": 473.0215759277344
+      }
+    ]
+  }
+]

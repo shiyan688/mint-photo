@@ -1,0 +1,95 @@
+{
+  "createdAt": "2026-10-28T05:25:50.175Z",
+  "scope": "Final frozen host evidence, selected native-resolution real-photo crops. No intermediate coordinate-table or upscaled-pressure results.",
+  "baselineCommit": "ac552bde84029176fe7ad726d0113ffa0ae807fd",
+  "baselineSha256": {
+    "portrait-detail-engine.js": "1559fa74818ece4d99c78b565720072a8284f1eda865949ac62191cf00ceb620",
+    "edge-refine.js": "ba467e0f7391dec1cb1b1f88086e15cba5da201a61b01ae5cfac2b9865a417fa",
+    "ai-edit-core.js": "5ba1e2a9c307422dacdfc600124c4ceca605c0bd8e76cd4dabe177e9b4bc0011"
+  },
+  "currentSha256": {
+    "portrait-detail-engine.js": "4d392822405f2466d067e32d5c915c0c325cae0c204a7d4cd2e96be7ec0305df",
+    "edge-refine.js": "490bf77545b3cc1beba5f1bb20f4347251ed798ad177ff128b62c035e3a28959",
+    "portrait-engine.js": "5cde7dcd60aab1d68e1ec5fb026c6396c2f395c1597dd03113c34674ba57d524",
+    "mask-refine.js": "1f87ce10085e42cf8e67309ac49dd6f608d40ecb32258ab8a76ed67b6bc4baa2",
+    "ai-edit-core.js": "8f8f0d90a1805a95f9b7aeb6ef7b060712bc030f489fe272cd66fda75f08da80"
+  },
+  "toolsSha256": {
+    "benchmark-portrait-detail.cjs": "30758f8ddd327083ddc2ec857ccc6e0abf2b74fc0180e83991bc9aa3818ea32e",
+    "render-detail-performance-evidence.cjs": "ce2efd6e87b44245fc8ec0ba0720e72d50fcc88a5353e8fab31697bc22b83723",
+    "measure-large-ai.cjs": "1ad4e525f8ab52a3b51eb7b60c67920390a6c14ef975755e372940bfdd3553f0",
+    "infer-photo-quality-batch.py": "5db298c0b5a2393057c7968490178363e7bed1c5c376bd463279b5a1ab75a8b4"
+  },
+  "files": {
+    "README.md": {
+      "bytes": 7586,
+      "sha256": "e235ce0c7c1d2cb024b2c5488ee1bb6f3fab8e37bdffdefc0f1ea5a784a71923"
+    },
+    "ai-performance.json": {
+      "bytes": 2151,
+      "sha256": "e8286b0c70566d375b2d5f0238d25b296b10d5dfcbdc0bd43c7a8613c2918bf4"
+    },
+    "face-100pct-comparison.png": {
+      "bytes": 1048753,
+      "sha256": "ec8c3818867c54fda3311e8e032867b25e91a324256244747084067c27806c8d"
+    },
+    "face-100pct-original.png": {
+      "bytes": 613239,
+      "sha256": "a0cc06a496e9f435a6a3af8b7f2e035bc1fa7e02e6a12f3db53eba6523ff420f"
+    },
+    "face-100pct-skin-classic-65.png": {
+      "bytes": 614373,
+      "sha256": "59e0b7841f7d76376ce2a449d4c37eb6e33cda0f8b8ae6b2bcdec951fb63e52a"
+    },
+    "face-100pct-skin-detail-after.png": {
+      "bytes": 622265,
+      "sha256": "ffc939bfe61e262cd7f599b1cda87b99ac32c5d151515e95fe3b2f9627538e8d"
+    },
+    "face-100pct-skin-detail-before.png": {
+      "bytes": 622265,
+      "sha256": "ffc939bfe61e262cd7f599b1cda87b99ac32c5d151515e95fe3b2f9627538e8d"
+    },
+    "hair-100pct-comparison.png": {
+      "bytes": 403376,
+      "sha256": "cea88ae396cdb1ccb1752cdaa371f89f1844c322b5663f064dc91705d44a5e5e"
+    },
+    "hair-100pct-cutout-coarse.png": {
+      "bytes": 219896,
+      "sha256": "6eafe0123e99543db6bcdef04f265c2ed1a427329ac49fff822c2def344d11d0"
+    },
+    "hair-100pct-cutout-guided-after.png": {
+      "bytes": 226353,
+      "sha256": "79fd2166df2e2c58031992f4c2950b4cabe5d000d4421bc030fc7bc8246240eb"
+    },
+    "hair-100pct-cutout-guided-before.png": {
+      "bytes": 226353,
+      "sha256": "79fd2166df2e2c58031992f4c2950b4cabe5d000d4421bc030fc7bc8246240eb"
+    },
+    "hair-100pct-original.png": {
+      "bytes": 267486,
+      "sha256": "ac83d11493a0217890baa7511e3263646052421d0f49e8525c3289801d94232d"
+    },
+    "inference/inference-summary.json": {
+      "bytes": 623,
+      "sha256": "e06ad5257c2dc6f3df59de0564b1b3d790d749fcf87b6d2f99234cebfdcbe6bd"
+    },
+    "inference/melvin-original.json": {
+      "bytes": 108835,
+      "sha256": "ad836ca22ee6c47e4b5f42b0b559105949a18d05fd2b3e951b83ed5180d9c909"
+    },
+    "portrait-performance.json": {
+      "bytes": 10610,
+      "sha256": "55f960661acf3a31389d49c6e9da4046cffd4c9c71c755e268f81033a1963c32"
+    },
+    "source.json": {
+      "bytes": 816,
+      "sha256": "80f3df5fdc95d321986a87d89a9b7f4ded5aa772048ef4a6a4a6432efcbb8b51"
+    },
+    "visual-report.json": {
+      "bytes": 5963,
+      "sha256": "d19077d93ef438deeb92e997dfe031bd97cd8a44692ca0f452c58f7aeb51a031"
+    }
+  },
+  "toolsHashEncoding": "SHA-256 of UTF-8 tool source bytes after CRLF-to-LF normalization; identical to Git source blobs. Applies only to toolsSha256; core and evidence file hashes use exact original bytes.",
+  "toolsHashSourceCommit": "a14ab5b7f896070ed757507371e4e65d610550a4"
+}

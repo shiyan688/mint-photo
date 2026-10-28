@@ -1,0 +1,22 @@
+[
+  {
+    "id": "melvin-original",
+    "sourceSha256": "34471604e6f19bdbc31e8a556caa9d20bab29c417a7817a1c352740458dcf0eb",
+    "sourceSize": [
+      2400,
+      3000
+    ],
+    "width": 2400,
+    "height": 3000,
+    "runtime": "MediaPipe 0.10.21 Windows CPU; not Android parity",
+    "newInference": true,
+    "elapsedMs": 6112.549100071192,
+    "faceModelSha256": "64184e229b263107bc2b804c6625db1341ff2bb731874b0bcc2fe6544e0bc9ff",
+    "segmentationModelSha256": "191ac9529ae506ee0beefa6b2c945a172dab9d07d1e802a290a4e4038226658b",
+    "faceCount": 1,
+    "maskSize": [
+      205,
+      256
+    ]
+  }
+]

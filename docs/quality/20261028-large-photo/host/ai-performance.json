@@ -1,0 +1,86 @@
+{
+  "runtime": "v25.7.0 Windows native Skia Canvas",
+  "scope": "Core composite and isolated AI-open raster-copy/PNG-roundtrip only; no network/model, browser DOM, Android or physical-device latency",
+  "photo": {
+    "sha256": "34471604e6f19bdbc31e8a556caa9d20bab29c417a7817a1c352740458dcf0eb",
+    "original": [
+      2400,
+      3000
+    ],
+    "working": [
+      2048,
+      2560
+    ]
+  },
+  "baselineSha256": "5ba1e2a9c307422dacdfc600124c4ceca605c0bd8e76cd4dabe177e9b4bc0011",
+  "currentSha256": "8f8f0d90a1805a95f9b7aeb6ef7b060712bc030f489fe272cd66fda75f08da80",
+  "composite": [
+    {
+      "mode": "erase",
+      "width": 2048,
+      "height": 2560,
+      "before": {
+        "samplesMs": [
+          194.2601999999997,
+          190.63990000000013,
+          196.14999999999964
+        ],
+        "medianMs": 194.2601999999997
+      },
+      "after": {
+        "samplesMs": [
+          59.45880000000034,
+          58.58779999999933,
+          60.66309999999976
+        ],
+        "medianMs": 59.45880000000034
+      },
+      "outputRgbaSha256": "fbf4ef4e7a5a9ac219dc75298aa94b60740457d98f8beb3192f1b8890de4be37",
+      "pixelExact": true
+    },
+    {
+      "mode": "outpaint",
+      "width": 2458,
+      "height": 3072,
+      "before": {
+        "samplesMs": [
+          227.310300000001,
+          223.98170000000027,
+          227.5553
+        ],
+        "medianMs": 227.310300000001
+      },
+      "after": {
+        "samplesMs": [
+          93.34869999999864,
+          95.2512999999999,
+          92.5580000000009
+        ],
+        "medianMs": 93.34869999999864
+      },
+      "outputRgbaSha256": "c7aef4d2571b80738257510b79e145f09d70063eb2d40647ae7c2ad713219f90",
+      "pixelExact": true
+    }
+  ],
+  "openRaster": {
+    "before": {
+      "samplesMs": [
+        1020.6343000000015,
+        990.5779000000002,
+        1063.4172999999992
+      ],
+      "medianMs": 1020.6343000000015
+    },
+    "after": {
+      "samplesMs": [
+        3.18080000000009,
+        3.426499999999578,
+        3.625
+      ],
+      "medianMs": 3.426499999999578
+    },
+    "removedPngBytes": 6931477,
+    "pixelExact": true
+  },
+  "sourceUnchanged": true
+}
