@@ -5,7 +5,8 @@ mode="${MINT_INTERACTIVE_MODEL:-v2}"
 case "$mode" in
   v2) evidence=.work/interactive-android-evidence; instrument_args=() ;;
   legacy) evidence=.work/interactive-legacy-android-evidence; instrument_args=(-e objectModel legacy) ;;
-  *) echo 'MINT_INTERACTIVE_MODEL must be v2 or legacy' >&2; exit 2 ;;
+  legacy-pixel) evidence=.work/interactive-legacy-pixel-android-evidence; instrument_args=(-e objectModel legacy-pixel) ;;
+  *) echo 'MINT_INTERACTIVE_MODEL must be v2, legacy or legacy-pixel' >&2; exit 2 ;;
 esac
 mkdir -p "$evidence"
 collect() {
@@ -25,7 +26,7 @@ collect() {
       fi
     fi
   done
-  printf '%s\n' "Exploratory $mode test only. The model and test APK are not uploaded. API35 x86_64 emulator, single point, no physical-device, perceptual, ground-truth, or peak-memory acceptance." > "$evidence/scope.txt"
+  printf '%s\n' "Exploratory $mode test only. The model and test APK are not uploaded. API35 x86_64 emulator, one primary point per image; legacy variants also run a five-point diagnostic on Melvin. The legacy-pixel mode is a version-specific coordinate compatibility experiment. No physical-device, perceptual, ground-truth, or peak-memory acceptance." > "$evidence/scope.txt"
 }
 trap collect EXIT
 timeout 120 adb -s "$ANDROID_SERIAL" wait-for-device

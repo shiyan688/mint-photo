@@ -35,10 +35,16 @@ public final class InteractiveObjectInstrumentation extends Instrumentation {
     private static final String MODEL_SHA = "38431bc66b883404e8397f74c3579404315b9b52b04a46c6346fe906a7309b03";
     private static final String LEGACY_SHA = "e24338a717c1b7ad8d159666677ef400babb7f33b8ad60c4d96db4ecf694cd25";
     private boolean legacy;
+    private boolean legacyPixel;
     private String stage = "launch";
     private final JSONObject report = new JSONObject();
     private final JSONArray images = new JSONArray();
-    @Override public void onCreate(Bundle args) { legacy = args != null && "legacy".equals(args.getString("objectModel")); super.onCreate(args); start(); }
+    @Override public void onCreate(Bundle args) {
+        String model = args == null ? "v2" : args.getString("objectModel", "v2");
+        legacyPixel = "legacy-pixel".equals(model);
+        legacy = legacyPixel || "legacy".equals(model);
+        super.onCreate(args); start();
+    }
 
     @Override public void onStart() {
         Bundle result = new Bundle();
@@ -48,7 +54,10 @@ public final class InteractiveObjectInstrumentation extends Instrumentation {
             require(getTargetContext().getPackageName().endsWith(".e2e"), "disposable app ID");
             report.put("androidApi", android.os.Build.VERSION.SDK_INT).put("abi", android.os.Build.SUPPORTED_ABIS[0])
                 .put("scope", "Disposable Android emulator instrumentation and pinned research model. No product UI, physical phone, peak memory, segmentation ground truth, or model distribution claim.")
-                .put("modelSha256", legacy ? LEGACY_SHA : MODEL_SHA).put("modelVariant", legacy ? "legacy" : "v2").put("testOnlyModel", true).put("results", images)
+                .put("modelSha256", legacy ? LEGACY_SHA : MODEL_SHA)
+                .put("modelVariant", legacyPixel ? "legacy-pixel" : legacy ? "legacy" : "v2")
+                .put("roiCoordinateMode", legacyPixel ? "pixel coordinates, experimental 1.0.0-only shim" : "normalized coordinates")
+                .put("testOnlyModel", true).put("results", images)
                 .put("memoryScope", "Debug.getMemoryInfo total PSS of the instrumentation target process at a few moments, KiB; not peak memory or whole-device memory.");
             report.put("memoryBeforeKiB", memory());
             stage = "model-read";
@@ -135,6 +144,8 @@ public final class InteractiveObjectInstrumentation extends Instrumentation {
         MPImage image = new BitmapImageBuilder(bitmap).build();
         JSONObject row = new JSONObject().put("name", name).put("sourceSha256", expectedSha)
                 .put("width", width).put("height", height).put("point", new JSONArray().put(px).put(py))
+                .put("apiPoint", new JSONArray().put(legacyPixel ? Math.min(width - 1f, px * width) : px)
+                        .put(legacyPixel ? Math.min(height - 1f, py * height) : py))
                 .put("memoryBeforeSetImageKiB", memory());
         images.put(row);
         try {
@@ -146,7 +157,7 @@ public final class InteractiveObjectInstrumentation extends Instrumentation {
             ImageSegmenterResult legacyResult = null;
             MPImage mask;
             if (old != null) {
-                legacyResult = old.segment(image, InteractiveSegmenterLegacy.RegionOfInterest.create(NormalizedKeypoint.create(px, py)));
+                legacyResult = old.segment(image, InteractiveSegmenterLegacy.RegionOfInterest.create(legacyPoint(px, py, width, height)));
                 if (!legacyResult.confidenceMasks().isPresent()) {
                     if (legacyResult.categoryMask().isPresent()) legacyResult.categoryMask().get().close();
                     throw new AssertionError("legacy confidence masks absent");
@@ -223,11 +234,13 @@ public final class InteractiveObjectInstrumentation extends Instrumentation {
     /** Diagnostic only: compare distinct ROI inputs, retaining each real output. */
     private void diagnosticLegacyPoints(InteractiveSegmenterLegacy old, MPImage image, String name, int width, int height, JSONArray results) throws Exception {
         final float[][] points = {{.285f,.68f},{0f,0f},{.1f,.2f},{.68f,.285f},{.5f,.5f}};
+        boolean[] firstSelection = null;
+        boolean pointAffectsMask = false;
         for (int number = 0; number < points.length; number++) {
             float px = points[number][0], py = points[number][1];
             stage = name + "-point-grid-" + number;
             long started = SystemClock.elapsedRealtime();
-            ImageSegmenterResult response = old.segment(image, InteractiveSegmenterLegacy.RegionOfInterest.create(NormalizedKeypoint.create(px, py)));
+            ImageSegmenterResult response = old.segment(image, InteractiveSegmenterLegacy.RegionOfInterest.create(legacyPoint(px, py, width, height)));
             long elapsed = SystemClock.elapsedRealtime() - started;
             List<MPImage> masks = response.confidenceMasks().orElse(Collections.emptyList());
             try {
@@ -237,12 +250,15 @@ public final class InteractiveObjectInstrumentation extends Instrumentation {
                 require(w == width && h == height, "point grid mask dimensions");
                 ByteBuffer buffer = ByteBufferExtractor.extract(mask).order(ByteOrder.nativeOrder());
                 require(buffer.remaining() == w * h * Float.BYTES, "point grid float confidence buffer");
-                int[] gray = new int[w * h]; int invalid = 0, high = 0; float selected = 0;
+                int[] gray = new int[w * h]; int invalid = 0, high = 0, changed = 0; float selected = 0;
+                if (firstSelection == null) firstSelection = new boolean[w * h];
                 int pointIndex = Math.min(h - 1, (int)(py * h)) * w + Math.min(w - 1, (int)(px * w));
                 for (int i = 0; i < gray.length; i++) {
                     float value = buffer.getFloat(i * Float.BYTES);
                     if (!Float.isFinite(value) || value < 0 || value > 1) { invalid++; value = 0; }
                     if (value > .5f) high++;
+                    if (number == 0) firstSelection[i] = value > .5f;
+                    else if (firstSelection[i] != (value > .5f)) changed++;
                     if (i == pointIndex) selected = value;
                     int pixel = Math.round(value * 255); gray[i] = 0xff000000 | pixel << 16 | pixel << 8 | pixel;
                 }
@@ -251,14 +267,29 @@ public final class InteractiveObjectInstrumentation extends Instrumentation {
                     require(png.compress(Bitmap.CompressFormat.PNG, 100, out), "point grid PNG encoded");
                 } finally { png.recycle(); }
                 results.put(new JSONObject().put("point", new JSONArray().put(px).put(py)).put("segmentMs", elapsed)
+                        .put("apiPoint", new JSONArray().put(legacyPixel ? Math.min(width - 1f, px * width) : px)
+                                .put(legacyPixel ? Math.min(height - 1f, py * height) : py))
                         .put("selectedConfidence", selected).put("aboveHalfPixels", high).put("invalidPixels", invalid)
+                        .put("binaryChangedVsFirst", changed)
                         .put("diagnosticPngClipped", invalid != 0));
                 require(invalid == 0, "point grid returned invalid confidence values");
+                if (legacyPixel) require(selected > .5f, "pixel-coordinate point grid selected point");
+                if (changed >= 1000) pointAffectsMask = true;
             } finally {
                 for (MPImage mask : masks) mask.close();
                 if (response.categoryMask().isPresent()) response.categoryMask().get().close();
             }
         }
+        if (legacyPixel) require(pointAffectsMask, "different pixel points must change the binary mask");
+    }
+
+    private NormalizedKeypoint legacyPoint(float x, float y, int width, int height) {
+        require(Float.isFinite(x) && Float.isFinite(y) && x >= 0 && x <= 1 && y >= 0 && y <= 1, "normalized test point in bounds");
+        // The pinned 1.0.0 legacy Java implementation fails to mark these values
+        // normalized. This explicit, test-only mode tries pixel coordinates;
+        // other MediaPipe versions may have different semantics.
+        return NormalizedKeypoint.create(legacyPixel ? Math.min(width - 1f, x * width) : x,
+                legacyPixel ? Math.min(height - 1f, y * height) : y);
     }
 
     private byte[] asset(String name, int limit) throws Exception {

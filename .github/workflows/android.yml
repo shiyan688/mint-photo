@@ -140,6 +140,7 @@ jobs:
           if node tests/prepare-interactive-android.cjs && bash gradlew --no-daemon -PaiE2eTest -PinteractiveObjectTest :app:assembleDebugAndroidTest; then
             bash tests/run-interactive-android.sh || failed=1
             MINT_INTERACTIVE_MODEL=legacy bash tests/run-interactive-android.sh || failed=1
+            MINT_INTERACTIVE_MODEL=legacy-pixel bash tests/run-interactive-android.sh || failed=1
           else
             failed=1
           fi
@@ -166,6 +167,7 @@ jobs:
             .work/portrait-large-evidence/
             .work/interactive-android-evidence/
             .work/interactive-legacy-android-evidence/
+            .work/interactive-legacy-pixel-android-evidence/
           retention-days: 14
           if-no-files-found: warn
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
@@ -175,5 +177,6 @@ jobs:
           path: |
             .work/interactive-android-evidence/
             .work/interactive-legacy-android-evidence/
+            .work/interactive-legacy-pixel-android-evidence/
           retention-days: 14
           if-no-files-found: warn
