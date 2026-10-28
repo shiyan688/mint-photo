@@ -81,6 +81,8 @@ public final class MainActivity extends Activity {
         AiJob(String id) { this.id = id; }
     }
     private final AtomicBoolean portraitBusy = new AtomicBoolean(false);
+    // Accessed only on the UI thread. A callback belongs to the page that started it.
+    private long portraitPageGeneration = 0;
     private PortraitAnalyzer portraitAnalyzer;
     private final AtomicBoolean exportBusy = new AtomicBoolean(false);
     private WebView webView;
@@ -205,6 +207,7 @@ public final class MainActivity extends Activity {
             }
 
             @Override public void onPageStarted(WebView view, String url, android.graphics.Bitmap icon) {
+                portraitPageGeneration++;
                 cancelAi(false);
                 ready = false;
                 if (!isAppDocument(url)) {
@@ -593,8 +596,9 @@ public final class MainActivity extends Activity {
 
     private void beginPortrait(String dataUrl, String requestId, String kind) {
         if (!ready || destroyed || webView == null || !isAppDocument(webView.getUrl())) return;
+        final long generation = portraitPageGeneration;
         if (!portraitBusy.compareAndSet(false, true)) {
-            notifyPortrait(requestId, portraitError("正在分析上一张照片，请稍后重试。"));
+            notifyPortrait(generation, requestId, portraitError("正在分析上一张照片，请稍后重试。"));
             return;
         }
         portraitWorker.execute(() -> {
@@ -612,7 +616,7 @@ public final class MainActivity extends Activity {
                 portraitBusy.set(false);
             }
             JSONObject complete = result;
-            runOnUiThread(() -> notifyPortrait(requestId, complete));
+            runOnUiThread(() -> notifyPortrait(generation, requestId, complete));
         });
     }
 
@@ -625,8 +629,8 @@ public final class MainActivity extends Activity {
         return result;
     }
 
-    private void notifyPortrait(String requestId, JSONObject result) {
-        if (!ready || destroyed || webView == null || !isAppDocument(webView.getUrl())) return;
+    private void notifyPortrait(long generation, String requestId, JSONObject result) {
+        if (generation != portraitPageGeneration || !ready || destroyed || webView == null || !isAppDocument(webView.getUrl())) return;
         webView.evaluateJavascript("window.onPortraitAnalysis && window.onPortraitAnalysis("
                 + JSONObject.quote(requestId) + "," + result.toString() + ");", null);
     }

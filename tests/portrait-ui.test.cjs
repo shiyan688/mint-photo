@@ -79,7 +79,7 @@ function harness({ native = false, manual = true } = {}) {
       throw Error(`Unsupported test selector ${selector}`);
     }
   };
-  const env = { viewport: null, historyUI: null, projectConfirmation: null, projectLibraryController: null, projectLibraryUI: null,
+  const env = { crypto: require('node:crypto').webcrypto, viewport: null, historyUI: null, projectConfirmation: null, projectLibraryController: null, projectLibraryUI: null,
     document, console, Uint8Array, Uint8ClampedArray, ArrayBuffer, Blob, Set,
     btoa: value => Buffer.from(value, 'binary').toString('base64'), atob: value => Buffer.from(value, 'base64').toString('binary'),
     setTimeout(fn, delay) { const id = ++timerId; timers.set(id, { fn, delay }); return id; }, clearTimeout: id => timers.delete(id),

@@ -144,6 +144,12 @@ jobs:
           else
             failed=1
           fi
+          # Check page-reload callback isolation on the disposable WebView.
+          if bash gradlew --no-daemon -PaiE2eTest -PportraitPageIsolationTest :app:assembleDebugAndroidTest; then
+            ANDROID_SERIAL=emulator-5554 bash tests/run-portrait-page-isolation.sh || failed=1
+          else
+            failed=1
+          fi
           # Restore the AI runner before exercising the original workflows.
           if bash gradlew --no-daemon -PaiE2eTest :app:assembleDebugAndroidTest; then
             bash tests/run-ai-e2e.sh || failed=1
@@ -168,6 +174,7 @@ jobs:
             .work/interactive-android-evidence/
             .work/interactive-legacy-android-evidence/
             .work/interactive-legacy-pixel-android-evidence/
+            .work/portrait-page-isolation-evidence/
           retention-days: 14
           if-no-files-found: warn
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02

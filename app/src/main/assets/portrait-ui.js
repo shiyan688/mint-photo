@@ -4,7 +4,7 @@
  const TYPES=new Set(['background-refine','portrait-people','beauty','heal','warp','reshape','background','idphoto','manual']);
  const TOOLS=new Set(['portrait','reshape','retouch','background','idphoto']);
  const $=id=>document.getElementById(id),clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
- let A,job=null,serial=0,faceCache=null,maskCache=null,brushMode='keep',maskView=false,retouchMode='heal',maskUndo=[];
+ let A,job=null,serial=0,pageNonce=null,faceCache=null,maskCache=null,brushMode='keep',maskView=false,retouchMode='heal',maskUndo=[];
  const clone=x=>JSON.parse(JSON.stringify(x));
  const encode=data=>{let s='';for(let i=0;i<data.length;i+=8192)s+=String.fromCharCode.apply(null,data.subarray(i,i+8192));return btoa(s);};
  const decode=s=>{const raw=atob(s),out=new Uint8Array(raw.length);for(let i=0;i<raw.length;i++)out[i]=raw.charCodeAt(i);return out;};
@@ -14,11 +14,15 @@
  function cancelJob(){const picked=!!(window.PortraitPeopleUI&&window.PortraitPeopleUI.cancelSelection());if(job){clearTimeout(job.timer);job=null;A.busy(false);if(window.BackgroundRefineUI)window.BackgroundRefineUI.detectionEnded();return true;}return picked;}
  function release(){cancelJob();if(window.BackgroundRefineUI)window.BackgroundRefineUI.release();if(window.PortraitPeopleUI)window.PortraitPeopleUI.release();maskUndo=[];maskView=false;const ref=A&&A.getCanvas?A.getCanvas():null;if(faceCache&&(faceCache.ref!==ref||faceCache.revision!==revision()))faceCache=null;if(maskCache&&maskCache.ref!==ref)maskCache=null;if(window.ManualRetouchUI&&window.ManualRetouchUI.release)window.ManualRetouchUI.release();}
  function nativeReady(){return window.Android&&typeof window.Android.analyzePortrait==='function';}
+ function nextRequestId(){
+  if(pageNonce===null){if(!window.crypto||typeof window.crypto.getRandomValues!=='function')throw Error('本机安全随机数不可用');const bytes=new Uint8Array(16);window.crypto.getRandomValues(bytes);pageNonce=Array.from(bytes,v=>v.toString(16).padStart(2,'0')).join('');}
+  if(serial>=Number.MAX_SAFE_INTEGER)throw Error('人像识别请求次数已达上限');return 'portrait-'+pageNonce+'-'+(++serial);
+ }
  function detectRaw(kind,after,force=false){
   if(job)return false;const ref=A.getCanvas(),draft=A.getDraft(),rev=revision();
   const cache=kind==='face'?faceCache:maskCache;if(!force&&cache&&cache.ref===ref&&cache.revision===rev){after(clone(cache.value));return true;}
   if(!nativeReady()){status('自动识别在安卓人像版中可用；此预览可使用手动工具。');A.toast('离线模型桥接不可用；请使用手动工具');return;}
-  const id='portrait-'+(++serial);A.busy(true,kind==='face'?'离线识别人脸，最多5人…':'离线分离人像…');
+  let id;try{id=nextRequestId();}catch(e){status('自动识别暂不可用，请使用手动工具。');A.toast('无法安全启动自动识别，请使用手动工具');return false;}A.busy(true,kind==='face'?'离线识别人脸，最多5人…':'离线分离人像…');
   const timer=setTimeout(()=>{if(job&&job.id===id){job=null;A.busy(false);if(window.BackgroundRefineUI)window.BackgroundRefineUI.detectionEnded();status('识别超时，可重试或手动处理。');A.toast('识别超时，已退出等待');}},45000);
   job={id,ref,draft,revision:rev,kind,after,timer};
   try{window.Android.analyzePortrait(ref.toDataURL('image/jpeg',.92),id,kind);return true;}catch(e){cancelJob();status('识别暂不可用，请使用手动工具。');A.toast('离线模型启动失败');}
