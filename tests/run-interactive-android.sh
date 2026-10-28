@@ -9,7 +9,7 @@ case "$mode" in
 esac
 mkdir -p "$evidence"
 collect() {
-  for name in interactive-result.json interactive-melvin-mask.png interactive-collins-mask.png; do
+  for name in interactive-result.json interactive-melvin-input.png interactive-melvin-mask.png interactive-collins-input.png interactive-collins-mask.png; do
     # Some Android shells emit cat errors on stdout, even if stderr is hidden.
     # Do not save those messages as apparent PNG files when inference failed.
     if adb -s "$ANDROID_SERIAL" shell run-as com.qingyan.editor.portrait.e2e test -f "files/$name" >/dev/null 2>&1; then

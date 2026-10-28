@@ -112,6 +112,11 @@ public final class InteractiveObjectInstrumentation extends Instrumentation {
         require(decoded != null, name + " source decode");
         Bitmap bitmap = Bitmap.createScaledBitmap(decoded, width, height, true);
         if (bitmap != decoded) decoded.recycle();
+        // Preserve the actual decoded/resized input so Android versus host
+        // preprocessing can be inspected independently on either PASS or FAIL.
+        try (OutputStream out = getTargetContext().openFileOutput("interactive-" + name + "-input.png", 0)) {
+            require(bitmap.compress(Bitmap.CompressFormat.PNG, 100, out), name + " input PNG encoded");
+        }
         MPImage image = new BitmapImageBuilder(bitmap).build();
         JSONObject row = new JSONObject().put("name", name).put("sourceSha256", expectedSha)
                 .put("width", width).put("height", height).put("point", new JSONArray().put(px).put(py))
@@ -132,6 +137,7 @@ public final class InteractiveObjectInstrumentation extends Instrumentation {
                     throw new AssertionError("legacy confidence masks absent");
                 }
                 List<MPImage> masks = legacyResult.confidenceMasks().get();
+                row.put("legacyConfidenceChannels", masks.size()).put("legacyCategoryMaskPresent", legacyResult.categoryMask().isPresent());
                 if (masks.size() != 1) {
                     for (MPImage value : masks) value.close();
                     if (legacyResult.categoryMask().isPresent()) legacyResult.categoryMask().get().close();
@@ -146,25 +152,49 @@ public final class InteractiveObjectInstrumentation extends Instrumentation {
             long segmentMs = SystemClock.elapsedRealtime() - start;
             try {
                 int w = mask.getWidth(), h = mask.getHeight();
+                row.put("maskWidth", w).put("maskHeight", h).put("segmentMs", segmentMs);
                 require(w == width && h == height, name + " mask matches input dimensions");
                 ByteBuffer pixels = ByteBufferExtractor.extract(mask).order(ByteOrder.nativeOrder());
+                JSONArray representations = new JSONArray();
+                for (com.google.mediapipe.framework.image.MPImageProperties property : mask.getContainedImageProperties()) {
+                    representations.put(new JSONObject().put("format", property.getImageFormat()).put("storage", property.getStorageType()));
+                }
+                row.put("segmentMs", segmentMs).put("maskWidth", w).put("maskHeight", h)
+                    .put("maskRepresentations", representations).put("bufferBytes", pixels.remaining())
+                    .put("byteOrder", ByteOrder.nativeOrder().toString()).put("memoryAfterSegmentKiB", memory());
                 require(pixels.remaining() == w * h * Float.BYTES, name + " expected float confidence mask");
-                int[] gray = new int[w * h]; int high = 0, low = 0, bad = 0; float clicked = 0;
+                int[] gray = new int[w * h]; int high = 0, low = 0, bad = 0, finite = 0, swappedInRange = 0;
+                float clicked = 0, min = Float.POSITIVE_INFINITY, max = Float.NEGATIVE_INFINITY;
+                Float clickedRaw = null, clickedSwapped = null;
                 int picked = Math.min(h - 1, (int)(py * h)) * w + Math.min(w - 1, (int)(px * w));
                 for (int i = 0; i < gray.length; i++) {
                     float value = pixels.getFloat(i * Float.BYTES);
-                    if (!Float.isFinite(value) || value < 0 || value > 1) { bad++; value = 0; }
+                    float swapped = Float.intBitsToFloat(Integer.reverseBytes(Float.floatToRawIntBits(value)));
+                    if (Float.isFinite(swapped) && swapped >= 0 && swapped <= 1) swappedInRange++;
+                    if (i == picked && Float.isFinite(swapped)) clickedSwapped = swapped;
+                    if (Float.isFinite(value)) {
+                        finite++; min = Math.min(min, value); max = Math.max(max, value);
+                        if (i == picked) clickedRaw = value;
+                        if (value < 0 || value > 1) { bad++; value = Math.max(0, Math.min(1, value)); }
+                    } else { bad++; value = 0; }
                     if (value > .5f) high++; if (value < .1f) low++; if (i == picked) clicked = value;
                     int v = Math.round(value * 255); gray[i] = 0xff000000 | v << 16 | v << 8 | v;
                 }
-                require(bad == 0 && high > 0 && low > 0 && clicked > .5f, name + " plausible confidence and selected point");
+                row.put("finitePixels", finite).put("invalidOrOutOfRangePixels", bad)
+                    .put("rawMin", finite > 0 ? min : JSONObject.NULL).put("rawMax", finite > 0 ? max : JSONObject.NULL)
+                    .put("clickedRaw", clickedRaw != null ? clickedRaw : JSONObject.NULL)
+                    .put("oppositeByteOrderInRangePixels", swappedInRange).put("oppositeByteOrderClickedRaw", clickedSwapped != null ? clickedSwapped : JSONObject.NULL)
+                    .put("clickedConfidence", clicked).put("aboveHalfPixels", high).put("belowTenthPixels", low)
+                    .put("diagnosticPngClipped", bad != 0);
+                // Save the diagnostic output even when the assertion below fails.
+                // When values were invalid or outside [0,1], the PNG is explicitly
+                // marked as clipped and cannot be used as a valid confidence mask.
                 Bitmap imageMask = Bitmap.createBitmap(gray, w, h, Bitmap.Config.ARGB_8888);
                 try (OutputStream out = getTargetContext().openFileOutput("interactive-" + name + "-mask.png", 0)) {
                     require(imageMask.compress(Bitmap.CompressFormat.PNG, 100, out), "mask PNG encoded");
                 } finally { imageMask.recycle(); }
-                row.put("segmentMs", segmentMs).put("maskWidth", w).put("maskHeight", h)
-                    .put("aboveHalfPixels", high).put("belowTenthPixels", low).put("clickedConfidence", clicked)
-                    .put("memoryAfterSegmentKiB", memory()).put("result", "PASS");
+                require(bad == 0 && high > 0 && low > 0 && clicked > .5f, name + " plausible confidence and selected point");
+                row.put("result", "PASS");
             } finally { mask.close(); if (legacyResult != null && legacyResult.categoryMask().isPresent()) legacyResult.categoryMask().get().close(); }
         } finally { image.close(); bitmap.recycle(); }
     }
