@@ -9,7 +9,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: android-${{ github.workflow }}-${{ github.ref }}
+  group: android-${{ github.workflow }}-${{ github.ref }}-${{ github.event_name }}
   cancel-in-progress: true
 
 jobs:
@@ -185,5 +185,107 @@ jobs:
             .work/interactive-android-evidence/
             .work/interactive-legacy-android-evidence/
             .work/interactive-legacy-pixel-android-evidence/
+          retention-days: 14
+          if-no-files-found: warn
+  benchmark:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '24'
+      - uses: actions/setup-java@c5195efecf7bdfc987ee8bae7a71cb8b11521c00
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: android-actions/setup-android@9fc6c4e9069bf8d3d10b2204b1fb8f6ef7065407
+        with:
+          cmdline-tools-version: '12266719'
+          packages: 'platform-tools'
+      - name: Prepare emulator and verified research fixtures
+        run: |
+          sdkmanager 'platforms;android-35' 'build-tools;35.0.0'
+          python3 tools/install-ci-emulator.py
+          node tests/prepare-mobile-sam-android.cjs
+      - name: Build disposable instrumentation
+        run: bash gradlew --no-daemon -PmobileSamBench :app:assembleDebug :app:assembleDebugAndroidTest
+      - name: Measure existing person model and MobileSAM on the same image
+        timeout-minutes: 14
+        run: |
+          set -euo pipefail
+          test -e /dev/kvm
+          sudo chown "$(id -u):$(id -g)" /dev/kvm
+          export ANDROID_AVD_HOME="$PWD/.work/mobile-sam-avd"
+          mkdir -p "$ANDROID_AVD_HOME" .work/mobile-sam-android-evidence
+          echo no | avdmanager create avd --force --name mint_sam --package 'system-images;android-35;google_apis;x86_64' --device pixel_6
+          "$ANDROID_HOME/emulator/emulator" -avd mint_sam -port 5554 -no-window -no-audio -no-boot-anim -no-snapshot -gpu swiftshader -memory 2048 > .work/mobile-sam-android-evidence/emulator.txt 2>&1 &
+          timeout 120 adb -s emulator-5554 wait-for-device
+          for i in $(seq 1 90); do
+            [ "$(adb -s emulator-5554 shell getprop sys.boot_completed 2>/dev/null | tr -d '\r')" = 1 ] && break
+            sleep 2
+          done
+          test "$(adb -s emulator-5554 shell getprop sys.boot_completed | tr -d '\r')" = 1
+          adb -s emulator-5554 install -r app/build/outputs/apk/debug/app-debug.apk
+          adb -s emulator-5554 install -r app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk
+          adb -s emulator-5554 shell am instrument -w com.qingyan.editor.portrait.test/com.qingyan.editor.MobileSamBenchInstrumentation | tee .work/mobile-sam-android-evidence/instrumentation.txt
+          for file in mobile-sam-report.json sam-input.png sam-mask.png baseline.json; do
+            if adb -s emulator-5554 shell run-as com.qingyan.editor.portrait test -f "files/$file" >/dev/null 2>&1; then
+              adb -s emulator-5554 exec-out run-as com.qingyan.editor.portrait cat "files/$file" > ".work/mobile-sam-android-evidence/$file"
+            fi
+          done
+          grep -Fq 'result=PASS MobileSAM isolated benchmark' .work/mobile-sam-android-evidence/instrumentation.txt
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: mobile-sam-android-research-${{ github.run_number }}
+          path: .work/mobile-sam-android-evidence/
+          retention-days: 14
+          if-no-files-found: warn
+  whimsical:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955
+        with:
+          persist-credentials: false
+      - uses: android-actions/setup-android@9fc6c4e9069bf8d3d10b2204b1fb8f6ef7065407
+        with:
+          cmdline-tools-version: '12266719'
+          packages: 'platform-tools'
+      - name: Prepare pinned APK and licensed research photos
+        run: |
+          python3 -m pip install --user 'Pillow==11.3.0'
+          sdkmanager 'platforms;android-35' 'build-tools;35.0.0'
+          python3 tools/install-ci-emulator.py
+          python3 docs/quality/whimsical-neck-region-20261029/prepare-android-fixtures.py
+      - name: Test third-party app in disposable emulator
+        timeout-minutes: 15
+        run: |
+          set -euo pipefail
+          test -e /dev/kvm
+          sudo chown "$(id -u):$(id -g)" /dev/kvm
+          export ANDROID_AVD_HOME="$PWD/.work/whimsical-avd"
+          export ANDROID_SERIAL=emulator-5554
+          mkdir -p "$ANDROID_AVD_HOME" .work/whimsical-skin-study/android-ui
+          printf '%s\n' 'Sherman photo: Mark Sherman, CC BY 2.0; Wilson photo: NASA. Informational research only, no endorsement or marketing.' > .work/whimsical-skin-study/android-ui/SCOPE.txt
+          echo no | avdmanager create avd --force --name mint_whimsical --package 'system-images;android-35;google_apis;x86_64' --device pixel_6
+          "$ANDROID_HOME/emulator/emulator" -avd mint_whimsical -port 5554 -no-window -no-audio -no-boot-anim -no-snapshot -gpu swiftshader -memory 2048 > .work/whimsical-skin-study/android-ui/emulator.txt 2>&1 &
+          timeout 120 adb -s "$ANDROID_SERIAL" wait-for-device
+          for i in $(seq 1 90); do
+            [ "$(adb -s "$ANDROID_SERIAL" shell getprop sys.boot_completed 2>/dev/null | tr -d '\r')" = 1 ] && break
+            sleep 2
+          done
+          test "$(adb -s "$ANDROID_SERIAL" shell getprop sys.boot_completed | tr -d '\r')" = 1
+          python3 docs/quality/whimsical-neck-region-20261029/try-android-ui.py
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: whimsical-android-research-${{ github.run_number }}
+          path: .work/whimsical-skin-study/android-ui/
           retention-days: 14
           if-no-files-found: warn
