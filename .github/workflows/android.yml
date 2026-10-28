@@ -133,15 +133,28 @@ jobs:
           mkdir -p "$ANDROID_AVD_HOME"
           echo no | avdmanager create avd --force --name mint_ai_e2e --package 'system-images;android-35;google_apis;x86_64' --device pixel_6
           "$ANDROID_HOME/emulator/emulator" -avd mint_ai_e2e -port 5554 -no-window -no-audio -no-boot-anim -no-snapshot -gpu swiftshader -memory 2048 -camera-back none -camera-front none > .work/ai-e2e-evidence/emulator.txt 2>&1 &
-          bash tests/run-ai-e2e.sh
-          MINT_E2E_MODE=large bash tests/run-ai-e2e.sh
-          bash gradlew --no-daemon -PaiE2eTest -PportraitLargeTest :app:assembleDebugAndroidTest
-          MINT_E2E_MODE=portrait bash tests/run-ai-e2e.sh
           # Research-only model goes exclusively in the disposable androidTest APK.
-          # Neither that APK nor the model is part of a published artifact.
-          node tests/prepare-interactive-android.cjs
-          bash gradlew --no-daemon -PaiE2eTest -PinteractiveObjectTest :app:assembleDebugAndroidTest
-          bash tests/run-interactive-android.sh
+          # Neither that APK nor the model is part of a published artifact. Run
+          # each independent check even if another fails; retain failure status.
+          failed=0
+          if node tests/prepare-interactive-android.cjs && bash gradlew --no-daemon -PaiE2eTest -PinteractiveObjectTest :app:assembleDebugAndroidTest; then
+            bash tests/run-interactive-android.sh || failed=1
+          else
+            failed=1
+          fi
+          # Restore the AI runner before exercising the original workflows.
+          if bash gradlew --no-daemon -PaiE2eTest :app:assembleDebugAndroidTest; then
+            bash tests/run-ai-e2e.sh || failed=1
+            MINT_E2E_MODE=large bash tests/run-ai-e2e.sh || failed=1
+          else
+            failed=1
+          fi
+          if bash gradlew --no-daemon -PaiE2eTest -PportraitLargeTest :app:assembleDebugAndroidTest; then
+            MINT_E2E_MODE=portrait bash tests/run-ai-e2e.sh || failed=1
+          else
+            failed=1
+          fi
+          exit "$failed"
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:

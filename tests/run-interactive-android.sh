@@ -5,11 +5,30 @@ evidence=.work/interactive-android-evidence
 mkdir -p "$evidence"
 collect() {
   for name in interactive-result.json interactive-melvin-mask.png interactive-collins-mask.png; do
-    adb -s "$ANDROID_SERIAL" exec-out run-as com.qingyan.editor.portrait.e2e cat "files/$name" > "$evidence/$name" 2>/dev/null || true
+    # Some Android shells emit cat errors on stdout, even if stderr is hidden.
+    # Do not save those messages as apparent PNG files when inference failed.
+    if adb -s "$ANDROID_SERIAL" shell run-as com.qingyan.editor.portrait.e2e test -f "files/$name" >/dev/null 2>&1; then
+      tmp="$evidence/$name.partial"
+      kind=json
+      case "$name" in *.png) kind=png ;; esac
+      if adb -s "$ANDROID_SERIAL" exec-out run-as com.qingyan.editor.portrait.e2e cat "files/$name" > "$tmp" 2>/dev/null &&
+        python3 tests/validate-interactive-evidence.py "$tmp" "$kind"; then
+        mv "$tmp" "$evidence/$name"
+      else
+        mv "$tmp" "$evidence/$name.invalid"
+        printf '%s\n' "Failed to read or validate $name; retained the output with an .invalid suffix." >&2
+      fi
+    fi
   done
   printf '%s\n' 'Exploratory test only. The model and test APK are not uploaded. API35 x86_64 emulator, single point, no physical-device, perceptual, ground-truth, or peak-memory acceptance.' > "$evidence/scope.txt"
 }
 trap collect EXIT
+timeout 120 adb -s "$ANDROID_SERIAL" wait-for-device
+for i in $(seq 1 90); do
+  [ "$(adb -s "$ANDROID_SERIAL" shell getprop sys.boot_completed 2>/dev/null | tr -d '\r')" = 1 ] && break
+  sleep 2
+done
+test "$(adb -s "$ANDROID_SERIAL" shell getprop sys.boot_completed | tr -d '\r')" = 1
 adb -s "$ANDROID_SERIAL" install -r app/build/outputs/apk/debug/app-debug.apk
 adb -s "$ANDROID_SERIAL" install -r app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk
 adb -s "$ANDROID_SERIAL" shell am force-stop com.qingyan.editor.portrait.e2e
